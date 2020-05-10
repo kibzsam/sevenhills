@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta name="google-site-verification" content="9PG9f7SbwOBXo9i6JWsfR9g8MstPMHBW2XnKDrDjmKo" />
 
     <title>Home | Seven Hills Medical Solutions</title>
