@@ -72,18 +72,18 @@
                         </ul>
                     </li> -->
                     <!-- Notifications: style can be found in dropdown.less -->
-                    <!-- <li class="dropdown notifications-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-bell-o"></i>
-                            <span class="label label-warning">0</span>
+                    <li class="notifications-menu">
+                    <a href="{{route('logout')}}"
+                     onclick="event.preventDefault();
+                                   document.getElementById('logout-form').submit();">
+                           {{__('LOGOUT')}}
                         </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">You have 0 notifications</li>
-                            <li class="footer"><a href="#">View all</a></li>
-                        </ul>
-                    </li> -->
+                    <form id="logout-form" action="{{route('logout')}}" method="POST">
+                         @csrf
+                        </form>
+                    </li>
                     <!-- Tasks: style can be found in dropdown.less -->
-                    <!-- <li class="dropdown tasks-menu">
+                    {{-- <li class="dropdown tasks-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-flag-o"></i>
                             <span class="label label-danger">0</span>
@@ -94,7 +94,7 @@
                                 <a href="#">View all tasks</a>
                             </li>
                         </ul>
-                    </li> -->
+                    </li>  --}}
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown">
