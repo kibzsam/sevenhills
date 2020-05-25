@@ -63,7 +63,7 @@
                                     </a>
                                 @endif
                             </div>
-                            <div class="col-md-8 offset-md-4">
+                            <div class="col-md-8 offset-md-4"   >
                             <a class="btn btn-link" href="{{route('register')}}">{{__('Create an Account')}}</a>
                             </div>
                         </div>

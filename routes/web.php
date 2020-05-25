@@ -19,11 +19,24 @@ Route::get('/', function () {
 //});
 
 Auth::routes();
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
+    Route::get('fullcalendar', 'AttendanceController@index')->name('fullcalendar');
+    Route::post('create-attendance', 'AttendanceController@store');
+
+    //fullcalender
+
+    Route::get('/fullcalendareventmaster', 'FullCalendarEventMasterController@index')->name('fullcalendareventmaster');
+
+    Route::post('/fullcalendareventmaster/create', 'FullCalendarEventMasterController@create');
+
+    Route::post('/fullcalendareventmaster/update', 'FullCalendarEventMasterController@update');
+
+    Route::post('/fullcalendareventmaster/delete', 'FullCalendarEventMasterController@destroy');
+});
 
 Route::get('/admin', 'HomeController@index')->name('admin');
-Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
 Route::get('/calendar', 'CalendarController@index')->name('calendar');
-
 Route::get('/applicationForm', 'ApplicationFormController@index')->name('applicationForm');
 
 //test

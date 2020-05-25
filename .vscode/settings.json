@@ -1,0 +1,5 @@
+{
+    "blade.format.enable": true,
+    "artisan.docker.command": "",
+    "npm.exclude": ""
+}
