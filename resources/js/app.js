@@ -7,7 +7,9 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+
 import VueRouter from 'vue-router'
+
 import { Form, HasError, AlertError } from 'vform'
 import '@pencilpix/vue2-clock-picker/dist/vue2-clock-picker.min.css';
 import Swal from 'sweetalert2';
@@ -30,6 +32,8 @@ const Toast = Swal.mixin({
     timer: 3000
 });
 
+import SweetModal from 'sweet-modal-vue/src/plugin.js'
+Vue.use(SweetModal)
 
 
 /**

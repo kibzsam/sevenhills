@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "@pencilpix/vue2-clock-picker": "^0.1.6",
+        "sweet-modal-vue": "^2.0.0",
         "sweetalert2": "^9.13.1",
         "vform": "^1.0.1",
         "vue-router": "^3.2.0"
