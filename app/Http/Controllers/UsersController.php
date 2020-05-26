@@ -7,6 +7,7 @@
  */
 
 namespace App\Http\Controllers;
+use App\User;
 
 
 class UsersController
@@ -14,5 +15,10 @@ class UsersController
     public function index()
     {
         return view('users');
+    }
+    public function getusers(){
+        $users=User::all();
+        return response()->json($users);
+
     }
 }

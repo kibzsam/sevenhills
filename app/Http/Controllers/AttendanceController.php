@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Attendance;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
+use App\Http\Resources\Attendance as AttendanceResource;
 
 class AttendanceController extends Controller
 {
@@ -82,5 +84,52 @@ class AttendanceController extends Controller
     {
         $event = Attendance::where('id', $request->id)->delete();
         return Response::json($event);
+    }
+    // FUnction to save attendances
+    public function saveattendance(Request $request){
+        $rules=array(
+            'user_id' => 'required',
+            'timein' => 'required'
+        );
+        $this->validate($request,$rules);
+        $user_id=$request->input('user_id');
+        $attendances=Attendance::where('user_id',$user_id)->get();
+        $today= Carbon::today()->toDateString();
+        if($attendances->isNotEmpty())
+        {
+        foreach($attendances as $attendance)
+        {
+            $date=$attendance->created_at->toDateString();
+        }
+        if($date==$today)
+        {
+            return false;
+        }
+        else{
+                return Attendance::create([
+                'user_id' =>$request->input('user_id'),
+                'timein' =>$request->input('timein'),
+            ]);
+        }
+         }
+        else{
+            return Attendance::create([
+                'user_id' =>$request->input('user_id'),
+                'timein' =>$request->input('timein'),
+            ]);
+
+        }
+
+    }
+    // get attendances
+    public function getattendance(){
+        $attendance=Attendance::with('user')->latest()->paginate(15);
+        return AttendanceResource::collection($attendance);
+    }
+
+    public function deleteattendance($id){
+        $attendance=Attendance::findOrFail($id);
+        $attendance->delete();
+
     }
 }
