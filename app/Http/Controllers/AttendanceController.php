@@ -103,7 +103,7 @@ class AttendanceController extends Controller
         }
         if($date==$today)
         {
-            return false;
+            return response()->json(['error' => 'You already took the attendance of this worker today!'], 500);
         }
         else{
                 return Attendance::create([
@@ -125,6 +125,28 @@ class AttendanceController extends Controller
     public function getattendance(){
         $attendance=Attendance::with('user')->latest()->paginate(15);
         return AttendanceResource::collection($attendance);
+        // $attendances=Attendance::all();
+        // foreach($attendances as $at)
+        // {
+        //     $timein=Carbon::parse($at->timein);
+        //     $timeout=Carbon::parse($at->timeout);
+        //     $lunchin=Carbon::parse($at->lunchin);
+        //     $lunchout=Carbon::parse($at->lunchout);
+        //     $lunchtime=$lunchout->diffInMinutes($lunchin);
+        //     $subtotal=$timeout->diffInMinutes($timein);
+        //     $total= $subtotal - $lunchtime;
+        //     $hours=$total / 60 ;
+
+        // }
+        // return response()->json($hours);
+
+    }
+    //Update Atteandance
+    public function updateattendance(Request $request,$id){
+
+        $attendance=Attendance::findOrFail($id);
+        $attendance->update($request->all());
+
     }
 
     public function deleteattendance($id){
