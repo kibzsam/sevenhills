@@ -8,9 +8,9 @@ class Attendance extends Model
 {
     //
     protected $fillable = [
-        'title','start', 'end','user_id'
+'user_id','timein','timeout','lunchin','lunchout'
     ];
-    public function users(){
+    public function user(){
         return $this->belongsTo('App\User');
     }
 }

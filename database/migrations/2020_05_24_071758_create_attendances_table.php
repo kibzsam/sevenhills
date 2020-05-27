@@ -15,10 +15,11 @@ class CreateAttendancesTable extends Migration
     {
         Schema::create('attendances', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title');
-            $table->dateTime('start');
-            $table->dateTime('end');
-            $table->string('user_id');
+            $table->unsignedInteger('user_id');
+            $table->time('timein');    
+            $table->time('timeout')->default('00:00');
+            $table->time('lunchin')->default('00:00');
+            $table->time('lunchout')->default('00:00');
             $table->timestamps();
         });
     }

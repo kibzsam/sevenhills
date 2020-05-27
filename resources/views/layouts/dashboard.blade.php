@@ -42,6 +42,8 @@
 
     <link rel="stylesheet" href="{{ asset('public/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
 
+     {{-- <link href="{{asset('css/app.css')}}" rel="stylesheet"> --}}
+
     <!-- Google Font -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -50,10 +52,13 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}"> 
+
+     <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini">
-    <div class="wrapper">
+<body class="hold-transition skin-blue sidebar-mini" >
+    <div class="wrapper" id="app">
         <header class="main-header">
             <!-- Logo -->
             <a href="{{ route('admin') }}" class="logo">
@@ -187,6 +192,12 @@
                             <i class="fa fa-pie-chart"></i> <span>Employee Attendance</span>
                         </a>
                     </li>
+                    <li>
+                        <router-link to="/attendance" >
+                         <i class="fa fa-pie-chart"></i> <span>Take Attendance</span>
+                        </router-link>
+
+                    </li>
                 </ul>
             </section>
             <!-- /.sidebar -->
@@ -194,8 +205,10 @@
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
+
             <!-- Content Header (Page header) -->
             @yield('content')
+            <router-view></router-view>
             {{-- <div class="container">
                 <br />
                 <form method="post" action="{{url('create-attendance')}}">
