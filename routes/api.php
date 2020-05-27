@@ -20,3 +20,4 @@ Route::post('saveattendance','AttendanceController@saveattendance');
 Route::get('getusers','UsersController@getusers');
 Route::get('getattendance','AttendanceController@getattendance');
 Route::delete('deleteattendance/{id}','AttendanceController@deleteattendance');
+Route::put('updateattendance/{id}','AttendanceController@updateattendance');

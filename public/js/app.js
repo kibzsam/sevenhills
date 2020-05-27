@@ -1895,22 +1895,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1966,9 +1950,10 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     editModal: function editModal(attend) {
-      //   this.edit=true;
-      //   this.form.reset();
-      this.$refs.attendanceModal.open(); //   this.form.fill(attend);
+      this.edit = true;
+      this.form.reset();
+      this.$refs.attendanceModal.open();
+      this.form.fill(attend);
     },
     getAttendance: function getAttendance(page_url) {
       var _this4 = this;
@@ -1995,32 +1980,37 @@ __webpack_require__.r(__webpack_exports__);
       var _this5 = this;
 
       this.form.post("api/saveattendance").then(function () {
-        _this5.$refs.attendanceModal.open();
+        _this5.$refs.attendanceModal.close();
 
         Swal.fire({
-          position: "center",
-          type: "success",
-          title: "Attendance taken successfully",
+          position: 'top-end',
+          icon: 'success',
+          title: 'Attendance Taken Successfuly',
           showConfirmButton: false,
-          timer: 2000
+          timer: 1500
         });
         P.$emit("success");
-        location.reload();
-      })["catch"](function () {
+      })["catch"](function (error) {
+        _this5.$refs.attendanceModal.close();
+
         Swal.fire({
+          icon: 'error',
           type: "error",
           title: "Oops...",
-          text: "You already took the attendance of this worker today!"
+          text: error.response.data.error
         });
-        location.reload();
       });
     },
     updateAttendance: function updateAttendance() {
-      this.form.put("api/attendance/" + this.form.id).then(function () {
-        $("#new").modal("hide");
+      var _this6 = this;
+
+      this.form.put("api/updateattendance/" + this.form.id).then(function () {
+        _this6.$refs.attendanceModal.close();
+
         P.$emit("success");
         Swal.fire({
-          position: "center",
+          icon: 'success',
+          position: "top-end",
           type: "success",
           title: "Attendance updated successfully",
           showConfirmButton: false,
@@ -2029,9 +2019,10 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     deleteAttendance: function deleteAttendance(id) {
-      var _this6 = this;
+      var _this7 = this;
 
       Swal.fire({
+        icon: 'warning',
         title: "Are you sure?",
         text: "You won't be able to revert this!",
         type: "warning",
@@ -2041,10 +2032,9 @@ __webpack_require__.r(__webpack_exports__);
         confirmButtonText: "Yes, delete it!"
       }).then(function (result) {
         if (result.value) {
-          _this6.form["delete"]("api/deleteattendance/" + id).then(function () {
+          _this7.form["delete"]("api/deleteattendance/" + id).then(function () {
             Swal.fire("Deleted!", "Attendance has been deleted.", "success");
             P.$emit("success");
-            location.reload();
           });
         }
       });
@@ -6671,7 +6661,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 exports.push([module.i, "@import url(https://use.fontawesome.com/releases/v5.6.3/css/all.css);", ""]);
 
 // module
-exports.push([module.i, "\n#btn {\r\n  margin-bottom: 30px;\r\n  color: white !important;\r\n  background-color: #dbb900 !important;\n}\n.form-inline {\r\n  margin-bottom: -40px;\r\n  margin-top: 30px;\n}\n#modal {\r\n  max-width: 50% !important;\n}\n.cbutton {\r\n  color: white !important;\r\n  background-color: #3c8dbc !important;\r\n  width: 100px !important;\r\n  margin-bottom: 30px;\r\n  float: right !important;\n}\n.clock-picker__input {\r\n  /* border: 1px solid rgb(230, 215, 215); */\r\n  width: 100% !important;\r\n  padding: 7px 12px;\r\n  margin: 10px 5px;\n}\n.clock-picker__dialog-header {\r\n  background-color: #dbb900 !important;\n}\n.clock-picker__dialog-action {\r\n  color: #dbb900 !important  ;\n}\n.row {\r\n  margin-top: 20px;\n}\r\n", ""]);
+exports.push([module.i, "\n.container{\n    width:100% !important;\n}\n#btn {\n  margin-bottom: 30px;\n  color: white !important;\n  background-color: #dbb900 !important;\n}\n.form-inline {\n  margin-bottom: -40px;\n  margin-top: 30px;\n}\n#modal {\n  max-width: 50% !important;\n}\n.cbutton {\n  color: white !important;\n  background-color: #3c8dbc !important;\n  width: 100px !important;\n  margin-bottom: 30px;\n  float: right !important;\n}\n.clock-picker__input {\n  /* border: 1px solid rgb(230, 215, 215); */\n  width: 100% !important;\n  padding: 7px 12px;\n  margin: 10px 5px;\n}\n.clock-picker__dialog-header {\n  background-color: #dbb900 !important;\n}\n.clock-picker__dialog-action {\n  color: #dbb900 !important  ;\n}\n.row {\n  margin-top: 20px;\n}\n", ""]);
 
 // exports
 
@@ -43631,66 +43621,6 @@ var render = function() {
     [
       _c("div", { staticClass: "row justify-content-center" }, [
         _c("div", { staticClass: "col-md-12" }, [
-          _c("form", { staticClass: "form-inline" }, [
-            _c(
-              "div",
-              { staticClass: "form-group mx-sm-3 mb-2" },
-              [
-                _c(
-                  "label",
-                  { staticClass: "sr-only", attrs: { for: "inputPassword2" } },
-                  [_vm._v("Select Date")]
-                ),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.form.date,
-                      expression: "form.date"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  class: { "is-invalid": _vm.form.errors.has("date") },
-                  attrs: {
-                    type: "date",
-                    id: "inputPassword2",
-                    placeholder: "Password",
-                    name: "date"
-                  },
-                  domProps: { value: _vm.form.date },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.form, "date", $event.target.value)
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c("has-error", { attrs: { form: _vm.form, field: "date" } })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-success mb-2",
-                attrs: { type: "button" },
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    return _vm.date($event)
-                  }
-                }
-              },
-              [_c("i", { staticClass: "fas fa-filter" })]
-            )
-          ]),
-          _vm._v(" "),
           _c(
             "button",
             {
@@ -43730,6 +43660,8 @@ var render = function() {
                   _c("td", [_vm._v(_vm._s(attend.lunchin))]),
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(attend.lunchout))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(attend.hours))]),
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(attend.created_at))]),
                   _vm._v(" "),
@@ -43983,48 +43915,6 @@ var render = function() {
                 },
                 [
                   _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-                    _vm._v("Time-out")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "vue-clock-picker",
-                    {
-                      class: { "is-invalid": _vm.form.errors.has("timeout") },
-                      attrs: { name: "timeout", readonly: _vm.edit },
-                      model: {
-                        value: _vm.form.timeout,
-                        callback: function($$v) {
-                          _vm.$set(_vm.form, "timeout", $$v)
-                        },
-                        expression: "form.timeout"
-                      }
-                    },
-                    [
-                      _c("has-error", {
-                        attrs: { form: _vm.form, field: "timeout" }
-                      })
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm.edit,
-                      expression: "edit"
-                    }
-                  ],
-                  staticClass: "form-group"
-                },
-                [
-                  _c("label", { attrs: { for: "exampleInputEmail1" } }, [
                     _vm._v("Lunch In")
                   ]),
                   _vm._v(" "),
@@ -44081,6 +43971,48 @@ var render = function() {
                           _vm.$set(_vm.form, "lunchout", $$v)
                         },
                         expression: "form.lunchout"
+                      }
+                    },
+                    [
+                      _c("has-error", {
+                        attrs: { form: _vm.form, field: "timeout" }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.edit,
+                      expression: "edit"
+                    }
+                  ],
+                  staticClass: "form-group"
+                },
+                [
+                  _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                    _vm._v("Time-out")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "vue-clock-picker",
+                    {
+                      class: { "is-invalid": _vm.form.errors.has("timeout") },
+                      attrs: { name: "timeout", readonly: _vm.edit },
+                      model: {
+                        value: _vm.form.timeout,
+                        callback: function($$v) {
+                          _vm.$set(_vm.form, "timeout", $$v)
+                        },
+                        expression: "form.timeout"
                       }
                     },
                     [
@@ -44157,6 +44089,10 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { staticClass: "text-golden", attrs: { scope: "col" } }, [
           _vm._v("Lunch-out")
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-golden", attrs: { scope: "col" } }, [
+          _vm._v("Hours Worked")
         ]),
         _vm._v(" "),
         _c("th", { staticClass: "text-golden", attrs: { scope: "col" } }, [
@@ -59637,8 +59573,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\IRERI BRIAN\Desktop\Projects\Git Projects\sevenhills\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\IRERI BRIAN\Desktop\Projects\Git Projects\sevenhills\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\sevenhills\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\sevenhills\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
