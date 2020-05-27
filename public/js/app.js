@@ -6671,7 +6671,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 exports.push([module.i, "@import url(https://use.fontawesome.com/releases/v5.6.3/css/all.css);", ""]);
 
 // module
-exports.push([module.i, "\n#btn {\r\n  margin-bottom: 30px;\r\n  color: white !important;\r\n  background-color: #dbb900 !important;\n}\n.form-inline {\r\n  margin-bottom: -40px;\r\n  margin-top: 30px;\n}\n#modal {\r\n  max-width: 50% !important;\n}\n.cbutton {\r\n  color: white !important;\r\n  background-color: #3c8dbc !important;\r\n  width: 100px !important;\r\n  margin-bottom: 30px;\r\n  float: right !important;\n}\n.clock-picker__input {\r\n  /* border: 1px solid rgb(230, 215, 215); */\r\n  width: 100% !important;\r\n  padding: 7px 12px;\r\n  margin: 10px 5px;\n}\n.clock-picker__dialog-header {\r\n  background-color: #dbb900 !important;\n}\n.clock-picker__dialog-action {\r\n  color: #dbb900 !important  ;\n}\n.row {\r\n  margin-top: 20px;\n}\r\n", ""]);
+exports.push([module.i, "\n#btn {\n  margin-bottom: 30px;\n  color: white !important;\n  background-color: #dbb900 !important;\n}\n.form-inline {\n  margin-bottom: -40px;\n  margin-top: 30px;\n}\n#modal {\n  max-width: 50% !important;\n}\n.cbutton {\n  color: white !important;\n  background-color: #3c8dbc !important;\n  width: 100px !important;\n  margin-bottom: 30px;\n  float: right !important;\n}\n.clock-picker__input {\n  /* border: 1px solid rgb(230, 215, 215); */\n  width: 100% !important;\n  padding: 7px 12px;\n  margin: 10px 5px;\n}\n.clock-picker__dialog-header {\n  background-color: #dbb900 !important;\n}\n.clock-picker__dialog-action {\n  color: #dbb900 !important  ;\n}\n.row {\n  margin-top: 20px;\n}\n", ""]);
 
 // exports
 
@@ -59637,8 +59637,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\IRERI BRIAN\Desktop\Projects\Git Projects\sevenhills\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\IRERI BRIAN\Desktop\Projects\Git Projects\sevenhills\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /opt/lampp/htdocs/sevenhillsmed/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /opt/lampp/htdocs/sevenhillsmed/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
