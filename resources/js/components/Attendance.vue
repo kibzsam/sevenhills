@@ -2,7 +2,6 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-12">
-
         <button
           type="button"
           class="btn btn-default float-right cbutton"
@@ -23,7 +22,7 @@
               <th scope="col" class="text-golden">Time-out</th>
               <th scope="col" class="text-golden">Lunch-in</th>
               <th scope="col" class="text-golden">Lunch-out</th>
-               <th scope="col" class="text-golden">Hours Worked</th>
+              <th scope="col" class="text-golden">Hours Worked</th>
 
               <th scope="col" class="text-golden">Date</th>
               <th scope="col" class="text-golden">Action</th>
@@ -38,7 +37,7 @@
               <td>{{attend.timeout}}</td>
               <td>{{attend.lunchin}}</td>
               <td>{{attend.lunchout}}</td>
-               <td>{{hours}}</td>
+              <td>{{hours}}</td>
               <!-- <td>{{(attend.timeout)-(attend.timein)}}</td>  -->
               <td>{{attend.created_at}}</td>
               <td>
@@ -99,20 +98,20 @@
           </select>
         </div>
 
-        <div class="form-group" >
+        <div class="form-group">
           <label for="exampleInputEmail1">Time-in</label>
           <vue-clock-picker
             :class="{ 'is-invalid': form.errors.has('timein') }"
             v-model="form.timein"
             name="timein"
-             required=""
+            required
             :readonly="edit"
           >
             <has-error :form="form" field="timein"></has-error>
           </vue-clock-picker>
         </div>
 
-        <div class="form-group" >
+        <div class="form-group">
           <label for="exampleInputEmail1">Lunch In</label>
           <vue-clock-picker
             :class="{ 'is-invalid': form.errors.has('lunchin') }"
@@ -124,7 +123,7 @@
           </vue-clock-picker>
         </div>
 
-        <div class="form-group" >
+        <div class="form-group">
           <label for="exampleInputEmail1">Lunch Out</label>
           <vue-clock-picker
             :class="{ 'is-invalid': form.errors.has('lunchout') }"
@@ -135,7 +134,7 @@
             <has-error :form="form" field="timeout"></has-error>
           </vue-clock-picker>
         </div>
-        <div class="form-group" >
+        <div class="form-group">
           <label for="exampleInputEmail1">Time-out</label>
           <vue-clock-picker
             :class="{ 'is-invalid': form.errors.has('timeout') }"
@@ -162,7 +161,7 @@ export default {
       edit: false,
       attendance: {},
       users: {},
-      hours:'',
+      hours: "",
       form: new Form({
         id: "",
         user_id: "",
@@ -207,35 +206,26 @@ export default {
       });
     },
     editModal(attend) {
-        this.edit=true;
-        this.form.reset();
+      this.edit = true;
+      this.form.reset();
       this.$refs.attendanceModal.open();
-        this.form.fill(attend);
+      this.form.fill(attend);
     },
-      getAttendance(page_url)
-            {
-
-                let vm= this;
-                page_url= page_url || 'api/getattendance';
-                this.form.get(page_url)
-                .then(res=>{
-                    vm.attendance=res.data.data;
-                      for(var i = 0 ; i < this.attendance.length ; i++){
-                          console.log(this.attendance[i].timeout)
-                          if(this.attendance[i].timeout === "00:00:00"){
-                            this.hours=0
-                          }
-                          else{
-                              this.hours=this.attendance[i].hours
-                          }
-
-
-
-                 }
-
-
-                })
-            },
+    getAttendance(page_url) {
+      let vm = this;
+      page_url = page_url || "api/getattendance";
+      this.form.get(page_url).then(res => {
+        vm.attendance = res.data.data;
+        for (var i = 0; i < this.attendance.length; i++) {
+          console.log(this.attendance[i].timeout);
+          if (this.attendance[i].timeout === "00:00:00") {
+            this.hours = 0;
+          } else {
+            this.hours = this.attendance[i].hours;
+          }
+        }
+      });
+    },
     makePagination(meta, links) {
       let pagination = {
         current_page: meta.current_page,
@@ -246,52 +236,52 @@ export default {
       this.pagination = pagination;
     },
     addAttendance() {
-            //     Swal.fire({
-            // title: 'Are you sure?',
-            // text: "You won't be able to revert this!",
-            // icon: 'warning',
-            // showCancelButton: true,
-            // confirmButtonColor: '#3085d6',
-            // cancelButtonColor: '#d33',
-            // confirmButtonText: 'Yes, delete it!'
-            // }).then((result) => {
-            // if (result.value) {
-            //     Swal.fire(
-            //     'Deleted!',
-            //     'Your file has been deleted.',
-            //     'success'
-            //     )
-            // }
-            // })
-         this.form
-        .post("api/saveattendance")
-        .then(() => {
-        this.$refs.attendanceModal.close();
-          Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Attendance Taken Successfuly',
-            showConfirmButton: false,
-            timer: 1500
-            })
-          P.$emit("success");
-        })
-        .catch((error) => {
-          this.$refs.attendanceModal.close();
-          Swal.fire({
-             icon: 'error',
-            type: "error",
-            title: "Oops...",
-            text:error.response.data.error
+      this.$refs.attendanceModal.close();
+
+      Swal.fire({
+        title: "Do you want to add this record?",
+        text: "The record will be saved in the system.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, Save Attendance!"
+      }).then(result => {
+        if (result.value) {
+          
+          // Swal.fire("Deleted!", "Your file has been deleted.", "success");
+          this.form
+          .post("api/saveattendance")
+          .then(() => {
+            this.$refs.attendanceModal.close();
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Attendance Taken Successfuly",
+              showConfirmButton: false,
+              timer: 1500
+            });
+            P.$emit("success");
+          })
+          .catch(error => {
+            this.$refs.attendanceModal.close();
+            Swal.fire({
+              icon: "error",
+              type: "error",
+              title: "Oops...",
+              text: error.response.data.error
+            });
           });
-        });
+
+        }
+      });
     },
     updateAttendance() {
       this.form.put("api/updateattendance/" + this.form.id).then(() => {
         this.$refs.attendanceModal.close();
         P.$emit("success");
         Swal.fire({
-        icon: 'success',
+          icon: "success",
           position: "top-end",
           type: "success",
           title: "Attendance updated successfully",
@@ -302,7 +292,7 @@ export default {
     },
     deleteAttendance(id) {
       Swal.fire({
-        icon: 'warning',
+        icon: "warning",
         title: "Are you sure?",
         text: "You won't be able to revert this!",
         type: "warning",
@@ -327,8 +317,8 @@ export default {
 </script>
 <style >
 @import "https://use.fontawesome.com/releases/v5.6.3/css/all.css";
-.container{
-    width:100% !important;
+.container {
+  width: 100% !important;
 }
 
 #btn {

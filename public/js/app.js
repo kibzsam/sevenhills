@@ -1894,14 +1894,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       edit: false,
       attendance: {},
       users: {},
-      hours: '',
+      hours: "",
       form: new Form({
         id: "",
         user_id: "",
@@ -1960,7 +1959,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this4 = this;
 
       var vm = this;
-      page_url = page_url || 'api/getattendance';
+      page_url = page_url || "api/getattendance";
       this.form.get(page_url).then(function (res) {
         vm.attendance = res.data.data;
 
@@ -1987,43 +1986,40 @@ __webpack_require__.r(__webpack_exports__);
     addAttendance: function addAttendance() {
       var _this5 = this;
 
-      //     Swal.fire({
-      // title: 'Are you sure?',
-      // text: "You won't be able to revert this!",
-      // icon: 'warning',
-      // showCancelButton: true,
-      // confirmButtonColor: '#3085d6',
-      // cancelButtonColor: '#d33',
-      // confirmButtonText: 'Yes, delete it!'
-      // }).then((result) => {
-      // if (result.value) {
-      //     Swal.fire(
-      //     'Deleted!',
-      //     'Your file has been deleted.',
-      //     'success'
-      //     )
-      // }
-      // })
-      this.form.post("api/saveattendance").then(function () {
-        _this5.$refs.attendanceModal.close();
+      this.$refs.attendanceModal.close();
+      Swal.fire({
+        title: "Do you want to add this record?",
+        text: "The record will be saved in the system.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, Save Attendance!"
+      }).then(function (result) {
+        if (result.value) {
+          // Swal.fire("Deleted!", "Your file has been deleted.", "success");
+          _this5.form.post("api/saveattendance").then(function () {
+            _this5.$refs.attendanceModal.close();
 
-        Swal.fire({
-          position: 'top-end',
-          icon: 'success',
-          title: 'Attendance Taken Successfuly',
-          showConfirmButton: false,
-          timer: 1500
-        });
-        P.$emit("success");
-      })["catch"](function (error) {
-        _this5.$refs.attendanceModal.close();
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Attendance Taken Successfuly",
+              showConfirmButton: false,
+              timer: 1500
+            });
+            P.$emit("success");
+          })["catch"](function (error) {
+            _this5.$refs.attendanceModal.close();
 
-        Swal.fire({
-          icon: 'error',
-          type: "error",
-          title: "Oops...",
-          text: error.response.data.error
-        });
+            Swal.fire({
+              icon: "error",
+              type: "error",
+              title: "Oops...",
+              text: error.response.data.error
+            });
+          });
+        }
       });
     },
     updateAttendance: function updateAttendance() {
@@ -2034,7 +2030,7 @@ __webpack_require__.r(__webpack_exports__);
 
         P.$emit("success");
         Swal.fire({
-          icon: 'success',
+          icon: "success",
           position: "top-end",
           type: "success",
           title: "Attendance updated successfully",
@@ -2047,7 +2043,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this7 = this;
 
       Swal.fire({
-        icon: 'warning',
+        icon: "warning",
         title: "Are you sure?",
         text: "You won't be able to revert this!",
         type: "warning",
@@ -6686,7 +6682,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 exports.push([module.i, "@import url(https://use.fontawesome.com/releases/v5.6.3/css/all.css);", ""]);
 
 // module
-exports.push([module.i, "\n.container{\n    width:100% !important;\n}\n#btn {\n  margin-bottom: 30px;\n  color: white !important;\n  background-color: #dbb900 !important;\n}\n.form-inline {\n  margin-bottom: -40px;\n  margin-top: 30px;\n}\n#modal {\n  max-width: 50% !important;\n}\n.cbutton {\n  color: white !important;\n  background-color: #3c8dbc !important;\n  width: 100px !important;\n  margin-bottom: 30px;\n  float: right !important;\n}\n.clock-picker__input {\n  /* border: 1px solid rgb(230, 215, 215); */\n  width: 100% !important;\n  padding: 7px 12px;\n  margin: 10px 5px;\n}\n.clock-picker__dialog-header {\n  background-color: #dbb900 !important;\n}\n.clock-picker__dialog-action {\n  color: #dbb900 !important  ;\n}\n.row {\n  margin-top: 20px;\n}\n", ""]);
+exports.push([module.i, "\n.container {\r\n  width: 100% !important;\n}\n#btn {\r\n  margin-bottom: 30px;\r\n  color: white !important;\r\n  background-color: #dbb900 !important;\n}\n.form-inline {\r\n  margin-bottom: -40px;\r\n  margin-top: 30px;\n}\n#modal {\r\n  max-width: 50% !important;\n}\n.cbutton {\r\n  color: white !important;\r\n  background-color: #3c8dbc !important;\r\n  width: 100px !important;\r\n  margin-bottom: 30px;\r\n  float: right !important;\n}\n.clock-picker__input {\r\n  /* border: 1px solid rgb(230, 215, 215); */\r\n  width: 100% !important;\r\n  padding: 7px 12px;\r\n  margin: 10px 5px;\n}\n.clock-picker__dialog-header {\r\n  background-color: #dbb900 !important;\n}\n.clock-picker__dialog-action {\r\n  color: #dbb900 !important  ;\n}\n.row {\r\n  margin-top: 20px;\n}\r\n", ""]);
 
 // exports
 
@@ -59558,8 +59554,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\sevenhills\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\sevenhills\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\IRERI BRIAN\Desktop\Projects\Git Projects\sevenhills\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\IRERI BRIAN\Desktop\Projects\Git Projects\sevenhills\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
