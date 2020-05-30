@@ -1894,6 +1894,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -6682,7 +6689,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 exports.push([module.i, "@import url(https://use.fontawesome.com/releases/v5.6.3/css/all.css);", ""]);
 
 // module
-exports.push([module.i, "\n.container {\r\n  width: 100% !important;\n}\n#btn {\r\n  margin-bottom: 30px;\r\n  color: white !important;\r\n  background-color: #dbb900 !important;\n}\n.form-inline {\r\n  margin-bottom: -40px;\r\n  margin-top: 30px;\n}\n#modal {\r\n  max-width: 50% !important;\n}\n.cbutton {\r\n  color: white !important;\r\n  background-color: #3c8dbc !important;\r\n  width: 100px !important;\r\n  margin-bottom: 30px;\r\n  float: right !important;\n}\n.clock-picker__input {\r\n  /* border: 1px solid rgb(230, 215, 215); */\r\n  width: 100% !important;\r\n  padding: 7px 12px;\r\n  margin: 10px 5px;\n}\n.clock-picker__dialog-header {\r\n  background-color: #dbb900 !important;\n}\n.clock-picker__dialog-action {\r\n  color: #dbb900 !important  ;\n}\n.row {\r\n  margin-top: 20px;\n}\r\n", ""]);
+exports.push([module.i, "\n.container {\r\n  width: 100% !important;\n}\n#btn {\r\n  margin-bottom: 30px;\r\n  color: white !important;\r\n  background-color: #dbb900 !important;\n}\n.form-inline {\r\n  margin-bottom: -40px;\r\n  margin-top: 30px;\n}\n#modal {\r\n  max-width: 50% !important;\n}\n.cbutton {\r\n  color: white !important;\r\n  background-color: #3c8dbc !important;\r\n  width: 100px !important;\n}\n.clock-picker__input {\r\n  /* border: 1px solid rgb(230, 215, 215); */\r\n  width: 100% !important;\r\n  padding: 7px 12px;\r\n  margin: 10px 5px;\n}\n.clock-picker__dialog-header {\r\n  background-color: #dbb900 !important;\n}\n.clock-picker__dialog-action {\r\n  color: #dbb900 !important  ;\n}\n.row {\r\n  margin-top: 20px;\n}\n.table-wrapper{\r\n  overflow-x: auto;\r\n  position: absolute;\r\n  top: 90px;\r\n  width: 95% !important;\r\n  box-sizing: border-box;\n}\n.col-md-12{\r\n  position: relative;\n}\n.modal-button{\r\n  position: absolute;\r\n  top:30px;\r\n  box-sizing: border-box;\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -43642,149 +43649,162 @@ var render = function() {
     [
       _c("div", { staticClass: "row justify-content-center" }, [
         _c("div", { staticClass: "col-md-12" }, [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-default float-right cbutton",
-              attrs: {
-                type: "button",
-                "data-toggle": "modal",
-                "data-target": "#new"
-              },
-              on: { click: _vm.displayModal }
-            },
-            [
-              _c("i", { staticClass: "fas fa-plus" }),
-              _vm._v("\n        Attendance\n      ")
-            ]
-          ),
-          _vm._v(" "),
-          _c("table", { staticClass: "table table-hover table-dark" }, [
-            _vm._m(0),
-            _vm._v(" "),
+          _c("div", { staticClass: "modal-button" }, [
             _c(
-              "tbody",
-              _vm._l(_vm.attendance, function(attend) {
-                return _c("tr", { key: attend.id }, [
-                  _c("th", { attrs: { scope: "row" } }, [
-                    _vm._v(_vm._s(attend.id))
-                  ]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(attend.user.employeeName))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(attend.user.employeeID))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(attend.timein))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(attend.timeout))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(attend.lunchin))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(attend.lunchout))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(_vm.hours))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(attend.created_at))]),
-                  _vm._v(" "),
-                  _c("td", [
-                    _c("a", [
-                      _c("i", {
-                        staticClass: "fas fa-pencil-alt text-greenish",
-                        on: {
-                          click: function($event) {
-                            return _vm.editModal(attend)
-                          }
-                        }
-                      })
-                    ]),
-                    _vm._v("\n              /\n              "),
-                    _c("a", [
-                      _c("i", {
-                        staticClass: "fas fa-trash-alt text-red",
-                        on: {
-                          click: function($event) {
-                            return _vm.deleteAttendance(attend.id)
-                          }
-                        }
-                      })
-                    ])
-                  ])
-                ])
-              }),
-              0
-            )
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c(
-        "nav",
-        { attrs: { "aria-label": "Page navigation example float-right" } },
-        [
-          _c("ul", { staticClass: "pagination pagination-sm" }, [
-            _c(
-              "li",
+              "button",
               {
-                staticClass: "page-item",
-                class: [{ disabled: !_vm.pagination.prev_page_url }]
+                staticClass: "btn btn-default float-right cbutton",
+                attrs: {
+                  type: "button",
+                  "data-toggle": "modal",
+                  "data-target": "#new"
+                },
+                on: { click: _vm.displayModal }
               },
               [
-                _c(
-                  "a",
-                  {
-                    staticClass: "page-link",
-                    attrs: { href: "#" },
-                    on: {
-                      click: function($event) {
-                        return _vm.getAttendance(_vm.pagination.prev_page_url)
-                      }
-                    }
-                  },
-                  [_vm._v("Previous")]
-                )
+                _c("i", { staticClass: "fas fa-plus" }),
+                _vm._v("\n        Attendance\n      ")
               ]
-            ),
-            _vm._v(" "),
-            _c("li", { staticClass: "page-item disabled" }, [
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "table-wrapper" }, [
+            _c("table", { staticClass: "table table-hover table-dark" }, [
+              _vm._m(0),
+              _vm._v(" "),
               _c(
-                "a",
-                { staticClass: "page-link text-dark", attrs: { href: "#" } },
-                [
-                  _vm._v(
-                    "Page " +
-                      _vm._s(_vm.pagination.current_page) +
-                      " of " +
-                      _vm._s(_vm.pagination.last_page)
-                  )
-                ]
+                "tbody",
+                _vm._l(_vm.attendance, function(attend) {
+                  return _c("tr", { key: attend.id }, [
+                    _c("th", { attrs: { scope: "row" } }, [
+                      _vm._v(_vm._s(attend.id))
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(attend.user.employeeName))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(attend.user.employeeID))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(attend.timein))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(attend.timeout))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(attend.lunchin))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(attend.lunchout))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(_vm.hours))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(attend.created_at))]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("a", [
+                        _c("i", {
+                          staticClass: "fas fa-pencil-alt text-greenish",
+                          on: {
+                            click: function($event) {
+                              return _vm.editModal(attend)
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v("\n                /\n                "),
+                      _c("a", [
+                        _c("i", {
+                          staticClass: "fas fa-trash-alt text-red",
+                          on: {
+                            click: function($event) {
+                              return _vm.deleteAttendance(attend.id)
+                            }
+                          }
+                        })
+                      ])
+                    ])
+                  ])
+                }),
+                0
               )
             ]),
             _vm._v(" "),
             _c(
-              "li",
+              "nav",
               {
-                staticClass: "page-item",
-                class: [{ disabled: !_vm.pagination.next_page_url }]
+                attrs: { "aria-label": "Page navigation example float-right" }
               },
               [
-                _c(
-                  "a",
-                  {
-                    staticClass: "page-link",
-                    attrs: { href: "#" },
-                    on: {
-                      click: function($event) {
-                        return _vm.getAttendance(_vm.pagination.next_page_url)
-                      }
-                    }
-                  },
-                  [_vm._v("Next")]
-                )
+                _c("ul", { staticClass: "pagination pagination-sm" }, [
+                  _c(
+                    "li",
+                    {
+                      staticClass: "page-item",
+                      class: [{ disabled: !_vm.pagination.prev_page_url }]
+                    },
+                    [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "page-link",
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              return _vm.getAttendance(
+                                _vm.pagination.prev_page_url
+                              )
+                            }
+                          }
+                        },
+                        [_vm._v("Previous")]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "page-item disabled" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "page-link text-dark",
+                        attrs: { href: "#" }
+                      },
+                      [
+                        _vm._v(
+                          "Page " +
+                            _vm._s(_vm.pagination.current_page) +
+                            " of " +
+                            _vm._s(_vm.pagination.last_page)
+                        )
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "li",
+                    {
+                      staticClass: "page-item",
+                      class: [{ disabled: !_vm.pagination.next_page_url }]
+                    },
+                    [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "page-link",
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              return _vm.getAttendance(
+                                _vm.pagination.next_page_url
+                              )
+                            }
+                          }
+                        },
+                        [_vm._v("Next")]
+                      )
+                    ]
+                  )
+                ])
               ]
             )
           ])
-        ]
-      ),
+        ])
+      ]),
       _vm._v(" "),
       _c(
         "sweet-modal",
