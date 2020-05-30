@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-12">
-
+      <div class="modal-button">
         <button
           type="button"
           class="btn btn-default float-right cbutton"
@@ -13,64 +13,70 @@
           <i class="fas fa-plus"></i>
           Attendance
         </button>
-        <table class="table table-hover table-dark">
-          <thead>
-            <tr>
-              <th scope="col" class="text-golden">#</th>
-              <th scope="col" class="text-golden">Name</th>
-              <th scope="col" class="text-golden">Employee Id</th>
-              <th scope="col" class="text-golden">Time-in</th>
-              <th scope="col" class="text-golden">Time-out</th>
-              <th scope="col" class="text-golden">Lunch-in</th>
-              <th scope="col" class="text-golden">Lunch-out</th>
-               <th scope="col" class="text-golden">Hours Worked</th>
+        </div>
 
-              <th scope="col" class="text-golden">Date</th>
-              <th scope="col" class="text-golden">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="attend in attendance" v-bind:key="attend.id">
-              <th scope="row">{{attend.id}}</th>
-              <td>{{attend.user.employeeName}}</td>
-              <td>{{attend.user. employeeID}}</td>
-              <td>{{attend.timein}}</td>
-              <td>{{attend.timeout}}</td>
-              <td>{{attend.lunchin}}</td>
-              <td>{{attend.lunchout}}</td>
-               <td>{{hours}}</td>
-              <!-- <td>{{(attend.timeout)-(attend.timein)}}</td>  -->
-              <td>{{attend.created_at}}</td>
-              <td>
-                <a>
-                  <i class="fas fa-pencil-alt text-greenish" @click="editModal(attend)"></i>
-                </a>
-                /
-                <a>
-                  <i class="fas fa-trash-alt text-red" @click="deleteAttendance(attend.id)"></i>
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+
+        <div class="table-wrapper">
+          <table class="table table-hover table-dark">
+            <thead>
+              <tr>
+                <th scope="col" class="text-golden">#</th>
+                <th scope="col" class="text-golden">Name</th>
+                <th scope="col" class="text-golden">Employee Id</th>
+                <th scope="col" class="text-golden">Time-in</th>
+                <th scope="col" class="text-golden">Time-out</th>
+                <th scope="col" class="text-golden">Lunch-in</th>
+                <th scope="col" class="text-golden">Lunch-out</th>
+                <th scope="col" class="text-golden">Hours Worked</th>
+
+                <th scope="col" class="text-golden">Date</th>
+                <th scope="col" class="text-golden">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="attend in attendance" v-bind:key="attend.id">
+                <th scope="row">{{attend.id}}</th>
+                <td>{{attend.user.employeeName}}</td>
+                <td>{{attend.user. employeeID}}</td>
+                <td>{{attend.timein}}</td>
+                <td>{{attend.timeout}}</td>
+                <td>{{attend.lunchin}}</td>
+                <td>{{attend.lunchout}}</td>
+                <td>{{hours}}</td>
+                <!-- <td>{{(attend.timeout)-(attend.timein)}}</td>  -->
+                <td>{{attend.created_at}}</td>
+                <td>
+                  <a>
+                    <i class="fas fa-pencil-alt text-greenish" @click="editModal(attend)"></i>
+                  </a>
+                  /
+                  <a>
+                    <i class="fas fa-trash-alt text-red" @click="deleteAttendance(attend.id)"></i>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+           <nav aria-label="Page navigation example float-right">
+            <ul class="pagination pagination-sm">
+              <li v-bind:class="[{disabled: !pagination.prev_page_url}]" class="page-item">
+                <a @click="getAttendance(pagination.prev_page_url)" class="page-link" href="#">Previous</a>
+              </li>
+              <li class="page-item disabled">
+                <a
+                  class="page-link text-dark"
+                  href="#"
+                >Page {{pagination.current_page}} of {{pagination.last_page}}</a>
+              </li>
+              <li v-bind:class="[{disabled:!pagination.next_page_url}]" class="page-item">
+                <a @click="getAttendance(pagination.next_page_url)" class="page-link" href="#">Next</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </div>
-    <nav aria-label="Page navigation example float-right">
-      <ul class="pagination pagination-sm">
-        <li v-bind:class="[{disabled: !pagination.prev_page_url}]" class="page-item">
-          <a @click="getAttendance(pagination.prev_page_url)" class="page-link" href="#">Previous</a>
-        </li>
-        <li class="page-item disabled">
-          <a
-            class="page-link text-dark"
-            href="#"
-          >Page {{pagination.current_page}} of {{pagination.last_page}}</a>
-        </li>
-        <li v-bind:class="[{disabled:!pagination.next_page_url}]" class="page-item">
-          <a @click="getAttendance(pagination.next_page_url)" class="page-link" href="#">Next</a>
-        </li>
-      </ul>
-    </nav>
+   
 
     <!-- Add Attendance Modal -->
     <sweet-modal ref="attendanceModal" overlay-theme="dark">
@@ -350,8 +356,8 @@ export default {
   color: white !important;
   background-color: #3c8dbc !important;
   width: 100px !important;
-  margin-bottom: 30px;
-  float: right !important;
+ 
+  
 }
 
 .clock-picker__input {
@@ -372,4 +378,21 @@ export default {
 .row {
   margin-top: 20px;
 }
+.table-wrapper{
+  overflow-x: auto;
+  position: absolute;
+  top: 90px;
+  width: 95% !important;
+  box-sizing: border-box;
+}
+.col-md-12{
+  position: relative;
+}
+.modal-button{
+  position: absolute;
+  top:30px;
+  box-sizing: border-box;
+
+}
+
 </style>
