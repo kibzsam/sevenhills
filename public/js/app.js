@@ -1901,6 +1901,7 @@ __webpack_require__.r(__webpack_exports__);
       edit: false,
       attendance: {},
       users: {},
+      hours: '',
       form: new Form({
         id: "",
         user_id: "",
@@ -1958,13 +1959,20 @@ __webpack_require__.r(__webpack_exports__);
     getAttendance: function getAttendance(page_url) {
       var _this4 = this;
 
-      page_url = page_url || "api/getattendance";
-      fetch(page_url).then(function (res) {
-        return res.json();
-      }).then(function (res) {
-        _this4.attendance = res.data;
+      var vm = this;
+      page_url = page_url || 'api/getattendance';
+      this.form.get(page_url).then(function (res) {
+        vm.attendance = res.data.data;
 
-        _this4.makePagination(res.meta, res.links);
+        for (var i = 0; i < _this4.attendance.length; i++) {
+          console.log(_this4.attendance[i].timeout);
+
+          if (_this4.attendance[i].timeout === "00:00:00") {
+            _this4.hours = 0;
+          } else {
+            _this4.hours = _this4.attendance[i].hours;
+          }
+        }
       });
     },
     makePagination: function makePagination(meta, links) {
@@ -1979,6 +1987,23 @@ __webpack_require__.r(__webpack_exports__);
     addAttendance: function addAttendance() {
       var _this5 = this;
 
+      //     Swal.fire({
+      // title: 'Are you sure?',
+      // text: "You won't be able to revert this!",
+      // icon: 'warning',
+      // showCancelButton: true,
+      // confirmButtonColor: '#3085d6',
+      // cancelButtonColor: '#d33',
+      // confirmButtonText: 'Yes, delete it!'
+      // }).then((result) => {
+      // if (result.value) {
+      //     Swal.fire(
+      //     'Deleted!',
+      //     'Your file has been deleted.',
+      //     'success'
+      //     )
+      // }
+      // })
       this.form.post("api/saveattendance").then(function () {
         _this5.$refs.attendanceModal.close();
 
@@ -43661,7 +43686,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(attend.lunchout))]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(attend.hours))]),
+                  _c("td", [_vm._v(_vm._s(_vm.hours))]),
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(attend.created_at))]),
                   _vm._v(" "),
@@ -43856,17 +43881,7 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "div",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: !_vm.edit,
-                      expression: "!edit"
-                    }
-                  ],
-                  staticClass: "form-group"
-                },
+                { staticClass: "form-group" },
                 [
                   _c("label", { attrs: { for: "exampleInputEmail1" } }, [
                     _vm._v("Time-in")
@@ -43902,17 +43917,7 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "div",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm.edit,
-                      expression: "edit"
-                    }
-                  ],
-                  staticClass: "form-group"
-                },
+                { staticClass: "form-group" },
                 [
                   _c("label", { attrs: { for: "exampleInputEmail1" } }, [
                     _vm._v("Lunch In")
@@ -43944,17 +43949,7 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "div",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm.edit,
-                      expression: "edit"
-                    }
-                  ],
-                  staticClass: "form-group"
-                },
+                { staticClass: "form-group" },
                 [
                   _c("label", { attrs: { for: "exampleInputEmail1" } }, [
                     _vm._v("Lunch Out")
@@ -43986,17 +43981,7 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "div",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm.edit,
-                      expression: "edit"
-                    }
-                  ],
-                  staticClass: "form-group"
-                },
+                { staticClass: "form-group" },
                 [
                   _c("label", { attrs: { for: "exampleInputEmail1" } }, [
                     _vm._v("Time-out")

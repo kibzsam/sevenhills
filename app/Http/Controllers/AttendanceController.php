@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use App\User;
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
 use App\Http\Resources\Attendance as AttendanceResource;
 
@@ -121,26 +122,13 @@ class AttendanceController extends Controller
         }
 
     }
-    // get attendances
-    public function getattendance(){
-        $attendance=Attendance::with('user')->latest()->paginate(15);
-        return AttendanceResource::collection($attendance);
-        // $attendances=Attendance::all();
-        // foreach($attendances as $at)
-        // {
-        //     $timein=Carbon::parse($at->timein);
-        //     $timeout=Carbon::parse($at->timeout);
-        //     $lunchin=Carbon::parse($at->lunchin);
-        //     $lunchout=Carbon::parse($at->lunchout);
-        //     $lunchtime=$lunchout->diffInMinutes($lunchin);
-        //     $subtotal=$timeout->diffInMinutes($timein);
-        //     $total= $subtotal - $lunchtime;
-        //     $hours=$total / 60 ;
+        // get attendances
+        public function getattendance(){
+            $user_id=auth('api')->user()->id;
+            $attendance=Attendance::where('user_id',$user_id)->with('user')->latest()->paginate(15);
+            return AttendanceResource::collection($attendance);
+        }
 
-        // }
-        // return response()->json($hours);
-
-    }
     //Update Atteandance
     public function updateattendance(Request $request,$id){
 

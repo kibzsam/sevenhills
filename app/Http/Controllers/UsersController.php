@@ -17,8 +17,11 @@ class UsersController
         return view('users');
     }
     public function getusers(){
-        $users=User::all();
+        $user_id=auth('api')->user()->id;
+        $users=User::where('id',$user_id)->get();
         return response()->json($users);
-
     }
+
+
+
 }

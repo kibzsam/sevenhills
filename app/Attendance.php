@@ -4,13 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use Laravel\Passport\HasApiTokens;
 
 class Attendance extends Model
 {
+    use HasApiTokens;
     //
     protected $appends = ['hours'];
     protected $fillable = [
-'user_id','timein','timeout','lunchin','lunchout'
+    'user_id','timein','timeout','lunchin','lunchout'
     ];
     public function user(){
         return $this->belongsTo('App\User');

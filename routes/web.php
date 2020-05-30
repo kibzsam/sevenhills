@@ -33,6 +33,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/fullcalendareventmaster/update', 'FullCalendarEventMasterController@update');
 
     Route::post('/fullcalendareventmaster/delete', 'FullCalendarEventMasterController@destroy');
+
+
+
+  
+
 });
 
 Route::get('/admin', 'HomeController@index')->name('admin');
