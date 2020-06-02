@@ -1988,7 +1988,7 @@ __webpack_require__.r(__webpack_exports__);
       edit: false,
       attendance: {},
       users: {},
-      hours: '',
+      hours: "",
       form: new Form({
         id: "",
         user_id: "",
@@ -2054,7 +2054,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this5 = this;
 
       var vm = this;
-      page_url = page_url || 'api/getattendance';
+      page_url = page_url || "api/getattendance";
       this.form.get(page_url).then(function (res) {
         vm.attendance = res.data.data;
 
@@ -2081,43 +2081,40 @@ __webpack_require__.r(__webpack_exports__);
     addAttendance: function addAttendance() {
       var _this6 = this;
 
-      //     Swal.fire({
-      // title: 'Are you sure?',
-      // text: "You won't be able to revert this!",
-      // icon: 'warning',
-      // showCancelButton: true,
-      // confirmButtonColor: '#3085d6',
-      // cancelButtonColor: '#d33',
-      // confirmButtonText: 'Yes, delete it!'
-      // }).then((result) => {
-      // if (result.value) {
-      //     Swal.fire(
-      //     'Deleted!',
-      //     'Your file has been deleted.',
-      //     'success'
-      //     )
-      // }
-      // })
-      this.form.post("api/saveattendance").then(function () {
-        _this6.$refs.attendanceModal.close();
+      this.$refs.attendanceModal.close();
+      Swal.fire({
+        title: "Do you want to add this record?",
+        text: "The record will be saved in the system.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, Save Attendance!"
+      }).then(function (result) {
+        if (result.value) {
+          // Swal.fire("Deleted!", "Your file has been deleted.", "success");
+          _this6.form.post("api/saveattendance").then(function () {
+            _this6.$refs.attendanceModal.close();
 
-        Swal.fire({
-          position: 'top-end',
-          icon: 'success',
-          title: 'Attendance Taken Successfuly',
-          showConfirmButton: false,
-          timer: 1500
-        });
-        P.$emit("success");
-      })["catch"](function (error) {
-        _this6.$refs.attendanceModal.close();
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Attendance Taken Successfuly",
+              showConfirmButton: false,
+              timer: 1500
+            });
+            P.$emit("success");
+          })["catch"](function (error) {
+            _this6.$refs.attendanceModal.close();
 
-        Swal.fire({
-          icon: 'error',
-          type: "error",
-          title: "Oops...",
-          text: error.response.data.error
-        });
+            Swal.fire({
+              icon: "error",
+              type: "error",
+              title: "Oops...",
+              text: error.response.data.error
+            });
+          });
+        }
       });
     },
     updateAttendance: function updateAttendance() {
@@ -2128,7 +2125,7 @@ __webpack_require__.r(__webpack_exports__);
 
         P.$emit("success");
         Swal.fire({
-          icon: 'success',
+          icon: "success",
           position: "top-end",
           type: "success",
           title: "Attendance updated successfully",
@@ -2141,7 +2138,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this8 = this;
 
       Swal.fire({
-        icon: 'warning',
+        icon: "warning",
         title: "Are you sure?",
         text: "You won't be able to revert this!",
         type: "warning",
@@ -6839,7 +6836,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 exports.push([module.i, "@import url(https://use.fontawesome.com/releases/v5.6.3/css/all.css);", ""]);
 
 // module
-exports.push([module.i, "\n.container{\n    width:100% !important;\n}\n#btn {\n  margin-bottom: 30px;\n  color: white !important;\n  background-color: #dbb900 !important;\n}\n.form-inline {\n  margin-bottom: -40px;\n  margin-top: 30px;\n}\n#modal {\n  max-width: 50% !important;\n}\n.cbutton {\n  color: white !important;\n  background-color: #3c8dbc !important;\n  width: 100px !important;\n}\n.clock-picker__input {\n  /* border: 1px solid rgb(230, 215, 215); */\n  width: 100% !important;\n  padding: 7px 12px;\n  margin: 10px 5px;\n}\n.clock-picker__dialog-header {\n  background-color: #dbb900 !important;\n}\n.clock-picker__dialog-action {\n  color: #dbb900 !important  ;\n}\n.row {\n  margin-top: 20px;\n}\n.table-wrapper{\n  overflow-x: auto;\n  position: absolute;\n  top: 90px;\n  width: 95% !important;\n  box-sizing: border-box;\n}\n.col-md-12{\n  position: relative;\n}\n.modal-button{\n  position: absolute;\n  top:30px;\n  box-sizing: border-box;\n}\n.pdf-button{\n  position: absolute;\n  right:90px;\n  top:30px;\n}\n.pdf{\n   color: white !important;\n  background-color: #DBB900  !important;\n  width: 100px !important;\n}\n.vdp-datepicker{\n    position: relative !important;\n    text-align: left !important;\n}\n.vdp-datepicker input[type='text']{\n    width:100%;\n    padding: 6px 12px;\n    display: block;\n    height: 34px;\n    border: 1px solid #ccc;\n    color: #555;\n    background-color: #fff;\n}\n.btn-secondary{\n    background-color: green;\n    color:white;\n}\n.btn-secondary:hover{\n    background-color: green;\n    color:white;\n}\n.canvas{\n    border: 1px solid #3c8dbc;\n}\n.btnclear{\n\n    float: right !important;\n    border: 1px solid transparent;\n    padding: 6px 12px\n}\n.btnundo{\n\n     float: right !important;\n     border: 1px solid transparent;\n     padding: 6px 12px\n}\n\n\n", ""]);
+exports.push([module.i, "\n.container {\r\n  width: 100% !important;\n}\n#btn {\r\n  margin-bottom: 30px;\r\n  color: white !important;\r\n  background-color: #dbb900 !important;\n}\n.form-inline {\r\n  margin-bottom: -40px;\r\n  margin-top: 30px;\n}\n#modal {\r\n  max-width: 50% !important;\n}\n.cbutton {\r\n  color: white !important;\r\n  background-color: #3c8dbc !important;\r\n  width: 100px !important;\n}\n.clock-picker__input {\r\n  /* border: 1px solid rgb(230, 215, 215); */\r\n  width: 100% !important;\r\n  padding: 7px 12px;\r\n  margin: 10px 5px;\n}\n.clock-picker__dialog-header {\r\n  background-color: #dbb900 !important;\n}\n.clock-picker__dialog-action {\r\n  color: #dbb900 !important  ;\n}\n.row {\r\n  margin-top: 20px;\n}\n.table-wrapper{\r\n  overflow-x: auto;\r\n  position: absolute;\r\n  top: 90px;\r\n  width: 95% !important;\r\n  box-sizing: border-box;\n}\n.col-md-12{\r\n  position: relative;\n}\n.modal-button{\r\n  position: absolute;\r\n  top:30px;\r\n  box-sizing: border-box;\n}\n.pdf-button{\r\n  position: absolute;\r\n  right:90px;\r\n  top:30px;\n}\n.pdf{\r\n   color: white !important;\r\n  background-color: #DBB900  !important;\r\n  width: 100px !important;\n}\n.vdp-datepicker{\r\n    position: relative !important;\r\n    text-align: left !important;\n}\n.vdp-datepicker input[type='text']{\r\n    width:100%;\r\n    padding: 6px 12px;\r\n    display: block;\r\n    height: 34px;\r\n    border: 1px solid #ccc;\r\n    color: #555;\r\n    background-color: #fff;\n}\n.btn-secondary{\r\n    background-color: green;\r\n    color:white;\n}\n.btn-secondary:hover{\r\n    background-color: green;\r\n    color:white;\n}\n.canvas{\r\n    border: 1px solid #3c8dbc;\n}\n.btnclear{\r\n\r\n    float: right !important;\r\n    border: 1px solid transparent;\r\n    padding: 6px 12px\n}\n.btnundo{\r\n\r\n     float: right !important;\r\n     border: 1px solid transparent;\r\n     padding: 6px 12px\n}\r\n\r\n\r\n", ""]);
 
 // exports
 
