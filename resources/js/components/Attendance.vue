@@ -14,6 +14,19 @@
           Attendance
         </button>
         </div>
+        <div class="pdf-button">
+         <button
+          type="button"
+          class="btn btn-default pdf "
+          data-toggle="modal"
+          data-target="#new"
+          @click="pdfModal"
+        >
+          <i class="fas fa-file-pdf"></i>
+           PDF
+        </button>
+        </div>
+
 
 
         <div class="table-wrapper">
@@ -76,7 +89,7 @@
         </div>
       </div>
     </div>
-   
+
 
     <!-- Add Attendance Modal -->
     <sweet-modal ref="attendanceModal" overlay-theme="dark">
@@ -158,13 +171,82 @@
       </form>
     </sweet-modal>
     <!-- End Attendance Modal-->
+
+       <!-- PDF Modal -->
+    <sweet-modal ref="pdfModal" overlay-theme="dark">
+      <template slot="title">
+        <h4 class="mt-4" >Generate Pdf</h4>
+
+      </template>
+      <form @submit.prevent="generatePdf()">
+        <div class="form-group">
+          <label for="exampleInputEmail1">User</label>
+          <select
+            v-model="form.user_id"
+            name="user_id"
+            :disabled="edit"
+            required
+            class="form-control"
+            :class="{ 'is-invalid': form.errors.has('user_id') }"
+          >
+            <has-error :form="form" field="user_id"></has-error>>
+            <option value>Select User</option>
+            <option
+              v-for="user in users"
+              :key="user.id"
+              v-bind:value="user.id"
+            >{{user.employeeName}}</option>
+          </select>
+        </div>
+
+        <div class="form-group" >
+          <label for="exampleInputEmail1">From Date</label>
+         <datepicker
+         name="fromdate"
+         v-model="fromdate"></datepicker>
+        </div>
+        <div class="form-group" >
+          <label for="exampleInputEmail1">To Date</label>
+         <datepicker
+         name="todate"
+         v-model="todate"></datepicker>
+        </div>
+        <div class="form-group">
+        <label>Signature</label>
+        <vueSignature ref="signature" :sigOption="option" :w="'100%'" :h="'300px'" :disabled="disabled" :defaultUrl="dataUrl"></vueSignature>
+
+          <!-- <button @click="save">Save</button>-->
+		<button  @click="clear">Clear</button>
+		<button  @click="undo" >Undo</button>
+		<!--<button @click="addWaterMark">addWaterMark</button> -->
+         <!-- <button @click="handleDisabled">disabled</button>  -->
+
+        </div>
+
+
+        <button  type="submit" class="btn btn-secondary">
+          <i class="fas fa-file-pdf"></i>
+          Generate</button>
+
+      </form>
+    </sweet-modal>
+    <!-- End PDF Modal-->
   </div>
 </template>
 
 <script>
 export default {
+
   data() {
     return {
+       //Signature
+       option:{
+				penColor:"rgb(0, 0, 0)",
+				backgroundColor:"rgb(255,255,255)"
+			},
+			disabled:false,
+			dataUrl:"https://avatars2.githubusercontent.com/u/17644818?s=460&v=4",
+       //End signature
       edit: false,
       attendance: {},
       users: {},
@@ -178,6 +260,9 @@ export default {
         lunchout: "",
         date: ""
       }),
+      fromdate:'',
+      todate:'',
+
       pagination: ""
     };
   },
@@ -201,6 +286,11 @@ export default {
       this.edit = false;
       this.form.reset();
       this.$refs.attendanceModal.open();
+    },
+     pdfModal() {
+      this.edit = false;
+      this.form.reset();
+      this.$refs.pdfModal.open();
     },
     showUsers() {
       this.form.get("api/getusers").then(res => {
@@ -324,7 +414,48 @@ export default {
           });
         }
       });
-    }
+    },
+    //Signature Methods
+    	save(){
+			var _this = this;
+			var png = _this.$refs.signature.save()
+			var jpeg = _this.$refs.signature.save('image/jpeg')
+			var svg = _this.$refs.signature.save('image/svg+xml');
+			console.log(png);
+			console.log(jpeg)
+			console.log(svg)
+		},
+		clear(){
+			var _this = this;
+			_this.$refs.signature.clear();
+		},
+		undo(){
+			var _this = this;
+			_this.$refs.signature.undo();
+		},
+		addWaterMark(){
+			var _this = this;
+			_this.$refs.signature.addWaterMark({
+				text:"mark text",          // watermark text, > default ''
+				font:"20px Arial",         // mark font, > default '20px sans-serif'
+				style:'all',               // fillText and strokeText,  'all'/'stroke'/'fill', > default 'fill
+				fillStyle:"red",           // fillcolor, > default '#333'
+				strokeStyle:"blue",	   // strokecolor, > default '#333'
+				x:100,                     // fill positionX, > default 20
+				y:200,                     // fill positionY, > default 20
+				sx:100,                    // stroke positionX, > default 40
+				sy:200                     // stroke positionY, > default 40
+			});
+		},
+		fromDataURL(url){
+			var _this = this;
+			_this.$refs.signature.fromDataURL("data:image/png;base64,iVBORw0K...");
+		},
+		handleDisabled(){
+			var _this = this;
+			_this.disabled  = !_this.disabled
+		}
+    //end signature methods
   },
   mounted() {
     console.log("Component mounted.");
@@ -356,8 +487,6 @@ export default {
   color: white !important;
   background-color: #3c8dbc !important;
   width: 100px !important;
- 
-  
 }
 
 .clock-picker__input {
@@ -392,7 +521,56 @@ export default {
   position: absolute;
   top:30px;
   box-sizing: border-box;
+}
+.pdf-button{
+  position: absolute;
+  right:90px;
+  top:30px;
+}
+.pdf{
+   color: white !important;
+  background-color: #DBB900  !important;
+  width: 100px !important;
 
 }
+.vdp-datepicker{
+    position: relative !important;
+    text-align: left !important;
+}
+.vdp-datepicker input[type='text']{
+    width:100%;
+    padding: 6px 12px;
+    display: block;
+    height: 34px;
+    border: 1px solid #ccc;
+    color: #555;
+    background-color: #fff;
+
+}
+.btn-secondary{
+    background-color: green;
+    color:white;
+}
+.btn-secondary:hover{
+    background-color: green;
+    color:white;
+
+}
+.canvas{
+    border: 1px solid #3c8dbc;
+}
+.btnclear{
+
+    float: right !important;
+    border: 1px solid transparent;
+    padding: 6px 12px
+}
+.btnundo{
+
+     float: right !important;
+     border: 1px solid transparent;
+     padding: 6px 12px
+}
+
 
 </style>

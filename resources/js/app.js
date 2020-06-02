@@ -13,6 +13,10 @@ import VueRouter from 'vue-router'
 import { Form, HasError, AlertError } from 'vform'
 import '@pencilpix/vue2-clock-picker/dist/vue2-clock-picker.min.css';
 import Swal from 'sweetalert2';
+import Datepicker from 'vuejs-datepicker';
+Vue.component('datepicker', Datepicker);
+import vueSignature from "vue-signature"
+Vue.use(vueSignature)
 window.Swal = Swal;
 window.Toast = Toast;
 window.Form = Form;
