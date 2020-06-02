@@ -146,12 +146,17 @@ class AttendanceController extends Controller
     public function pdf(Request $request){
         set_time_limit(300);
         $user_id=$request->userid;
-        $from_date=$request->fromdate;
-        $to_date=$request->todate;
-        $data = User::all();
-        // Send data to the view using loadView function of PDF facade
+        $from_date=Carbon::parse($request->fromdate)->format('Y-M-D');
+        $to_date=Carbon::parse($request->todate)->format('Y-M-D');
+        $data=Attendance::all();
+        // $attendance=Attendance::where('user_id',$user_id)->whereDate('created_at', '>=', $from_date)
+        // ->whereDate('created_at', '<=',$to_date)
+        // ->get();
+
         $pdf = PDF::loadView('pdf', $data);
-        return $pdf->download('attendance.pdf');
+        return $pdf->download('att.pdf');
+
+
 
     }
 }
