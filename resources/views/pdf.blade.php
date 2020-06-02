@@ -49,7 +49,7 @@
                         <div class="col-md-10 mx-auto">
                           <div class="row mt-5">
                             <div class="col-md-4">
-                              <h6>Name: ________________________</h6>
+                              <h6>Name: _______________________</h6>
                             </div>
   
                             <div class="col-md-4">
