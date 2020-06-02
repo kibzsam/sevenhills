@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use PDF;
 use App\User;
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
 use App\Http\Resources\Attendance as AttendanceResource;
@@ -140,6 +141,17 @@ class AttendanceController extends Controller
     public function deleteattendance($id){
         $attendance=Attendance::findOrFail($id);
         $attendance->delete();
+
+    }
+    public function pdf(Request $request){
+        set_time_limit(300);
+        $user_id=$request->userid;
+        $from_date=$request->fromdate;
+        $to_date=$request->todate;
+        $data = User::all();
+        // Send data to the view using loadView function of PDF facade
+        $pdf = PDF::loadView('pdf', $data);
+        return $pdf->download('attendance.pdf');
 
     }
 }

@@ -17,6 +17,10 @@ import Datepicker from 'vuejs-datepicker';
 Vue.component('datepicker', Datepicker);
 import vueSignature from "vue-signature"
 Vue.use(vueSignature)
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
+Vue.use(VueAxios, axios)
 window.Swal = Swal;
 window.Toast = Toast;
 window.Form = Form;

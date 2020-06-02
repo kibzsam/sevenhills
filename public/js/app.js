@@ -1973,7 +1973,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1989,6 +1988,7 @@ __webpack_require__.r(__webpack_exports__);
       attendance: {},
       users: {},
       hours: "",
+      userid: '',
       form: new Form({
         id: "",
         user_id: "",
@@ -2020,6 +2020,16 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
+    generatePdf: function generatePdf() {
+      var data = {
+        fromdate: this.fromdate,
+        todate: this.todate,
+        userid: this.userid
+      };
+      this.axios.post('api/pdf', data).then(function (response) {
+        console.log(response);
+      });
+    },
     displayModal: function displayModal() {
       this.edit = false;
       this.form.reset();
@@ -6836,7 +6846,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 exports.push([module.i, "@import url(https://use.fontawesome.com/releases/v5.6.3/css/all.css);", ""]);
 
 // module
-exports.push([module.i, "\n.container {\r\n  width: 100% !important;\n}\n#btn {\r\n  margin-bottom: 30px;\r\n  color: white !important;\r\n  background-color: #dbb900 !important;\n}\n.form-inline {\r\n  margin-bottom: -40px;\r\n  margin-top: 30px;\n}\n#modal {\r\n  max-width: 50% !important;\n}\n.cbutton {\r\n  color: white !important;\r\n  background-color: #3c8dbc !important;\r\n  width: 100px !important;\n}\n.clock-picker__input {\r\n  /* border: 1px solid rgb(230, 215, 215); */\r\n  width: 100% !important;\r\n  padding: 7px 12px;\r\n  margin: 10px 5px;\n}\n.clock-picker__dialog-header {\r\n  background-color: #dbb900 !important;\n}\n.clock-picker__dialog-action {\r\n  color: #dbb900 !important  ;\n}\n.row {\r\n  margin-top: 20px;\n}\n.table-wrapper{\r\n  overflow-x: auto;\r\n  position: absolute;\r\n  top: 90px;\r\n  width: 95% !important;\r\n  box-sizing: border-box;\n}\n.col-md-12{\r\n  position: relative;\n}\n.modal-button{\r\n  position: absolute;\r\n  top:30px;\r\n  box-sizing: border-box;\n}\n.pdf-button{\r\n  position: absolute;\r\n  right:90px;\r\n  top:30px;\n}\n.pdf{\r\n   color: white !important;\r\n  background-color: #DBB900  !important;\r\n  width: 100px !important;\n}\n.vdp-datepicker{\r\n    position: relative !important;\r\n    text-align: left !important;\n}\n.vdp-datepicker input[type='text']{\r\n    width:100%;\r\n    padding: 6px 12px;\r\n    display: block;\r\n    height: 34px;\r\n    border: 1px solid #ccc;\r\n    color: #555;\r\n    background-color: #fff;\n}\n.btn-secondary{\r\n    background-color: green;\r\n    color:white;\n}\n.btn-secondary:hover{\r\n    background-color: green;\r\n    color:white;\n}\n.canvas{\r\n    border: 1px solid #3c8dbc;\n}\n.btnclear{\r\n\r\n    float: right !important;\r\n    border: 1px solid transparent;\r\n    padding: 6px 12px\n}\n.btnundo{\r\n\r\n     float: right !important;\r\n     border: 1px solid transparent;\r\n     padding: 6px 12px\n}\r\n\r\n\r\n", ""]);
+exports.push([module.i, "\n.container {\n  width: 100% !important;\n}\n#btn {\n  margin-bottom: 30px;\n  color: white !important;\n  background-color: #dbb900 !important;\n}\n.form-inline {\n  margin-bottom: -40px;\n  margin-top: 30px;\n}\n#modal {\n  max-width: 50% !important;\n}\n.cbutton {\n  color: white !important;\n  background-color: #3c8dbc !important;\n  width: 100px !important;\n}\n.clock-picker__input {\n  /* border: 1px solid rgb(230, 215, 215); */\n  width: 100% !important;\n  padding: 7px 12px;\n  margin: 10px 5px;\n}\n.clock-picker__dialog-header {\n  background-color: #dbb900 !important;\n}\n.clock-picker__dialog-action {\n  color: #dbb900 !important  ;\n}\n.row {\n  margin-top: 20px;\n}\n.table-wrapper{\n  overflow-x: auto;\n  position: absolute;\n  top: 90px;\n  width: 95% !important;\n  box-sizing: border-box;\n}\n.col-md-12{\n  position: relative;\n}\n.modal-button{\n  position: absolute;\n  top:30px;\n  box-sizing: border-box;\n}\n.pdf-button{\n  position: absolute;\n  right:90px;\n  top:30px;\n}\n.pdf{\n   color: white !important;\n  background-color: #DBB900  !important;\n  width: 100px !important;\n}\n.vdp-datepicker{\n    position: relative !important;\n    text-align: left !important;\n}\n.vdp-datepicker input[type='text']{\n    width:100%;\n    padding: 6px 12px;\n    display: block;\n    height: 34px;\n    border: 1px solid #ccc;\n    color: #555;\n    background-color: #fff;\n}\n.btn-secondary{\n    background-color: green;\n    color:white;\n}\n.btn-secondary:hover{\n    background-color: green;\n    color:white;\n}\n.canvas{\n    border: 1px solid #3c8dbc;\n}\n.btnclear{\n\n    float: right !important;\n    border: 1px solid transparent;\n    padding: 6px 12px\n}\n.btnundo{\n\n     float: right !important;\n     border: 1px solid transparent;\n     padding: 6px 12px\n}\n\n\n", ""]);
 
 // exports
 
@@ -42974,6 +42984,19 @@ AlertSuccess_component.options.__file = "AlertSuccess.vue"
 
 /***/ }),
 
+/***/ "./node_modules/vue-axios/dist/vue-axios.min.js":
+/*!******************************************************!*\
+  !*** ./node_modules/vue-axios/dist/vue-axios.min.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(o){return typeof o}:function(o){return o&&"function"==typeof Symbol&&o.constructor===Symbol&&o!==Symbol.prototype?"symbol":typeof o};!function(){function o(e,t){if(!o.installed){if(o.installed=!0,!t)return void console.error("You have to install axios");e.axios=t,Object.defineProperties(e.prototype,{axios:{get:function(){return t}},$http:{get:function(){return t}}})}}"object"==( false?undefined:_typeof(exports))?module.exports=o: true?!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function(){return o}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):undefined}();
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/index.js?!./node_modules/sweet-modal-vue/src/components/SweetModal.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib??vue-loader-options!./node_modules/sweet-modal-vue/src/components/SweetModal.vue?vue&type=script&lang=js& ***!
@@ -44228,159 +44251,151 @@ var render = function() {
             _c("h4", { staticClass: "mt-4" }, [_vm._v("Generate Pdf")])
           ]),
           _vm._v(" "),
-          _c(
-            "form",
-            {
-              on: {
-                submit: function($event) {
-                  $event.preventDefault()
-                  return _vm.generatePdf()
-                }
-              }
-            },
-            [
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-                  _vm._v("User")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.form.user_id,
-                        expression: "form.user_id"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    class: { "is-invalid": _vm.form.errors.has("user_id") },
-                    attrs: {
-                      name: "user_id",
-                      disabled: _vm.edit,
-                      required: ""
-                    },
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          _vm.form,
-                          "user_id",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      }
-                    }
-                  },
-                  [
-                    _c("has-error", {
-                      attrs: { form: _vm.form, field: "user_id" }
-                    }),
-                    _vm._v(">\n            "),
-                    _c("option", { attrs: { value: "" } }, [
-                      _vm._v("Select User")
-                    ]),
-                    _vm._v(" "),
-                    _vm._l(_vm.users, function(user) {
-                      return _c(
-                        "option",
-                        { key: user.id, domProps: { value: user.id } },
-                        [_vm._v(_vm._s(user.employeeName))]
-                      )
-                    })
-                  ],
-                  2
-                )
+          _c("form", [
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("User")
               ]),
               _vm._v(" "),
               _c(
-                "div",
-                { staticClass: "form-group" },
-                [
-                  _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-                    _vm._v("From Date")
-                  ]),
-                  _vm._v(" "),
-                  _c("datepicker", {
-                    attrs: { name: "fromdate" },
-                    model: {
-                      value: _vm.fromdate,
-                      callback: function($$v) {
-                        _vm.fromdate = $$v
-                      },
-                      expression: "fromdate"
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.userid,
+                      expression: "userid"
                     }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "form-group" },
-                [
-                  _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-                    _vm._v("To Date")
-                  ]),
-                  _vm._v(" "),
-                  _c("datepicker", {
-                    attrs: { name: "todate" },
-                    model: {
-                      value: _vm.todate,
-                      callback: function($$v) {
-                        _vm.todate = $$v
-                      },
-                      expression: "todate"
+                  ],
+                  staticClass: "form-control",
+                  class: { "is-invalid": _vm.form.errors.has("userid") },
+                  attrs: { name: "user_id", required: "" },
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.userid = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
                     }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "form-group" },
+                  }
+                },
                 [
-                  _c("label", [_vm._v("Signature")]),
-                  _vm._v(" "),
-                  _c("vueSignature", {
-                    ref: "signature",
-                    attrs: {
-                      sigOption: _vm.option,
-                      w: "100%",
-                      h: "300px",
-                      disabled: _vm.disabled,
-                      defaultUrl: _vm.dataUrl
-                    }
+                  _c("has-error", {
+                    attrs: { form: _vm.form, field: "user_id" }
                   }),
+                  _vm._v(">\n            "),
+                  _c("option", { attrs: { value: "" } }, [
+                    _vm._v("Select User")
+                  ]),
                   _vm._v(" "),
-                  _c("button", { on: { click: _vm.clear } }, [_vm._v("Clear")]),
-                  _vm._v(" "),
-                  _c("button", { on: { click: _vm.undo } }, [_vm._v("Undo")])
+                  _vm._l(_vm.users, function(user) {
+                    return _c(
+                      "option",
+                      { key: user.id, domProps: { value: user.id } },
+                      [_vm._v(_vm._s(user.employeeName))]
+                    )
+                  })
                 ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                { staticClass: "btn btn-secondary", attrs: { type: "submit" } },
-                [
-                  _c("i", { staticClass: "fas fa-file-pdf" }),
-                  _vm._v("\n          Generate")
-                ]
+                2
               )
-            ]
-          )
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "form-group" },
+              [
+                _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                  _vm._v("From Date")
+                ]),
+                _vm._v(" "),
+                _c("datepicker", {
+                  attrs: { name: "fromdate" },
+                  model: {
+                    value: _vm.fromdate,
+                    callback: function($$v) {
+                      _vm.fromdate = $$v
+                    },
+                    expression: "fromdate"
+                  }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "form-group" },
+              [
+                _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                  _vm._v("To Date")
+                ]),
+                _vm._v(" "),
+                _c("datepicker", {
+                  attrs: { name: "todate" },
+                  model: {
+                    value: _vm.todate,
+                    callback: function($$v) {
+                      _vm.todate = $$v
+                    },
+                    expression: "todate"
+                  }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "form-group" },
+              [
+                _c("label", [_vm._v("Signature")]),
+                _vm._v(" "),
+                _c("vueSignature", {
+                  ref: "signature",
+                  attrs: {
+                    sigOption: _vm.option,
+                    w: "100%",
+                    h: "300px",
+                    disabled: _vm.disabled,
+                    defaultUrl: _vm.dataUrl
+                  }
+                }),
+                _vm._v(" "),
+                _c("button", { on: { click: _vm.save } }, [_vm._v("Save")]),
+                _vm._v(" "),
+                _c("button", { on: { click: _vm.clear } }, [_vm._v("Clear")]),
+                _vm._v(" "),
+                _c("button", { on: { click: _vm.undo } }, [_vm._v("Undo")])
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-secondary",
+                attrs: { type: "submit" },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.generatePdf($event)
+                  }
+                }
+              },
+              [
+                _c("i", { staticClass: "fas fa-file-pdf" }),
+                _vm._v("\n          Generate")
+              ]
+            )
+          ])
         ],
         2
       )
@@ -62088,7 +62103,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuejs_datepicker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuejs-datepicker */ "./node_modules/vuejs-datepicker/dist/vuejs-datepicker.esm.js");
 /* harmony import */ var vue_signature__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-signature */ "./node_modules/vue-signature/dist/vue-signature.js");
 /* harmony import */ var vue_signature__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue_signature__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var sweet_modal_vue_src_plugin_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! sweet-modal-vue/src/plugin.js */ "./node_modules/sweet-modal-vue/src/plugin.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vue-axios */ "./node_modules/vue-axios/dist/vue-axios.min.js");
+/* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(vue_axios__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var sweet_modal_vue_src_plugin_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! sweet-modal-vue/src/plugin.js */ "./node_modules/sweet-modal-vue/src/plugin.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -62105,6 +62124,9 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 Vue.component('datepicker', vuejs_datepicker__WEBPACK_IMPORTED_MODULE_4__["default"]);
 
 Vue.use(vue_signature__WEBPACK_IMPORTED_MODULE_5___default.a);
+
+
+Vue.use(vue_axios__WEBPACK_IMPORTED_MODULE_7___default.a, axios__WEBPACK_IMPORTED_MODULE_6___default.a);
 window.Swal = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a;
 window.Toast = Toast;
 window.Form = vform__WEBPACK_IMPORTED_MODULE_1__["Form"];
@@ -62125,7 +62147,7 @@ var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.mixin({
   timer: 3000
 });
 
-Vue.use(sweet_modal_vue_src_plugin_js__WEBPACK_IMPORTED_MODULE_6__["default"]);
+Vue.use(sweet_modal_vue_src_plugin_js__WEBPACK_IMPORTED_MODULE_8__["default"]);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

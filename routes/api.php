@@ -21,3 +21,4 @@ Route::get('getattendance','AttendanceController@getattendance');
 Route::post('saveattendance','AttendanceController@saveattendance');
 Route::delete('deleteattendance/{id}','AttendanceController@deleteattendance');
 Route::put('updateattendance/{id}','AttendanceController@updateattendance');
+Route::post('pdf','AttendanceController@pdf');

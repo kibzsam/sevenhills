@@ -178,16 +178,15 @@
         <h4 class="mt-4" >Generate Pdf</h4>
 
       </template>
-      <form @submit.prevent="generatePdf()">
+      <form>
         <div class="form-group">
           <label for="exampleInputEmail1">User</label>
           <select
-            v-model="form.user_id"
+            v-model="userid"
             name="user_id"
-            :disabled="edit"
             required
             class="form-control"
-            :class="{ 'is-invalid': form.errors.has('user_id') }"
+            :class="{ 'is-invalid': form.errors.has('userid') }"
           >
             <has-error :form="form" field="user_id"></has-error>>
             <option value>Select User</option>
@@ -215,7 +214,7 @@
         <label>Signature</label>
         <vueSignature ref="signature" :sigOption="option" :w="'100%'" :h="'300px'" :disabled="disabled" :defaultUrl="dataUrl"></vueSignature>
 
-          <!-- <button @click="save">Save</button>-->
+        <button @click="save">Save</button>
 		<button  @click="clear">Clear</button>
 		<button  @click="undo" >Undo</button>
 		<!--<button @click="addWaterMark">addWaterMark</button> -->
@@ -224,7 +223,7 @@
         </div>
 
 
-        <button  type="submit" class="btn btn-secondary">
+        <button  type="submit" class="btn btn-secondary" @click.prevent="generatePdf">
           <i class="fas fa-file-pdf"></i>
           Generate</button>
 
@@ -251,6 +250,7 @@ export default {
       attendance: {},
       users: {},
       hours: "",
+      userid:'',
       form: new Form({
         id: "",
         user_id: "",
@@ -282,6 +282,18 @@ export default {
     });
   },
   methods: {
+    generatePdf(){
+        let data={
+            fromdate:this.fromdate,
+            todate:this.todate,
+            userid:this.userid
+        }
+        this.axios.post('api/pdf',data)
+        .then((response)=>{
+            console.log(response)
+
+        })
+    },
     displayModal() {
       this.edit = false;
       this.form.reset();
@@ -345,7 +357,7 @@ export default {
         confirmButtonText: "Yes, Save Attendance!"
       }).then(result => {
         if (result.value) {
-          
+
           // Swal.fire("Deleted!", "Your file has been deleted.", "success");
           this.form
           .post("api/saveattendance")
