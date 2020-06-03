@@ -173,7 +173,7 @@
     <!-- End Attendance Modal-->
 
        <!-- PDF Modal -->
-    <sweet-modal ref="pdfModal" overlay-theme="dark">
+    <sweet-modal ref="pdfModal" overlay-theme="dark" >
       <template slot="title">
         <h4 class="mt-4" >Generate Pdf</h4>
 
@@ -212,7 +212,7 @@
         </div>
         <div class="form-group">
         <label>Signature</label>
-        <vueSignature ref="signature" :sigOption="option" :w="'100%'" :h="'300px'" :disabled="disabled" :defaultUrl="dataUrl"></vueSignature>
+        <vueSignature ref="signature" :sigOption="option" :w="'800px'" :h="'400px'" :disabled="disabled" :defaultUrl="dataUrl"></vueSignature>
 
         <button @click="save">Save</button>
 		<button  @click="clear">Clear</button>
@@ -246,6 +246,7 @@ export default {
 			disabled:false,
 			dataUrl:"https://avatars2.githubusercontent.com/u/17644818?s=460&v=4",
        //End signature
+       load:false,
       edit: false,
       attendance: {},
       users: {},
@@ -283,10 +284,12 @@ export default {
   },
   methods: {
     generatePdf(){
+			
         let data={
             fromdate:this.fromdate,
             todate:this.todate,
-            userid:this.userid
+            userid:this.userid,
+            jpeg : this.$refs.signature.save()
         }
         this.axios.post('api/pdf',data)
         .then((response)=>{
@@ -300,9 +303,10 @@ export default {
       this.$refs.attendanceModal.open();
     },
      pdfModal() {
-      this.edit = false;
-      this.form.reset();
+
+    //    this.load=true;  
       this.$refs.pdfModal.open();
+    //   this.$refs.signature.clearOnResize
     },
     showUsers() {
       this.form.get("api/getusers").then(res => {

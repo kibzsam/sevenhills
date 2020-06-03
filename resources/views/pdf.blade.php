@@ -21,29 +21,9 @@
   </style>
 </head>
 
-<<<<<<< HEAD
-<body >
-  <table>
-    <tr>
-      <th>Firstname</th>
-      <th>Lastname</th>
-      <th>Age</th>
-    </tr>
-    <tr>
-      <td>Jill</td>
-      <td>Smith</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <td>Eve</td>
-      <td>Jackson</td>
-      <td>94</td>
-    </tr>
-  </table>
-=======
 <body>
     <div class="container">
-      
+
       <div class="pdf-section">
         <div class="col-md-12 mt-5">
           <div class="row">
@@ -69,15 +49,15 @@
                         <div class="col-md-10 mx-auto">
                           <div class="row mt-5">
                             <div class="col-md-4">
-                              <h6>Name: _______________________</h6>
+                              <h6>Name: ______{{ $user->employeeName }}_________________</h6>
                             </div>
-  
+
                             <div class="col-md-4">
-                              <h6>Employee ID: ________________</h6>
+                              <h6>Employee ID: _____{{ $user->employeeID }}___________</h6>
                             </div>
-  
+
                             <div class="col-md-4">
-                              <h6>Week Ending: ________________</h6>
+                              <h6>Week Ending: _____{{ $to_date }}___________</h6>
                             </div>
                           </div>
                         </div>
@@ -85,11 +65,11 @@
                         <div class="col-md-10 mx-auto">
                           <div class="row mt-5">
                             <div class="col-md-6">
-                              <h6>Name Of Faculty: _____________________________</h6>
+                              <h6>Name Of Faculty: ________{{ $user->faculty }}_____________________</h6>
                             </div>
-  
+
                             <div class="col-md-6">
-                              <h6>Faculty Location: ______________________________</h6>
+                              <h6>Faculty Location: _______{{ $user->flocation }}_______________________</h6>
                             </div>
                           </div>
                         </div>
@@ -104,23 +84,17 @@
                     </tr>
                   </thead>
                   <tbody>
+                 @foreach($data as $dt)
                     <tr>
-                      <th scope="row">Day 1</th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      {{-- <th scope="row">{{ $dt->created_at->format('d/m/Y') }}</th> --}}
+                      <th scope="row">{{ \Carbon\Carbon::parse($dt->created_at)->format('D jS M Y') }}</th>
+                      <td>{{ $dt->timein }}</td>
+                      <td>{{ $dt->timeout }}</td>
+                      <td>{{ $dt->hours }}</td>
                     </tr>
-                    <tr>
-                      <th scope="row">Day 2</th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Day 3</th>
-                      <td colspan="2"></td>
-                      <td></td>
-                    </tr>
+                    @endforeach
+
+
                   </tbody>
 
                   <tbody>
@@ -130,11 +104,11 @@
                         <div class="col-md-10 mx-auto">
                           <div class="row mt-4">
                             <div class="col-md-6">
-                              <h6>Total Hours Worked: __________________________</h6>
+                              <h6>Total Hours Worked: ______{{ $totalhours }}____________________</h6>
                             </div>
-  
+
                             <div class="col-md-6">
-                              <h6>Employee's Signature: _________________________</h6>
+                              <h6>Employee's Signature: ______________{{ $signature }}___________</h6>
                             </div>
                           </div>
                         </div>
@@ -148,9 +122,9 @@
                             <div class="col-md-6">
                               <h6>Supervisor Signature: _________________________</h6>
                             </div>
-  
+
                             <div class="col-md-6">
-                              <h6>Date: _________________________________</h6>
+                              <h6>Date: ________________________{{ $today }}_________</h6>
                             </div>
                           </div>
                         </div>
@@ -171,7 +145,6 @@
                   </tbody>
                 </table>
               </div>
->>>>>>> 51bea5f927b1aaeaca1b04891ceff0b4efb2408d
 
             </div>
           </div>

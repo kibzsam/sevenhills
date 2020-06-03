@@ -148,13 +148,20 @@ class AttendanceController extends Controller
         $user_id=$request->userid;
         $from_date=Carbon::parse($request->fromdate)->format('Y-M-D');
         $to_date=Carbon::parse($request->todate)->format('Y-M-D');
-        $data=Attendance::all();
+        $raw_image=$request->jpeg;
+        $encoded_image=explode(",",$raw_image)[1];
+        $signature=base64_decode($raw_image);
+        $data=Attendance::where('user_id',$user_id)->get();
+        $totalhours=$data->sum('hours');
+        $user=User::FindOrFail($user_id);
+        $today= Carbon::today()->toDateString();
+
         // $attendance=Attendance::where('user_id',$user_id)->whereDate('created_at', '>=', $from_date)
         // ->whereDate('created_at', '<=',$to_date)
         // ->get();
-
-        $pdf = PDF::loadView('pdf', $data);
-        return $pdf->download('att.pdf');
+        // $pdf = PDF::loadView('pdf', compact('data','totalhours','signature','user','today','to_date'));
+        // return $pdf->download('attend.pdf');
+        return $to_date;
 
 
 
