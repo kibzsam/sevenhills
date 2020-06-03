@@ -28,6 +28,9 @@
         "sweet-modal-vue": "^2.0.0",
         "sweetalert2": "^9.13.1",
         "vform": "^1.0.1",
-        "vue-router": "^3.2.0"
+        "vue-axios": "^2.1.5",
+        "vue-router": "^3.2.0",
+        "vue-signature": "^2.4.4",
+        "vuejs-datepicker": "^1.6.2"
     }
 }
