@@ -10,7 +10,7 @@
 
   <title>PDF</title>
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> --}}
 
   <style>
     .span-list > li {
@@ -70,6 +70,7 @@
 
                             <div class="col-md-6">
                               <h6>Faculty Location: _______{{ $user->flocation }}_______________________</h6>
+                              <img src="{{public_path().'/images/signature/'.$signature }}"/>
                             </div>
                           </div>
                         </div>
@@ -108,7 +109,7 @@
                             </div>
 
                             <div class="col-md-6">
-                              <h6>Employee's Signature: ______________{{ $signature }}___________</h6>
+                              <h6>Employee's Signature: _____________{{ $signature }}___________</h6>
                             </div>
                           </div>
                         </div>
