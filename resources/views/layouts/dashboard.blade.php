@@ -187,11 +187,11 @@
                         <i class="fa fa-calendar"></i> <span>Calendar</span>
                     </a>
                 </li> -->
-                    <li>
+                    {{-- <li>
                         <a href="{{route('fullcalendareventmaster')}}">
                             <i class="fa fa-pie-chart"></i> <span>Employee Attendance</span>
                         </a>
-                    </li>
+                    </li> --}}
                     <li>
                         <router-link to="/attendance" >
                          <i class="fa fa-pie-chart"></i> <span>Take Attendance</span>
