@@ -44,8 +44,8 @@ Route::get('/admin', 'HomeController@index')->name('admin');
 Route::get('/calendar', 'CalendarController@index')->name('calendar');
 Route::get('/applicationForm', 'ApplicationFormController@index')->name('applicationForm');
 
-Route::get('/pdf', function() {
-    return view('pdf');
+Route::get('/pdf-trial', function() {
+    return view('pdf-trial');
 });
 
 //test

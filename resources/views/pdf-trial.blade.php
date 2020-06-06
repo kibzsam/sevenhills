@@ -39,7 +39,7 @@
         }
 
         .pdf-table-container {
-            margin: 10px 10px;
+            margin: 10px 200px;
         }
 
         .time-sheet-title {
@@ -142,7 +142,7 @@
 </head>
 
 <body>
-    <div class="container-custom">
+    <div class="container">
 
         <div class="pdf-section">
             <div class="col-md-12 mt-5">
@@ -171,17 +171,17 @@
                                                 <div class="custom-row row mt-5">
                                                     <div class="column-3 col-md-4">
                                                         <h6 class="table-heading-span">Name: <span
-                                                                class="underline">{{ $user->employeeName }}</span></h6>
+                                                                class="underline">Brian Ireri</span></h6>
                                                     </div>
 
                                                     <div class="column-3 col-md-4">
                                                         <h6 class="table-heading-span">Employee ID: <span
-                                                                class="underline">{{ $user->employeeID }}</span></h6>
+                                                                class="underline">2344444</span></h6>
                                                     </div>
 
                                                     <div class="column-3 col-md-4">
                                                         <h6 class="table-heading-span">Week Ending: <span
-                                                                class="underline">{{ $to_date }}</span></h6>
+                                                                class="underline">Thur 4th June 2020</span></h6>
                                                     </div>
                                                 </div>
                                             </div>
@@ -190,12 +190,12 @@
                                                 <div class="custom-row row mt-5">
                                                     <div class="column-2 col-md-6">
                                                         <h6 class="table-heading-span">Name Of Faculty: <span
-                                                                class="underline">{{ $user->faculty }}</span></h6>
+                                                                class="underline">Business Administration</span></h6>
                                                     </div>
 
                                                     <div class="column-2 col-md-6">
                                                         <h6 class="table-heading-span">Faculty Location: <span
-                                                                class="underline">{{ $user->flocation }}</span></h6>
+                                                                class="underline">Nairobi</span></h6>
                                                     </div>
                                                 </div>
                                             </div>
@@ -210,16 +210,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
-                                    @foreach($data as $dt)
+                                    {{-- @foreach($data as $dt) --}}
                                     <tr>
                                         {{-- <th scope="row">{{ $dt->created_at->format('d/m/Y') }}</th> --}}
-                                        <th scope="row">{{ \Carbon\Carbon::parse($dt->created_at)->format('D jS M Y') }}</th>
-                                        <td>{{ $dt->timein }}</td>
-                                        <td>{{ $dt->timeout }}</td>
-                                        <td>{{ $dt->hours }}</td>
+                                        <th scope="row">Thursday 4th June 2020</th>
+                                        <td>10:00 am</td>
+                                        <td>04: 00pm</td>
+                                        <td>8 hours</td>
                                     </tr>
-                                    @endforeach
+                                    {{-- @endforeach --}}
+
 
                                 </tbody>
 
@@ -231,14 +231,15 @@
                                                 <div class="custom-row row mt-4">
                                                     <div class="column-2 col-md-6">
                                                         <h6 class="table-heading-span">Total Hours Worked: <span
-                                                                class="underline">{{ $totalhours }}</span></h6>
+                                                                class="underline">8 Hours</span></h6>
                                                     </div>
 
                                                     <div class="column-2 col-md-6">
                                                         <h6 class="table-heading-span">Employee's Signature: <span
                                                                 class="underline">
                                                                 <div class="signature-box">
-                                                                    <img class="signature-img" src="{{public_path().'/images/signature/'.$signature }}"/>
+                                                                    {{-- <img class="signature-img" src="{{public_path().'/images/signature/'.$signature }}"/>
+                                                                    --}}
                                                                 </div>
                                                             </span>
                                                         </h6>
@@ -260,7 +261,7 @@
 
                                                     <div class="column-2 col-md-6">
                                                         <h6 class="table-heading-span">Date: <span
-                                                                class="underline">{{ $today }}</span></h6>
+                                                                class="underline">Thursday 4th June 2020</span></h6>
                                                     </div>
                                                 </div>
                                             </div>
