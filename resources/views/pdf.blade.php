@@ -82,9 +82,14 @@
         }
 
         table {
-            border-collapse: collapse;
+            /* border-collapse: collapse; */
+            table-layout:fixed;
             width: 100%;
+            overflow: hidden;
         }
+
+        thead:before, thead:after { display: none; }
+        tbody:before, tbody:after { display: none; }
 
         th,
         td {
@@ -231,7 +236,7 @@
                                                 <div class="custom-row row mt-4">
                                                     <div class="column-2 col-md-6">
                                                         <h6 class="table-heading-span">Total Hours Worked: <span
-                                                                class="underline">{{ $totalhours }}</span></h6>
+                                                                class="underline">{{ $totalhours }} Hours</span></h6>
                                                     </div>
 
                                                     <div class="column-2 col-md-6">
