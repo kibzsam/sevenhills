@@ -14,50 +14,6 @@ use App\Http\Resources\Attendance as AttendanceResource;
 
 class AttendanceController extends Controller
 {
-    //
-    // public function store(Request $request)
-    // {
-    //     $attendance= New Attendance();
-    //     $user=Auth::user();
-    //     $attendance->title=$request->get('title');
-    //     $attendance->start_date=$request->get('startdate');
-    //     $attendance->end_date=$request->get('enddate');
-    //     $attendance->user_id=$user->id;
-    //     $attendance->save();
-    //     return redirect('/dashboard')->with('success', 'Added Successfully');
-    // }
-
-    // public function createEvent()
-    // {
-    //     return view('createevent');
-    // }
-
-    // public function index()
-    // {   $userId=Auth::user()->id;
-    //     $events = [];
-    //     $data = Attendance::where('user_id','==',$userId)->get();
-    //     if($data->count())
-    //     {
-    //         foreach ($data as $key => $value)
-    //         {
-    //             $events[] = Calendar::event(
-    //                 $value->title,
-    //                 true,
-    //                 new \DateTime( $value->start_date),
-    //                 new \DateTime($value->end_date.'+1 day'),
-    //                 null,
-    //                 // Add color
-    //                 [
-    //                     'color' => '#000000',
-    //                     'textColor' => '#008000',
-    //                 ]
-    //             );
-    //         }
-    //     }
-    //     $showAttendance = Calendar::addEvents($events);
-    //     return view('fullcalendar', compact('showAttendance'));
-    // }
-
     public function index()
     {
         if (request()->ajax()) {
