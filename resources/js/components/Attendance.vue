@@ -214,9 +214,9 @@
         <label>Signature</label>
         <vueSignature ref="signature" :sigOption="option" :w="'800px'" :h="'400px'" :disabled="disabled" :defaultUrl="dataUrl"></vueSignature>
 
-        <button @click="save">Save</button>
-		<button  @click="clear">Clear</button>
-		<button  @click="undo" >Undo</button>
+        <!-- <button @click="save">Save</button> -->
+		<button  @click.prevent="clear">Clear</button>
+		<button  @click.prevent="undo" >Undo</button>
 		<!--<button @click="addWaterMark">addWaterMark</button> -->
          <!-- <button @click="handleDisabled">disabled</button>  -->
 
@@ -284,7 +284,7 @@ export default {
   },
   methods: {
     generatePdf(){
-			
+
         let data={
             fromdate:this.fromdate,
             todate:this.todate,
@@ -304,7 +304,7 @@ export default {
     },
      pdfModal() {
 
-    //    this.load=true;  
+    //    this.load=true;
       this.$refs.pdfModal.open();
     //   this.$refs.signature.clearOnResize
     },
