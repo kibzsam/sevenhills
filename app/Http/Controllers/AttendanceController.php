@@ -102,24 +102,22 @@ class AttendanceController extends Controller
     public function pdf(Request $request){
         set_time_limit(300);
         $user_id=$request->userid;
-        $from_date=Carbon::parse($request->fromdate)->format('Y-M-D');
-        $to_date=Carbon::parse($request->todate)->format('Y-M-D');
+        $from_date=Carbon::parse($request->fromdate)->format('Y-m-d');
+        $to_date=Carbon::parse($request->todate)->format('Y-m-d');
         $raw_image=$request->jpeg;
-        $encoded_image=explode(",",$raw_image)[1];
-        $signature=base64_decode($raw_image);
-        $data=Attendance::where('user_id',$user_id)->get();
+        $data=Attendance::where('user_id',$user_id)->whereDate('created_at', '>=', $from_date)
+        ->whereDate('created_at', '<=',$to_date)
+        ->get();
         $totalhours=$data->sum('hours');
         $user=User::FindOrFail($user_id);
         $today= Carbon::today()->toDateString();
-
-        // $attendance=Attendance::where('user_id',$user_id)->whereDate('created_at', '>=', $from_date)
-        // ->whereDate('created_at', '<=',$to_date)
-        // ->get();
-        // $pdf = PDF::loadView('pdf', compact('data','totalhours','signature','user','today','to_date'));
-        // return $pdf->download('attend.pdf');
-        return $to_date;
-
-
+        $image = str_replace('data:image/png;base64,', '', $raw_image);
+        $image = str_replace(' ', '+', $image);
+        $imageName = str_random(10).'.'.'png';
+         \File::put(public_path('/images/signature/') . $imageName, base64_decode($image));
+        $signature=$imageName ;
+        $pdf = PDF::loadView('pdf', compact('data','totalhours','signature','user','today','to_date'));
+        return $pdf->download('attend.pdf');
 
     }
 }

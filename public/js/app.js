@@ -2060,7 +2060,7 @@ __webpack_require__.r(__webpack_exports__);
       this.$refs.attendanceModal.open();
     },
     pdfModal: function pdfModal() {
-      //    this.load=true;  
+      //    this.load=true;
       this.$refs.pdfModal.open(); //   this.$refs.signature.clearOnResize
     },
     showUsers: function showUsers() {
@@ -44305,11 +44305,31 @@ var render = function() {
                   }
                 }),
                 _vm._v(" "),
-                _c("button", { on: { click: _vm.save } }, [_vm._v("Save")]),
+                _c(
+                  "button",
+                  {
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.clear($event)
+                      }
+                    }
+                  },
+                  [_vm._v("Clear")]
+                ),
                 _vm._v(" "),
-                _c("button", { on: { click: _vm.clear } }, [_vm._v("Clear")]),
-                _vm._v(" "),
-                _c("button", { on: { click: _vm.undo } }, [_vm._v("Undo")])
+                _c(
+                  "button",
+                  {
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.undo($event)
+                      }
+                    }
+                  },
+                  [_vm._v("Undo")]
+                )
               ],
               1
             ),
