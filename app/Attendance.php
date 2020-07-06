@@ -12,11 +12,17 @@ class Attendance extends Model
     //
     protected $appends = ['hours'];
     protected $fillable = [
-    'user_id','timein','timeout','lunchin','lunchout'
+    'user_id', 'hospital_id', 'timein','timeout','lunchin','lunchout'
     ];
+
     public function user(){
         return $this->belongsTo('App\User');
     }
+
+    public function hospital() {
+        return $this->hasOne('App/Hospital');
+    }
+
     public function getHoursAttribute()
     {
 

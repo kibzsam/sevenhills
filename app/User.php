@@ -42,4 +42,8 @@ class User extends Authenticatable
     public function attendances(){
         return $this->hasMany('App\Attendance');
     }
+
+    public function hospital() {
+        return $this->belongsTo('App/Hospital');
+    }
 }

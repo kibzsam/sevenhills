@@ -119,6 +119,26 @@
         </div>
 
         <div class="form-group">
+          <label for="exampleInputEmail1">Hospital</label>
+          <select
+            v-model="form.hospital_id"
+            name="hospital_id"
+            :disabled="edit"
+            required
+            class="form-control"
+            :class="{ 'is-invalid': form.errors.has('hospital_id') }"
+          >
+            <has-error :form="form" field="hospital_id"></has-error>>
+            <option value>Select Hospital</option>
+            <option
+              v-for="hospital in hospitals"
+              :key="hospital.id"
+              v-bind:value="hospital.id"
+            >{{hospital.name}}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
           <label for="exampleInputEmail1">Time-in</label>
           <vue-clock-picker
             :class="{ 'is-invalid': form.errors.has('timein') }"
@@ -250,11 +270,13 @@ export default {
       edit: false,
       attendance: {},
       users: {},
+      hospitals: [],
       hours: "",
       userid:'',
       form: new Form({
         id: "",
         user_id: "",
+        hospital_id: "",
         timein: "",
         timeout: "",
         lunchin: "",
@@ -277,6 +299,7 @@ export default {
 
     this.showUsers();
     this.getAttendance();
+    this.getHospitals();
 
     P.$on("success", () => {
       this.getAttendance();
@@ -312,6 +335,15 @@ export default {
       this.form.get("api/getusers").then(res => {
         this.users = res.data;
       });
+    },
+    getHospitals() {
+      axios.get("api/get-all-hospitals")
+          .then(response => {
+            this.hospitals = response.data
+          })
+          .catch((error) => {
+            console.log(error)
+          })
     },
     date() {
       this.form.post("api/date").then(response => {
