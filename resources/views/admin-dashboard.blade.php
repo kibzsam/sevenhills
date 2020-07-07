@@ -46,7 +46,7 @@
                     <td>{{$record->user->employeeID}}</td>
                     <td>{{$record->user->employeeName}}</td>
                     <td>{{$record->hospital->name}}</td>
-                    <td>--Hours--</td>
+                    <td>{{$record->hours}}</td>
                   </tr>
 
                   @endforeach()
