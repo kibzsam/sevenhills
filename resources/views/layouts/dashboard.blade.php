@@ -27,7 +27,7 @@
     <!-- Morris chart -->
     <link rel="stylesheet" href="{{ asset('public/bower_components/morris.js/morris.css') }}">
     <!-- jvectormap -->
-    <link rel="stylesheet" href="{{ asset('public/bower_components/jvectormap/jquery-jvectormap.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('public/bower_components/jvectormap/jquery-jvectormap.css') }}"> --}}
     <!-- Date Picker -->
     <link rel="stylesheet"
         href="{{ asset('public/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}">
@@ -42,22 +42,32 @@
 
     <link rel="stylesheet" href="{{ asset('public/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
 
-     {{-- <link href="{{asset('css/app.css')}}" rel="stylesheet"> --}}
+    {{-- <link href="{{asset('css/app.css')}}" rel="stylesheet"> --}}
+
+
+    <!-- Data-Table Plugin-->
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('assets/datatables/media/css/dataTables.bootstrap4.min.css') }}">
+
+    @yield('stylesheets')
 
     <!-- Google Font -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css"
         rel="stylesheet">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini" >
+<body class="hold-transition skin-blue sidebar-mini">
+
+    @php
+    $user = Auth::user()
+    @endphp
+
     <div class="wrapper" id="app">
         <header class="main-header">
             <!-- Logo -->
@@ -187,29 +197,42 @@
                         <i class="fa fa-calendar"></i> <span>Calendar</span>
                     </a>
                 </li> -->
+<<<<<<< HEAD
                 //Roles Filter
                 @can('isEmployee')
                     <li>
+=======
+                    {{-- <li>
+>>>>>>> a08c79c61f9af88494edfbc9ac60f49511659e73
                         <a href="{{route('fullcalendareventmaster')}}">
-                            <i class="fa fa-pie-chart"></i> <span>Employee Attendance</span>
-                        </a>
-                    </li>
+                    <i class="fa fa-pie-chart"></i> <span>Employee Attendance</span>
+                    </a>
+                    </li> --}}
                     <li>
-                        <router-link to="/attendance" >
-                         <i class="fa fa-pie-chart"></i> <span>Take Attendance</span>
+                        <router-link to="/attendance">
+                            <i class="fa fa-hourglass"></i> <span>Take Attendance</span>
                         </router-link>
 
                     </li>
                     @endcan
                     @can('isAdmin')
                     <li>
-                        <router-link to="/attendance-pdf" >
-                            <i class="far fa-file-pdf"></i> <span>Report</span>
+                        <router-link to="/attendance-pdf">
+                            <i class="fa fa-file-pdf-o"></i> <span>PDF Report</span>
                         </router-link>
 
                     </li>
+<<<<<<< HEAD
                     @endcan
 
+=======
+                    <li>
+                        <a href="{{ route('admin-dashboard') }}">
+                            <i class="fa fa-user"></i> <span>Admin</span>
+                        </a>
+
+                    </li>
+>>>>>>> a08c79c61f9af88494edfbc9ac60f49511659e73
 
                 </ul>
             </section>
@@ -394,11 +417,25 @@
     <!-- ./wrapper -->
 
     <!-- jQuery 3 -->
-    <script src="{{ asset('public/bower_components/jquery/dist/jquery.min.js') }}"></script>
+    {{-- <script src="{{ asset('public/bower_components/jquery/dist/jquery.min.js') }}"></script> --}}
+    <script src="{{ asset('assets/jquery/jquery.min.js') }}"></script>
+
+    <!--Data-Table Plugin -->
+    <script src="{{ asset('assets/datatables/media/js/jquery.dataTables.min.js') }}" defer></script>
+    <script src="{{ asset('assets/datatables/media/js/dataTables.bootstrap4.min.js') }}" defer></script>
+    <script src="{{ asset('assets/datatables-fixedcolumns/js/dataTables.fixedColumns.js') }}" defer></script>
+    <script src="{{ asset('assets/datatables-responsive/js/dataTables.responsive.js') }}" defer></script>
+
+    {{-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script> --}}
+    {{-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script> --}}
+
+
     <!-- Bootstrap 3.3.7 -->
     <script src="{{ asset('public/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('public/bower_components/jquery-ui/jquery-ui.min.js') }}"></script>
-    <script src="{{ asset('public/bower_components/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
+    <script src="{{ asset('public/bower_components/jquery-ui/jquery-ui.min.js') }}"></script> --}}
+    {{-- <script src="{{ asset('public/bower_components/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
+
     <!-- FastClick -->
     {{--Morros charts--}}
     <script src="{{ asset('public/bower_components/raphael/raphael.min.js') }}"></script>
@@ -406,31 +443,39 @@
 
     <!-- Sparkline -->
     <script src="{{ asset('public/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js') }}"></script>
+
     <!-- jvectormap -->
     <script src="{{ asset('public/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>
     <script src="{{asset('public/plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
+
     <!-- jQuery Knob Chart -->
     <script src="{{asset('public/bower_components/jquery-knob/dist/jquery.knob.min.js')}}"></script>
+
     <!-- daterangepicker -->
     <script src="{{asset('public/bower_components/moment/min/moment.min.js')}}"></script>
     <script src="{{asset('public/bower_components/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
+
     <!-- datepicker -->
     <script src="{{asset('public/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}">
     </script>
+
     <!-- Bootstrap WYSIHTML5 -->
     <script src="{{asset('public/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
-    <!-- Slimscroll -->
 
+    <!-- Slimscroll -->
     <script src="{{ asset('public/bower_components/fastclick/lib/fastclick.js') }}"></script>
+
     <!-- AdminLTE App -->
     <script src="{{ asset('public/dist/js/adminlte.min.js') }}"></script>
+
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{ asset('public/dist/js/demo.js') }}"></script>
 
-    <!-- fullCalendar -->
+    <!-- FullCalendar -->
     <script src="{{ asset('public/bower_components/moment/moment.js') }}"></script>
     <script src="{{ asset('public/bower_components/fullcalendar/dist/fullcalendar.min.js ') }}"></script>
 
+    @yield('scripts')
 
 </body>
 

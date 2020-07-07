@@ -19,6 +19,11 @@
     <link href="{{ asset('public/css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+
+    @php
+        $user = Auth::user()
+    @endphp
+
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">

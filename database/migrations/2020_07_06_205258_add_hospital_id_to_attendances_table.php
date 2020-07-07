@@ -14,7 +14,7 @@ class AddHospitalIdToAttendancesTable extends Migration
     public function up()
     {
         Schema::table('attendances', function (Blueprint $table) {
-            $table->integer('hospital_id')->after('user_id')->nullable();
+            $table->integer('hospital_id')->after('user_id');
         });
     }
 
