@@ -10,12 +10,23 @@
         background: #ffffff;
         padding: 30px 15px;
     }
+
+    .dataTables_wrapper {
+        padding-bottom: 40px !important;
+    }
+
+    .pr-2 {
+        padding-right: 5px;
+    }
 </style>
 @endsection()
 
 @section('content')
-    <div class="container">
+        <div class="container">
+
         <div class="card">
+            <h3><i class="fa fa-user pr-2"></i> Admin</h3>
+
             <table class="table-card table table-hover nowrap" id="datatable" width="100%">
                 <thead>
                   <tr>
@@ -47,12 +58,9 @@
 @endsection()
 
 @section('scripts')
-
-<script>
-    $(function(){
-        $('#datatable').DataTable({
-            responsive: true
-        });
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#datatable').DataTable();
     });
 </script>
 @endsection()

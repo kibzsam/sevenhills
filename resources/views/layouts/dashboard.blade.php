@@ -405,16 +405,13 @@
 
     <!-- jQuery 3 -->
     {{-- <script src="{{ asset('public/bower_components/jquery/dist/jquery.min.js') }}"></script> --}}
-    {{-- <script src="{{ asset('assets/jquery/jquery.min.js') }}"></script> --}}
-
-    <script src="https://code.jquery.com/jquery-1.12.4.js"
-        integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+    <script src="{{ asset('assets/jquery/jquery.min.js') }}"></script>
 
     <!--Data-Table Plugin -->
-    <script src="{{ asset('assets/datatables/media/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('assets/datatables/media/js/dataTables.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('assets/datatables-fixedcolumns/js/dataTables.fixedColumns.js') }}"></script>
-    <script src="{{ asset('assets/datatables-responsive/js/dataTables.responsive.js') }}"></script>
+    <script src="{{ asset('assets/datatables/media/js/jquery.dataTables.min.js') }}" defer></script>
+    <script src="{{ asset('assets/datatables/media/js/dataTables.bootstrap4.min.js') }}" defer></script>
+    <script src="{{ asset('assets/datatables-fixedcolumns/js/dataTables.fixedColumns.js') }}" defer></script>
+    <script src="{{ asset('assets/datatables-responsive/js/dataTables.responsive.js') }}" defer></script>
 
     {{-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script> --}}
     {{-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -423,8 +420,8 @@
 
     <!-- Bootstrap 3.3.7 -->
     <script src="{{ asset('public/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('public/bower_components/jquery-ui/jquery-ui.min.js') }}"></script>
-    <script src="{{ asset('public/bower_components/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
+    {{-- <script src="{{ asset('public/bower_components/jquery-ui/jquery-ui.min.js') }}"></script> --}}
+    {{-- <script src="{{ asset('public/bower_components/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script> --}}
 
     <!-- FastClick -->
     {{--Morros charts--}}
@@ -432,14 +429,14 @@
     <script src="{{asset('public/bower_components/morris.js/morris.min.js')}}"></script>
 
     <!-- Sparkline -->
-    <script src="{{ asset('public/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js') }}"></script>
+    {{-- <script src="{{ asset('public/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js') }}"></script> --}}
 
     <!-- jvectormap -->
-    <script src="{{ asset('public/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>
-    <script src="{{asset('public/plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
+    {{-- <script src="{{ asset('public/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>
+    <script src="{{asset('public/plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script> --}}
 
     <!-- jQuery Knob Chart -->
-    <script src="{{asset('public/bower_components/jquery-knob/dist/jquery.knob.min.js')}}"></script>
+    {{-- <script src="{{asset('public/bower_components/jquery-knob/dist/jquery.knob.min.js')}}"></script> --}}
 
     <!-- daterangepicker -->
     <script src="{{asset('public/bower_components/moment/min/moment.min.js')}}"></script>
