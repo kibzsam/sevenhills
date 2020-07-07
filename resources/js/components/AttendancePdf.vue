@@ -82,7 +82,12 @@
 </template>
 
 <script>
+import vueSignarture from "vue-signature"
     export default {
+          components:{
+		vueSignarture
+	},
+
         data()
         {
             return{
@@ -106,7 +111,7 @@
             }
 
         },
-          created()
+         created()
         {
          this.showUsers();
 
@@ -128,7 +133,8 @@
             fromdate:this.fromdate,
             todate:this.todate,
             userid:this.userid,
-            jpeg : this.$refs.signature1.save()
+            jpeg : this.$refs.signature1.save(),
+            jpeg1 : this.$refs.signature.save()
         }
         this.axios.post('api/pdf',data)
         .then((response)=>{

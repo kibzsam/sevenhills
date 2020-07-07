@@ -14,6 +14,7 @@
             Attendance
           </button>
         </div>
+        <!--
         <div class="pdf-button">
           <a
           href="/attendance-pdf"
@@ -23,6 +24,7 @@
              PDF Report
           </a>
         </div>
+        -->
 
         <div class="table-wrapper">
           <table class="table table-hover table-dark">
@@ -121,8 +123,8 @@
 
         <div class="form-group">
           <label for="hospitalLabel">Hospital</label>
-          <v-select 
-           label="name" 
+          <v-select
+           label="name"
            :options="hospitals"
            :reduce="name => name.id"
            v-model="form.hospital_id"
@@ -148,7 +150,7 @@
           </vue-clock-picker>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" v-show="edit">
           <label for="exampleInputEmail1">Lunch In</label>
           <vue-clock-picker
             :class="{ 'is-invalid': form.errors.has('lunchin') }"
@@ -160,7 +162,7 @@
           </vue-clock-picker>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" v-show="edit">
           <label for="exampleInputEmail1">Lunch Out</label>
           <vue-clock-picker
             :class="{ 'is-invalid': form.errors.has('lunchout') }"

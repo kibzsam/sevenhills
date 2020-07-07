@@ -202,24 +202,30 @@
                     <i class="fa fa-pie-chart"></i> <span>Employee Attendance</span>
                     </a>
                     </li> --}}
+                    @can('isEmployee')
                     <li>
                         <router-link to="/attendance">
                             <i class="fa fa-hourglass"></i> <span>Take Attendance</span>
                         </router-link>
 
                     </li>
+
+
                     <li>
                         <router-link to="/attendance-pdf">
                             <i class="fa fa-file-pdf-o"></i> <span>PDF Report</span>
                         </router-link>
 
                     </li>
+                    @endcan
+                    @can('isAdmin')
                     <li>
                         <a href="{{ route('admin-dashboard') }}">
                             <i class="fa fa-user"></i> <span>Admin</span>
                         </a>
 
                     </li>
+                    @endcan
 
                 </ul>
             </section>
