@@ -197,42 +197,35 @@
                         <i class="fa fa-calendar"></i> <span>Calendar</span>
                     </a>
                 </li> -->
-<<<<<<< HEAD
-                //Roles Filter
-                @can('isEmployee')
-                    <li>
-=======
                     {{-- <li>
->>>>>>> a08c79c61f9af88494edfbc9ac60f49511659e73
                         <a href="{{route('fullcalendareventmaster')}}">
                     <i class="fa fa-pie-chart"></i> <span>Employee Attendance</span>
                     </a>
                     </li> --}}
+                    @can('isEmployee')
                     <li>
                         <router-link to="/attendance">
                             <i class="fa fa-hourglass"></i> <span>Take Attendance</span>
                         </router-link>
 
                     </li>
-                    @endcan
-                    @can('isAdmin')
+
+
                     <li>
                         <router-link to="/attendance-pdf">
                             <i class="fa fa-file-pdf-o"></i> <span>PDF Report</span>
                         </router-link>
 
                     </li>
-<<<<<<< HEAD
                     @endcan
-
-=======
+                    @can('isAdmin')
                     <li>
                         <a href="{{ route('admin-dashboard') }}">
                             <i class="fa fa-user"></i> <span>Admin</span>
                         </a>
 
                     </li>
->>>>>>> a08c79c61f9af88494edfbc9ac60f49511659e73
+                    @endcan
 
                 </ul>
             </section>
