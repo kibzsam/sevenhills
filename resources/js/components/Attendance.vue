@@ -332,7 +332,7 @@ export default {
         for (var i = 0; i < this.attendance.length; i++) {
           console.log(this.attendance[i].timeout);
           if (this.attendance[i].timeout === "00:00:00") {
-            this.hours = 0;
+            this.hours = 9;
           } else {
             this.hours = this.attendance[i].hours;
           }

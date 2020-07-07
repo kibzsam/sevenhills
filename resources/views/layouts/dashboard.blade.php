@@ -52,7 +52,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
-    <meta name="csrf-token" content="{{ csrf_token() }}"> 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
      <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
@@ -198,6 +198,13 @@
                         </router-link>
 
                     </li>
+                    <li>
+                        <router-link to="/attendance-pdf" >
+                            <i class="far fa-file-pdf"></i> <span>Report</span>
+                        </router-link>
+
+                    </li>
+
                 </ul>
             </section>
             <!-- /.sidebar -->
