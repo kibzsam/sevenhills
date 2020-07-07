@@ -17,6 +17,7 @@ import Datepicker from 'vuejs-datepicker';
 Vue.component('datepicker', Datepicker);
 import vueSignature from "vue-signature"
 Vue.use(vueSignature)
+Vue.component('vue-signature', vueSignature);
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 

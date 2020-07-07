@@ -187,6 +187,8 @@
                         <i class="fa fa-calendar"></i> <span>Calendar</span>
                     </a>
                 </li> -->
+                //Roles Filter
+                @can('isEmployee')
                     <li>
                         <a href="{{route('fullcalendareventmaster')}}">
                             <i class="fa fa-pie-chart"></i> <span>Employee Attendance</span>
@@ -198,12 +200,16 @@
                         </router-link>
 
                     </li>
+                    @endcan
+                    @can('isAdmin')
                     <li>
                         <router-link to="/attendance-pdf" >
                             <i class="far fa-file-pdf"></i> <span>Report</span>
                         </router-link>
 
                     </li>
+                    @endcan
+
 
                 </ul>
             </section>

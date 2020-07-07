@@ -82,7 +82,12 @@
 </template>
 
 <script>
+import vueSignarture from "vue-signature"
     export default {
+          components:{
+		vueSignarture
+	},
+      
         data()
         {
             return{
@@ -106,7 +111,7 @@
             }
 
         },
-          created()
+         created()
         {
          this.showUsers();
 
