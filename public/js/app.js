@@ -1995,9 +1995,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2110,13 +2107,8 @@ __webpack_require__.r(__webpack_exports__);
         for (var i = 0; i < _this6.attendance.length; i++) {
           console.log(_this6.attendance[i].timeout);
 
-<<<<<<< HEAD
-          if (_this5.attendance[i].timeout === "00:00:00") {
-            _this5.hours = 9;
-=======
           if (_this6.attendance[i].timeout === "00:00:00") {
-            _this6.hours = 0;
->>>>>>> 22eda2da61245614a8c3e283be9d834210fb5c9f
+            _this6.hours = 9;
           } else {
             _this6.hours = _this6.attendance[i].hours;
           }
@@ -7107,7 +7099,7 @@ exports.push([module.i, "@import url(https://use.fontawesome.com/releases/v5.6.3
 exports.push([module.i, "@import url(https://unpkg.com/vue-select@latest/dist/vue-select.css);", ""]);
 
 // module
-exports.push([module.i, "\n/* Select 2 */\n.container {\r\n  width: 100% !important;\n}\n#btn {\r\n  margin-bottom: 30px;\r\n  color: white !important;\r\n  background-color: #dbb900 !important;\n}\n.form-inline {\r\n  margin-bottom: -40px;\r\n  margin-top: 30px;\n}\n#modal {\r\n  max-width: 50% !important;\n}\n.cbutton {\r\n  color: white !important;\r\n  background-color: #3c8dbc !important;\r\n  width: 100px !important;\n}\n.clock-picker__input {\r\n  /* border: 1px solid rgb(230, 215, 215); */\r\n  width: 100% !important;\r\n  padding: 7px 12px;\r\n  margin: 10px 5px;\n}\n.clock-picker__dialog-header {\r\n  background-color: #dbb900 !important;\n}\n.clock-picker__dialog-action {\r\n  color: #dbb900 !important  ;\n}\n.row {\r\n  margin-top: 20px;\n}\n.table-wrapper {\r\n  overflow-x: auto;\r\n  position: absolute;\r\n  top: 90px;\r\n  width: 95% !important;\r\n  box-sizing: border-box;\n}\n.col-md-12 {\r\n  position: relative;\n}\n.modal-button {\r\n  position: absolute;\r\n  top: 30px;\r\n  box-sizing: border-box;\n}\n.pdf-button {\r\n  position: absolute;\r\n  right: 90px;\r\n  top: 30px;\n}\n.pdf {\r\n  color: white !important;\r\n  background-color: #dbb900 !important;\r\n  width: 100px !important;\n}\n.vdp-datepicker {\r\n  position: relative !important;\r\n  text-align: left !important;\n}\n.vdp-datepicker input[type=\"text\"] {\r\n  width: 100%;\r\n  padding: 6px 12px;\r\n  display: block;\r\n  height: 34px;\r\n  border: 1px solid #ccc;\r\n  color: #555;\r\n  background-color: #fff;\n}\n.btn-secondary {\r\n  background-color: green;\r\n  color: white;\n}\n.btn-secondary:hover {\r\n  background-color: green;\r\n  color: white;\n}\n.canvas {\r\n  border: 1px solid #3c8dbc;\n}\n.btnclear {\r\n  float: right !important;\r\n  border: 1px solid transparent;\r\n  padding: 6px 12px;\n}\n.btnundo {\r\n  float: right !important;\r\n  border: 1px solid transparent;\r\n  padding: 6px 12px;\n}\r\n", ""]);
+exports.push([module.i, "\n/* Select 2 */\n.container {\r\n  width: 100% !important;\n}\n.pr-1 {\r\n  padding-right: 5px;\n}\n#btn {\r\n  margin-bottom: 30px;\r\n  color: white !important;\r\n  background-color: #dbb900 !important;\n}\n.form-inline {\r\n  margin-bottom: -40px;\r\n  margin-top: 30px;\n}\n#modal {\r\n  max-width: 50% !important;\n}\n.cbutton {\r\n  color: white !important;\r\n  background-color: #3c8dbc !important;\r\n  width: 100px !important;\n}\n.clock-picker__input {\r\n  /* border: 1px solid rgb(230, 215, 215); */\r\n  width: 100% !important;\r\n  padding: 7px 12px;\r\n  margin: 10px 5px;\n}\n.clock-picker__dialog-header {\r\n  background-color: #dbb900 !important;\n}\n.clock-picker__dialog-action {\r\n  color: #dbb900 !important  ;\n}\n.row {\r\n  margin-top: 20px;\n}\n.table-wrapper {\r\n  overflow-x: auto;\r\n  position: absolute;\r\n  top: 90px;\r\n  width: 95% !important;\r\n  box-sizing: border-box;\n}\n.col-md-12 {\r\n  position: relative;\n}\n.modal-button {\r\n  position: absolute;\r\n  top: 30px;\r\n  box-sizing: border-box;\n}\n.pdf-button {\r\n  position: absolute;\r\n  right: 90px;\r\n  top: 30px;\n}\n.pdf {\r\n  color: white !important;\r\n  background-color: #dbb900 !important;\r\n  width: 105px !important;\n}\n.vdp-datepicker {\r\n  position: relative !important;\r\n  text-align: left !important;\n}\n.vdp-datepicker input[type=\"text\"] {\r\n  width: 100%;\r\n  padding: 6px 12px;\r\n  display: block;\r\n  height: 34px;\r\n  border: 1px solid #ccc;\r\n  color: #555;\r\n  background-color: #fff;\n}\n.btn-secondary {\r\n  background-color: green;\r\n  color: white;\n}\n.btn-secondary:hover {\r\n  background-color: green;\r\n  color: white;\n}\n.canvas {\r\n  border: 1px solid #3c8dbc;\n}\n.btnclear {\r\n  float: right !important;\r\n  border: 1px solid transparent;\r\n  padding: 6px 12px;\n}\n.btnundo {\r\n  float: right !important;\r\n  border: 1px solid transparent;\r\n  padding: 6px 12px;\n}\r\n", ""]);
 
 // exports
 
@@ -7126,7 +7118,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nbody[data-v-14c35f24]{\n    background: -webkit-linear-gradient(left, #3931af, #00c6ff);\n}\n.row[data-v-14c35f24] {\n  margin-top: 30px;\n  justify-content: center !important;\n}\n.card[data-v-14c35f24]{\n    background-color: whitesmoke;\n    width: 100% !important;\n    margin-left: 200px;\n}\n.card-title[data-v-14c35f24]{\n   font-size: 30px;\n   color:#DBB900;\n   margin-left: 10px;\n}\n.btn-secondary[data-v-14c35f24]{\n    float:right !important;\n    margin-right: 12px;\n}\n.btn-primary[data-v-14c35f24]{\n    margin-left: 12px;\n}\n.canvas[data-v-14c35f24]{\n    width: 100% !important;\n}\n\n\n\n", ""]);
+exports.push([module.i, "\nbody[data-v-14c35f24]{\r\n    background: -webkit-linear-gradient(left, #3931af, #00c6ff);\n}\n.row[data-v-14c35f24] {\r\n  margin-top: 30px;\r\n  justify-content: center !important;\n}\n.card[data-v-14c35f24]{\r\n    background-color: whitesmoke;\r\n    width: 100% !important;\r\n    margin-left: 200px;\n}\n.card-title[data-v-14c35f24]{\r\n   font-size: 30px;\r\n   color:#DBB900;\r\n   margin-left: 10px;\n}\n.btn-secondary[data-v-14c35f24]{\r\n    float:right !important;\r\n    margin-right: 12px;\n}\n.btn-primary[data-v-14c35f24]{\r\n    margin-left: 12px;\n}\n.canvas[data-v-14c35f24]{\r\n    width: 100% !important;\n}\r\n\r\n\r\n\r\n", ""]);
 
 // exports
 
@@ -44148,28 +44140,11 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "pdf-button" }, [
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-default pdf",
-                attrs: {
-                  type: "button",
-                  "data-toggle": "modal",
-                  "data-target": "#new"
-                },
-                on: { click: _vm.pdfModal }
-              },
-              [
-                _c("i", { staticClass: "fas fa-file-pdf" }),
-                _vm._v("\n          PDF\n        ")
-              ]
-            )
-          ]),
+          _vm._m(0),
           _vm._v(" "),
           _c("div", { staticClass: "table-wrapper" }, [
             _c("table", { staticClass: "table table-hover table-dark" }, [
-              _vm._m(0),
+              _vm._m(1),
               _vm._v(" "),
               _c(
                 "tbody",
@@ -44775,6 +44750,24 @@ var render = function() {
   )
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "pdf-button" }, [
+      _c(
+        "a",
+        {
+          staticClass: "btn btn-default pdf",
+          attrs: { href: "/attendance-pdf" }
+        },
+        [
+          _c("i", { staticClass: "fas fa-file-pdf pr-1" }),
+          _vm._v("\n           PDF Report\n        ")
+        ]
+      )
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

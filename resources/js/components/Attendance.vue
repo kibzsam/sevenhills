@@ -15,16 +15,13 @@
           </button>
         </div>
         <div class="pdf-button">
-          <button
-            type="button"
+          <a
+          href="/attendance-pdf"
             class="btn btn-default pdf"
-            data-toggle="modal"
-            data-target="#new"
-            @click="pdfModal"
           >
-            <i class="fas fa-file-pdf"></i>
-            PDF
-          </button>
+            <i class="fas fa-file-pdf pr-1"></i>
+             PDF Report
+          </a>
         </div>
 
         <div class="table-wrapper">
@@ -541,6 +538,10 @@ export default {
   width: 100% !important;
 }
 
+.pr-1 {
+  padding-right: 5px;
+}
+
 #btn {
   margin-bottom: 30px;
   color: white !important;
@@ -608,7 +609,7 @@ export default {
 .pdf {
   color: white !important;
   background-color: #dbb900 !important;
-  width: 100px !important;
+  width: 105px !important;
 }
 
 .vdp-datepicker {

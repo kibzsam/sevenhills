@@ -187,21 +187,27 @@
                         <i class="fa fa-calendar"></i> <span>Calendar</span>
                     </a>
                 </li> -->
-                    <li>
+                    {{-- <li>
                         <a href="{{route('fullcalendareventmaster')}}">
                             <i class="fa fa-pie-chart"></i> <span>Employee Attendance</span>
                         </a>
-                    </li>
+                    </li> --}}
                     <li>
                         <router-link to="/attendance" >
-                         <i class="fa fa-pie-chart"></i> <span>Take Attendance</span>
+                         <i class="fa fa-hourglass"></i> <span>Take Attendance</span>
                         </router-link>
 
                     </li>
                     <li>
                         <router-link to="/attendance-pdf" >
-                            <i class="far fa-file-pdf"></i> <span>Report</span>
+                            <i class="fa fa-file-pdf-o"></i> <span>PDF Report</span>
                         </router-link>
+
+                    </li>
+                    <li>
+                        <a href="#" >
+                            <i class="fa fa-user"></i> <span>Admin</span>
+                        </a>
 
                     </li>
 
