@@ -20,6 +20,9 @@ Vue.use(vueSignature)
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
+import vSelect from 'vue-select'
+Vue.component('v-select', vSelect)
+
 Vue.use(VueAxios, axios)
 window.Swal = Swal;
 window.Toast = Toast;

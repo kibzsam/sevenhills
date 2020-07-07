@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Attendance;
+use PDF;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Carbon\Carbon;
+
 use Illuminate\Support\Facades\Auth;
-use PDF;
-use App\User;
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
 use App\Http\Resources\Attendance as AttendanceResource;
+
+use App\User;
+use App\Attendance;
+use App\Hospital;
 
 class AttendanceController extends Controller
 {
@@ -58,6 +61,8 @@ class AttendanceController extends Controller
     //     return view('fullcalendar', compact('showAttendance'));
     // }
 
+
+    // Index View
     public function index()
     {
         if (request()->ajax()) {
@@ -68,6 +73,17 @@ class AttendanceController extends Controller
         }
         return view('attendanceCalendar');
     }
+
+
+    // Get Hospitals
+    public function getHospitals() {
+        $hospitals = Hospital::all();
+
+        return response()->json($hospitals, 201);
+    }
+
+
+    // Create Attendance
     public function create(Request $request)
     {
         $user = Auth::user()->id;
@@ -75,6 +91,9 @@ class AttendanceController extends Controller
         $event = Attendance::insert($insertArr);
         return Response::json($event);
     }
+
+
+    // Update Attendance
     public function update(Request $request)
     {
         $where = array('id' => $request->id);
@@ -82,11 +101,16 @@ class AttendanceController extends Controller
         $event  = Attendance::where($where)->update($updateArr);
         return Response::json($event);
     }
+
+
+    // Delete Attendance
     public function destroy(Request $request)
     {
         $event = Attendance::where('id', $request->id)->delete();
         return Response::json($event);
     }
+
+
     // FUnction to save attendances
     public function saveattendance(Request $request){
         $rules=array(
@@ -110,6 +134,7 @@ class AttendanceController extends Controller
         else{
                 return Attendance::create([
                 'user_id' =>$request->input('user_id'),
+                'hospital_id' =>$request->input('hospital_id'),
                 'timein' =>$request->input('timein'),
             ]);
         }
@@ -117,6 +142,7 @@ class AttendanceController extends Controller
         else{
             return Attendance::create([
                 'user_id' =>$request->input('user_id'),
+                'hospital_id' =>$request->input('hospital_id'),
                 'timein' =>$request->input('timein'),
             ]);
 
@@ -130,6 +156,7 @@ class AttendanceController extends Controller
             return AttendanceResource::collection($attendance);
         }
 
+
     //Update Atteandance
     public function updateattendance(Request $request,$id){
 
@@ -138,11 +165,14 @@ class AttendanceController extends Controller
 
     }
 
+
     public function deleteattendance($id){
         $attendance=Attendance::findOrFail($id);
         $attendance->delete();
 
     }
+
+
     public function pdf(Request $request){
         set_time_limit(300);
         $user_id=$request->userid;
