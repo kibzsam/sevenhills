@@ -420,7 +420,7 @@
 
     <!-- Bootstrap 3.3.7 -->
     <script src="{{ asset('public/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('public/bower_components/jquery-ui/jquery-ui.min.js') }}"></script> --}}
+    <script src="{{ asset('public/bower_components/jquery-ui/jquery-ui.min.js') }}"></script>
     {{-- <script src="{{ asset('public/bower_components/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
 
     <!-- FastClick -->
