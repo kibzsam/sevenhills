@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('index');
 });
+
 //Route::get('/index', function () {
 //    return view('index');
 //});
@@ -24,8 +25,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('fullcalendar', 'AttendanceController@index')->name('fullcalendar');
     Route::post('create-attendance', 'AttendanceController@store');
 
-    //fullcalender
+    // Admin
+    Route::get('/admin-dashboard', 'AdminController@index')->name('admin-dashboard');
 
+    // Full Calender
     Route::get('/fullcalendareventmaster', 'FullCalendarEventMasterController@index')->name('fullcalendareventmaster');
 
     Route::post('/fullcalendareventmaster/create', 'FullCalendarEventMasterController@create');
@@ -33,22 +36,19 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/fullcalendareventmaster/update', 'FullCalendarEventMasterController@update');
 
     Route::post('/fullcalendareventmaster/delete', 'FullCalendarEventMasterController@destroy');
-
-
-
   
-
 });
 
-Route::get('/admin', 'HomeController@index')->name('admin');
-Route::get('/calendar', 'CalendarController@index')->name('calendar');
-Route::get('/applicationForm', 'ApplicationFormController@index')->name('applicationForm');
+    Route::get('/admin', 'HomeController@index')->name('admin');
+    Route::get('/calendar', 'CalendarController@index')->name('calendar');
+    Route::get('/applicationForm', 'ApplicationFormController@index')->name('applicationForm');
 
-Route::get('/pdf-trial', function() {
-    return view('pdf-trial');
+    Route::get('/pdf-trial', function() {
+        return view('pdf-trial');
 });
 
-//test
+
+// Test
 Route::get('/applicationNew', 'ApplicationFormController@new')->name('applicationNew');
 
 Route::get('/users', 'UsersController@index')->name('users');
@@ -61,14 +61,14 @@ Route::post('/applicationForm/send', 'ApplicationFormController@send');
 
 Route::post('/applicationNew/send', 'ApplicationFormController@send');
 
-//Login
+
+// Login
 Route::get('loginPage', 'Auth\LoginController@showLoginForm')->name('loginPage');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
-/**
- * Register Route(s)
- */
+
+// Register Route(s)
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
 
