@@ -20,7 +20,7 @@ class Attendance extends Model
     }
 
     public function hospital() {
-        return $this->hasOne('App/Hospital');
+        return $this->hasOne('App\Hospital', 'id', 'hospital_id');
     }
 
     public function getHoursAttribute()

@@ -13,6 +13,6 @@ class Hospital extends Model
     }
 
     public function attendance() {
-        return $this->belongsTo('App/Attendance');
+        return $this->belongsTo('App\Attendance', 'hospital_id');
     }
 }

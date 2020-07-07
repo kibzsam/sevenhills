@@ -115,6 +115,7 @@ class AttendanceController extends Controller
     public function saveattendance(Request $request){
         $rules=array(
             'user_id' => 'required',
+            'hospital_id' => 'required',
             'timein' => 'required'
         );
         $this->validate($request,$rules);
@@ -149,30 +150,39 @@ class AttendanceController extends Controller
         }
 
     }
-        // get attendances
-        public function getattendance(){
-            $user_id=auth('api')->user()->id;
-            $attendance=Attendance::where('user_id',$user_id)->with('user')->latest()->paginate(15);
-            return AttendanceResource::collection($attendance);
-        }
 
 
-    //Update Atteandance
+    // Get attendances
+    public function getattendance(){
+        $user_id=auth('api')->user()->id;
+        $attendance=Attendance::where('user_id',$user_id)->with('user')
+            ->with('hospital')->latest()->paginate(15);
+
+        return AttendanceResource::collection($attendance);
+    }
+
+
+    // Update Atteandance
     public function updateattendance(Request $request,$id){
 
+        // Find the attendance record
         $attendance=Attendance::findOrFail($id);
         $attendance->update($request->all());
 
     }
 
 
+    // Delete Atteandance
     public function deleteattendance($id){
+
+        // Find the attendance record
         $attendance=Attendance::findOrFail($id);
         $attendance->delete();
 
     }
 
 
+    // Generate Atteandance PDF
     public function pdf(Request $request){
         set_time_limit(300);
         $user_id=$request->userid;
@@ -191,6 +201,7 @@ class AttendanceController extends Controller
          \File::put(public_path('/images/signature/') . $imageName, base64_decode($image));
         $signature=$imageName ;
         $pdf = PDF::loadView('pdf', compact('data','totalhours','signature','user','today','to_date'));
+        
         return $pdf->download('attend.pdf');
 
     }

@@ -1993,6 +1993,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2009,8 +2014,9 @@ __webpack_require__.r(__webpack_exports__);
       attendance: {},
       users: {},
       hospitals: [],
+      options: ["nae", "toto", "ytr"],
       hours: "",
-      userid: '',
+      userid: "",
       form: new Form({
         id: "",
         user_id: "",
@@ -2021,8 +2027,8 @@ __webpack_require__.r(__webpack_exports__);
         lunchout: "",
         date: ""
       }),
-      fromdate: '',
-      todate: '',
+      fromdate: "",
+      todate: "",
       pagination: ""
     };
   },
@@ -2051,7 +2057,7 @@ __webpack_require__.r(__webpack_exports__);
         userid: this.userid,
         jpeg: this.$refs.signature.save()
       };
-      this.axios.post('api/pdf', data).then(function (response) {
+      this.axios.post("api/pdf", data).then(function (response) {
         console.log(response);
       });
     },
@@ -2204,9 +2210,9 @@ __webpack_require__.r(__webpack_exports__);
 
       var png = _this.$refs.signature.save();
 
-      var jpeg = _this.$refs.signature.save('image/jpeg');
+      var jpeg = _this.$refs.signature.save("image/jpeg");
 
-      var svg = _this.$refs.signature.save('image/svg+xml');
+      var svg = _this.$refs.signature.save("image/svg+xml");
 
       console.log(png);
       console.log(jpeg);
@@ -2230,7 +2236,7 @@ __webpack_require__.r(__webpack_exports__);
         // watermark text, > default ''
         font: "20px Arial",
         // mark font, > default '20px sans-serif'
-        style: 'all',
+        style: "all",
         // fillText and strokeText,  'all'/'stroke'/'fill', > default 'fill
         fillStyle: "red",
         // fillcolor, > default '#333'
@@ -6877,9 +6883,10 @@ exports.push([module.i, "\n.clock-picker__input {\n  border: 1px solid gainsboro
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
 exports.push([module.i, "@import url(https://use.fontawesome.com/releases/v5.6.3/css/all.css);", ""]);
+exports.push([module.i, "@import url(https://unpkg.com/vue-select@latest/dist/vue-select.css);", ""]);
 
 // module
-exports.push([module.i, "\n.container {\r\n  width: 100% !important;\n}\n#btn {\r\n  margin-bottom: 30px;\r\n  color: white !important;\r\n  background-color: #dbb900 !important;\n}\n.form-inline {\r\n  margin-bottom: -40px;\r\n  margin-top: 30px;\n}\n#modal {\r\n  max-width: 50% !important;\n}\n.cbutton {\r\n  color: white !important;\r\n  background-color: #3c8dbc !important;\r\n  width: 100px !important;\n}\n.clock-picker__input {\r\n  /* border: 1px solid rgb(230, 215, 215); */\r\n  width: 100% !important;\r\n  padding: 7px 12px;\r\n  margin: 10px 5px;\n}\n.clock-picker__dialog-header {\r\n  background-color: #dbb900 !important;\n}\n.clock-picker__dialog-action {\r\n  color: #dbb900 !important  ;\n}\n.row {\r\n  margin-top: 20px;\n}\n.table-wrapper{\r\n  overflow-x: auto;\r\n  position: absolute;\r\n  top: 90px;\r\n  width: 95% !important;\r\n  box-sizing: border-box;\n}\n.col-md-12{\r\n  position: relative;\n}\n.modal-button{\r\n  position: absolute;\r\n  top:30px;\r\n  box-sizing: border-box;\n}\n.pdf-button{\r\n  position: absolute;\r\n  right:90px;\r\n  top:30px;\n}\n.pdf{\r\n   color: white !important;\r\n  background-color: #DBB900  !important;\r\n  width: 100px !important;\n}\n.vdp-datepicker{\r\n    position: relative !important;\r\n    text-align: left !important;\n}\n.vdp-datepicker input[type='text']{\r\n    width:100%;\r\n    padding: 6px 12px;\r\n    display: block;\r\n    height: 34px;\r\n    border: 1px solid #ccc;\r\n    color: #555;\r\n    background-color: #fff;\n}\n.btn-secondary{\r\n    background-color: green;\r\n    color:white;\n}\n.btn-secondary:hover{\r\n    background-color: green;\r\n    color:white;\n}\n.canvas{\r\n    border: 1px solid #3c8dbc;\n}\n.btnclear{\r\n\r\n    float: right !important;\r\n    border: 1px solid transparent;\r\n    padding: 6px 12px\n}\n.btnundo{\r\n\r\n     float: right !important;\r\n     border: 1px solid transparent;\r\n     padding: 6px 12px\n}\r\n\r\n\r\n", ""]);
+exports.push([module.i, "\n/* Select 2 */\n.container {\r\n  width: 100% !important;\n}\n#btn {\r\n  margin-bottom: 30px;\r\n  color: white !important;\r\n  background-color: #dbb900 !important;\n}\n.form-inline {\r\n  margin-bottom: -40px;\r\n  margin-top: 30px;\n}\n#modal {\r\n  max-width: 50% !important;\n}\n.cbutton {\r\n  color: white !important;\r\n  background-color: #3c8dbc !important;\r\n  width: 100px !important;\n}\n.clock-picker__input {\r\n  /* border: 1px solid rgb(230, 215, 215); */\r\n  width: 100% !important;\r\n  padding: 7px 12px;\r\n  margin: 10px 5px;\n}\n.clock-picker__dialog-header {\r\n  background-color: #dbb900 !important;\n}\n.clock-picker__dialog-action {\r\n  color: #dbb900 !important  ;\n}\n.row {\r\n  margin-top: 20px;\n}\n.table-wrapper {\r\n  overflow-x: auto;\r\n  position: absolute;\r\n  top: 90px;\r\n  width: 95% !important;\r\n  box-sizing: border-box;\n}\n.col-md-12 {\r\n  position: relative;\n}\n.modal-button {\r\n  position: absolute;\r\n  top: 30px;\r\n  box-sizing: border-box;\n}\n.pdf-button {\r\n  position: absolute;\r\n  right: 90px;\r\n  top: 30px;\n}\n.pdf {\r\n  color: white !important;\r\n  background-color: #dbb900 !important;\r\n  width: 100px !important;\n}\n.vdp-datepicker {\r\n  position: relative !important;\r\n  text-align: left !important;\n}\n.vdp-datepicker input[type=\"text\"] {\r\n  width: 100%;\r\n  padding: 6px 12px;\r\n  display: block;\r\n  height: 34px;\r\n  border: 1px solid #ccc;\r\n  color: #555;\r\n  background-color: #fff;\n}\n.btn-secondary {\r\n  background-color: green;\r\n  color: white;\n}\n.btn-secondary:hover {\r\n  background-color: green;\r\n  color: white;\n}\n.canvas {\r\n  border: 1px solid #3c8dbc;\n}\n.btnclear {\r\n  float: right !important;\r\n  border: 1px solid transparent;\r\n  padding: 6px 12px;\n}\n.btnundo {\r\n  float: right !important;\r\n  border: 1px solid transparent;\r\n  padding: 6px 12px;\n}\r\n", ""]);
 
 // exports
 
@@ -43875,7 +43882,7 @@ var render = function() {
             _c(
               "button",
               {
-                staticClass: "btn btn-default pdf ",
+                staticClass: "btn btn-default pdf",
                 attrs: {
                   type: "button",
                   "data-toggle": "modal",
@@ -43885,7 +43892,7 @@ var render = function() {
               },
               [
                 _c("i", { staticClass: "fas fa-file-pdf" }),
-                _vm._v("\n           PDF\n        ")
+                _vm._v("\n          PDF\n        ")
               ]
             )
           ]),
@@ -43905,6 +43912,8 @@ var render = function() {
                     _c("td", [_vm._v(_vm._s(attend.user.employeeName))]),
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(attend.user.employeeID))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(attend.hospital.name))]),
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(attend.timein))]),
                     _vm._v(" "),
@@ -43929,7 +43938,7 @@ var render = function() {
                           }
                         })
                       ]),
-                      _vm._v("\n                  /\n                  "),
+                      _vm._v("\n                /\n                "),
                       _c("a", [
                         _c("i", {
                           staticClass: "fas fa-trash-alt text-red",
@@ -44030,7 +44039,10 @@ var render = function() {
       _vm._v(" "),
       _c(
         "sweet-modal",
-        { ref: "attendanceModal", attrs: { "overlay-theme": "dark" } },
+        {
+          ref: "attendanceModal",
+          attrs: { "overlay-theme": "dark", blocking: true }
+        },
         [
           _c("template", { slot: "title" }, [
             !_vm.edit
@@ -44100,7 +44112,7 @@ var render = function() {
                     _c("has-error", {
                       attrs: { form: _vm.form, field: "user_id" }
                     }),
-                    _vm._v(">\n            "),
+                    _vm._v(">\n          "),
                     _c("option", { attrs: { value: "" } }, [
                       _vm._v("Select User")
                     ]),
@@ -44117,69 +44129,41 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-                  _vm._v("Hospital")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.form.hospital_id,
-                        expression: "form.hospital_id"
-                      }
-                    ],
-                    staticClass: "form-control",
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "hospitalLabel" } }, [
+                    _vm._v("Hospital")
+                  ]),
+                  _vm._v(" "),
+                  _c("v-select", {
                     class: { "is-invalid": _vm.form.errors.has("hospital_id") },
                     attrs: {
+                      label: "name",
+                      options: _vm.hospitals,
+                      reduce: function(name) {
+                        return name.id
+                      },
+                      required: "",
                       name: "hospital_id",
-                      disabled: _vm.edit,
-                      required: ""
+                      disabled: _vm.edit
                     },
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          _vm.form,
-                          "hospital_id",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      }
+                    model: {
+                      value: _vm.form.hospital_id,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "hospital_id", $$v)
+                      },
+                      expression: "form.hospital_id"
                     }
-                  },
-                  [
-                    _c("has-error", {
-                      attrs: { form: _vm.form, field: "hospital_id" }
-                    }),
-                    _vm._v(">\n            "),
-                    _c("option", { attrs: { value: "" } }, [
-                      _vm._v("Select Hospital")
-                    ]),
-                    _vm._v(" "),
-                    _vm._l(_vm.hospitals, function(hospital) {
-                      return _c(
-                        "option",
-                        { key: hospital.id, domProps: { value: hospital.id } },
-                        [_vm._v(_vm._s(hospital.name))]
-                      )
-                    })
-                  ],
-                  2
-                )
-              ]),
+                  }),
+                  _vm._v(" "),
+                  _c("has-error", {
+                    attrs: { form: _vm.form, field: "hospital_id" }
+                  })
+                ],
+                1
+              ),
               _vm._v(" "),
               _c(
                 "div",
@@ -44388,7 +44372,7 @@ var render = function() {
                   _c("has-error", {
                     attrs: { form: _vm.form, field: "user_id" }
                   }),
-                  _vm._v(">\n            "),
+                  _vm._v(">\n          "),
                   _c("option", { attrs: { value: "" } }, [
                     _vm._v("Select User")
                   ]),
@@ -44509,7 +44493,7 @@ var render = function() {
               },
               [
                 _c("i", { staticClass: "fas fa-file-pdf" }),
-                _vm._v("\n          Generate")
+                _vm._v("\n        Generate\n      ")
               ]
             )
           ])
@@ -44537,6 +44521,10 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { staticClass: "text-golden", attrs: { scope: "col" } }, [
           _vm._v("Employee Id")
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-golden", attrs: { scope: "col" } }, [
+          _vm._v("Hospital")
         ]),
         _vm._v(" "),
         _c("th", { staticClass: "text-golden", attrs: { scope: "col" } }, [
