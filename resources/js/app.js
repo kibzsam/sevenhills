@@ -70,6 +70,8 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 let routes = [
 
     { path: '/attendance', component: require('./components/Attendance.vue').default },
+
+    { path: '/attendance-pdf', component: require('./components/AttendancePdf.vue').default },
 ]
 
 const router = new VueRouter({
