@@ -1996,6 +1996,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2401,7 +2402,8 @@ __webpack_require__.r(__webpack_exports__);
         fromdate: this.fromdate,
         todate: this.todate,
         userid: this.userid,
-        jpeg: this.$refs.signature1.save()
+        jpeg: this.$refs.signature1.save(),
+        jpeg1: this.$refs.signature.save()
       };
       this.axios.post('api/pdf', data).then(function (response) {
         console.log(response);
@@ -44848,8 +44850,717 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {}
-var staticRenderFns = []
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "container" },
+    [
+      _c("div", { staticClass: "row justify-content-center" }, [
+        _c("div", { staticClass: "col-md-12" }, [
+          _c("div", { staticClass: "modal-button" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-default float-right cbutton",
+                attrs: {
+                  type: "button",
+                  "data-toggle": "modal",
+                  "data-target": "#new"
+                },
+                on: { click: _vm.displayModal }
+              },
+              [
+                _c("i", { staticClass: "fas fa-plus" }),
+                _vm._v("\n          Attendance\n        ")
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "table-wrapper" }, [
+            _c("table", { staticClass: "table table-hover table-dark" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                _vm._l(_vm.attendance, function(attend) {
+                  return _c("tr", { key: attend.id }, [
+                    _c("th", { attrs: { scope: "row" } }, [
+                      _vm._v(_vm._s(attend.id))
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(attend.user.employeeName))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(attend.user.employeeID))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(attend.hospital.name))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(attend.timein))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(attend.timeout))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(attend.lunchin))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(attend.lunchout))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(_vm.hours))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(attend.created_at))]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("a", [
+                        _c("i", {
+                          staticClass: "fas fa-pencil-alt text-greenish",
+                          on: {
+                            click: function($event) {
+                              return _vm.editModal(attend)
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v("\n                /\n                "),
+                      _c("a", [
+                        _c("i", {
+                          staticClass: "fas fa-trash-alt text-red",
+                          on: {
+                            click: function($event) {
+                              return _vm.deleteAttendance(attend.id)
+                            }
+                          }
+                        })
+                      ])
+                    ])
+                  ])
+                }),
+                0
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "nav",
+              {
+                attrs: { "aria-label": "Page navigation example float-right" }
+              },
+              [
+                _c("ul", { staticClass: "pagination pagination-sm" }, [
+                  _c(
+                    "li",
+                    {
+                      staticClass: "page-item",
+                      class: [{ disabled: !_vm.pagination.prev_page_url }]
+                    },
+                    [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "page-link",
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              return _vm.getAttendance(
+                                _vm.pagination.prev_page_url
+                              )
+                            }
+                          }
+                        },
+                        [_vm._v("Previous")]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "page-item disabled" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "page-link text-dark",
+                        attrs: { href: "#" }
+                      },
+                      [
+                        _vm._v(
+                          "Page " +
+                            _vm._s(_vm.pagination.current_page) +
+                            " of " +
+                            _vm._s(_vm.pagination.last_page)
+                        )
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "li",
+                    {
+                      staticClass: "page-item",
+                      class: [{ disabled: !_vm.pagination.next_page_url }]
+                    },
+                    [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "page-link",
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              return _vm.getAttendance(
+                                _vm.pagination.next_page_url
+                              )
+                            }
+                          }
+                        },
+                        [_vm._v("Next")]
+                      )
+                    ]
+                  )
+                ])
+              ]
+            )
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "sweet-modal",
+        {
+          ref: "attendanceModal",
+          attrs: { "overlay-theme": "dark", blocking: true }
+        },
+        [
+          _c("template", { slot: "title" }, [
+            !_vm.edit
+              ? _c("h4", { staticClass: "mt-4" }, [_vm._v("Add Attendance")])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.edit
+              ? _c("h4", { staticClass: "mt-4" }, [_vm._v("Edit Attendance")])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c(
+            "form",
+            {
+              on: {
+                submit: function($event) {
+                  $event.preventDefault()
+                  _vm.edit ? _vm.updateAttendance() : _vm.addAttendance()
+                }
+              }
+            },
+            [
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                  _vm._v("User")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.user_id,
+                        expression: "form.user_id"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    class: { "is-invalid": _vm.form.errors.has("user_id") },
+                    attrs: {
+                      name: "user_id",
+                      disabled: _vm.edit,
+                      required: ""
+                    },
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.form,
+                          "user_id",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      }
+                    }
+                  },
+                  [
+                    _c("has-error", {
+                      attrs: { form: _vm.form, field: "user_id" }
+                    }),
+                    _vm._v(">\n          "),
+                    _c("option", { attrs: { value: "" } }, [
+                      _vm._v("Select User")
+                    ]),
+                    _vm._v(" "),
+                    _vm._l(_vm.users, function(user) {
+                      return _c(
+                        "option",
+                        { key: user.id, domProps: { value: user.id } },
+                        [_vm._v(_vm._s(user.employeeName))]
+                      )
+                    })
+                  ],
+                  2
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "hospitalLabel" } }, [
+                    _vm._v("Hospital")
+                  ]),
+                  _vm._v(" "),
+                  _c("v-select", {
+                    class: { "is-invalid": _vm.form.errors.has("hospital_id") },
+                    attrs: {
+                      label: "name",
+                      options: _vm.hospitals,
+                      reduce: function(name) {
+                        return name.id
+                      },
+                      required: "",
+                      name: "hospital_id",
+                      disabled: _vm.edit
+                    },
+                    model: {
+                      value: _vm.form.hospital_id,
+                      callback: function($$v) {
+                        _vm.$set(_vm.form, "hospital_id", $$v)
+                      },
+                      expression: "form.hospital_id"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("has-error", {
+                    attrs: { form: _vm.form, field: "hospital_id" }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                    _vm._v("Time-in")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "vue-clock-picker",
+                    {
+                      class: { "is-invalid": _vm.form.errors.has("timein") },
+                      attrs: {
+                        name: "timein",
+                        required: "",
+                        readonly: _vm.edit
+                      },
+                      model: {
+                        value: _vm.form.timein,
+                        callback: function($$v) {
+                          _vm.$set(_vm.form, "timein", $$v)
+                        },
+                        expression: "form.timein"
+                      }
+                    },
+                    [
+                      _c("has-error", {
+                        attrs: { form: _vm.form, field: "timein" }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.edit,
+                      expression: "edit"
+                    }
+                  ],
+                  staticClass: "form-group"
+                },
+                [
+                  _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                    _vm._v("Lunch In")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "vue-clock-picker",
+                    {
+                      class: { "is-invalid": _vm.form.errors.has("lunchin") },
+                      attrs: { name: "lunchin", readonly: _vm.edit },
+                      model: {
+                        value: _vm.form.lunchin,
+                        callback: function($$v) {
+                          _vm.$set(_vm.form, "lunchin", $$v)
+                        },
+                        expression: "form.lunchin"
+                      }
+                    },
+                    [
+                      _c("has-error", {
+                        attrs: { form: _vm.form, field: "lunchin" }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.edit,
+                      expression: "edit"
+                    }
+                  ],
+                  staticClass: "form-group"
+                },
+                [
+                  _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                    _vm._v("Lunch Out")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "vue-clock-picker",
+                    {
+                      class: { "is-invalid": _vm.form.errors.has("lunchout") },
+                      attrs: { name: "lunchout", readonly: _vm.edit },
+                      model: {
+                        value: _vm.form.lunchout,
+                        callback: function($$v) {
+                          _vm.$set(_vm.form, "lunchout", $$v)
+                        },
+                        expression: "form.lunchout"
+                      }
+                    },
+                    [
+                      _c("has-error", {
+                        attrs: { form: _vm.form, field: "timeout" }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                    _vm._v("Time-out")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "vue-clock-picker",
+                    {
+                      class: { "is-invalid": _vm.form.errors.has("timeout") },
+                      attrs: { name: "timeout", readonly: _vm.edit },
+                      model: {
+                        value: _vm.form.timeout,
+                        callback: function($$v) {
+                          _vm.$set(_vm.form, "timeout", $$v)
+                        },
+                        expression: "form.timeout"
+                      }
+                    },
+                    [
+                      _c("has-error", {
+                        attrs: { form: _vm.form, field: "timeout" }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              !_vm.edit
+                ? _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-secondary",
+                      attrs: { type: "submit" }
+                    },
+                    [_vm._v("Save Attendance")]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.edit
+                ? _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-success",
+                      attrs: { type: "submit" }
+                    },
+                    [_vm._v("Update Attendance")]
+                  )
+                : _vm._e()
+            ]
+          )
+        ],
+        2
+      ),
+      _vm._v(" "),
+      _c(
+        "sweet-modal",
+        { ref: "pdfModal", attrs: { "overlay-theme": "dark" } },
+        [
+          _c("template", { slot: "title" }, [
+            _c("h4", { staticClass: "mt-4" }, [_vm._v("Generate Pdf")])
+          ]),
+          _vm._v(" "),
+          _c("form", [
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                _vm._v("User")
+              ]),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.userid,
+                      expression: "userid"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  class: { "is-invalid": _vm.form.errors.has("userid") },
+                  attrs: { name: "user_id", required: "" },
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.userid = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    }
+                  }
+                },
+                [
+                  _c("has-error", {
+                    attrs: { form: _vm.form, field: "user_id" }
+                  }),
+                  _vm._v(">\n          "),
+                  _c("option", { attrs: { value: "" } }, [
+                    _vm._v("Select User")
+                  ]),
+                  _vm._v(" "),
+                  _vm._l(_vm.users, function(user) {
+                    return _c(
+                      "option",
+                      { key: user.id, domProps: { value: user.id } },
+                      [_vm._v(_vm._s(user.employeeName))]
+                    )
+                  })
+                ],
+                2
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "form-group" },
+              [
+                _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                  _vm._v("From Date")
+                ]),
+                _vm._v(" "),
+                _c("datepicker", {
+                  attrs: { name: "fromdate" },
+                  model: {
+                    value: _vm.fromdate,
+                    callback: function($$v) {
+                      _vm.fromdate = $$v
+                    },
+                    expression: "fromdate"
+                  }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "form-group" },
+              [
+                _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                  _vm._v("To Date")
+                ]),
+                _vm._v(" "),
+                _c("datepicker", {
+                  attrs: { name: "todate" },
+                  model: {
+                    value: _vm.todate,
+                    callback: function($$v) {
+                      _vm.todate = $$v
+                    },
+                    expression: "todate"
+                  }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "form-group" },
+              [
+                _c("label", [_vm._v("Signature")]),
+                _vm._v(" "),
+                _c("vueSignature", {
+                  ref: "signature",
+                  attrs: {
+                    sigOption: _vm.option,
+                    w: "800px",
+                    h: "400px",
+                    disabled: _vm.disabled,
+                    defaultUrl: _vm.dataUrl
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.clear($event)
+                      }
+                    }
+                  },
+                  [_vm._v("Clear")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.undo($event)
+                      }
+                    }
+                  },
+                  [_vm._v("Undo")]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-secondary",
+                attrs: { type: "submit" },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.generatePdf($event)
+                  }
+                }
+              },
+              [
+                _c("i", { staticClass: "fas fa-file-pdf" }),
+                _vm._v("\n        Generate\n      ")
+              ]
+            )
+          ])
+        ],
+        2
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { staticClass: "text-golden", attrs: { scope: "col" } }, [
+          _vm._v("#")
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-golden", attrs: { scope: "col" } }, [
+          _vm._v("Name")
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-golden", attrs: { scope: "col" } }, [
+          _vm._v("Employee Id")
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-golden", attrs: { scope: "col" } }, [
+          _vm._v("Hospital")
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-golden", attrs: { scope: "col" } }, [
+          _vm._v("Time-in")
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-golden", attrs: { scope: "col" } }, [
+          _vm._v("Time-out")
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-golden", attrs: { scope: "col" } }, [
+          _vm._v("Lunch-in")
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-golden", attrs: { scope: "col" } }, [
+          _vm._v("Lunch-out")
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-golden", attrs: { scope: "col" } }, [
+          _vm._v("Hours Worked")
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-golden", attrs: { scope: "col" } }, [
+          _vm._v("Date")
+        ]),
+        _vm._v(" "),
+        _c("th", { staticClass: "text-golden", attrs: { scope: "col" } }, [
+          _vm._v("Action")
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
 
 
 

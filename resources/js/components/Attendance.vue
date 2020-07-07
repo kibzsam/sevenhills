@@ -150,7 +150,7 @@
           </vue-clock-picker>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" v-show="edit">
           <label for="exampleInputEmail1">Lunch In</label>
           <vue-clock-picker
             :class="{ 'is-invalid': form.errors.has('lunchin') }"
@@ -162,7 +162,7 @@
           </vue-clock-picker>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" v-show="edit">
           <label for="exampleInputEmail1">Lunch Out</label>
           <vue-clock-picker
             :class="{ 'is-invalid': form.errors.has('lunchout') }"

@@ -189,6 +189,7 @@ class AttendanceController extends Controller
         $from_date=Carbon::parse($request->fromdate)->format('Y-m-d');
         $to_date=Carbon::parse($request->todate)->format('Y-m-d');
         $raw_image=$request->jpeg;
+        $raw_image1=$request->jpeg1;
         $data=Attendance::where('user_id',$user_id)->whereDate('created_at', '>=', $from_date)
         ->whereDate('created_at', '<=',$to_date)
         ->get();
@@ -200,8 +201,14 @@ class AttendanceController extends Controller
         $imageName = str_random(10).'.'.'png';
          \File::put(public_path('/images/signature/') . $imageName, base64_decode($image));
         $signature=$imageName ;
-        $pdf = PDF::loadView('pdf', compact('data','totalhours','signature','user','today','to_date'));
-        
+        //Signature 1
+        $image1 = str_replace('data:image/png;base64,', '', $raw_image1);
+        $image1 = str_replace(' ', '+', $image1);
+        $imageName1 = str_random(10).'.'.'png';
+         \File::put(public_path('/images/signature/') . $imageName1, base64_decode($image1));
+        $signature1=$imageName1 ;
+        $pdf = PDF::loadView('pdf', compact('data','totalhours','signature','signature1','user','today','to_date'));
+
         return $pdf->download('attend.pdf');
 
     }

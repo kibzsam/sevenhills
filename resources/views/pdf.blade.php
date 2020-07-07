@@ -259,8 +259,11 @@
                                             <div class="col-md-10 mx-auto">
                                                 <div class="custom-row row mt-4">
                                                     <div class="column-2 col-md-6">
-                                                        <h6 class="table-heading-span">Supervisor Signature:
-                                                            _________________________</h6>
+                                                        <h6 class="table-heading-span">Supervisor Signature
+                                                        </h6>
+                                                        <div class="signature-box">
+                                                            <img class="signature-img" src="{{public_path().'/images/signature/'.$signature1 }}"/>
+                                                        </div>
                                                     </div>
 
                                                     <div class="column-2 col-md-6">

@@ -87,7 +87,7 @@ import vueSignarture from "vue-signature"
           components:{
 		vueSignarture
 	},
-      
+
         data()
         {
             return{
@@ -133,7 +133,8 @@ import vueSignarture from "vue-signature"
             fromdate:this.fromdate,
             todate:this.todate,
             userid:this.userid,
-            jpeg : this.$refs.signature1.save()
+            jpeg : this.$refs.signature1.save(),
+            jpeg1 : this.$refs.signature.save()
         }
         this.axios.post('api/pdf',data)
         .then((response)=>{
