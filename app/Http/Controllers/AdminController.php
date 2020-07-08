@@ -6,6 +6,7 @@ use Auth;
 use DB;
 use Carbon\carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 use App\Attendance;
 use App\Hospital;
@@ -34,7 +35,7 @@ class AdminController extends Controller
         $user = Auth::user();
 
         // When both dates are selected
-        if($request->has('start_date') && $request->has('end_date')){
+        if(Input::has('start_date') && Input::has('end_date')){
 
             $query = Attendance::with('user')
                         ->whereBetween('created_at', [$request->start_date, $request->end_date])
@@ -47,7 +48,7 @@ class AdminController extends Controller
         }
 
         // When only start date is selected
-        else if($request->has('start_date')) {
+        else if(Input::has('start_date')) {
 
             $query1 = Attendance::with('user')
                         ->whereBetween('created_at', [$request->start_date, Carbon::today()])
@@ -60,7 +61,7 @@ class AdminController extends Controller
         }
 
         // When only end date is selected
-        else if($request->has('end_date')) {
+        else if(Input::has('end_date')) {
             $query2 = Attendance::with('user')
                         ->whereDate('created_at', '<=', $request->end_date)
                         ->get();
