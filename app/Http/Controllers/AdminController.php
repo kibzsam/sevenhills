@@ -34,31 +34,40 @@ class AdminController extends Controller
         $user = Auth::user();
 
         // When both dates are selected
-        $query = Attendance::with('user')
-                     ->whereBetween('created_at', [$request->start_date, $request->end_date])
-                     ->get();
+        if($request->has('start_date') && $request->has('end_date')){
 
-        if(count($query) > 0)
-            return view('admin-dashboard')->withRecords($query)->withUser($user);
-        else return view ('admin-dashboard')->withRecords($query)->withMessage('No results found');
+            $query = Attendance::with('user')
+                        ->whereBetween('created_at', [$request->start_date, $request->end_date])
+                        ->get();
+
+            if(count($query) > 0)
+                return view('admin-dashboard')->withRecords($query)->withUser($user);
+            else return view ('admin-dashboard')->withRecords($query)->withMessage('No results found');
         
-        // When only start date is selected
-        $query1 = Attendance::with('user')
-                     ->whereBetween('created_at', [$request->start_date, Carbon::today()])
-                     ->get();
+        }
 
-        if(count($query1) > 0)
-            return view('admin-dashboard')->withRecords($query1)->withUser($user);
-        else return view ('admin-dashboard')->withRecords($query)->withMessage('No results found');
+        // When only start date is selected
+        else if($request->has('start_date')) {
+
+            $query1 = Attendance::with('user')
+                        ->whereBetween('created_at', [$request->start_date, Carbon::today()])
+                        ->get();
+
+            if(count($query1) > 0)
+                return view('admin-dashboard')->withRecords($query1)->withUser($user);
+            else return view ('admin-dashboard')->withRecords($query)->withMessage('No results found');
+
+        }
 
         // When only end date is selected
-        $query2 = Attendance::with('user')
-                     ->whereDate('created_at', '<=', $request->end_date)
-                     ->get();
+        else if($request->has('end_date')) {
+            $query2 = Attendance::with('user')
+                        ->whereDate('created_at', '<=', $request->end_date)
+                        ->get();
 
-        if(count($query2) > 0)
-            return view('admin-dashboard')->withRecords($query2)->withUser($user);
-        else return view ('admin-dashboard')->withRecords($query)->withMessage('No results found');
-
+            if(count($query2) > 0)
+                return view('admin-dashboard')->withRecords($query2)->withUser($user);
+            else return view ('admin-dashboard')->withRecords($query)->withMessage('No results found');
+        }
     }
 }
