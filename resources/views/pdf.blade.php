@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -83,13 +82,20 @@
 
         table {
             /* border-collapse: collapse; */
-            table-layout:fixed;
+            table-layout: fixed;
             width: 100%;
             overflow: hidden;
         }
 
-        thead:before, thead:after { display: none; }
-        tbody:before, tbody:after { display: none; }
+        thead:before,
+        thead:after {
+            display: none;
+        }
+
+        tbody:before,
+        tbody:after {
+            display: none;
+        }
 
         th,
         td {
@@ -219,7 +225,8 @@
                                     @foreach($data as $dt)
                                     <tr>
                                         {{-- <th scope="row">{{ $dt->created_at->format('d/m/Y') }}</th> --}}
-                                        <th scope="row">{{ \Carbon\Carbon::parse($dt->created_at)->format('D jS M Y') }}</th>
+                                        <th scope="row">{{ \Carbon\Carbon::parse($dt->created_at)->format('D jS M Y') }}
+                                        </th>
                                         <td>{{ $dt->timein }}</td>
                                         <td>{{ $dt->timeout }}</td>
                                         <td>{{ $dt->hours }}</td>
@@ -243,7 +250,8 @@
                                                         <h6 class="table-heading-span">Employee's Signature: <span
                                                                 class="underline">
                                                                 <div class="signature-box">
-                                                                    <img class="signature-img" src="{{public_path().'/images/signature/'.$signature }}"/>
+                                                                    <img class="signature-img"
+                                                                        src="{{public_path().'/images/signature/'.$signature }}" />
                                                                 </div>
                                                             </span>
                                                         </h6>
@@ -259,8 +267,11 @@
                                             <div class="col-md-10 mx-auto">
                                                 <div class="custom-row row mt-4">
                                                     <div class="column-2 col-md-6">
-                                                        <h6 class="table-heading-span">Supervisor Signature:
-                                                            _________________________</h6>
+                                                        <h6 class="table-heading-span">Supervisor Signature
+                                                        </h6>
+                                                        <div class="signature-box">
+                                                            <img class="signature-img" src="{{public_path().'/images/signature/'.$signature1 }}"/>
+                                                        </div>
                                                     </div>
 
                                                     <div class="column-2 col-md-6">

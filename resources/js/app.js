@@ -17,8 +17,12 @@ import Datepicker from 'vuejs-datepicker';
 Vue.component('datepicker', Datepicker);
 import vueSignature from "vue-signature"
 Vue.use(vueSignature)
+Vue.component('vue-signature', vueSignature);
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+
+import vSelect from 'vue-select'
+Vue.component('v-select', vSelect)
 
 Vue.use(VueAxios, axios)
 window.Swal = Swal;
@@ -67,6 +71,8 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 let routes = [
 
     { path: '/attendance', component: require('./components/Attendance.vue').default },
+
+    { path: '/attendance-pdf', component: require('./components/AttendancePdf.vue').default },
 ]
 
 const router = new VueRouter({

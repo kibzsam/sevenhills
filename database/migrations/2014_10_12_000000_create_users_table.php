@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('employeeName');
             $table->string('email')->unique();
             $table->string('employeeID')->unique();
+            $table->string('role')->default('employee');
             $table->string('faculty');
             $table->string('flocation');
             $table->timestamp('verified_at')->nullable();
