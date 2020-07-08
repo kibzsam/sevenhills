@@ -2396,7 +2396,6 @@ __webpack_require__.r(__webpack_exports__);
 
       this.display = true;
       this.disabled = false;
-      this.$refs.signature.resizeCanvas();
     },
     generatePdf: function generatePdf() {
       var data = {
