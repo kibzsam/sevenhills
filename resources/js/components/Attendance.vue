@@ -97,8 +97,8 @@
     <!-- Add Attendance Modal -->
     <sweet-modal ref="attendanceModal" overlay-theme="dark" :blocking="true">
       <template slot="title">
-        <h4 class="mt-4" v-if="!edit">Add Attendance</h4>
-        <h4 class="mt-4" v-if="edit">Edit Attendance</h4>
+        <h4 class="pt-4 bold" v-if="!edit">Add Attendance</h4>
+        <h4 class="pt-4 bold" v-if="edit">Edit Attendance</h4>
       </template>
       <form @submit.prevent="edit ? updateAttendance() : addAttendance()">
         <div class="form-group">
@@ -542,6 +542,14 @@ export default {
 
 .pr-1 {
   padding-right: 5px;
+}
+
+.pt-4 {
+  padding-top: 16px;
+}
+
+.bold {
+  font-weight: 700;
 }
 
 #btn {
