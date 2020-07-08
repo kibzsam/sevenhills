@@ -32,36 +32,33 @@ class AdminController extends Controller
 
         // Auth User
         $user = Auth::user();
-        
-        // Attendance Records
-        $records = Attendance::with('user')->with('hospital')->get();
 
         // When both dates are selected
-        $query = DB::table('attendances')
+        $query = Attendance::with('user')
                      ->whereBetween('created_at', [$request->start_date, $request->end_date])
                      ->get();
 
         if(count($query) > 0)
             return view('admin-dashboard')->withRecords($query)->withUser($user);
-        else return view ('admin-dashboard')->withMessage('No results found');
+        else return view ('admin-dashboard')->withRecords($query)->withMessage('No results found');
         
         // When only start date is selected
-        $query1 = DB::table('attendances')
+        $query1 = Attendance::with('user')
                      ->whereBetween('created_at', [$request->start_date, Carbon::today()])
                      ->get();
 
         if(count($query1) > 0)
             return view('admin-dashboard')->withRecords($query1)->withUser($user);
-        else return view ('admin-dashboard')->withMessage('No results found');
+        else return view ('admin-dashboard')->withRecords($query)->withMessage('No results found');
 
         // When only end date is selected
-        $query2 = DB::table('attendances')
+        $query2 = Attendance::with('user')
                      ->whereDate('created_at', '<=', $request->end_date)
                      ->get();
 
         if(count($query2) > 0)
             return view('admin-dashboard')->withRecords($query2)->withUser($user);
-        else return view ('admin-dashboard')->withMessage('No results found');
+        else return view ('admin-dashboard')->withRecords($query)->withMessage('No results found');
 
     }
 }
