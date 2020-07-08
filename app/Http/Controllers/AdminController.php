@@ -35,7 +35,7 @@ class AdminController extends Controller
         $user = Auth::user();
 
         // When both dates are selected
-        if(Input::has('start_date') && Input::has('end_date')){
+        if($request->filled(['start_date', 'end_date'])){
 
             $query = Attendance::with('user')
                         ->whereBetween('created_at', [$request->start_date, $request->end_date])
@@ -48,7 +48,7 @@ class AdminController extends Controller
         }
 
         // When only start date is selected
-        else if(Input::has('start_date')) {
+        else if($request->filled('start_date')) {
 
             $query1 = Attendance::with('user')
                         ->whereBetween('created_at', [$request->start_date, Carbon::today()])
@@ -56,19 +56,19 @@ class AdminController extends Controller
 
             if(count($query1) > 0)
                 return view('admin-dashboard')->withRecords($query1)->withUser($user);
-            else return view ('admin-dashboard')->withRecords($query)->withMessage('No results found');
+            else return view ('admin-dashboard')->withRecords($query1)->withMessage('No results found');
 
         }
 
         // When only end date is selected
-        else if(Input::has('end_date')) {
+        else if($request->filled('end_date')) {
             $query2 = Attendance::with('user')
                         ->whereDate('created_at', '<=', $request->end_date)
                         ->get();
 
             if(count($query2) > 0)
                 return view('admin-dashboard')->withRecords($query2)->withUser($user);
-            else return view ('admin-dashboard')->withRecords($query)->withMessage('No results found');
+            else return view ('admin-dashboard')->withRecords($query2)->withMessage('No results found');
         }
     }
 }
