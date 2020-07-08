@@ -18,6 +18,11 @@
     .pr-2 {
         padding-right: 5px;
     }
+
+    .date-filter {
+        margin: 15px 0;
+        padding: 10px 0;
+    }
 </style>
 @endsection()
 
@@ -26,6 +31,26 @@
 
         <div class="card">
             <h3><i class="fa fa-user pr-2"></i> Admin</h3>
+
+            <div class="date-filter">
+                <div class="col-md-12 mx-auto text-center" style="margin-bottom: 25px">
+                    <div class="input-row">
+                        <form action="{{ route('filter-attendance-date') }}" method="POST">
+                            @csrf
+
+                            <div class="col-md-3">
+                                <input type="date" class="form-control" name="start_date">
+                            </div>
+                            <div class="col-md-3">
+                                <input type="date" class="form-control" name="end_date">
+                            </div>
+                            <div class="col-md-1">
+                                <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-filter"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
             <table class="table-card table table-hover nowrap" id="datatable" width="100%">
                 <thead>
@@ -46,7 +71,7 @@
                     <td>{{$record->user->employeeID}}</td>
                     <td>{{$record->user->employeeName}}</td>
                     <td>{{$record->hospital->name}}</td>
-                    <td>{{$record->hours}}</td>
+                    <td>{{ number_format($record->hours, 2) }} Hrs</td>
                   </tr>
 
                   @endforeach()

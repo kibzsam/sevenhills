@@ -27,6 +27,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Admin
     Route::get('/admin-dashboard', 'AdminController@index')->name('admin-dashboard');
+    Route::post('/filter-attendance-date', 'AdminController@filterAttendanceDate')->name('filter-attendance-date');
 
     // Full Calender
     Route::get('/fullcalendareventmaster', 'FullCalendarEventMasterController@index')->name('fullcalendareventmaster');
