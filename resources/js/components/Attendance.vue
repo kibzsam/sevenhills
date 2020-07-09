@@ -54,7 +54,7 @@
                 <td>{{attend.timeout}}</td>
                 <td>{{attend.lunchin}}</td>
                 <td>{{attend.lunchout}}</td>
-                <td>{{hours}}</td>
+                <td>{{hours | round}}</td>
                 <!-- <td>{{(attend.timeout)-(attend.timein)}}</td>  -->
                 <td>{{attend.created_at}}</td>
                 <td>
@@ -298,7 +298,6 @@ export default {
       pagination: ""
     };
   },
-
 
   created() {
     Fire.$on("searching", () => {
