@@ -44174,7 +44174,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(attend.lunchout))]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(_vm.hours))]),
+                    _c("td", [_vm._v(_vm._s(_vm._f("round")(_vm.hours)))]),
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(attend.created_at))]),
                     _vm._v(" "),
@@ -62876,6 +62876,18 @@ var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.mixin({
   position: 'top-end',
   showConfirmButton: false,
   timer: 3000
+});
+Vue.filter('round', function (value, decimals) {
+  if (!value) {
+    value = 0;
+  }
+
+  if (!decimals) {
+    decimals = 0;
+  }
+
+  value = Math.round(value * Math.pow(10, decimals)) / Math.pow(10, decimals);
+  return value;
 });
 
 Vue.use(sweet_modal_vue_src_plugin_js__WEBPACK_IMPORTED_MODULE_9__["default"]);
