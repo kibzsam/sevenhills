@@ -15,11 +15,12 @@ import '@pencilpix/vue2-clock-picker/dist/vue2-clock-picker.min.css';
 import Swal from 'sweetalert2';
 import Datepicker from 'vuejs-datepicker';
 Vue.component('datepicker', Datepicker);
-import vueSignature from "vue-signature"
-Vue.use(vueSignature)
+import vueSignature from "vue-signature";
+Vue.use(vueSignature);
 Vue.component('vue-signature', vueSignature);
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+
 
 import vSelect from 'vue-select'
 Vue.component('v-select', vSelect)
