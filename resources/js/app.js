@@ -45,6 +45,19 @@ const Toast = Swal.mixin({
     timer: 3000
 });
 
+Vue.filter('round', function(value, decimals) {
+    if(!value) {
+      value = 0;
+    }
+  
+    if(!decimals) {
+      decimals = 0;
+    }
+  
+    value = Math.round(value * Math.pow(10, decimals)) / Math.pow(10, decimals);
+    return value;
+  });
+
 import SweetModal from 'sweet-modal-vue/src/plugin.js'
 Vue.use(SweetModal)
 

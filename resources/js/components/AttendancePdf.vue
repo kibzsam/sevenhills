@@ -122,8 +122,6 @@
             this.display=true
             this.disabled=false
 
-          this.$refs.signature.resizeCanvas();
-
         },
          generatePdf(){
 
