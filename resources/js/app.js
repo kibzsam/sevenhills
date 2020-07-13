@@ -15,9 +15,9 @@ import '@pencilpix/vue2-clock-picker/dist/vue2-clock-picker.min.css';
 import Swal from 'sweetalert2';
 import Datepicker from 'vuejs-datepicker';
 Vue.component('datepicker', Datepicker);
-import vueSignature from "vue-signature";
-Vue.use(vueSignature);
-Vue.component('vue-signature', vueSignature);
+import vueSignarture from "vue-signature"
+Vue.component('vueSignature', vueSignarture);
+// Vue.component('vue-signature', vueSignature);
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
@@ -46,17 +46,17 @@ const Toast = Swal.mixin({
 });
 
 Vue.filter('round', function(value, decimals) {
-    if(!value) {
-      value = 0;
+    if (!value) {
+        value = 0;
     }
-  
-    if(!decimals) {
-      decimals = 0;
+
+    if (!decimals) {
+        decimals = 0;
     }
-  
+
     value = Math.round(value * Math.pow(10, decimals)) / Math.pow(10, decimals);
     return value;
-  });
+});
 
 import SweetModal from 'sweet-modal-vue/src/plugin.js'
 Vue.use(SweetModal)
