@@ -25,7 +25,6 @@
     },
     "dependencies": {
         "@pencilpix/vue2-clock-picker": "^0.1.6",
-        "signature_pad": "^3.0.0-beta.3",
         "sweet-modal-vue": "^2.0.0",
         "sweetalert2": "^9.15.3",
         "vform": "^1.0.1",

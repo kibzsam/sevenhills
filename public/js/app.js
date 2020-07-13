@@ -2279,6 +2279,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+<<<<<<< HEAD
+=======
+/* harmony import */ var vue_signature__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-signature */ "./node_modules/vue-signature/src/main.js");
+>>>>>>> 6ff238b0e59ac41907dfa922bd606beecec703e6
 //
 //
 //
@@ -2362,7 +2366,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+<<<<<<< HEAD
+=======
+  components: {
+    vueSignarture: vue_signature__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+>>>>>>> 6ff238b0e59ac41907dfa922bd606beecec703e6
   data: function data() {
     return {
       //Signature
@@ -39563,7 +39574,11 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
+<<<<<<< HEAD
 * sweetalert2 v9.15.2
+=======
+* sweetalert2 v9.15.3
+>>>>>>> 6ff238b0e59ac41907dfa922bd606beecec703e6
 * Released under the MIT License.
 */
 (function (global, factory) {
@@ -42731,7 +42746,11 @@ __webpack_require__.r(__webpack_exports__);
     };
   });
   SweetAlert.DismissReason = DismissReason;
+<<<<<<< HEAD
   SweetAlert.version = '9.15.2';
+=======
+  SweetAlert.version = '9.15.3';
+>>>>>>> 6ff238b0e59ac41907dfa922bd606beecec703e6
 
   var Swal = SweetAlert;
   Swal["default"] = Swal;
@@ -63784,8 +63803,13 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 Vue.component('datepicker', vuejs_datepicker__WEBPACK_IMPORTED_MODULE_4__["default"]);
 
+<<<<<<< HEAD
 Vue.use(vue_signature__WEBPACK_IMPORTED_MODULE_5__["default"]);
 Vue.component('vue-signature', vue_signature__WEBPACK_IMPORTED_MODULE_5__["default"]);
+=======
+Vue.component('vueSignature', vue_signature__WEBPACK_IMPORTED_MODULE_5__["default"]); // Vue.component('vue-signature', vueSignature);
+
+>>>>>>> 6ff238b0e59ac41907dfa922bd606beecec703e6
 
 
 
@@ -64179,8 +64203,13 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! /opt/lampp/htdocs/sevenhillsmed/resources/js/app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! /opt/lampp/htdocs/sevenhillsmed/resources/sass/app.scss */"./resources/sass/app.scss");
+=======
+__webpack_require__(/*! C:\xampp\htdocs\sevenhills\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\sevenhills\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> 6ff238b0e59ac41907dfa922bd606beecec703e6
 
 
 /***/ })
