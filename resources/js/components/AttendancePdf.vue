@@ -93,8 +93,12 @@
 </template>
 
 <script>
-<<<<<<< HEAD
+import vueSignarture from "vue-signature";
 export default {
+  components: {
+    vueSignarture
+  },
+
   data() {
     return {
       //Signature
@@ -121,66 +125,18 @@ export default {
       var _this = this;
       this.display = true;
       this.disabled = false;
-=======
-import vueSignarture from "vue-signature"
-    export default {
-
-        components:{
-		vueSignarture
-	},
-
-        data()
-        {
-            return{
-           //Signature
-            option:{
-                        penColor:"rgb(0, 0, 0)",
-                        backgroundColor:"rgb(255,255,255)"
-                    },
-			disabled:false,
-			dataUrl:"",
-       //End signature
-          form: new Form({
-
-        }),
-          display:false,
-          userid:'',
-          users: {},
-          fromdate:'',
-          todate:'',
-
-            }
-
-        },
-         created()
-        {
-         this.showUsers();
-
-
-
-        },
-        methods:{
-        nextSignature(){
-            var _this = this;
-            this.display=true
-            this.disabled=false
-
-        },
-         generatePdf(){
-
-        let data={
-            fromdate:this.fromdate,
-            todate:this.todate,
-            userid:this.userid,
-            jpeg : this.$refs.signature1.save(),
-            jpeg1 : this.$refs.signature.save()
-        }
-        this.axios.post('api/pdf',data)
-        .then((response)=>{
-            console.log(response)
-
-        })
->>>>>>> 6ff238b0e59ac41907dfa922bd606beecec703e6
+    },
+    generatePdf() {
+      let data = {
+        fromdate: this.fromdate,
+        todate: this.todate,
+        userid: this.userid,
+        jpeg: this.$refs.signature1.save(),
+        jpeg1: this.$refs.signature.save()
+      };
+      this.axios.post("api/pdf", data).then(response => {
+        console.log(response);
+      });
     },
     generatePdf() {
       let data = {
