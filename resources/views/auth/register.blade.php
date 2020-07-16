@@ -76,7 +76,7 @@
 
                         <div class="form-group row">
                             <label for="flocation"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Facility Location') }}</label>
+                                class="col-md-4 col-form-label text-md-right">{{ __('Facilty Location') }}</label>
                             <div class="col-md-6">
                                 <input id="flocation" type="text"
                                     class="form-control @error('flocation') is-invalid @enderror" name="flocation"
