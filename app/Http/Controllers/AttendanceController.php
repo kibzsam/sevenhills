@@ -209,7 +209,13 @@ class AttendanceController extends Controller
         $signature1=$imageName1 ;
         $pdf = PDF::loadView('pdf', compact('data','totalhours','signature','signature1','user','today','to_date'));
 
-        return $pdf->download('attend.pdf');
+        // return $pdf->download('attend.pdf');
+        // return $pdf->stream('attaendance')->Attachment(0);
+        // return $pdf->setPaper('a4')->stream();
+        ob_end_clean();
+        // return $pdf->stream("attendance.pdf", array("Attachment" => false))->output();
+        return $pdf->output();
+       
 
     }
 }

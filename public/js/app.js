@@ -2418,9 +2418,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         userid: this.userid,
         jpeg: this.$refs.signature1.save(),
         jpeg1: this.$refs.signature.save()
-      };
-      this.axios.post("api/pdf", data).then(function (response) {
+      }; // this.axios.post('api/pdf',data)
+      // .then((response)=>{
+      //     console.log(response)
+      // })
+
+      this.axios.post("api/pdf", data, {
+        responseType: "arraybuffer"
+      }).then(function (response) {
+        // let blob = new Blob([response], { type: 'application/pdf' }),
+        //     url = window.URL.createObjectURL(blob)
+        //      window.open(url)
         console.log(response);
+        var url = window.URL.createObjectURL(new Blob([response.data]));
+        var link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'attendance.pdf');
+        document.body.appendChild(link);
+        link.click();
       });
     }
   }, _defineProperty(_methods, "generatePdf", function generatePdf() {
