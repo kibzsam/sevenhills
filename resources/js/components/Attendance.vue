@@ -27,7 +27,7 @@
         </div>
         -->
 
-        <div class="table-wrapper">
+        <div class="table-wrapper card table-card">
           <table class="table table-hover table-dark">
             <thead>
               <tr>
@@ -47,18 +47,18 @@
             </thead>
             <tbody>
               <tr v-for="attend in attendance" v-bind:key="attend.id">
-                <th scope="row">{{attend.id}}</th>
-                <td>{{attend.user.employeeName}}</td>
-                <td>{{attend.user. employeeID}}</td>
-                <td>{{attend.hospital.name}}</td>
-                <td>{{attend.timein}}</td>
-                <td>{{attend.timeout}}</td>
-                <td>{{attend.lunchin}}</td>
-                <td>{{attend.lunchout}}</td>
-                <td>{{hours | round}}</td>
+                <td scope="row" data-label="ID">{{attend.id}}</td>
+                <td data-label="Name">{{attend.user.employeeName}}</td>
+                <td data-label="Employee Id">{{attend.user. employeeID}}</td>
+                <td data-label="Hospital">{{attend.hospital.name}}</td>
+                <td data-label="Time-in">{{attend.timein}}</td>
+                <td data-label="Time-out">{{attend.timeout}}</td>
+                <td data-label="Lunch-in">{{attend.lunchin}}</td>
+                <td data-label="Lunch-out">{{attend.lunchout}}</td>
+                <td data-label="Hours Worked">{{hours | round}} Hrs</td>
                 <!-- <td>{{(attend.timeout)-(attend.timein)}}</td>  -->
-                <td>{{attend.created_at}}</td>
-                <td>
+                <td data-label="Date">{{attend.created_at}}</td>
+                <td data-label="Action">
                   <a class="cursor">
                     <i class="fas fa-pencil-alt text-greenish" @click="editModal(attend)"></i>
                   </a>
@@ -587,11 +587,9 @@ export default {
 }
 
 .table-wrapper {
+  width: 100%;
+  margin: 40px 0;
   overflow-x: auto;
-  position: absolute;
-  top: 90px;
-  width: 95% !important;
-  box-sizing: border-box;
 }
 
 .col-md-12 {
@@ -599,9 +597,7 @@ export default {
 }
 
 .modal-button {
-  position: absolute;
-  top: 30px;
-  box-sizing: border-box;
+  margin-top: 20px;
 }
 
 .pdf-button {
