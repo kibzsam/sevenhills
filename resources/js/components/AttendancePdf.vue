@@ -84,7 +84,8 @@
 <script>
 import vueSignarture from "vue-signature"
     export default {
-          components:{
+
+        components:{
 		vueSignarture
 	},
 
@@ -134,11 +135,27 @@ import vueSignarture from "vue-signature"
             jpeg : this.$refs.signature1.save(),
             jpeg1 : this.$refs.signature.save()
         }
-        this.axios.post('api/pdf',data)
-        .then((response)=>{
+        // this.axios.post('api/pdf',data)
+        // .then((response)=>{
+        //     console.log(response)
+
+        // })
+        
+        this.axios.post("api/pdf", data, { responseType: "arraybuffer" })
+        .then(response => {     
+         
+            // let blob = new Blob([response], { type: 'application/pdf' }),
+            //     url = window.URL.createObjectURL(blob)
+            //      window.open(url)
             console.log(response)
 
-        })
+                const url = window.URL.createObjectURL(new Blob([response.data]));
+                const link = document.createElement('a');
+                link.href = url;
+                link.setAttribute('download', 'attendance.pdf');
+                document.body.appendChild(link);
+                link.click();
+                });
     },
            showUsers() {
             this.form.get("api/getusers").then(res => {

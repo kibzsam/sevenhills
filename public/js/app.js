@@ -2406,9 +2406,24 @@ __webpack_require__.r(__webpack_exports__);
         userid: this.userid,
         jpeg: this.$refs.signature1.save(),
         jpeg1: this.$refs.signature.save()
-      };
-      this.axios.post('api/pdf', data).then(function (response) {
+      }; // this.axios.post('api/pdf',data)
+      // .then((response)=>{
+      //     console.log(response)
+      // })
+
+      this.axios.post("api/pdf", data, {
+        responseType: "arraybuffer"
+      }).then(function (response) {
+        // let blob = new Blob([response], { type: 'application/pdf' }),
+        //     url = window.URL.createObjectURL(blob)
+        //      window.open(url)
         console.log(response);
+        var url = window.URL.createObjectURL(new Blob([response.data]));
+        var link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'attendance.pdf');
+        document.body.appendChild(link);
+        link.click();
       });
     },
     showUsers: function showUsers() {
@@ -7128,7 +7143,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nbody[data-v-14c35f24]{\r\n    background: -webkit-linear-gradient(left, #3931af, #00c6ff);\n}\n.row[data-v-14c35f24] {\r\n  margin-top: 30px;\r\n  justify-content: center !important;\n}\n.card[data-v-14c35f24]{\r\n    background-color: whitesmoke;\r\n    width: 100% !important;\r\n    margin-left: 200px;\n}\n.card-title[data-v-14c35f24]{\r\n   font-size: 30px;\r\n   color:#DBB900;\r\n   margin-left: 10px;\n}\n.btn-secondary[data-v-14c35f24]{\r\n    float:right !important;\r\n    margin-right: 12px;\n}\n.btn-primary[data-v-14c35f24]{\r\n    margin-left: 12px;\n}\n.canvas[data-v-14c35f24]{\r\n    width: 100% !important;\n}\r\n\r\n\r\n\r\n", ""]);
+exports.push([module.i, "\nbody[data-v-14c35f24]{\n    background: -webkit-linear-gradient(left, #3931af, #00c6ff);\n}\n.row[data-v-14c35f24] {\n  margin-top: 30px;\n  justify-content: center !important;\n}\n.card[data-v-14c35f24]{\n    background-color: whitesmoke;\n    width: 100% !important;\n    margin-left: 200px;\n}\n.card-title[data-v-14c35f24]{\n   font-size: 30px;\n   color:#DBB900;\n   margin-left: 10px;\n}\n.btn-secondary[data-v-14c35f24]{\n    float:right !important;\n    margin-right: 12px;\n}\n.btn-primary[data-v-14c35f24]{\n    margin-left: 12px;\n}\n.canvas[data-v-14c35f24]{\n    width: 100% !important;\n}\n\n\n\n", ""]);
 
 // exports
 
@@ -62853,8 +62868,8 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 Vue.component('datepicker', vuejs_datepicker__WEBPACK_IMPORTED_MODULE_4__["default"]);
 
-Vue.use(vue_signature__WEBPACK_IMPORTED_MODULE_5___default.a);
-Vue.component('vue-signature', vue_signature__WEBPACK_IMPORTED_MODULE_5___default.a);
+Vue.component('vueSignature', vue_signature__WEBPACK_IMPORTED_MODULE_5___default.a); // Vue.component('vue-signature', vueSignature);
+
 
 
 
