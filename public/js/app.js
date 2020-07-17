@@ -2274,248 +2274,10 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AttendancePdf.vue?vue&type=script&lang=js& ***!
   \************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_signature__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-signature */ "./node_modules/vue-signature/src/main.js");
-var _methods;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  components: {
-    vueSignarture: vue_signature__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
-  data: function data() {
-    return {
-      //Signature
-      option: {
-        penColor: "rgb(0, 0, 0)",
-        backgroundColor: "rgb(255,255,255)"
-      },
-      disabled: false,
-      dataUrl: "",
-      //End signature
-      form: new Form({}),
-      display: false,
-      userid: "",
-      users: {},
-      fromdate: "",
-      todate: ""
-    };
-  },
-  created: function created() {
-    this.showUsers();
-  },
-  methods: (_methods = {
-    nextSignature: function nextSignature() {
-      var _this = this;
-
-      this.display = true;
-      this.disabled = false;
-    },
-    generatePdf: function generatePdf() {
-      var data = {
-        fromdate: this.fromdate,
-        todate: this.todate,
-        userid: this.userid,
-        jpeg: this.$refs.signature1.save(),
-        jpeg1: this.$refs.signature.save()
-      }; // this.axios.post('api/pdf',data)
-      // .then((response)=>{
-      //     console.log(response)
-      // })
-
-      this.axios.post("api/pdf", data, {
-        responseType: "arraybuffer"
-      }).then(function (response) {
-        // let blob = new Blob([response], { type: 'application/pdf' }),
-        //     url = window.URL.createObjectURL(blob)
-        //      window.open(url)
-        console.log(response);
-        var url = window.URL.createObjectURL(new Blob([response.data]));
-        var link = document.createElement('a');
-        link.href = url;
-        link.setAttribute('download', 'attendance.pdf');
-        document.body.appendChild(link);
-        link.click();
-      });
-    }
-  }, _defineProperty(_methods, "generatePdf", function generatePdf() {
-    var data = {
-      fromdate: this.fromdate,
-      todate: this.todate,
-      userid: this.userid,
-      jpeg: this.$refs.signature1.save(),
-      jpeg1: this.$refs.signature.save()
-    };
-    this.axios.post("api/pdf", data).then(function (response) {
-      console.log(response);
-    });
-  }), _defineProperty(_methods, "showUsers", function showUsers() {
-    var _this2 = this;
-
-    this.form.get("api/getusers").then(function (res) {
-      _this2.users = res.data;
-    });
-  }), _defineProperty(_methods, "save", function save() {
-    var _this = this;
-
-    var png = _this.$refs.signature.save();
-
-    var jpeg = _this.$refs.signature.save("image/jpeg");
-
-    var svg = _this.$refs.signature.save("image/svg+xml");
-
-    console.log(png);
-    console.log(jpeg);
-    console.log(svg);
-  }), _defineProperty(_methods, "clear", function clear() {
-    var _this = this;
-
-    _this.$refs.signature.clear();
-  }), _defineProperty(_methods, "undo", function undo() {
-    var _this = this;
-
-    _this.$refs.signature.undo();
-  }), _defineProperty(_methods, "clear1", function clear1() {
-    var _this = this;
-
-    _this.$refs.signature1.clear();
-  }), _defineProperty(_methods, "undo1", function undo1() {
-    var _this = this;
-
-    _this.$refs.signature1.undo();
-  }), _defineProperty(_methods, "addWaterMark", function addWaterMark() {
-    var _this = this;
-
-    _this.$refs.signature.addWaterMark({
-      text: "mark text",
-      // watermark text, > default ''
-      font: "20px Arial",
-      // mark font, > default '20px sans-serif'
-      style: "all",
-      // fillText and strokeText,  'all'/'stroke'/'fill', > default 'fill
-      fillStyle: "red",
-      // fillcolor, > default '#333'
-      strokeStyle: "blue",
-      // strokecolor, > default '#333'
-      x: 100,
-      // fill positionX, > default 20
-      y: 200,
-      // fill positionY, > default 20
-      sx: 100,
-      // stroke positionX, > default 40
-      sy: 200 // stroke positionY, > default 40
-
-    });
-  }), _defineProperty(_methods, "fromDataURL", function fromDataURL(url) {
-    var _this = this;
-
-    _this.$refs.signature.fromDataURL("data:image/png;base64,iVBORw0K...");
-  }), _defineProperty(_methods, "handleDisabled", function handleDisabled() {
-    var _this = this;
-
-    _this.disabled = !_this.disabled;
-  }), _methods)
-});
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /opt/lampp/htdocs/sevenhillsmed/resources/js/components/AttendancePdf.vue: Unexpected token (98:8)\n\n\u001b[0m \u001b[90m  96 | \u001b[39m\u001b[0m\n\u001b[0m \u001b[90m  97 | \u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  98 | \u001b[39m        }\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m     | \u001b[39m        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m  99 | \u001b[39m        methods\u001b[33m:\u001b[39m{\u001b[0m\n\u001b[0m \u001b[90m 100 | \u001b[39m        nextSignature(){\u001b[0m\n\u001b[0m \u001b[90m 101 | \u001b[39m            \u001b[36mvar\u001b[39m _this \u001b[33m=\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n    at Parser._raise (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/parser/lib/index.js:742:17)\n    at Parser.raiseWithData (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/parser/lib/index.js:735:17)\n    at Parser.raise (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/parser/lib/index.js:729:17)\n    at Parser.unexpected (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/parser/lib/index.js:8779:16)\n    at Parser.parseExprAtom (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/parser/lib/index.js:10074:20)\n    at Parser.parseExprSubscripts (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/parser/lib/index.js:9624:23)\n    at Parser.parseMaybeUnary (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/parser/lib/index.js:9604:21)\n    at Parser.parseExprOps (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/parser/lib/index.js:9474:23)\n    at Parser.parseMaybeConditional (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/parser/lib/index.js:9447:23)\n    at Parser.parseMaybeAssign (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/parser/lib/index.js:9402:21)\n    at Parser.parseExpression (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/parser/lib/index.js:9354:23)\n    at Parser.parseStatementContent (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/parser/lib/index.js:11233:23)\n    at Parser.parseStatement (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/parser/lib/index.js:11104:17)\n    at Parser.parseBlockOrModuleBlockBody (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/parser/lib/index.js:11679:25)\n    at Parser.parseBlockBody (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/parser/lib/index.js:11665:10)\n    at Parser.parseTopLevel (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/parser/lib/index.js:11035:10)\n    at Parser.parse (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/parser/lib/index.js:12671:10)\n    at parse (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/parser/lib/index.js:12722:38)\n    at parser (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/core/lib/parser/index.js:54:34)\n    at parser.next (<anonymous>)\n    at normalizeFile (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/core/lib/transformation/normalize-file.js:93:38)\n    at normalizeFile.next (<anonymous>)\n    at run (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/core/lib/transformation/index.js:31:50)\n    at run.next (<anonymous>)\n    at Function.transform (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/core/lib/transform.js:27:41)\n    at transform.next (<anonymous>)\n    at step (/opt/lampp/htdocs/sevenhillsmed/node_modules/gensync/index.js:254:32)\n    at /opt/lampp/htdocs/sevenhillsmed/node_modules/gensync/index.js:266:13\n    at async.call.result.err.err (/opt/lampp/htdocs/sevenhillsmed/node_modules/gensync/index.js:216:11)\n    at /opt/lampp/htdocs/sevenhillsmed/node_modules/gensync/index.js:184:28\n    at /opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/core/lib/gensync-utils/async.js:72:7\n    at /opt/lampp/htdocs/sevenhillsmed/node_modules/gensync/index.js:108:33\n    at step (/opt/lampp/htdocs/sevenhillsmed/node_modules/gensync/index.js:280:14)\n    at /opt/lampp/htdocs/sevenhillsmed/node_modules/gensync/index.js:266:13\n    at async.call.result.err.err (/opt/lampp/htdocs/sevenhillsmed/node_modules/gensync/index.js:216:11)");
 
 /***/ }),
 
@@ -64045,14 +63807,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!***************************************************!*\
   !*** ./resources/js/components/AttendancePdf.vue ***!
   \***************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AttendancePdf_vue_vue_type_template_id_14c35f24_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AttendancePdf.vue?vue&type=template&id=14c35f24&scoped=true& */ "./resources/js/components/AttendancePdf.vue?vue&type=template&id=14c35f24&scoped=true&");
 /* harmony import */ var _AttendancePdf_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AttendancePdf.vue?vue&type=script&lang=js& */ "./resources/js/components/AttendancePdf.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _AttendancePdf_vue_vue_type_style_index_0_id_14c35f24_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AttendancePdf.vue?vue&type=style&index=0&id=14c35f24&scoped=true&lang=css& */ "./resources/js/components/AttendancePdf.vue?vue&type=style&index=0&id=14c35f24&scoped=true&lang=css&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _AttendancePdf_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _AttendancePdf_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _AttendancePdf_vue_vue_type_style_index_0_id_14c35f24_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AttendancePdf.vue?vue&type=style&index=0&id=14c35f24&scoped=true&lang=css& */ "./resources/js/components/AttendancePdf.vue?vue&type=style&index=0&id=14c35f24&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -64084,13 +63847,15 @@ component.options.__file = "resources/js/components/AttendancePdf.vue"
 /*!****************************************************************************!*\
   !*** ./resources/js/components/AttendancePdf.vue?vue&type=script&lang=js& ***!
   \****************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AttendancePdf_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./AttendancePdf.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AttendancePdf.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AttendancePdf_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AttendancePdf_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AttendancePdf_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AttendancePdf_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AttendancePdf_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AttendancePdf_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
