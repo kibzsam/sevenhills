@@ -3,7 +3,7 @@
 @section('stylesheets')
 <style>
     .container {
-        padding: 80px 40px;
+        padding: 80px 15px;
     }
 
     .card {
@@ -20,8 +20,8 @@
     }
 
     .date-filter {
-        margin: 15px 0;
-        padding: 10px 0;
+        /* margin: 15px 0;
+        padding: 10px 0; */
     }
 </style>
 @endsection()
@@ -38,21 +38,22 @@
                         <form action="{{ route('filter-attendance-date') }}" method="POST">
                             @csrf
 
-                            <div class="col-md-3">
+                            <div class="col-md-3 mt-2">
                                 <input type="date" class="form-control" name="start_date">
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3 mt-2" id="#mobile-mt-2">
                                 <input type="date" class="form-control" name="end_date">
                             </div>
                             <div class="col-md-1">
-                                <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-filter"></i></button>
+                                <button id="filter-web" type="submit" class="btn btn-sm btn-primary mt-2"><i class="fa fa-filter"></i></button>
+                                <button id="filter-mobile" type="submit" class="btn btn-primary btn-sm mt-2">Apply Filter</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
 
-            <table class="table-card table table-hover nowrap" id="datatable" width="100%">
+            <table class="table table-hover nowrap" id="datatable" width="100%">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
@@ -67,11 +68,11 @@
                     @foreach($records as $index => $record)
 
                   <tr>
-                    <th scope="row">{{$index+1}}</th>
-                    <td>{{$record->user->employeeID}}</td>
-                    <td>{{$record->user->employeeName}}</td>
-                    <td>{{$record->hospital->name}}</td>
-                    <td>{{ number_format($record->hours, 2) }} Hrs</td>
+                    <td data-label="#" scope="row">{{$index+1}}</td>
+                    <td data-label="Employee ID">{{$record->user->employeeID}}</td>
+                    <td data-label="Employee">{{$record->user->employeeName}}</td>
+                    <td data-label="Hospital">{{$record->hospital->name}}</td>
+                    <td data-label="Hours Worked">{{ number_format($record->hours, 2) }} Hrs</td>
                   </tr>
 
                   @endforeach()
@@ -85,7 +86,9 @@
 @section('scripts')
 <script type="text/javascript">
     $(document).ready(function() {
-        $('#datatable').DataTable();
+        $('#datatable').DataTable({
+            // responsive: true
+        });
     });
 </script>
 @endsection()

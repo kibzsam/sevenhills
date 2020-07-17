@@ -3,7 +3,19 @@
   padding: 10px 10px;
 }
 
+#filter-mobile {
+  display: none;
+}
+
 @media screen and (max-width: 600px) {
+  #filter-mobile {
+    display: inline-block;
+  }
+
+  #filter-web {
+    display: none;
+  }
+
   table {
     border: 0;
   }
@@ -42,5 +54,9 @@
   table td:last-child {
     border-bottom: 0;
   }
+}
+
+.mt-2 {
+  margin-top: 2rem;
 }
 
