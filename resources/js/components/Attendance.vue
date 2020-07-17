@@ -59,11 +59,11 @@
                 <!-- <td>{{(attend.timeout)-(attend.timein)}}</td>  -->
                 <td>{{attend.created_at}}</td>
                 <td>
-                  <a class="">
+                  <a class="cursor">
                     <i class="fas fa-pencil-alt text-greenish" @click="editModal(attend)"></i>
                   </a>
                   /
-                  <a class="">
+                  <a class="cursor">
                     <i class="fas fa-trash-alt text-red" @click="deleteAttendance(attend.id)"></i>
                   </a>
                 </td>
@@ -528,6 +528,10 @@ export default {
 
 .container {
   width: 100% !important;
+}
+
+.cursor {
+  cursor: pointer;
 }
 
 .pr-1 {
