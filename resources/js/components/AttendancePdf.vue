@@ -172,19 +172,23 @@ export default {
       var _this = this;
       _this.$refs.signature.clear();
     },
+
     undo() {
       var _this = this;
       _this.$refs.signature.undo();
     },
+
     //Signature 1
     clear1() {
       var _this = this;
       _this.$refs.signature1.clear();
     },
+
     undo1() {
       var _this = this;
       _this.$refs.signature1.undo();
     },
+
     //End signature1
     addWaterMark() {
       var _this = this;
@@ -205,6 +209,7 @@ export default {
       var _this = this;
       _this.$refs.signature.fromDataURL("data:image/png;base64,iVBORw0K...");
     },
+
     handleDisabled() {
       var _this = this;
       _this.disabled = !_this.disabled;
@@ -223,11 +228,13 @@ body {
   margin-top: 30px;
   justify-content: center !important;
 }
+
 .card {
   background-color: whitesmoke;
   width: 100% !important;
   margin-left: 200px;
 }
+
 .card-title {
   font-size: 30px;
   color: #dbb900;
