@@ -44187,7 +44187,7 @@ var render = function() {
                     _c("td", [_vm._v(_vm._s(attend.created_at))]),
                     _vm._v(" "),
                     _c("td", [
-                      _c("a", [
+                      _c("a", {}, [
                         _c("i", {
                           staticClass: "fas fa-pencil-alt text-greenish",
                           on: {
@@ -44198,7 +44198,7 @@ var render = function() {
                         })
                       ]),
                       _vm._v("\n                /\n                "),
-                      _c("a", [
+                      _c("a", {}, [
                         _c("i", {
                           staticClass: "fas fa-trash-alt text-red",
                           on: {

@@ -59,11 +59,11 @@
                 <!-- <td>{{(attend.timeout)-(attend.timein)}}</td>  -->
                 <td>{{attend.created_at}}</td>
                 <td>
-                  <a>
+                  <a class="">
                     <i class="fas fa-pencil-alt text-greenish" @click="editModal(attend)"></i>
                   </a>
                   /
-                  <a>
+                  <a class="">
                     <i class="fas fa-trash-alt text-red" @click="deleteAttendance(attend.id)"></i>
                   </a>
                 </td>
