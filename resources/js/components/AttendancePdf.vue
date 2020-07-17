@@ -46,11 +46,16 @@
                     :disabled="disabled"
                   ></vueSignature>
 
+<<<<<<< HEAD
                   <!-- <button @click="save">Save</button> -->
                   <button @click.prevent="clear1">Clear</button>
                   <button @click.prevent="undo1">Undo</button>
                   <!--<button @click="addWaterMark">addWaterMark</button> -->
                   <!-- <button @click="handleDisabled">disabled</button>  -->
+=======
+                  <button @click.prevent="clear1">Clear</button>
+                  <button @click.prevent="undo1">Undo</button>
+>>>>>>> b59847fc903348e5fafcfde01c8f440dcd24b264
                 </div>
               </div>
               <div class="form-row" v-if="display">
@@ -64,11 +69,16 @@
                     :disabled="disabled"
                   ></vueSignature>
 
+<<<<<<< HEAD
                   <!-- <button @click="save">Save</button> -->
                   <button @click.prevent="clear">Clear</button>
                   <button @click.prevent="undo">Undo</button>
                   <!--<button @click="addWaterMark">addWaterMark</button> -->
                   <!-- <button @click="handleDisabled">disabled</button>  -->
+=======
+                  <button @click.prevent="clear">Clear</button>
+                  <button @click.prevent="undo">Undo</button>
+>>>>>>> b59847fc903348e5fafcfde01c8f440dcd24b264
                 </div>
               </div>
 
@@ -93,6 +103,7 @@
 </template>
 
 <script>
+<<<<<<< HEAD
 
 
         },
@@ -172,23 +183,126 @@
       console.log(jpeg);
       console.log(svg);
     },
+=======
+export default {
+  data() {
+    return {
+
+      //Signature
+      option: {
+        penColor: "rgb(0, 0, 0)",
+        backgroundColor: "rgb(255,255,255)"
+      },
+      disabled: false,
+      dataUrl: "",
+      //End signature
+
+      form: new Form({
+
+      }),
+      display: false,
+      userid: "",
+      users: {},
+      fromdate: "",
+      todate: ""
+    };
+  },
+
+  created() {
+    this.showUsers();
+  },
+
+  methods: {
+    nextSignature() {
+      var _this = this;
+      this.display = true;
+      this.disabled = false;
+    },
+
+    generatePdf() {
+      let data = {
+        fromdate: this.fromdate,
+        todate: this.todate,
+        userid: this.userid,
+        jpeg: this.$refs.signature1.save(),
+        jpeg1: this.$refs.signature.save()
+      };
+
+      // this.axios.post('api/pdf',data)
+      // .then((response)=>{
+      //     console.log(response)
+
+      // })
+
+      this.axios
+        .post("api/pdf", data, { responseType: "arraybuffer" })
+        .then(response => {
+
+          // let blob = new Blob([response], { type: 'application/pdf' }),
+          //     url = window.URL.createObjectURL(blob)
+          //      window.open(url)
+          console.log(response);
+
+          const url = window.URL.createObjectURL(new Blob([response.data]));
+          const link = document.createElement("a");
+          link.href = url;
+          link.setAttribute("download", "attendance.pdf");
+          document.body.appendChild(link);
+          link.click();
+        });
+    },
+
+    showUsers() {
+      this.form.get("api/getusers").then(res => {
+        this.users = res.data;
+      });
+    },
+
+    //Signature Methods
+    save() {
+      var _this = this;
+      var png = _this.$refs.signature.save();
+      var jpeg = _this.$refs.signature.save("image/jpeg");
+      var svg = _this.$refs.signature.save("image/svg+xml");
+      console.log(png);
+      console.log(jpeg);
+      console.log(svg);
+    },
+
+>>>>>>> b59847fc903348e5fafcfde01c8f440dcd24b264
     clear() {
       var _this = this;
       _this.$refs.signature.clear();
     },
+<<<<<<< HEAD
+=======
+
+>>>>>>> b59847fc903348e5fafcfde01c8f440dcd24b264
     undo() {
       var _this = this;
       _this.$refs.signature.undo();
     },
+<<<<<<< HEAD
+=======
+
+>>>>>>> b59847fc903348e5fafcfde01c8f440dcd24b264
     //Signature 1
     clear1() {
       var _this = this;
       _this.$refs.signature1.clear();
     },
+<<<<<<< HEAD
+=======
+
+>>>>>>> b59847fc903348e5fafcfde01c8f440dcd24b264
     undo1() {
       var _this = this;
       _this.$refs.signature1.undo();
     },
+<<<<<<< HEAD
+=======
+
+>>>>>>> b59847fc903348e5fafcfde01c8f440dcd24b264
     //End signature1
     addWaterMark() {
       var _this = this;
@@ -204,35 +318,61 @@
         sy: 200 // stroke positionY, > default 40
       });
     },
+<<<<<<< HEAD
+=======
+    
+>>>>>>> b59847fc903348e5fafcfde01c8f440dcd24b264
     fromDataURL(url) {
       var _this = this;
       _this.$refs.signature.fromDataURL("data:image/png;base64,iVBORw0K...");
     },
+<<<<<<< HEAD
+=======
+
+>>>>>>> b59847fc903348e5fafcfde01c8f440dcd24b264
     handleDisabled() {
       var _this = this;
       _this.disabled = !_this.disabled;
     }
     //end signature methods
+<<<<<<< HEAD
   }
 };
 </script>
+=======
+    
+  }
+};
+</script>
+
+>>>>>>> b59847fc903348e5fafcfde01c8f440dcd24b264
 <style scoped>
 body {
   background: -webkit-linear-gradient(left, #3931af, #00c6ff);
 }
+
 .row {
   margin-top: 30px;
   justify-content: center !important;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> b59847fc903348e5fafcfde01c8f440dcd24b264
 .card {
   background-color: whitesmoke;
   width: 100% !important;
   margin-left: 200px;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> b59847fc903348e5fafcfde01c8f440dcd24b264
 .card-title {
   font-size: 30px;
   color: #dbb900;
   margin-left: 10px;
+<<<<<<< HEAD
 }
 .btn-secondary {
   float: right !important;
@@ -245,3 +385,22 @@ body {
   width: 100% !important;
 }
 </style>
+=======
+}
+
+.btn-secondary {
+  float: right !important;
+  margin-right: 12px;
+}
+
+.btn-primary {
+  margin-left: 12px;
+}
+
+.canvas {
+  width: 100% !important;
+}
+</style>
+
+
+>>>>>>> b59847fc903348e5fafcfde01c8f440dcd24b264

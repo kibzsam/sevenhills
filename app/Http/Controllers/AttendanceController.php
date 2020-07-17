@@ -201,6 +201,7 @@ class AttendanceController extends Controller
         $imageName = str_random(10).'.'.'png';
          \File::put(public_path('/images/signature/') . $imageName, base64_decode($image));
         $signature=$imageName ;
+        
         //Signature 1
         $image1 = str_replace('data:image/png;base64,', '', $raw_image1);
         $image1 = str_replace(' ', '+', $image1);
@@ -216,6 +217,5 @@ class AttendanceController extends Controller
         // return $pdf->stream("attendance.pdf", array("Attachment" => false))->output();
         return $pdf->output();
        
-
     }
 }
