@@ -62873,6 +62873,7 @@ Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]);
 window.Swal = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a;
 window.Toast = Toast;
 window.Fire = new Vue();
+window.P = new Vue();
 var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.mixin({
   toast: true,
   position: 'top-end',
