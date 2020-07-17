@@ -2,7 +2,6 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-12">
-        
         <div class="modal-button">
           <button
             type="button"
@@ -95,7 +94,6 @@
       </div>
     </div>
 
-
     <!-- Add Attendance Modal -->
     <sweet-modal ref="attendanceModal" overlay-theme="dark" :blocking="true">
       <template slot="title">
@@ -126,15 +124,15 @@
         <div class="form-group">
           <label for="hospitalLabel">Hospital</label>
           <v-select
-           label="name"
-           :options="hospitals"
-           :reduce="name => name.id"
-           v-model="form.hospital_id"
-           required
-           name="hospital_id"
-           :disabled="edit"
-           :class="{ 'is-invalid': form.errors.has('hospital_id') }">
-          </v-select>
+            label="name"
+            :options="hospitals"
+            :reduce="name => name.id"
+            v-model="form.hospital_id"
+            required
+            name="hospital_id"
+            :disabled="edit"
+            :class="{ 'is-invalid': form.errors.has('hospital_id') }"
+          ></v-select>
 
           <has-error :form="form" field="hospital_id"></has-error>
         </div>
@@ -190,11 +188,9 @@
 
         <button v-if="!edit" type="submit" class="btn btn-secondary">Save Attendance</button>
         <button v-if="edit" type="submit" class="btn btn-success">Update Attendance</button>
-
       </form>
     </sweet-modal>
     <!-- End Attendance Modal-->
-
 
     <!-- PDF Modal -->
     <sweet-modal ref="pdfModal" overlay-theme="dark">
@@ -254,17 +250,13 @@
       </form>
     </sweet-modal>
     <!-- End PDF Modal-->
-
-
   </div>
 </template>
 
 <script>
 export default {
-
   data() {
     return {
-
       //Signature
       option: {
         penColor: "rgb(0, 0, 0)",
@@ -317,7 +309,6 @@ export default {
       this.getAttendance();
     });
   },
-
 
   methods: {
     generatePdf() {
@@ -475,7 +466,6 @@ export default {
       });
     },
 
-
     //Signature Methods
     save() {
       var _this = this;
@@ -522,7 +512,6 @@ export default {
       _this.disabled = !_this.disabled;
     }
     //end signature methods
-
   },
   mounted() {
     console.log("Component mounted.");

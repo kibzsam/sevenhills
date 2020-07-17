@@ -1993,12 +1993,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2364,6 +2358,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2377,10 +2376,10 @@ __webpack_require__.r(__webpack_exports__);
       //End signature
       form: new Form({}),
       display: false,
-      userid: '',
+      userid: "",
       users: {},
-      fromdate: '',
-      todate: ''
+      fromdate: "",
+      todate: ""
     };
   },
   created: function created() {
@@ -2413,9 +2412,9 @@ __webpack_require__.r(__webpack_exports__);
         //      window.open(url)
         console.log(response);
         var url = window.URL.createObjectURL(new Blob([response.data]));
-        var link = document.createElement('a');
+        var link = document.createElement("a");
         link.href = url;
-        link.setAttribute('download', 'attendance.pdf');
+        link.setAttribute("download", "attendance.pdf");
         document.body.appendChild(link);
         link.click();
       });
@@ -2433,9 +2432,9 @@ __webpack_require__.r(__webpack_exports__);
 
       var png = _this.$refs.signature.save();
 
-      var jpeg = _this.$refs.signature.save('image/jpeg');
+      var jpeg = _this.$refs.signature.save("image/jpeg");
 
-      var svg = _this.$refs.signature.save('image/svg+xml');
+      var svg = _this.$refs.signature.save("image/svg+xml");
 
       console.log(png);
       console.log(jpeg);
@@ -2471,7 +2470,7 @@ __webpack_require__.r(__webpack_exports__);
         // watermark text, > default ''
         font: "20px Arial",
         // mark font, > default '20px sans-serif'
-        style: 'all',
+        style: "all",
         // fillText and strokeText,  'all'/'stroke'/'fill', > default 'fill
         fillStyle: "red",
         // fillcolor, > default '#333'
@@ -2526,11 +2525,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
-    console.log('Component mounted.');
+    console.log("Component mounted.");
   }
 });
 
@@ -7137,7 +7134,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nbody[data-v-14c35f24]{\n    background: -webkit-linear-gradient(left, #3931af, #00c6ff);\n}\n.row[data-v-14c35f24] {\n  margin-top: 30px;\n  justify-content: center !important;\n}\n.card[data-v-14c35f24]{\n    background-color: whitesmoke;\n    width: 100% !important;\n    margin-left: 200px;\n}\n.card-title[data-v-14c35f24]{\n   font-size: 30px;\n   color:#DBB900;\n   margin-left: 10px;\n}\n.btn-secondary[data-v-14c35f24]{\n    float:right !important;\n    margin-right: 12px;\n}\n.btn-primary[data-v-14c35f24]{\n    margin-left: 12px;\n}\n.canvas[data-v-14c35f24]{\n    width: 100% !important;\n}\n\n\n\n", ""]);
+exports.push([module.i, "\nbody[data-v-14c35f24] {\n  background: -webkit-linear-gradient(left, #3931af, #00c6ff);\n}\n.row[data-v-14c35f24] {\n  margin-top: 30px;\n  justify-content: center !important;\n}\n.card[data-v-14c35f24] {\n  background-color: whitesmoke;\n  width: 100% !important;\n  margin-left: 200px;\n}\n.card-title[data-v-14c35f24] {\n  font-size: 30px;\n  color: #dbb900;\n  margin-left: 10px;\n}\n.btn-secondary[data-v-14c35f24] {\n  float: right !important;\n  margin-right: 12px;\n}\n.btn-primary[data-v-14c35f24] {\n  margin-left: 12px;\n}\n.canvas[data-v-14c35f24] {\n  width: 100% !important;\n}\n", ""]);
 
 // exports
 
@@ -44926,7 +44923,7 @@ var render = function() {
                         _c("has-error", {
                           attrs: { form: _vm.form, field: "user_id" }
                         }),
-                        _vm._v(">\n                                         "),
+                        _vm._v(">\n                  "),
                         _c("option", { attrs: { value: "" } }, [
                           _vm._v("Select User")
                         ]),
@@ -45142,7 +45139,10 @@ var render = function() {
                     }
                   }
                 },
-                [_c("i", { staticClass: "fas fa-forward" }), _vm._v("Next")]
+                [
+                  _c("i", { staticClass: "fas fa-forward" }),
+                  _vm._v("Next\n            ")
+                ]
               ),
               _vm._v(" "),
               _c(
@@ -45167,7 +45167,7 @@ var render = function() {
                 },
                 [
                   _c("i", { staticClass: "fas fa-file-pdf" }),
-                  _vm._v("\n                         Generate")
+                  _vm._v("\n              Generate\n            ")
                 ]
               )
             ])
@@ -45215,9 +45215,7 @@ var staticRenderFns = [
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example component.\n                "
-              )
+              _vm._v("I'm an example component.")
             ])
           ])
         ])
@@ -62847,11 +62845,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-select */ "./node_modules/vue-select/dist/vue-select.js");
 /* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vue_select__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var sweet_modal_vue_src_plugin_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweet-modal-vue/src/plugin.js */ "./node_modules/sweet-modal-vue/src/plugin.js");
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
+// Vue Dependancies
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
@@ -62865,22 +62859,20 @@ Vue.component('datepicker', vuejs_datepicker__WEBPACK_IMPORTED_MODULE_4__["defau
 Vue.use(vue_signature__WEBPACK_IMPORTED_MODULE_5___default.a);
 
 
+Vue.component(vform__WEBPACK_IMPORTED_MODULE_1__["HasError"].name, vform__WEBPACK_IMPORTED_MODULE_1__["HasError"]);
+Vue.component(vform__WEBPACK_IMPORTED_MODULE_1__["AlertError"].name, vform__WEBPACK_IMPORTED_MODULE_1__["AlertError"]);
+window.Form = vform__WEBPACK_IMPORTED_MODULE_1__["Form"];
 
 Vue.component('v-select', vue_select__WEBPACK_IMPORTED_MODULE_8___default.a);
-Vue.use(vue_axios__WEBPACK_IMPORTED_MODULE_7___default.a, axios__WEBPACK_IMPORTED_MODULE_6___default.a);
-window.Swal = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a;
-window.Toast = Toast;
-window.Form = vform__WEBPACK_IMPORTED_MODULE_1__["Form"];
-Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]);
-window.Fire = new Vue();
 
 var VueClockPickerPlugin = __webpack_require__(/*! @pencilpix/vue2-clock-picker/dist/vue2-clock-picker.plugin.js */ "./node_modules/@pencilpix/vue2-clock-picker/dist/vue2-clock-picker.plugin.js");
 
 Vue.use(VueClockPickerPlugin);
+Vue.use(vue_axios__WEBPACK_IMPORTED_MODULE_7___default.a, axios__WEBPACK_IMPORTED_MODULE_6___default.a);
+Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]);
+window.Swal = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a;
+window.Toast = Toast;
 window.Fire = new Vue();
-window.P = new Vue();
-Vue.component(vform__WEBPACK_IMPORTED_MODULE_1__["HasError"].name, vform__WEBPACK_IMPORTED_MODULE_1__["HasError"]);
-Vue.component(vform__WEBPACK_IMPORTED_MODULE_1__["AlertError"].name, vform__WEBPACK_IMPORTED_MODULE_1__["AlertError"]);
 var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.mixin({
   toast: true,
   position: 'top-end',
@@ -62900,24 +62892,9 @@ Vue.filter('round', function (value, decimals) {
   return value;
 });
 
-Vue.use(sweet_modal_vue_src_plugin_js__WEBPACK_IMPORTED_MODULE_9__["default"]);
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-// const files = require.context('./', true, /\.vue$/i);
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
+Vue.use(sweet_modal_vue_src_plugin_js__WEBPACK_IMPORTED_MODULE_9__["default"]); // Components
 
-Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- *
- */
+Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]); // Vue Router
 
 var routes = [{
   path: '/attendance',
