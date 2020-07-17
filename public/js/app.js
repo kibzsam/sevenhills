@@ -7115,7 +7115,7 @@ exports.push([module.i, "@import url(https://use.fontawesome.com/releases/v5.6.3
 exports.push([module.i, "@import url(https://unpkg.com/vue-select@latest/dist/vue-select.css);", ""]);
 
 // module
-exports.push([module.i, "\n/* Select 2 */\n.container {\r\n  width: 100% !important;\n}\n.cursor {\r\n  cursor: pointer;\n}\n.pr-1 {\r\n  padding-right: 5px;\n}\n.pt-4 {\r\n  padding-top: 16px;\n}\n.bold {\r\n  font-weight: 700;\n}\n#btn {\r\n  margin-bottom: 30px;\r\n  color: white !important;\r\n  background-color: #dbb900 !important;\n}\n.form-inline {\r\n  margin-bottom: -40px;\r\n  margin-top: 30px;\n}\n#modal {\r\n  max-width: 50% !important;\n}\n.cbutton {\r\n  color: white !important;\r\n  background-color: #3c8dbc !important;\r\n  width: 100px !important;\n}\n.clock-picker__input {\r\n  /* border: 1px solid rgb(230, 215, 215); */\r\n  width: 100% !important;\r\n  padding: 7px 12px;\r\n  margin: 10px 5px;\n}\n.clock-picker__dialog-header {\r\n  background-color: #dbb900 !important;\n}\n.clock-picker__dialog-action {\r\n  color: #dbb900 !important  ;\n}\n.row {\r\n  margin-top: 20px;\n}\n.table-wrapper {\r\n  overflow-x: auto;\r\n  position: absolute;\r\n  top: 90px;\r\n  width: 95% !important;\r\n  box-sizing: border-box;\n}\n.col-md-12 {\r\n  position: relative;\n}\n.modal-button {\r\n  position: absolute;\r\n  top: 30px;\r\n  box-sizing: border-box;\n}\n.pdf-button {\r\n  position: absolute;\r\n  right: 90px;\r\n  top: 30px;\n}\n.pdf {\r\n  color: white !important;\r\n  background-color: #dbb900 !important;\r\n  width: 105px !important;\n}\n.vdp-datepicker {\r\n  position: relative !important;\r\n  text-align: left !important;\n}\n.vdp-datepicker input[type=\"text\"] {\r\n  width: 100%;\r\n  padding: 6px 12px;\r\n  display: block;\r\n  height: 34px;\r\n  border: 1px solid #ccc;\r\n  color: #555;\r\n  background-color: #fff;\n}\n.btn-secondary {\r\n  background-color: green;\r\n  color: white;\n}\n.btn-secondary:hover {\r\n  background-color: green;\r\n  color: white;\n}\n.canvas {\r\n  border: 1px solid #3c8dbc;\n}\n.btnclear {\r\n  float: right !important;\r\n  border: 1px solid transparent;\r\n  padding: 6px 12px;\n}\n.btnundo {\r\n  float: right !important;\r\n  border: 1px solid transparent;\r\n  padding: 6px 12px;\n}\r\n", ""]);
+exports.push([module.i, "\n/* Select 2 */\n.container {\r\n  width: 100% !important;\n}\n.cursor {\r\n  cursor: pointer;\n}\n.pr-1 {\r\n  padding-right: 5px;\n}\n.pt-4 {\r\n  padding-top: 16px;\n}\n.bold {\r\n  font-weight: 700;\n}\n#btn {\r\n  margin-bottom: 30px;\r\n  color: white !important;\r\n  background-color: #dbb900 !important;\n}\n.form-inline {\r\n  margin-bottom: -40px;\r\n  margin-top: 30px;\n}\n#modal {\r\n  max-width: 50% !important;\n}\n.cbutton {\r\n  color: white !important;\r\n  background-color: #3c8dbc !important;\r\n  width: 100px !important;\n}\n.clock-picker__input {\r\n  /* border: 1px solid rgb(230, 215, 215); */\r\n  width: 100% !important;\r\n  padding: 7px 12px;\r\n  margin: 10px 5px;\n}\n.clock-picker__dialog-header {\r\n  background-color: #dbb900 !important;\n}\n.clock-picker__dialog-action {\r\n  color: #dbb900 !important  ;\n}\n.row {\r\n  margin-top: 20px;\n}\n.table-wrapper {\r\n  width: 100%;\r\n  margin: 40px 0;\r\n  overflow-x: auto;\n}\n.col-md-12 {\r\n  position: relative;\n}\n.modal-button {\r\n  margin-top: 20px;\n}\n.pdf-button {\r\n  position: absolute;\r\n  right: 90px;\r\n  top: 30px;\n}\n.pdf {\r\n  color: white !important;\r\n  background-color: #dbb900 !important;\r\n  width: 105px !important;\n}\n.vdp-datepicker {\r\n  position: relative !important;\r\n  text-align: left !important;\n}\n.vdp-datepicker input[type=\"text\"] {\r\n  width: 100%;\r\n  padding: 6px 12px;\r\n  display: block;\r\n  height: 34px;\r\n  border: 1px solid #ccc;\r\n  color: #555;\r\n  background-color: #fff;\n}\n.btn-secondary {\r\n  background-color: green;\r\n  color: white;\n}\n.btn-secondary:hover {\r\n  background-color: green;\r\n  color: white;\n}\n.canvas {\r\n  border: 1px solid #3c8dbc;\n}\n.btnclear {\r\n  float: right !important;\r\n  border: 1px solid transparent;\r\n  padding: 6px 12px;\n}\n.btnundo {\r\n  float: right !important;\r\n  border: 1px solid transparent;\r\n  padding: 6px 12px;\n}\r\n", ""]);
 
 // exports
 
@@ -44156,7 +44156,7 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "table-wrapper" }, [
+          _c("div", { staticClass: "table-wrapper card table-card" }, [
             _c("table", { staticClass: "table table-hover table-dark" }, [
               _vm._m(0),
               _vm._v(" "),
@@ -44164,29 +44164,47 @@ var render = function() {
                 "tbody",
                 _vm._l(_vm.attendance, function(attend) {
                   return _c("tr", { key: attend.id }, [
-                    _c("th", { attrs: { scope: "row" } }, [
+                    _c("td", { attrs: { scope: "row", "data-label": "ID" } }, [
                       _vm._v(_vm._s(attend.id))
                     ]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(attend.user.employeeName))]),
+                    _c("td", { attrs: { "data-label": "Name" } }, [
+                      _vm._v(_vm._s(attend.user.employeeName))
+                    ]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(attend.user.employeeID))]),
+                    _c("td", { attrs: { "data-label": "Employee Id" } }, [
+                      _vm._v(_vm._s(attend.user.employeeID))
+                    ]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(attend.hospital.name))]),
+                    _c("td", { attrs: { "data-label": "Hospital" } }, [
+                      _vm._v(_vm._s(attend.hospital.name))
+                    ]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(attend.timein))]),
+                    _c("td", { attrs: { "data-label": "Time-in" } }, [
+                      _vm._v(_vm._s(attend.timein))
+                    ]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(attend.timeout))]),
+                    _c("td", { attrs: { "data-label": "Time-out" } }, [
+                      _vm._v(_vm._s(attend.timeout))
+                    ]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(attend.lunchin))]),
+                    _c("td", { attrs: { "data-label": "Lunch-in" } }, [
+                      _vm._v(_vm._s(attend.lunchin))
+                    ]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(attend.lunchout))]),
+                    _c("td", { attrs: { "data-label": "Lunch-out" } }, [
+                      _vm._v(_vm._s(attend.lunchout))
+                    ]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(_vm._f("round")(_vm.hours)))]),
+                    _c("td", { attrs: { "data-label": "Hours Worked" } }, [
+                      _vm._v(_vm._s(_vm._f("round")(_vm.hours)) + " Hrs")
+                    ]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(attend.created_at))]),
+                    _c("td", { attrs: { "data-label": "Date" } }, [
+                      _vm._v(_vm._s(attend.created_at))
+                    ]),
                     _vm._v(" "),
-                    _c("td", [
+                    _c("td", { attrs: { "data-label": "Action" } }, [
                       _c("a", { staticClass: "cursor" }, [
                         _c("i", {
                           staticClass: "fas fa-pencil-alt text-greenish",
