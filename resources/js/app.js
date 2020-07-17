@@ -18,9 +18,10 @@ import Swal from 'sweetalert2';
 
 import Datepicker from 'vuejs-datepicker';
 Vue.component('datepicker', Datepicker);
-import vueSignarture from "vue-signature"
-Vue.component('vueSignature', vueSignarture);
-// Vue.component('vue-signature', vueSignature);
+
+import vueSignature from "vue-signature"
+Vue.use(vueSignature)
+
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 

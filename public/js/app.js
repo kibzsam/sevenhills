@@ -2281,8 +2281,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_signature__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-signature */ "./node_modules/vue-signature/dist/vue-signature.js");
-/* harmony import */ var vue_signature__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_signature__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2366,11 +2364,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ __webpack_exports__["default"] = ({
-  components: {
-    vueSignarture: vue_signature__WEBPACK_IMPORTED_MODULE_0___default.a
-  },
   data: function data() {
     return {
       //Signature
@@ -62868,8 +62862,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 Vue.component('datepicker', vuejs_datepicker__WEBPACK_IMPORTED_MODULE_4__["default"]);
 
-Vue.component('vueSignature', vue_signature__WEBPACK_IMPORTED_MODULE_5___default.a); // Vue.component('vue-signature', vueSignature);
-
+Vue.use(vue_signature__WEBPACK_IMPORTED_MODULE_5___default.a);
 
 
 
