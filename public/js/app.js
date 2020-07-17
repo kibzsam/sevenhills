@@ -9,14 +9,14 @@
 /******/ 		if (installedModules[moduleId]) {
 /******/ 			return installedModules[moduleId].exports;
       /******/
-}
+    }
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			i: moduleId,
 /******/ 			l: false,
 /******/ 			exports: {}
       /******/
-};
+    };
 /******/
 /******/ 		// Execute the module function
 /******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
@@ -27,7 +27,7 @@
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
     /******/
-}
+  }
 /******/
 /******/
 /******/ 	// expose the modules object (__webpack_modules__)
@@ -41,19 +41,19 @@
 /******/ 		if (!__webpack_require__.o(exports, name)) {
 /******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
       /******/
-}
+    }
     /******/
-};
+  };
 /******/
 /******/ 	// define __esModule on exports
 /******/ 	__webpack_require__.r = function (exports) {
 /******/ 		if (typeof Symbol !== 'undefined' && Symbol.toStringTag) {
 /******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
       /******/
-}
+    }
 /******/ 		Object.defineProperty(exports, '__esModule', { value: true });
     /******/
-};
+  };
 /******/
 /******/ 	// create a fake namespace object
 /******/ 	// mode & 1: value is a module id, require it
@@ -70,7 +70,7 @@
 /******/ 		if (mode & 2 && typeof value != 'string') for (var key in value) __webpack_require__.d(ns, key, function (key) { return value[key]; }.bind(null, key));
 /******/ 		return ns;
     /******/
-};
+  };
 /******/
 /******/ 	// getDefaultExport function for compatibility with non-harmony modules
 /******/ 	__webpack_require__.n = function (module) {
@@ -80,7 +80,7 @@
 /******/ 		__webpack_require__.d(getter, 'a', getter);
 /******/ 		return getter;
     /******/
-};
+  };
 /******/
 /******/ 	// Object.prototype.hasOwnProperty.call
 /******/ 	__webpack_require__.o = function (object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
@@ -125,7 +125,7 @@
       if (false) { }
 
       /***/
-}),
+    }),
 
 /***/ "./node_modules/@pencilpix/vue2-clock-picker/dist/vue2-clock-picker.plugin.js":
 /*!************************************************************************************!*\
@@ -137,7 +137,7 @@
       !function (t, e) { true ? module.exports = e() : undefined }("undefined" != typeof self ? self : this, function () { return function (t) { function e(i) { if (n[i]) return n[i].exports; var o = n[i] = { i: i, l: !1, exports: {} }; return t[i].call(o.exports, o, o.exports, e), o.l = !0, o.exports } var n = {}; return e.m = t, e.c = n, e.d = function (t, n, i) { e.o(t, n) || Object.defineProperty(t, n, { configurable: !1, enumerable: !0, get: i }) }, e.n = function (t) { var n = t && t.__esModule ? function () { return t.default } : function () { return t }; return e.d(n, "a", n), n }, e.o = function (t, e) { return Object.prototype.hasOwnProperty.call(t, e) }, e.p = "", e(e.s = 31) }([function (t, e) { var n = t.exports = { version: "2.5.7" }; "number" == typeof __e && (__e = n) }, function (t, e, n) { var i = n(26)("wks"), o = n(28), r = n(3).Symbol, s = "function" == typeof r; (t.exports = function (t) { return i[t] || (i[t] = s && r[t] || (s ? r : o)("Symbol." + t)) }).store = i }, function (t, e) { t.exports = function (t, e, n, i, o, r) { var s, a = t = t || {}, u = typeof t.default; "object" !== u && "function" !== u || (s = t, a = t.default); var l = "function" == typeof a ? a.options : a; e && (l.render = e.render, l.staticRenderFns = e.staticRenderFns, l._compiled = !0), n && (l.functional = !0), o && (l._scopeId = o); var c; if (r ? (c = function (t) { t = t || this.$vnode && this.$vnode.ssrContext || this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext, t || "undefined" == typeof __VUE_SSR_CONTEXT__ || (t = __VUE_SSR_CONTEXT__), i && i.call(this, t), t && t._registeredComponents && t._registeredComponents.add(r) }, l._ssrRegister = c) : i && (c = i), c) { var d = l.functional, f = d ? l.render : l.beforeCreate; d ? (l._injectStyles = c, l.render = function (t, e) { return c.call(e), f(t, e) }) : l.beforeCreate = f ? [].concat(f, c) : [c] } return { esModule: s, exports: a, options: l } } }, function (t, e) { var n = t.exports = "undefined" != typeof window && window.Math == Math ? window : "undefined" != typeof self && self.Math == Math ? self : Function("return this")(); "number" == typeof __g && (__g = n) }, function (t, e, n) { var i = n(3), o = n(0), r = n(20), s = n(5), a = n(10), u = function (t, e, n) { var l, c, d, f = t & u.F, h = t & u.G, p = t & u.S, v = t & u.P, y = t & u.B, m = t & u.W, b = h ? o : o[e] || (o[e] = {}), g = b.prototype, x = h ? i : p ? i[e] : (i[e] || {}).prototype; h && (n = e); for (l in n) (c = !f && x && void 0 !== x[l]) && a(b, l) || (d = c ? x[l] : n[l], b[l] = h && "function" != typeof x[l] ? n[l] : y && c ? r(d, i) : m && x[l] == d ? function (t) { var e = function (e, n, i) { if (this instanceof t) { switch (arguments.length) { case 0: return new t; case 1: return new t(e); case 2: return new t(e, n) }return new t(e, n, i) } return t.apply(this, arguments) }; return e.prototype = t.prototype, e }(d) : v && "function" == typeof d ? r(Function.call, d) : d, v && ((b.virtual || (b.virtual = {}))[l] = d, t & u.R && g && !g[l] && s(g, l, d))) }; u.F = 1, u.G = 2, u.S = 4, u.P = 8, u.B = 16, u.W = 32, u.U = 64, u.R = 128, t.exports = u }, function (t, e, n) { var i = n(6), o = n(13); t.exports = n(8) ? function (t, e, n) { return i.f(t, e, o(1, n)) } : function (t, e, n) { return t[e] = n, t } }, function (t, e, n) { var i = n(7), o = n(38), r = n(39), s = Object.defineProperty; e.f = n(8) ? Object.defineProperty : function (t, e, n) { if (i(t), e = r(e, !0), i(n), o) try { return s(t, e, n) } catch (t) { } if ("get" in n || "set" in n) throw TypeError("Accessors not supported!"); return "value" in n && (t[e] = n.value), t } }, function (t, e, n) { var i = n(12); t.exports = function (t) { if (!i(t)) throw TypeError(t + " is not an object!"); return t } }, function (t, e, n) { t.exports = !n(9)(function () { return 7 != Object.defineProperty({}, "a", { get: function () { return 7 } }).a }) }, function (t, e) { t.exports = function (t) { try { return !!t() } catch (t) { return !0 } } }, function (t, e) { var n = {}.hasOwnProperty; t.exports = function (t, e) { return n.call(t, e) } }, function (t, e, n) { var i = n(15); t.exports = function (t) { return Object(i(t)) } }, function (t, e) { t.exports = function (t) { return "object" == typeof t ? null !== t : "function" == typeof t } }, function (t, e) { t.exports = function (t, e) { return { enumerable: !(1 & t), configurable: !(2 & t), writable: !(4 & t), value: e } } }, function (t, e, n) { var i = n(41), o = n(29); t.exports = Object.keys || function (t) { return i(t, o) } }, function (t, e) { t.exports = function (t) { if (void 0 == t) throw TypeError("Can't call method on  " + t); return t } }, function (t, e) { var n = Math.ceil, i = Math.floor; t.exports = function (t) { return isNaN(t = +t) ? 0 : (t > 0 ? i : n)(t) } }, function (t, e, n) { var i = n(26)("keys"), o = n(28); t.exports = function (t) { return i[t] || (i[t] = o(t)) } }, function (t, e) { t.exports = {} }, function (t, e, n) { t.exports = { default: n(35), __esModule: !0 } }, function (t, e, n) { var i = n(37); t.exports = function (t, e, n) { if (i(t), void 0 === e) return t; switch (n) { case 1: return function (n) { return t.call(e, n) }; case 2: return function (n, i) { return t.call(e, n, i) }; case 3: return function (n, i, o) { return t.call(e, n, i, o) } }return function () { return t.apply(e, arguments) } } }, function (t, e, n) { var i = n(12), o = n(3).document, r = i(o) && i(o.createElement); t.exports = function (t) { return r ? o.createElement(t) : {} } }, function (t, e, n) { var i = n(23), o = n(15); t.exports = function (t) { return i(o(t)) } }, function (t, e, n) { var i = n(24); t.exports = Object("z").propertyIsEnumerable(0) ? Object : function (t) { return "String" == i(t) ? t.split("") : Object(t) } }, function (t, e) { var n = {}.toString; t.exports = function (t) { return n.call(t).slice(8, -1) } }, function (t, e, n) { var i = n(16), o = Math.min; t.exports = function (t) { return t > 0 ? o(i(t), 9007199254740991) : 0 } }, function (t, e, n) { var i = n(0), o = n(3), r = o["__core-js_shared__"] || (o["__core-js_shared__"] = {}); (t.exports = function (t, e) { return r[t] || (r[t] = void 0 !== e ? e : {}) })("versions", []).push({ version: i.version, mode: n(27) ? "pure" : "global", copyright: "© 2018 Denis Pushkarev (zloirock.ru)" }) }, function (t, e) { t.exports = !0 }, function (t, e) { var n = 0, i = Math.random(); t.exports = function (t) { return "Symbol(".concat(void 0 === t ? "" : t, ")_", (++n + i).toString(36)) } }, function (t, e) { t.exports = "constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf".split(",") }, function (t, e, n) { var i = n(6).f, o = n(10), r = n(1)("toStringTag"); t.exports = function (t, e, n) { t && !o(t = n ? t : t.prototype, r) && i(t, r, { configurable: !0, value: e }) } }, function (t, e, n) { (function (e) { var i = n(33).default, o = null, r = { install: function (t) { t.component("VueClockPicker", i) } }; "undefined" != typeof window ? o = window.Vue : void 0 !== e && (o = e.Vue), o && o.use(r), t.exports = r }).call(e, n(32)) }, function (t, e) { var n; n = function () { return this }(); try { n = n || Function("return this")() || (0, eval)("this") } catch (t) { "object" == typeof window && (n = window) } t.exports = n }, function (t, e, n) { "use strict"; function i(t) { g || n(48) } function o(t) { O || n(47) } function r(t) { N || n(72) } function s(t) { G || n(46) } function a(t) { at || n(34) } Object.defineProperty(e, "__esModule", { value: !0 }); var u = n(19), l = n.n(u), c = n(49), d = n.n(c), f = n(68), h = n.n(f), p = { name: "ClockPickerCanvas", props: { width: { type: Number, default: 300 }, type: { type: String, default: "hours" }, hoursIn: { type: Number, default: 24 }, gisture: { type: Number, default: 30 }, disabled: { type: Array, default: function () { return [] } }, defaultValue: { type: String, default: null }, activeColor: { type: String, default: "#a48bd1" }, activeTextColor: { type: String, default: "white" }, color: { type: String, default: "#757575" }, disabledColor: { type: String, default: "#ddd" }, font: { type: String, default: "" } }, data: function () { return { radius: null, ctx: null, anglesMap: {}, anglesMapFactor: null, $canvas: null, value: null, lastEvent: { x: null, y: null, angle: null, radius: null, round: null }, moveStart: !1, throttleDelay: 100, scheduled: !1, alpha: .7 } }, computed: { pxRatio: function () { return "undefined" == typeof window ? 1 : window.devicePixelRatio } }, methods: { init: function () { this.getCanvasElement(), this.setDimensions(), this.setAnglesMap(), this.setTypography(), this.drawNumbers() }, getCanvasElement: function () { this.$canvas = this.$refs.canvas, this.ctx = this.$canvas.getContext("2d") }, setDimensions: function () { var t = this.gisture * this.pxRatio, e = this.width * this.pxRatio; return this.ctx.translate(e / 2, e / 2), this.radius = e / 2 - t / 2, { x: e / 2, y: e / 2 } }, setTypography: function () { var t = 14 * this.pxRatio; this.ctx.font = "normal normal 500 " + t + "px " + this.font, this.ctx.textAlign = "center", this.ctx.textBaseline = "middle" }, setAnglesMap: function () { var t = "hours" === this.type ? 12 : 60; this.anglesMapFactor = 360 / t; for (var e = 0; e < t; e += 1) { var n = this.anglesMapFactor * e - 90; this.anglesMap[this.padNo(e)] = { angle: this.roundAngle(n), round: Math.floor((n + 90) / 360) } } if ("hours" === this.type && 24 === this.hoursIn) for (var i = 12; i < 24; i += 1) { var o = this.anglesMapFactor * i - 90; this.anglesMap[this.padNo(i)] = { angle: this.roundAngle(o), round: Math.floor((o + 90) / 360) } } }, drawNumbers: function () { var t = this, e = !(arguments.length > 0 && void 0 !== arguments[0]) || arguments[0], n = this.pxRatio * this.width, i = [], o = [], r = []; h()(this.anglesMap).forEach(function (n) { var s = t.gisture * t.pxRatio, a = t.anglesMap[n], u = a.angle, l = a.round, c = t.radius - l * s, d = c * Math.cos(u * (Math.PI / 180)), f = c * Math.sin(u * (Math.PI / 180)); t.disabled.includes(n) ? o.push([n, d, f]) : e && t.value === n ? i.push(n, d, f) : e || t.lastEvent.value !== n ? r.push([n, d, f]) : i.push(n, d, f) }), this.ctx.clearRect(-n / 2, -n / 2, n, n), this.drawCircle(0, 0, 3, this.activeColor), this.drawLine(i[1], i[2], this.activeColor), this.drawCircle(i[1], i[2], 12, this.activeColor, this.alpha, !0), o.forEach(function (e) { return t.drawDisabled.apply(t, d()(e)) }), r.forEach(function (e) { return t.drawNormalValue.apply(t, d()(e)) }), this.drawValue.apply(this, i) }, drawDisabled: function (t, e, n) { var i = this.type, o = Number(t) % 5 == 0; if ("hours" === i || o) return this.ctx.fillStyle = this.disabledColor, void this.ctx.fillText(t, e, n); this.drawCircle(e, n, 2, this.disabledColor) }, drawValue: function (t, e, n) { var i = this.shouldDrawNo(t); this.ctx.fillStyle = this.activeColor, i ? (this.ctx.fillStyle = this.activeTextColor, this.ctx.fillText(t, e, n)) : this.drawCircle(e, n, 3, this.activeTextColor) }, drawNormalValue: function (t, e, n) { if (this.shouldDrawNo(t)) return this.ctx.fillStyle = this.color, void this.ctx.fillText(t, e, n); this.drawCircle(e, n, 2, this.activeColor, .3) }, shouldDrawNo: function (t) { var e = Number(t) % 5 == 0; return "hours" === this.type || e }, drawCircle: function (t, e, n, i) { var o = arguments.length > 4 && void 0 !== arguments[4] ? arguments[4] : 1, r = arguments.length > 5 && void 0 !== arguments[5] && arguments[5], s = n * this.pxRatio, a = this.width * this.pxRatio; this.ctx.save(), this.ctx.beginPath(), this.ctx.arc(t, e, s, 0, 2 * Math.PI), this.ctx.closePath(), r && (this.ctx.clip(), this.ctx.clearRect(-a / 2, -a / 2, a, a)), this.ctx.fillStyle = i, this.ctx.globalAlpha = o, this.ctx.fill(), this.ctx.restore(), this.ctx.globalAlpha = 1 }, drawLine: function (t, e, n) { this.ctx.save(), this.ctx.beginPath(), this.ctx.moveTo(0, 0), this.ctx.lineTo(t, e), this.ctx.closePath(), this.ctx.strokeStyle = n, this.ctx.globalAlpha = this.alpha, this.ctx.lineWidth = this.pxRatio, this.ctx.stroke(), this.ctx.restore(), this.ctx.globalAlpha = 1 }, padNo: function (t) { var e = "00" + t; return e.slice(e.length - 2) }, roundAngle: function (t) { var e = t < 0 ? 360 + t : t; return e - 360 * Math.floor(e / 360) }, onPointChange: function (t) { var e = arguments.length > 1 && void 0 !== arguments[1] && arguments[1], n = this.pxRatio * this.width; this.ctx.clearRect(-n / 2, -n / 2, n, n), this.calculateLastEvent(t), this.getSelectedNo(e), this.drawNumbers(e) }, calculateLastEvent: function (t) { var e = t.clientX, n = t.clientY, i = this.gisture * this.pxRatio, o = this.$canvas.getBoundingClientRect(), r = o.x + this.width / 2, s = o.y + this.width / 2, a = e - r, u = n - s, c = Math.atan(u / a), d = Math.abs(a / Math.cos(c)) * this.pxRatio, f = Math.round((this.radius - d) / i), h = c * (180 / Math.PI); return a < 0 ? h += 180 : u < 0 && (h += 360), f < 0 ? f = 0 : f > 1 && (f = 1), "hours" !== this.type && (f = 0), "hours" === this.type && 12 === this.hoursIn && (f = 0), this.lastEvent = l()(this.lastEvent, { x: a, y: u, angle: h, radius: d, round: f }), this.lastEvent }, getSelectedNo: function () { var t = this, e = arguments.length > 0 && void 0 !== arguments[0] && arguments[0], n = this.anglesMapFactor, i = this.lastEvent.angle % n >= n / 2 ? 1 : 0, o = Math.floor(this.lastEvent.angle / n), r = n * (o + i), s = h()(this.anglesMap).find(function (e) { var n = t.anglesMap[e], i = n.angle, o = n.round; return i === (r >= 360 ? r - 360 : r) && o === t.lastEvent.round }); if (e && this.$emit("value-change", ""), !this.disabled.includes(s)) { if (e) return this.value = s, void this.$emit("set", this.value); this.$emit("value-change", s), this.lastEvent.value = s } }, onMouseDown: function () { this.moveStart = !0 }, onMouseMove: function (t) { var e = this; this.moveStart && (this.scheduled || (this.scheduled = !0, setTimeout(function () { e.onPointChange(t, !1), e.scheduled = !1 }, this.throttleDelay))) }, onMouseUp: function (t) { this.moveStart = !1, this.onPointChange(t, !0) }, onTouchStart: function () { this.moveStart = !0 }, onTouchMove: function (t) { var e = this; this.moveStart && (this.scheduled || (this.scheduled = !0, setTimeout(function () { var n = t.changedTouches; e.onPointChange(n[0], !1), e.scheduled = !1 }, this.throttleDelay))) }, onTouchEnd: function (t) { var e = t.changedTouches; this.onPointChange(e[0], !0), this.moveStart = !1 } }, mounted: function () { var t = this; this.$nextTick(function () { var e = t.disabled.includes(t.defaultValue); t.value = e ? "--" : t.defaultValue, t.init() }) } }, v = function () { var t = this, e = t.$createElement, n = t._self._c || e; return n("div", { staticClass: "clock-picker__canvas" }, [n("canvas", { ref: "canvas", style: { width: t.width + "px", height: t.width + "px" }, attrs: { width: t.width * t.pxRatio, height: t.width * t.pxRatio }, on: { mouseup: function (e) { t.onMouseUp(e) }, mousedown: function (e) { t.onMouseDown(e) }, touchstart: function (e) { t.onTouchStart(e) }, touchend: function (e) { t.onTouchEnd(e) }, mousemove: function (e) { t.onMouseMove(e) }, touchmove: function (e) { t.onTouchMove(e) } } })]) }, y = []; v._withStripped = !0; var m = { render: v, staticRenderFns: y }, b = m, g = !1, x = n(2), _ = i, k = x(p, b, !1, _, null, null); k.options.__file = "src/components/ClockPickerCanvas.vue"; var S = k.exports, C = { name: "ClockPickerHours", props: { value: { type: String, default: "00" }, disabledFrom: { type: String, default: null }, disabledTo: { type: String, default: null }, disabledMinsFrom: { type: String, default: null }, disabledMinsTo: { type: String, default: null }, activeColor: { type: String, default: "black" }, activeTextColor: { type: String, default: "white" }, color: { type: String, default: "#757575" }, disabledColor: { type: String, default: "#ddd" }, font: { type: String, default: "" } }, components: { ClockPickerCanvas: S }, data: function () { return {} }, computed: { disabledRange: function () { var t = this.disabledFrom, e = this.disabledTo, n = this.disabledMinsFrom, i = this.disabledMinsTo, o = "00" === n ? 0 : 1, r = "59" === i ? 0 : 1; return t === e ? [] : t && e ? this.makeArray(Number(t) + o, Number(e) - r) : t ? this.makeArray(Number(t) + o, 23) : e && e > 0 ? this.makeArray(0, Number(e) - r) : [] } }, methods: { makeArray: function (t, e) { for (var n = [], i = t; i <= e; i++) { var o = "00" + (i > 23 ? 0 : i); n.push(o.slice(o.length - 2)) } return n }, isDisabled: function (t) { return this.disabledRange.includes(t) }, itemClass: function (t) { var e = Number(t); return 12 === e ? 0 : e > 12 ? e - 12 : e }, setValue: function (t) { this.$emit("set", t) } } }, w = function () { var t = this, e = t.$createElement, n = t._self._c || e; return n("div", { staticClass: "clock-picker__hours" }, [n("clock-picker-canvas", { attrs: { width: 280, disabled: t.disabledRange, "default-value": t.value, color: t.color, "disabled-color": t.disabledColor, "active-color": t.activeColor, "active-text-color": t.activeTextColor, font: t.font }, on: { "value-change": function (e) { t.$emit("set-temp-hours", e) }, set: function (e) { t.setValue(e) } } })], 1) }, T = []; w._withStripped = !0; var M = { render: w, staticRenderFns: T }, E = M, O = !1, F = n(2), P = o, j = F(C, E, !1, P, null, null); j.options.__file = "src/components/ClockPickerHours.vue"; var R = j.exports, A = { name: "ClockPickerMinutes", props: { buttonClass: { type: String }, value: { type: String }, shouldDisableAll: { type: Boolean, default: !1 }, shouldDisableFrom: { type: Boolean, default: !1 }, disabledFrom: { type: String, default: null }, disabledTo: { type: String, default: null }, disabledHrFrom: { type: String, default: null }, disabledHrTo: { type: String, default: null }, activeColor: { type: String, default: "black" }, activeTextColor: { type: String, default: "white" }, color: { type: String, default: "#757575" }, disabledColor: { type: String, default: "#ddd" }, font: { type: String, default: "" } }, components: { ClockPickerCanvas: S }, data: function () { return {} }, computed: { minutes: function () { return this.makeArray(0, 59) }, disabledRange: function () { var t = this.disabledFrom, e = this.disabledTo, n = this.shouldDisableFrom, i = this.disabledHrFrom, o = this.disabledHrTo, r = i === o; return n && t ? this.makeArray(t, r ? e : 59) : e ? this.makeArray(0, e) : [] } }, methods: { makeArray: function (t, e) { for (var n = [], i = t; i <= e; i++) { var o = "00" + i; n.push(o.slice(o.length - 2)) } return n }, isDisabled: function (t) { return this.disabledRange.includes(t) }, isSmall: function (t) { return Number(t) % 5 != 0 }, setValue: function (t) { this.$emit("set", t) } } }, D = function () { var t = this, e = t.$createElement, n = t._self._c || e; return n("div", { staticClass: "clock-picker__minutes" }, [n("clock-picker-canvas", { attrs: { disabled: t.disabledRange, type: "mins", width: 280, "default-value": t.value, color: t.color, "disabled-color": t.disabledColor, "active-color": t.activeColor, "active-text-color": t.activeTextColor, font: t.font }, on: { "value-change": function (e) { t.$emit("set-temp-mins", e) }, set: function (e) { t.setValue(e) } } })], 1) }, V = []; D._withStripped = !0; var H = { render: D, staticRenderFns: V }, $ = H, N = !1, I = n(2), B = r, L = I(A, $, !1, B, null, null); L.options.__file = "src/components/ClockPickerMinutes.vue"; var U = L.exports, q = { name: "ClockPickerDialog", props: { disabledFrom: { type: String, default: null }, disabledTo: { type: String, default: null }, initialValue: { type: String, default: "00:00" }, cancelText: { type: String, default: null }, doneText: { type: String, default: null }, activeColor: { type: String, default: "black" }, activeTextColor: { type: String, default: "white" }, color: { type: String, default: "#757575" }, disabledColor: { type: String, default: "#ddd" }, closeOnOverlay: { type: Boolean, default: !1 }, font: { type: String, default: "" } }, components: { ClockPickerHours: R, ClockPickerMinutes: U }, watch: { initialValue: function () { this.updateTime() } }, data: function () { return { opened: !1, hours: this.initialValue.slice(0, 2), minutes: this.initialValue.slice(3, 5), isHoursSet: !1, isMinutesSet: !1, tempHours: "", tempMins: "" } }, computed: { disabledHoursFrom: function () { var t = this.disabledFrom; return t ? t.slice(0, 2) : null }, disabledMinutesFrom: function () { var t = this.disabledFrom; return t ? t.slice(3, 5) : null }, disabledHoursTo: function () { var t = this.disabledTo; return t ? t.slice(0, 2) : null }, disabledMinutesTo: function () { var t = this.disabledTo, e = this.isHoursSet, n = this.disabledHoursTo, i = this.hours; return !t || e && i !== n ? null : t.slice(3) }, shouldDisableAllMinutes: function () { var t = this.isHoursSet, e = this.hours, n = this.disabledHoursTo, i = this.disabledHoursFrom; return t && e < n && e > i }, shouldDisableFrom: function () { var t = this.isHoursSet, e = this.hours, n = this.disabledHoursFrom; return t && e === n }, isDoneDisabled: function () { var t = /^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/, e = this.hours + ":" + this.minutes; return !t.test(e) } }, methods: { open: function () { this.opened = !0 }, close: function () { this.opened = !1, this.isHoursSet = !1, this.isMinutesSet = !1 }, cancel: function () { this.$emit("cancel", this.hours + ":" + this.minutes), this.hours = this.initialValue.slice(0, 2), this.minutes = this.initialValue.slice(3) }, setHours: function (t) { this.hours = t, this.isHoursSet = !0 }, setMinutes: function (t) { this.minutes = t, this.isMinutesSet = !0 }, done: function () { this.$emit("done", this.hours + ":" + this.minutes) }, updateTime: function () { this.hours = this.initialValue.slice(0, 2), this.minutes = this.initialValue.slice(3, 5) }, onSetTempHours: function (t) { this.tempHours = t }, onSetTempMins: function (t) { this.tempMins = t }, onOverlayClick: function () { this.closeOnOverlay && this.cancel() } }, mounted: function () { this.updateTime() } }, W = function () { var t = this, e = t.$createElement, n = t._self._c || e; return n("div", { staticClass: "clock-picker__dialog", class: { "clock-picker__dialog--active": t.opened } }, [n("transition", { attrs: { name: "fade", mode: "out-in" } }, [t.opened ? n("div", { staticClass: "clock-picker__dialog-drop", on: { click: function (e) { t.onOverlayClick() } } }) : t._e()]), t._v(" "), n("transition", { attrs: { name: "scale", mode: "out-in" } }, [t.opened ? n("div", { staticClass: "clock-picker__dialog-body" }, [n("div", { staticClass: "clock-picker__dialog-header", style: { backgroundColor: t.activeColor, color: t.activeTextColor, fontFamily: t.font } }, [n("span", { on: { click: function (e) { t.isHoursSet = !1 } } }, [t._v(t._s(t.tempHours || t.hours))]), t._v(" "), n("b", [t._v(":")]), t._v(" "), n("span", [t._v(t._s(t.tempMins || t.minutes))])]), t._v(" "), n("div", { staticClass: "clock-picker__dialog-content" }, [n("transition", { attrs: { name: "scale", mode: "out-in" } }, [t.isHoursSet ? t._e() : n("clock-picker-hours", { attrs: { "disabled-from": t.disabledHoursFrom, "disabled-to": t.disabledHoursTo, "disabled-mins-from": t.disabledMinutesFrom, "disabled-mins-to": t.disabledMinutesTo, value: t.hours, color: t.color, "disabled-color": t.disabledColor, "active-color": t.activeColor, "active-text-color": t.activeTextColor, font: t.font }, on: { "set-temp-hours": function (e) { t.onSetTempHours(e) }, set: function (e) { t.setHours(e) } } })], 1), t._v(" "), n("transition", { attrs: { name: "scale", mode: "out-in" } }, [t.isHoursSet ? n("clock-picker-minutes", { attrs: { "should-disable-all": t.shouldDisableAllMinutes, "should-disable-from": t.shouldDisableFrom, "disabled-from": t.disabledMinutesFrom, "disabled-to": t.disabledMinutesTo, "disabled-hr-from": t.disabledHoursFrom, "disabled-hr-to": t.disabledHoursTo, value: t.minutes, color: t.color, "disabled-color": t.disabledColor, "active-color": t.activeColor, "active-text-color": t.activeTextColor, font: t.font }, on: { "set-temp-mins": function (e) { t.onSetTempMins(e) }, set: function (e) { t.setMinutes(e) } } }) : t._e()], 1)], 1), t._v(" "), n("div", { staticClass: "clock-picker__dialog-actions" }, [n("button", { staticClass: "clock-picker__dialog-action", style: { color: t.activeColor }, attrs: { type: "button" }, on: { click: t.cancel } }, [t._v(t._s(t.cancelText))]), t._v(" "), n("button", { staticClass: "clock-picker__dialog-action", style: { color: t.isDoneDisabled ? t.disabledColor : t.activeColor }, attrs: { type: "button", disabled: t.isDoneDisabled }, on: { click: t.done } }, [t._v(t._s(t.doneText))])])]) : t._e()])], 1) }, K = []; W._withStripped = !0; var X = { render: W, staticRenderFns: K }, z = X, G = !1, Y = n(2), J = s, Q = Y(q, z, !1, J, null, null); Q.options.__file = "src/components/ClockPickerDialog.vue"; var Z = Q.exports, tt = function () { var t = Math.random().toString(36).substring(2, 9); return "clock_picker_input_" + (Date.now().toString(36) + t) }, et = { container: "clock-picker__input-container", focus: "clock-picker__input--focused", error: "clock-picker__input--error", value: "clock-picker__input--has-value", input: "clock-picker__input", label: "clock-picker__label" }, nt = { name: "VueClockPicker", props: { inputContainerClass: { type: String, default: et.container }, inputClass: { type: String, default: et.input }, inputFocusClass: { type: String, default: et.focus }, inputErrorClass: { type: String, default: et.error }, inputValueClass: { type: String, default: et.value }, labelClass: { type: String, default: et.label }, placeholder: { type: String, default: "" }, name: { type: String, default: "time_input" }, label: { type: String, default: "" }, id: { type: String, default: null }, required: { type: Boolean, default: !1 }, value: { type: String, default: "" }, disabledFrom: { type: String, default: "" }, disabledTo: { type: String, default: "" }, doneText: { type: String, default: "done" }, cancelText: { type: String, default: "cancel" }, activeColor: { type: String, default: "#a48bd1" }, activeTextColor: { type: String, default: "white" }, color: { type: String, default: "#757575" }, disabledColor: { type: String, default: "#ddd" }, closeOnEsc: { type: Boolean, default: !1 }, closeOnOverlay: { type: Boolean, default: !1 }, font: { type: String, default: "Roboto, arial, san-serif" } }, components: { ClockPickerDialog: Z }, data: function () { return { isFocused: !1, dialogOpen: !1, showError: !1, isTouched: !1, uuid: this.id || tt(), timeErrors: {} } }, computed: { hasError: function () { return this.checkErrors() && this.isTouched }, hasValue: function () { return !!this.value } }, methods: { open: function () { var t = this; this.emitEvent("beforeOpen"), this.$refs.dialog.open(), this.$nextTick(function () { t.emitEvent("open") }) }, close: function () { var t = this; this.emitEvent("beforeClose"), this.$refs.dialog.close(), this.$nextTick(function () { t.emitEvent("close"), t.isTouched = !0 }) }, cancel: function (t) { this.emitEvent("cancel", t), this.close() }, onKeydown: function (t) { "Escape" === t.key && this.cancel() }, handleDone: function (t) { this.$emit("input", t), this.validate(), this.$emit("timeset", t), this.close() }, emitEvent: function (t, e) { this.$emit(t, e) }, getValue: function () { return this.value }, setValue: function (t) { this.handleDone(t) }, isValid: function () { return /^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/.test(this.value) }, isDisabled: function (t) { var e = parseInt(this.disabledFrom.slice(0, 2), 10), n = parseInt(this.disabledTo.slice(0, 2), 10), i = parseInt(this.disabledFrom.slice(3), 10), o = parseInt(this.disabledTo.slice(3), 10), r = parseInt(t.slice(0, 2), 10), s = parseInt(t.slice(3), 10); return e === n && e === r && 0 === i && 59 === o || e === n && e === r && s >= i && s <= o || e < n && r === e && i <= s || e < n && r === n && o >= s || e < n && r > e && r < n || e > n }, checkErrors: function () { var t = this.required && !this.value, e = this.value && !this.isValid(), n = this.value && this.isDisabled(this.value); return this.timeErrors = l()(this.timeErrors, { required: t, notValid: e, disabled: n }), t || e || n }, validate: function () { this.showError = this.checkErrors(), this.isTouched = !0 } }, mounted: function () { this.value && this.validate(), this.closeOnEsc && document.body.addEventListener("keydown", this.onKeydown) }, destroy: function () { this.closeOnEsc && document.body.removeEventListener("keydown", this.onKeydown) } }, it = function () { var t = this, e = t.$createElement, n = t._self._c || e; return n("div", { staticClass: "clock-picker" }, [n("div", { class: (i = {}, i[t.inputContainerClass] = !0, i[t.inputValueClass] = t.hasValue, i[t.inputErrorClass] = t.hasError && t.isTouched, i[t.inputFocusClass] = t.isFocused, i) }, [t.label ? n("label", { class: t.labelClass, attrs: { for: t.uuid } }, [t._v(t._s(t.label))]) : t._e(), t._v(" "), n("input", { ref: "input", class: t.inputClass, attrs: { type: "text", id: t.uuid, name: t.name, placeholder: t.placeholder, readonly: "" }, domProps: { value: t.value }, on: { click: t.open } }), t._v(" "), t._t("error", [t._v(t._s(t.hasError && t.isTouched ? "Error" : ""))])], 2), t._v(" "), n("clock-picker-dialog", { ref: "dialog", attrs: { "initial-value": t.hasError || !t.value ? "--:--" : t.value, "disabled-from": t.disabledFrom, "disabled-to": t.disabledTo, "done-text": t.doneText, "cancel-text": t.cancelText, color: t.color, "disabled-color": t.disabledColor, "active-color": t.activeColor, "active-text-color": t.activeTextColor, "close-on-overlay": t.closeOnOverlay, font: t.font }, on: { cancel: function (e) { t.cancel(e) }, done: function (e) { t.handleDone(e) } } })], 1); var i }, ot = []; it._withStripped = !0; var rt = { render: it, staticRenderFns: ot }, st = rt, at = !1, ut = n(2), lt = a, ct = ut(nt, st, !1, lt, null, null); ct.options.__file = "src/components/ClockPicker.vue"; e.default = ct.exports }, function (t, e) { }, function (t, e, n) { n(36), t.exports = n(0).Object.assign }, function (t, e, n) { var i = n(4); i(i.S + i.F, "Object", { assign: n(40) }) }, function (t, e) { t.exports = function (t) { if ("function" != typeof t) throw TypeError(t + " is not a function!"); return t } }, function (t, e, n) { t.exports = !n(8) && !n(9)(function () { return 7 != Object.defineProperty(n(21)("div"), "a", { get: function () { return 7 } }).a }) }, function (t, e, n) { var i = n(12); t.exports = function (t, e) { if (!i(t)) return t; var n, o; if (e && "function" == typeof (n = t.toString) && !i(o = n.call(t))) return o; if ("function" == typeof (n = t.valueOf) && !i(o = n.call(t))) return o; if (!e && "function" == typeof (n = t.toString) && !i(o = n.call(t))) return o; throw TypeError("Can't convert object to primitive value") } }, function (t, e, n) { "use strict"; var i = n(14), o = n(44), r = n(45), s = n(11), a = n(23), u = Object.assign; t.exports = !u || n(9)(function () { var t = {}, e = {}, n = Symbol(), i = "abcdefghijklmnopqrst"; return t[n] = 7, i.split("").forEach(function (t) { e[t] = t }), 7 != u({}, t)[n] || Object.keys(u({}, e)).join("") != i }) ? function (t, e) { for (var n = s(t), u = arguments.length, l = 1, c = o.f, d = r.f; u > l;)for (var f, h = a(arguments[l++]), p = c ? i(h).concat(c(h)) : i(h), v = p.length, y = 0; v > y;)d.call(h, f = p[y++]) && (n[f] = h[f]); return n } : u }, function (t, e, n) { var i = n(10), o = n(22), r = n(42)(!1), s = n(17)("IE_PROTO"); t.exports = function (t, e) { var n, a = o(t), u = 0, l = []; for (n in a) n != s && i(a, n) && l.push(n); for (; e.length > u;)i(a, n = e[u++]) && (~r(l, n) || l.push(n)); return l } }, function (t, e, n) { var i = n(22), o = n(25), r = n(43); t.exports = function (t) { return function (e, n, s) { var a, u = i(e), l = o(u.length), c = r(s, l); if (t && n != n) { for (; l > c;)if ((a = u[c++]) != a) return !0 } else for (; l > c; c++)if ((t || c in u) && u[c] === n) return t || c || 0; return !t && -1 } } }, function (t, e, n) { var i = n(16), o = Math.max, r = Math.min; t.exports = function (t, e) { return t = i(t), t < 0 ? o(t + e, 0) : r(t, e) } }, function (t, e) { e.f = Object.getOwnPropertySymbols }, function (t, e) { e.f = {}.propertyIsEnumerable }, function (t, e) { }, function (t, e) { }, function (t, e) { }, function (t, e, n) { "use strict"; e.__esModule = !0; var i = n(50), o = function (t) { return t && t.__esModule ? t : { default: t } }(i); e.default = function (t) { if (Array.isArray(t)) { for (var e = 0, n = Array(t.length); e < t.length; e++)n[e] = t[e]; return n } return (0, o.default)(t) } }, function (t, e, n) { t.exports = { default: n(51), __esModule: !0 } }, function (t, e, n) { n(52), n(61), t.exports = n(0).Array.from }, function (t, e, n) { "use strict"; var i = n(53)(!0); n(54)(String, "String", function (t) { this._t = String(t), this._i = 0 }, function () { var t, e = this._t, n = this._i; return n >= e.length ? { value: void 0, done: !0 } : (t = i(e, n), this._i += t.length, { value: t, done: !1 }) }) }, function (t, e, n) { var i = n(16), o = n(15); t.exports = function (t) { return function (e, n) { var r, s, a = String(o(e)), u = i(n), l = a.length; return u < 0 || u >= l ? t ? "" : void 0 : (r = a.charCodeAt(u), r < 55296 || r > 56319 || u + 1 === l || (s = a.charCodeAt(u + 1)) < 56320 || s > 57343 ? t ? a.charAt(u) : r : t ? a.slice(u, u + 2) : s - 56320 + (r - 55296 << 10) + 65536) } } }, function (t, e, n) { "use strict"; var i = n(27), o = n(4), r = n(55), s = n(5), a = n(18), u = n(56), l = n(30), c = n(60), d = n(1)("iterator"), f = !([].keys && "next" in [].keys()), h = function () { return this }; t.exports = function (t, e, n, p, v, y, m) { u(n, e, p); var b, g, x, _ = function (t) { if (!f && t in w) return w[t]; switch (t) { case "keys": case "values": return function () { return new n(this, t) } }return function () { return new n(this, t) } }, k = e + " Iterator", S = "values" == v, C = !1, w = t.prototype, T = w[d] || w["@@iterator"] || v && w[v], M = T || _(v), E = v ? S ? _("entries") : M : void 0, O = "Array" == e ? w.entries || T : T; if (O && (x = c(O.call(new t))) !== Object.prototype && x.next && (l(x, k, !0), i || "function" == typeof x[d] || s(x, d, h)), S && T && "values" !== T.name && (C = !0, M = function () { return T.call(this) }), i && !m || !f && !C && w[d] || s(w, d, M), a[e] = M, a[k] = h, v) if (b = { values: S ? M : _("values"), keys: y ? M : _("keys"), entries: E }, m) for (g in b) g in w || r(w, g, b[g]); else o(o.P + o.F * (f || C), e, b); return b } }, function (t, e, n) { t.exports = n(5) }, function (t, e, n) { "use strict"; var i = n(57), o = n(13), r = n(30), s = {}; n(5)(s, n(1)("iterator"), function () { return this }), t.exports = function (t, e, n) { t.prototype = i(s, { next: o(1, n) }), r(t, e + " Iterator") } }, function (t, e, n) { var i = n(7), o = n(58), r = n(29), s = n(17)("IE_PROTO"), a = function () { }, u = function () { var t, e = n(21)("iframe"), i = r.length; for (e.style.display = "none", n(59).appendChild(e), e.src = "javascript:", t = e.contentWindow.document, t.open(), t.write("<script>document.F=Object<\/script>"), t.close(), u = t.F; i--;)delete u.prototype[r[i]]; return u() }; t.exports = Object.create || function (t, e) { var n; return null !== t ? (a.prototype = i(t), n = new a, a.prototype = null, n[s] = t) : n = u(), void 0 === e ? n : o(n, e) } }, function (t, e, n) { var i = n(6), o = n(7), r = n(14); t.exports = n(8) ? Object.defineProperties : function (t, e) { o(t); for (var n, s = r(e), a = s.length, u = 0; a > u;)i.f(t, n = s[u++], e[n]); return t } }, function (t, e, n) { var i = n(3).document; t.exports = i && i.documentElement }, function (t, e, n) { var i = n(10), o = n(11), r = n(17)("IE_PROTO"), s = Object.prototype; t.exports = Object.getPrototypeOf || function (t) { return t = o(t), i(t, r) ? t[r] : "function" == typeof t.constructor && t instanceof t.constructor ? t.constructor.prototype : t instanceof Object ? s : null } }, function (t, e, n) { "use strict"; var i = n(20), o = n(4), r = n(11), s = n(62), a = n(63), u = n(25), l = n(64), c = n(65); o(o.S + o.F * !n(67)(function (t) { Array.from(t) }), "Array", { from: function (t) { var e, n, o, d, f = r(t), h = "function" == typeof this ? this : Array, p = arguments.length, v = p > 1 ? arguments[1] : void 0, y = void 0 !== v, m = 0, b = c(f); if (y && (v = i(v, p > 2 ? arguments[2] : void 0, 2)), void 0 == b || h == Array && a(b)) for (e = u(f.length), n = new h(e); e > m; m++)l(n, m, y ? v(f[m], m) : f[m]); else for (d = b.call(f), n = new h; !(o = d.next()).done; m++)l(n, m, y ? s(d, v, [o.value, m], !0) : o.value); return n.length = m, n } }) }, function (t, e, n) { var i = n(7); t.exports = function (t, e, n, o) { try { return o ? e(i(n)[0], n[1]) : e(n) } catch (e) { var r = t.return; throw void 0 !== r && i(r.call(t)), e } } }, function (t, e, n) { var i = n(18), o = n(1)("iterator"), r = Array.prototype; t.exports = function (t) { return void 0 !== t && (i.Array === t || r[o] === t) } }, function (t, e, n) { "use strict"; var i = n(6), o = n(13); t.exports = function (t, e, n) { e in t ? i.f(t, e, o(0, n)) : t[e] = n } }, function (t, e, n) { var i = n(66), o = n(1)("iterator"), r = n(18); t.exports = n(0).getIteratorMethod = function (t) { if (void 0 != t) return t[o] || t["@@iterator"] || r[i(t)] } }, function (t, e, n) { var i = n(24), o = n(1)("toStringTag"), r = "Arguments" == i(function () { return arguments }()), s = function (t, e) { try { return t[e] } catch (t) { } }; t.exports = function (t) { var e, n, a; return void 0 === t ? "Undefined" : null === t ? "Null" : "string" == typeof (n = s(e = Object(t), o)) ? n : r ? i(e) : "Object" == (a = i(e)) && "function" == typeof e.callee ? "Arguments" : a } }, function (t, e, n) { var i = n(1)("iterator"), o = !1; try { var r = [7][i](); r.return = function () { o = !0 }, Array.from(r, function () { throw 2 }) } catch (t) { } t.exports = function (t, e) { if (!e && !o) return !1; var n = !1; try { var r = [7], s = r[i](); s.next = function () { return { done: n = !0 } }, r[i] = function () { return s }, t(r) } catch (t) { } return n } }, function (t, e, n) { t.exports = { default: n(69), __esModule: !0 } }, function (t, e, n) { n(70), t.exports = n(0).Object.keys }, function (t, e, n) { var i = n(11), o = n(14); n(71)("keys", function () { return function (t) { return o(i(t)) } }) }, function (t, e, n) { var i = n(4), o = n(0), r = n(9); t.exports = function (t, e) { var n = (o.Object || {})[t] || Object[t], s = {}; s[t] = e(n), i(i.S + i.F * r(function () { n(1) }), "Object", s) } }, function (t, e) { }]) });
 
       /***/
-}),
+    }),
 
 /***/ "./node_modules/axios/index.js":
 /*!*************************************!*\
@@ -149,7 +149,7 @@
       module.exports = __webpack_require__(/*! ./lib/axios */ "./node_modules/axios/lib/axios.js");
 
       /***/
-}),
+    }),
 
 /***/ "./node_modules/axios/lib/adapters/xhr.js":
 /*!************************************************!*\
@@ -324,7 +324,7 @@
 
 
       /***/
-}),
+    }),
 
 /***/ "./node_modules/axios/lib/axios.js":
 /*!*****************************************!*\
@@ -389,7 +389,7 @@
 
 
       /***/
-}),
+    }),
 
 /***/ "./node_modules/axios/lib/cancel/Cancel.js":
 /*!*************************************************!*\
@@ -421,7 +421,7 @@
 
 
       /***/
-}),
+    }),
 
 /***/ "./node_modules/axios/lib/cancel/CancelToken.js":
 /*!******************************************************!*\
@@ -491,7 +491,7 @@
 
 
       /***/
-}),
+    }),
 
 /***/ "./node_modules/axios/lib/cancel/isCancel.js":
 /*!***************************************************!*\
@@ -509,7 +509,7 @@
 
 
       /***/
-}),
+    }),
 
 /***/ "./node_modules/axios/lib/core/Axios.js":
 /*!**********************************************!*\
@@ -601,7 +601,7 @@
 
 
       /***/
-}),
+    }),
 
 /***/ "./node_modules/axios/lib/core/InterceptorManager.js":
 /*!***********************************************************!*\
@@ -666,7 +666,7 @@
 
 
       /***/
-}),
+    }),
 
 /***/ "./node_modules/axios/lib/core/createError.js":
 /*!****************************************************!*\
@@ -697,7 +697,7 @@
 
 
       /***/
-}),
+    }),
 
 /***/ "./node_modules/axios/lib/core/dispatchRequest.js":
 /*!********************************************************!*\
@@ -796,7 +796,7 @@
 
 
       /***/
-}),
+    }),
 
 /***/ "./node_modules/axios/lib/core/enhanceError.js":
 /*!*****************************************************!*\
@@ -830,7 +830,7 @@
 
 
       /***/
-}),
+    }),
 
 /***/ "./node_modules/axios/lib/core/settle.js":
 /*!***********************************************!*\
@@ -869,7 +869,7 @@
 
 
       /***/
-}),
+    }),
 
 /***/ "./node_modules/axios/lib/core/transformData.js":
 /*!******************************************************!*\
@@ -902,7 +902,7 @@
 
 
       /***/
-}),
+    }),
 
 /***/ "./node_modules/axios/lib/defaults.js":
 /*!********************************************!*\
@@ -1010,10 +1010,10 @@
         module.exports = defaults;
 
         /* WEBPACK VAR INJECTION */
-}.call(this, __webpack_require__(/*! ./../../process/browser.js */ "./node_modules/process/browser.js")))
+      }.call(this, __webpack_require__(/*! ./../../process/browser.js */ "./node_modules/process/browser.js")))
 
       /***/
-}),
+    }),
 
 /***/ "./node_modules/axios/lib/helpers/bind.js":
 /*!************************************************!*\
@@ -1037,7 +1037,7 @@
 
 
       /***/
-}),
+    }),
 
 /***/ "./node_modules/axios/lib/helpers/buildURL.js":
 /*!****************************************************!*\
@@ -1116,7 +1116,7 @@
 
 
       /***/
-}),
+    }),
 
 /***/ "./node_modules/axios/lib/helpers/combineURLs.js":
 /*!*******************************************************!*\
@@ -1143,7 +1143,7 @@
 
 
       /***/
-}),
+    }),
 
 /***/ "./node_modules/axios/lib/helpers/cookies.js":
 /*!***************************************************!*\
@@ -1209,7 +1209,7 @@
 
 
       /***/
-}),
+    }),
 
 /***/ "./node_modules/axios/lib/helpers/isAbsoluteURL.js":
 /*!*********************************************************!*\
@@ -1236,7 +1236,7 @@
 
 
       /***/
-}),
+    }),
 
 /***/ "./node_modules/axios/lib/helpers/isURLSameOrigin.js":
 /*!***********************************************************!*\
@@ -1317,7 +1317,7 @@
 
 
       /***/
-}),
+    }),
 
 /***/ "./node_modules/axios/lib/helpers/normalizeHeaderName.js":
 /*!***************************************************************!*\
@@ -1342,7 +1342,7 @@
 
 
       /***/
-}),
+    }),
 
 /***/ "./node_modules/axios/lib/helpers/parseHeaders.js":
 /*!********************************************************!*\
@@ -1408,7 +1408,7 @@
 
 
       /***/
-}),
+    }),
 
 /***/ "./node_modules/axios/lib/helpers/spread.js":
 /*!**************************************************!*\
@@ -1448,7 +1448,7 @@
 
 
       /***/
-}),
+    }),
 
 /***/ "./node_modules/axios/lib/utils.js":
 /*!*****************************************!*\
@@ -1764,7 +1764,7 @@
 
 
       /***/
-}),
+    }),
 
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Attendance.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************************************************************************************************!*\
@@ -2302,7 +2302,7 @@
       });
 
       /***/
-}),
+    }),
 
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AttendancePdf.vue?vue&type=script&lang=js&":
 /*!************************************************************************************************************************************************************************!*\
@@ -2540,7 +2540,7 @@
 throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /opt/lampp/htdocs/sevenhillsmed/resources/js/components/AttendancePdf.vue: Unexpected token (98:8)\n\n\u001b[0m \u001b[90m  96 | \u001b[39m\u001b[0m\n\u001b[0m \u001b[90m  97 | \u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  98 | \u001b[39m        }\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m     | \u001b[39m        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m  99 | \u001b[39m        methods\u001b[33m:\u001b[39m{\u001b[0m\n\u001b[0m \u001b[90m 100 | \u001b[39m        nextSignature(){\u001b[0m\n\u001b[0m \u001b[90m 101 | \u001b[39m            \u001b[36mvar\u001b[39m _this \u001b[33m=\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n    at Parser._raise (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/parser/lib/index.js:742:17)\n    at Parser.raiseWithData (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/parser/lib/index.js:735:17)\n    at Parser.raise (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/parser/lib/index.js:729:17)\n    at Parser.unexpected (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/parser/lib/index.js:8779:16)\n    at Parser.parseExprAtom (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/parser/lib/index.js:10074:20)\n    at Parser.parseExprSubscripts (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/parser/lib/index.js:9624:23)\n    at Parser.parseMaybeUnary (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/parser/lib/index.js:9604:21)\n    at Parser.parseExprOps (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/parser/lib/index.js:9474:23)\n    at Parser.parseMaybeConditional (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/parser/lib/index.js:9447:23)\n    at Parser.parseMaybeAssign (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/parser/lib/index.js:9402:21)\n    at Parser.parseExpression (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/parser/lib/index.js:9354:23)\n    at Parser.parseStatementContent (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/parser/lib/index.js:11233:23)\n    at Parser.parseStatement (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/parser/lib/index.js:11104:17)\n    at Parser.parseBlockOrModuleBlockBody (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/parser/lib/index.js:11679:25)\n    at Parser.parseBlockBody (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/parser/lib/index.js:11665:10)\n    at Parser.parseTopLevel (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/parser/lib/index.js:11035:10)\n    at Parser.parse (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/parser/lib/index.js:12671:10)\n    at parse (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/parser/lib/index.js:12722:38)\n    at parser (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/core/lib/parser/index.js:54:34)\n    at parser.next (<anonymous>)\n    at normalizeFile (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/core/lib/transformation/normalize-file.js:93:38)\n    at normalizeFile.next (<anonymous>)\n    at run (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/core/lib/transformation/index.js:31:50)\n    at run.next (<anonymous>)\n    at Function.transform (/opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/core/lib/transform.js:27:41)\n    at transform.next (<anonymous>)\n    at step (/opt/lampp/htdocs/sevenhillsmed/node_modules/gensync/index.js:254:32)\n    at /opt/lampp/htdocs/sevenhillsmed/node_modules/gensync/index.js:266:13\n    at async.call.result.err.err (/opt/lampp/htdocs/sevenhillsmed/node_modules/gensync/index.js:216:11)\n    at /opt/lampp/htdocs/sevenhillsmed/node_modules/gensync/index.js:184:28\n    at /opt/lampp/htdocs/sevenhillsmed/node_modules/@babel/core/lib/gensync-utils/async.js:72:7\n    at /opt/lampp/htdocs/sevenhillsmed/node_modules/gensync/index.js:108:33\n    at step (/opt/lampp/htdocs/sevenhillsmed/node_modules/gensync/index.js:280:14)\n    at /opt/lampp/htdocs/sevenhillsmed/node_modules/gensync/index.js:266:13\n    at async.call.result.err.err (/opt/lampp/htdocs/sevenhillsmed/node_modules/gensync/index.js:216:11)");
 
             /***/
-}),
+          }),
 
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************************!*\
@@ -2572,7 +2572,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
           });
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/bootstrap/dist/js/bootstrap.js":
 /*!*****************************************************!*\
@@ -7105,7 +7105,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/sweet-modal-vue/src/components/SweetModal.vue?vue&type=style&index=0&lang=scss&":
 /*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
@@ -7125,7 +7125,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/@pencilpix/vue2-clock-picker/dist/vue2-clock-picker.min.css":
 /*!******************************************************************************************************************************************************************!*\
@@ -7145,7 +7145,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Attendance.vue?vue&type=style&index=0&lang=css&":
 /*!****************************************************************************************************************************************************************************************************************************************************************************!*\
@@ -7166,7 +7166,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AttendancePdf.vue?vue&type=style&index=0&id=14c35f24&scoped=true&lang=css&":
 /*!*******************************************************************************************************************************************************************************************************************************************************************************************************!*\
@@ -7186,7 +7186,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/css-loader/lib/css-base.js":
 /*!*************************************************!*\
@@ -7274,7 +7274,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/is-buffer/index.js":
 /*!*****************************************!*\
@@ -7297,7 +7297,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/jquery/dist/jquery.js":
 /*!********************************************!*\
@@ -18183,7 +18183,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/lodash/lodash.js":
 /*!***************************************!*\
@@ -35299,10 +35299,10 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
             }.call(this));
 
             /* WEBPACK VAR INJECTION */
-}.call(this, __webpack_require__(/*! ./../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js"), __webpack_require__(/*! ./../webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module)))
+          }.call(this, __webpack_require__(/*! ./../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js"), __webpack_require__(/*! ./../webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module)))
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/popper.js/dist/esm/popper.js":
 /*!***************************************************!*\
@@ -37931,10 +37931,10 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
             //# sourceMappingURL=popper.js.map
 
             /* WEBPACK VAR INJECTION */
-}.call(this, __webpack_require__(/*! ./../../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
+          }.call(this, __webpack_require__(/*! ./../../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/process/browser.js":
 /*!*****************************************!*\
@@ -38130,7 +38130,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/setimmediate/setImmediate.js":
 /*!***************************************************!*\
@@ -38328,10 +38328,10 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
             }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
             /* WEBPACK VAR INJECTION */
-}.call(this, __webpack_require__(/*! ./../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js"), __webpack_require__(/*! ./../process/browser.js */ "./node_modules/process/browser.js")))
+          }.call(this, __webpack_require__(/*! ./../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js"), __webpack_require__(/*! ./../process/browser.js */ "./node_modules/process/browser.js")))
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/sweet-modal-vue/src/components/SweetModal.vue?vue&type=style&index=0&lang=scss&":
 /*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
@@ -38362,7 +38362,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
           if (false) { }
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Attendance.vue?vue&type=style&index=0&lang=css&":
 /*!********************************************************************************************************************************************************************************************************************************************************************************************************!*\
@@ -38393,7 +38393,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
           if (false) { }
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AttendancePdf.vue?vue&type=style&index=0&id=14c35f24&scoped=true&lang=css&":
 /*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
@@ -38424,7 +38424,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
           if (false) { }
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/style-loader/lib/addStyles.js":
 /*!****************************************************!*\
@@ -38834,7 +38834,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/style-loader/lib/urls.js":
 /*!***********************************************!*\
@@ -38935,7 +38935,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/sweet-modal-vue/src/components/SweetModal.vue":
 /*!********************************************************************!*\
@@ -38975,7 +38975,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/sweet-modal-vue/src/components/SweetModal.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************************!*\
@@ -38990,7 +38990,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_vue_loader_lib_index_js_vue_loader_options_SweetModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]);
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/sweet-modal-vue/src/components/SweetModal.vue?vue&type=style&index=0&lang=scss&":
 /*!******************************************************************************************************!*\
@@ -39007,7 +39007,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
  /* harmony default export */ __webpack_exports__["default"] = (_style_loader_index_js_css_loader_index_js_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_7_2_sass_loader_dist_cjs_js_ref_7_3_vue_loader_lib_index_js_vue_loader_options_SweetModal_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default.a);
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/sweet-modal-vue/src/components/SweetModal.vue?vue&type=template&id=7dbda72e&":
 /*!***************************************************************************************************!*\
@@ -39026,7 +39026,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/sweet-modal-vue/src/components/SweetModalTab.vue":
 /*!***********************************************************************!*\
@@ -39064,7 +39064,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/sweet-modal-vue/src/components/SweetModalTab.vue?vue&type=script&lang=js&":
 /*!************************************************************************************************!*\
@@ -39079,7 +39079,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_vue_loader_lib_index_js_vue_loader_options_SweetModalTab_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]);
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/sweet-modal-vue/src/components/SweetModalTab.vue?vue&type=template&id=4e55f337&":
 /*!******************************************************************************************************!*\
@@ -39098,7 +39098,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/sweet-modal-vue/src/main.js":
 /*!**************************************************!*\
@@ -39122,7 +39122,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/sweet-modal-vue/src/plugin.js":
 /*!****************************************************!*\
@@ -39144,7 +39144,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
           });
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/sweetalert2/dist/sweetalert2.all.js":
 /*!**********************************************************!*\
@@ -42279,7 +42279,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
           "undefined" != typeof document && function (e, t) { var n = e.createElement("style"); if (e.getElementsByTagName("head")[0].appendChild(n), n.styleSheet) n.styleSheet.disabled || (n.styleSheet.cssText = t); else try { n.innerHTML = t } catch (e) { n.innerText = t } }(document, ".swal2-popup.swal2-toast{flex-direction:row;align-items:center;width:auto;padding:.625em;overflow-y:hidden;background:#fff;box-shadow:0 0 .625em #d9d9d9}.swal2-popup.swal2-toast .swal2-header{flex-direction:row}.swal2-popup.swal2-toast .swal2-title{flex-grow:1;justify-content:flex-start;margin:0 .6em;font-size:1em}.swal2-popup.swal2-toast .swal2-footer{margin:.5em 0 0;padding:.5em 0 0;font-size:.8em}.swal2-popup.swal2-toast .swal2-close{position:static;width:.8em;height:.8em;line-height:.8}.swal2-popup.swal2-toast .swal2-content{justify-content:flex-start;font-size:1em}.swal2-popup.swal2-toast .swal2-icon{width:2em;min-width:2em;height:2em;margin:0}.swal2-popup.swal2-toast .swal2-icon .swal2-icon-content{display:flex;align-items:center;font-size:1.8em;font-weight:700}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-popup.swal2-toast .swal2-icon .swal2-icon-content{font-size:.25em}}.swal2-popup.swal2-toast .swal2-icon.swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line]{top:.875em;width:1.375em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:.3125em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:.3125em}.swal2-popup.swal2-toast .swal2-actions{flex-basis:auto!important;width:auto;height:auto;margin:0 .3125em}.swal2-popup.swal2-toast .swal2-styled{margin:0 .3125em;padding:.3125em .625em;font-size:1em}.swal2-popup.swal2-toast .swal2-styled:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(50,100,150,.4)}.swal2-popup.swal2-toast .swal2-success{border-color:#a5dc86}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line]{position:absolute;width:1.6em;height:3em;transform:rotate(45deg);border-radius:50%}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.8em;left:-.5em;transform:rotate(-45deg);transform-origin:2em 2em;border-radius:4em 0 0 4em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.25em;left:.9375em;transform-origin:0 1.5em;border-radius:0 4em 4em 0}.swal2-popup.swal2-toast .swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-success .swal2-success-fix{top:0;left:.4375em;width:.4375em;height:2.6875em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line]{height:.3125em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=tip]{top:1.125em;left:.1875em;width:.75em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=long]{top:.9375em;right:.1875em;width:1.375em}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-tip{-webkit-animation:swal2-toast-animate-success-line-tip .75s;animation:swal2-toast-animate-success-line-tip .75s}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-long{-webkit-animation:swal2-toast-animate-success-line-long .75s;animation:swal2-toast-animate-success-line-long .75s}.swal2-popup.swal2-toast.swal2-show{-webkit-animation:swal2-toast-show .5s;animation:swal2-toast-show .5s}.swal2-popup.swal2-toast.swal2-hide{-webkit-animation:swal2-toast-hide .1s forwards;animation:swal2-toast-hide .1s forwards}.swal2-container{display:flex;position:fixed;z-index:1060;top:0;right:0;bottom:0;left:0;flex-direction:row;align-items:center;justify-content:center;padding:.625em;overflow-x:hidden;transition:background-color .1s;-webkit-overflow-scrolling:touch}.swal2-container.swal2-backdrop-show,.swal2-container.swal2-noanimation{background:rgba(0,0,0,.4)}.swal2-container.swal2-backdrop-hide{background:0 0!important}.swal2-container.swal2-top{align-items:flex-start}.swal2-container.swal2-top-left,.swal2-container.swal2-top-start{align-items:flex-start;justify-content:flex-start}.swal2-container.swal2-top-end,.swal2-container.swal2-top-right{align-items:flex-start;justify-content:flex-end}.swal2-container.swal2-center{align-items:center}.swal2-container.swal2-center-left,.swal2-container.swal2-center-start{align-items:center;justify-content:flex-start}.swal2-container.swal2-center-end,.swal2-container.swal2-center-right{align-items:center;justify-content:flex-end}.swal2-container.swal2-bottom{align-items:flex-end}.swal2-container.swal2-bottom-left,.swal2-container.swal2-bottom-start{align-items:flex-end;justify-content:flex-start}.swal2-container.swal2-bottom-end,.swal2-container.swal2-bottom-right{align-items:flex-end;justify-content:flex-end}.swal2-container.swal2-bottom-end>:first-child,.swal2-container.swal2-bottom-left>:first-child,.swal2-container.swal2-bottom-right>:first-child,.swal2-container.swal2-bottom-start>:first-child,.swal2-container.swal2-bottom>:first-child{margin-top:auto}.swal2-container.swal2-grow-fullscreen>.swal2-modal{display:flex!important;flex:1;align-self:stretch;justify-content:center}.swal2-container.swal2-grow-row>.swal2-modal{display:flex!important;flex:1;align-content:center;justify-content:center}.swal2-container.swal2-grow-column{flex:1;flex-direction:column}.swal2-container.swal2-grow-column.swal2-bottom,.swal2-container.swal2-grow-column.swal2-center,.swal2-container.swal2-grow-column.swal2-top{align-items:center}.swal2-container.swal2-grow-column.swal2-bottom-left,.swal2-container.swal2-grow-column.swal2-bottom-start,.swal2-container.swal2-grow-column.swal2-center-left,.swal2-container.swal2-grow-column.swal2-center-start,.swal2-container.swal2-grow-column.swal2-top-left,.swal2-container.swal2-grow-column.swal2-top-start{align-items:flex-start}.swal2-container.swal2-grow-column.swal2-bottom-end,.swal2-container.swal2-grow-column.swal2-bottom-right,.swal2-container.swal2-grow-column.swal2-center-end,.swal2-container.swal2-grow-column.swal2-center-right,.swal2-container.swal2-grow-column.swal2-top-end,.swal2-container.swal2-grow-column.swal2-top-right{align-items:flex-end}.swal2-container.swal2-grow-column>.swal2-modal{display:flex!important;flex:1;align-content:center;justify-content:center}.swal2-container.swal2-no-transition{transition:none!important}.swal2-container:not(.swal2-top):not(.swal2-top-start):not(.swal2-top-end):not(.swal2-top-left):not(.swal2-top-right):not(.swal2-center-start):not(.swal2-center-end):not(.swal2-center-left):not(.swal2-center-right):not(.swal2-bottom):not(.swal2-bottom-start):not(.swal2-bottom-end):not(.swal2-bottom-left):not(.swal2-bottom-right):not(.swal2-grow-fullscreen)>.swal2-modal{margin:auto}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-container .swal2-modal{margin:0!important}}.swal2-popup{display:none;position:relative;box-sizing:border-box;flex-direction:column;justify-content:center;width:32em;max-width:100%;padding:1.25em;border:none;border-radius:.3125em;background:#fff;font-family:inherit;font-size:1rem}.swal2-popup:focus{outline:0}.swal2-popup.swal2-loading{overflow-y:hidden}.swal2-header{display:flex;flex-direction:column;align-items:center}.swal2-title{position:relative;max-width:100%;margin:0 0 .4em;padding:0;color:#595959;font-size:1.875em;font-weight:600;text-align:center;text-transform:none;word-wrap:break-word}.swal2-actions{display:flex;z-index:1;flex-wrap:wrap;align-items:center;justify-content:center;width:100%;margin:1.25em auto 0}.swal2-actions:not(.swal2-loading) .swal2-styled[disabled]{opacity:.4}.swal2-actions:not(.swal2-loading) .swal2-styled:hover{background-image:linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.1))}.swal2-actions:not(.swal2-loading) .swal2-styled:active{background-image:linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.2))}.swal2-actions.swal2-loading .swal2-styled.swal2-confirm{box-sizing:border-box;width:2.5em;height:2.5em;margin:.46875em;padding:0;-webkit-animation:swal2-rotate-loading 1.5s linear 0s infinite normal;animation:swal2-rotate-loading 1.5s linear 0s infinite normal;border:.25em solid transparent;border-radius:100%;border-color:transparent;background-color:transparent!important;color:transparent!important;cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.swal2-actions.swal2-loading .swal2-styled.swal2-cancel{margin-right:30px;margin-left:30px}.swal2-actions.swal2-loading :not(.swal2-styled).swal2-confirm::after{content:\"\";display:inline-block;width:15px;height:15px;margin-left:5px;-webkit-animation:swal2-rotate-loading 1.5s linear 0s infinite normal;animation:swal2-rotate-loading 1.5s linear 0s infinite normal;border:3px solid #999;border-radius:50%;border-right-color:transparent;box-shadow:1px 1px 1px #fff}.swal2-styled{margin:.3125em;padding:.625em 2em;box-shadow:none;font-weight:500}.swal2-styled:not([disabled]){cursor:pointer}.swal2-styled.swal2-confirm{border:0;border-radius:.25em;background:initial;background-color:#3085d6;color:#fff;font-size:1.0625em}.swal2-styled.swal2-cancel{border:0;border-radius:.25em;background:initial;background-color:#aaa;color:#fff;font-size:1.0625em}.swal2-styled:focus{outline:0;box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(50,100,150,.4)}.swal2-styled::-moz-focus-inner{border:0}.swal2-footer{justify-content:center;margin:1.25em 0 0;padding:1em 0 0;border-top:1px solid #eee;color:#545454;font-size:1em}.swal2-timer-progress-bar-container{position:absolute;right:0;bottom:0;left:0;height:.25em;overflow:hidden;border-bottom-right-radius:.3125em;border-bottom-left-radius:.3125em}.swal2-timer-progress-bar{width:100%;height:.25em;background:rgba(0,0,0,.2)}.swal2-image{max-width:100%;margin:1.25em auto}.swal2-close{position:absolute;z-index:2;top:0;right:0;align-items:center;justify-content:center;width:1.2em;height:1.2em;padding:0;overflow:hidden;transition:color .1s ease-out;border:none;border-radius:0;background:0 0;color:#ccc;font-family:serif;font-size:2.5em;line-height:1.2;cursor:pointer}.swal2-close:hover{transform:none;background:0 0;color:#f27474}.swal2-close::-moz-focus-inner{border:0}.swal2-content{z-index:1;justify-content:center;margin:0;padding:0;color:#545454;font-size:1.125em;font-weight:400;line-height:normal;text-align:center;word-wrap:break-word}.swal2-checkbox,.swal2-file,.swal2-input,.swal2-radio,.swal2-select,.swal2-textarea{margin:1em auto}.swal2-file,.swal2-input,.swal2-textarea{box-sizing:border-box;width:100%;transition:border-color .3s,box-shadow .3s;border:1px solid #d9d9d9;border-radius:.1875em;background:inherit;box-shadow:inset 0 1px 1px rgba(0,0,0,.06);color:inherit;font-size:1.125em}.swal2-file.swal2-inputerror,.swal2-input.swal2-inputerror,.swal2-textarea.swal2-inputerror{border-color:#f27474!important;box-shadow:0 0 2px #f27474!important}.swal2-file:focus,.swal2-input:focus,.swal2-textarea:focus{border:1px solid #b4dbed;outline:0;box-shadow:0 0 3px #c4e6f5}.swal2-file::-webkit-input-placeholder,.swal2-input::-webkit-input-placeholder,.swal2-textarea::-webkit-input-placeholder{color:#ccc}.swal2-file::-moz-placeholder,.swal2-input::-moz-placeholder,.swal2-textarea::-moz-placeholder{color:#ccc}.swal2-file:-ms-input-placeholder,.swal2-input:-ms-input-placeholder,.swal2-textarea:-ms-input-placeholder{color:#ccc}.swal2-file::-ms-input-placeholder,.swal2-input::-ms-input-placeholder,.swal2-textarea::-ms-input-placeholder{color:#ccc}.swal2-file::placeholder,.swal2-input::placeholder,.swal2-textarea::placeholder{color:#ccc}.swal2-range{margin:1em auto;background:#fff}.swal2-range input{width:80%}.swal2-range output{width:20%;color:inherit;font-weight:600;text-align:center}.swal2-range input,.swal2-range output{height:2.625em;padding:0;font-size:1.125em;line-height:2.625em}.swal2-input{height:2.625em;padding:0 .75em}.swal2-input[type=number]{max-width:10em}.swal2-file{background:inherit;font-size:1.125em}.swal2-textarea{height:6.75em;padding:.75em}.swal2-select{min-width:50%;max-width:100%;padding:.375em .625em;background:inherit;color:inherit;font-size:1.125em}.swal2-checkbox,.swal2-radio{align-items:center;justify-content:center;background:#fff;color:inherit}.swal2-checkbox label,.swal2-radio label{margin:0 .6em;font-size:1.125em}.swal2-checkbox input,.swal2-radio input{margin:0 .4em}.swal2-validation-message{display:none;align-items:center;justify-content:center;padding:.625em;overflow:hidden;background:#f0f0f0;color:#666;font-size:1em;font-weight:300}.swal2-validation-message::before{content:\"!\";display:inline-block;width:1.5em;min-width:1.5em;height:1.5em;margin:0 .625em;border-radius:50%;background-color:#f27474;color:#fff;font-weight:600;line-height:1.5em;text-align:center}.swal2-icon{position:relative;box-sizing:content-box;justify-content:center;width:5em;height:5em;margin:1.25em auto 1.875em;border:.25em solid transparent;border-radius:50%;font-family:inherit;line-height:5em;cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.swal2-icon .swal2-icon-content{display:flex;align-items:center;font-size:3.75em}.swal2-icon.swal2-error{border-color:#f27474;color:#f27474}.swal2-icon.swal2-error .swal2-x-mark{position:relative;flex-grow:1}.swal2-icon.swal2-error [class^=swal2-x-mark-line]{display:block;position:absolute;top:2.3125em;width:2.9375em;height:.3125em;border-radius:.125em;background-color:#f27474}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:1.0625em;transform:rotate(45deg)}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:1em;transform:rotate(-45deg)}.swal2-icon.swal2-error.swal2-icon-show{-webkit-animation:swal2-animate-error-icon .5s;animation:swal2-animate-error-icon .5s}.swal2-icon.swal2-error.swal2-icon-show .swal2-x-mark{-webkit-animation:swal2-animate-error-x-mark .5s;animation:swal2-animate-error-x-mark .5s}.swal2-icon.swal2-warning{border-color:#facea8;color:#f8bb86}.swal2-icon.swal2-info{border-color:#9de0f6;color:#3fc3ee}.swal2-icon.swal2-question{border-color:#c9dae1;color:#87adbd}.swal2-icon.swal2-success{border-color:#a5dc86;color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-circular-line]{position:absolute;width:3.75em;height:7.5em;transform:rotate(45deg);border-radius:50%}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.4375em;left:-2.0635em;transform:rotate(-45deg);transform-origin:3.75em 3.75em;border-radius:7.5em 0 0 7.5em}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.6875em;left:1.875em;transform:rotate(-45deg);transform-origin:0 3.75em;border-radius:0 7.5em 7.5em 0}.swal2-icon.swal2-success .swal2-success-ring{position:absolute;z-index:2;top:-.25em;left:-.25em;box-sizing:content-box;width:100%;height:100%;border:.25em solid rgba(165,220,134,.3);border-radius:50%}.swal2-icon.swal2-success .swal2-success-fix{position:absolute;z-index:1;top:.5em;left:1.625em;width:.4375em;height:5.625em;transform:rotate(-45deg)}.swal2-icon.swal2-success [class^=swal2-success-line]{display:block;position:absolute;z-index:2;height:.3125em;border-radius:.125em;background-color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-line][class$=tip]{top:2.875em;left:.8125em;width:1.5625em;transform:rotate(45deg)}.swal2-icon.swal2-success [class^=swal2-success-line][class$=long]{top:2.375em;right:.5em;width:2.9375em;transform:rotate(-45deg)}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-line-tip{-webkit-animation:swal2-animate-success-line-tip .75s;animation:swal2-animate-success-line-tip .75s}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-line-long{-webkit-animation:swal2-animate-success-line-long .75s;animation:swal2-animate-success-line-long .75s}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-circular-line-right{-webkit-animation:swal2-rotate-success-circular-line 4.25s ease-in;animation:swal2-rotate-success-circular-line 4.25s ease-in}.swal2-progress-steps{align-items:center;margin:0 0 1.25em;padding:0;background:inherit;font-weight:600}.swal2-progress-steps li{display:inline-block;position:relative}.swal2-progress-steps .swal2-progress-step{z-index:20;width:2em;height:2em;border-radius:2em;background:#3085d6;color:#fff;line-height:2em;text-align:center}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step{background:#3085d6}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step{background:#add8e6;color:#fff}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step-line{background:#add8e6}.swal2-progress-steps .swal2-progress-step-line{z-index:10;width:2.5em;height:.4em;margin:0 -1px;background:#3085d6}[class^=swal2]{-webkit-tap-highlight-color:transparent}.swal2-show{-webkit-animation:swal2-show .3s;animation:swal2-show .3s}.swal2-hide{-webkit-animation:swal2-hide .15s forwards;animation:swal2-hide .15s forwards}.swal2-noanimation{transition:none}.swal2-scrollbar-measure{position:absolute;top:-9999px;width:50px;height:50px;overflow:scroll}.swal2-rtl .swal2-close{right:auto;left:0}.swal2-rtl .swal2-timer-progress-bar{right:0;left:auto}@supports (-ms-accelerator:true){.swal2-range input{width:100%!important}.swal2-range output{display:none}}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-range input{width:100%!important}.swal2-range output{display:none}}@-moz-document url-prefix(){.swal2-close:focus{outline:2px solid rgba(50,100,150,.4)}}@-webkit-keyframes swal2-toast-show{0%{transform:translateY(-.625em) rotateZ(2deg)}33%{transform:translateY(0) rotateZ(-2deg)}66%{transform:translateY(.3125em) rotateZ(2deg)}100%{transform:translateY(0) rotateZ(0)}}@keyframes swal2-toast-show{0%{transform:translateY(-.625em) rotateZ(2deg)}33%{transform:translateY(0) rotateZ(-2deg)}66%{transform:translateY(.3125em) rotateZ(2deg)}100%{transform:translateY(0) rotateZ(0)}}@-webkit-keyframes swal2-toast-hide{100%{transform:rotateZ(1deg);opacity:0}}@keyframes swal2-toast-hide{100%{transform:rotateZ(1deg);opacity:0}}@-webkit-keyframes swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@keyframes swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@-webkit-keyframes swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@keyframes swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@-webkit-keyframes swal2-show{0%{transform:scale(.7)}45%{transform:scale(1.05)}80%{transform:scale(.95)}100%{transform:scale(1)}}@keyframes swal2-show{0%{transform:scale(.7)}45%{transform:scale(1.05)}80%{transform:scale(.95)}100%{transform:scale(1)}}@-webkit-keyframes swal2-hide{0%{transform:scale(1);opacity:1}100%{transform:scale(.5);opacity:0}}@keyframes swal2-hide{0%{transform:scale(1);opacity:1}100%{transform:scale(.5);opacity:0}}@-webkit-keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.8125em;width:1.5625em}}@keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.8125em;width:1.5625em}}@-webkit-keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@-webkit-keyframes swal2-rotate-success-circular-line{0%{transform:rotate(-45deg)}5%{transform:rotate(-45deg)}12%{transform:rotate(-405deg)}100%{transform:rotate(-405deg)}}@keyframes swal2-rotate-success-circular-line{0%{transform:rotate(-45deg)}5%{transform:rotate(-45deg)}12%{transform:rotate(-405deg)}100%{transform:rotate(-405deg)}}@-webkit-keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;transform:scale(.4);opacity:0}50%{margin-top:1.625em;transform:scale(.4);opacity:0}80%{margin-top:-.375em;transform:scale(1.15)}100%{margin-top:0;transform:scale(1);opacity:1}}@keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;transform:scale(.4);opacity:0}50%{margin-top:1.625em;transform:scale(.4);opacity:0}80%{margin-top:-.375em;transform:scale(1.15)}100%{margin-top:0;transform:scale(1);opacity:1}}@-webkit-keyframes swal2-animate-error-icon{0%{transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0);opacity:1}}@keyframes swal2-animate-error-icon{0%{transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0);opacity:1}}@-webkit-keyframes swal2-rotate-loading{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}@keyframes swal2-rotate-loading{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow:hidden}body.swal2-height-auto{height:auto!important}body.swal2-no-backdrop .swal2-container{top:auto;right:auto;bottom:auto;left:auto;max-width:calc(100% - .625em * 2);background-color:transparent!important}body.swal2-no-backdrop .swal2-container>.swal2-modal{box-shadow:0 0 10px rgba(0,0,0,.4)}body.swal2-no-backdrop .swal2-container.swal2-top{top:0;left:50%;transform:translateX(-50%)}body.swal2-no-backdrop .swal2-container.swal2-top-left,body.swal2-no-backdrop .swal2-container.swal2-top-start{top:0;left:0}body.swal2-no-backdrop .swal2-container.swal2-top-end,body.swal2-no-backdrop .swal2-container.swal2-top-right{top:0;right:0}body.swal2-no-backdrop .swal2-container.swal2-center{top:50%;left:50%;transform:translate(-50%,-50%)}body.swal2-no-backdrop .swal2-container.swal2-center-left,body.swal2-no-backdrop .swal2-container.swal2-center-start{top:50%;left:0;transform:translateY(-50%)}body.swal2-no-backdrop .swal2-container.swal2-center-end,body.swal2-no-backdrop .swal2-container.swal2-center-right{top:50%;right:0;transform:translateY(-50%)}body.swal2-no-backdrop .swal2-container.swal2-bottom{bottom:0;left:50%;transform:translateX(-50%)}body.swal2-no-backdrop .swal2-container.swal2-bottom-left,body.swal2-no-backdrop .swal2-container.swal2-bottom-start{bottom:0;left:0}body.swal2-no-backdrop .swal2-container.swal2-bottom-end,body.swal2-no-backdrop .swal2-container.swal2-bottom-right{right:0;bottom:0}@media print{body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow-y:scroll!important}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown)>[aria-hidden=true]{display:none}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) .swal2-container{position:static!important}}body.swal2-toast-shown .swal2-container{background-color:transparent}body.swal2-toast-shown .swal2-container.swal2-top{top:0;right:auto;bottom:auto;left:50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-top-end,body.swal2-toast-shown .swal2-container.swal2-top-right{top:0;right:0;bottom:auto;left:auto}body.swal2-toast-shown .swal2-container.swal2-top-left,body.swal2-toast-shown .swal2-container.swal2-top-start{top:0;right:auto;bottom:auto;left:0}body.swal2-toast-shown .swal2-container.swal2-center-left,body.swal2-toast-shown .swal2-container.swal2-center-start{top:50%;right:auto;bottom:auto;left:0;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-center{top:50%;right:auto;bottom:auto;left:50%;transform:translate(-50%,-50%)}body.swal2-toast-shown .swal2-container.swal2-center-end,body.swal2-toast-shown .swal2-container.swal2-center-right{top:50%;right:0;bottom:auto;left:auto;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-left,body.swal2-toast-shown .swal2-container.swal2-bottom-start{top:auto;right:auto;bottom:0;left:0}body.swal2-toast-shown .swal2-container.swal2-bottom{top:auto;right:auto;bottom:0;left:50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-end,body.swal2-toast-shown .swal2-container.swal2-bottom-right{top:auto;right:0;bottom:0;left:auto}body.swal2-toast-column .swal2-toast{flex-direction:column;align-items:stretch}body.swal2-toast-column .swal2-toast .swal2-actions{flex:1;align-self:stretch;height:2.2em;margin-top:.3125em}body.swal2-toast-column .swal2-toast .swal2-loading{justify-content:center}body.swal2-toast-column .swal2-toast .swal2-input{height:2em;margin:.3125em auto;font-size:1em}body.swal2-toast-column .swal2-toast .swal2-validation-message{font-size:1em}");
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/timers-browserify/main.js":
 /*!************************************************!*\
@@ -42354,10 +42354,10 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
               (this && this.clearImmediate);
 
             /* WEBPACK VAR INJECTION */
-}.call(this, __webpack_require__(/*! ./../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
+          }.call(this, __webpack_require__(/*! ./../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/vform/dist/vform.common.js":
 /*!*************************************************!*\
@@ -42378,14 +42378,14 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 /******/ 		if (installedModules[moduleId]) {
 /******/ 			return installedModules[moduleId].exports;
                   /******/
-}
+                }
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			i: moduleId,
 /******/ 			l: false,
 /******/ 			exports: {}
                   /******/
-};
+                };
 /******/
 /******/ 		// Execute the module function
 /******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
@@ -42396,7 +42396,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
                 /******/
-}
+              }
 /******/
 /******/
 /******/ 	// expose the modules object (__webpack_modules__)
@@ -42410,19 +42410,19 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 /******/ 		if (!__webpack_require__.o(exports, name)) {
 /******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
                   /******/
-}
+                }
                 /******/
-};
+              };
 /******/
 /******/ 	// define __esModule on exports
 /******/ 	__webpack_require__.r = function (exports) {
 /******/ 		if (typeof Symbol !== 'undefined' && Symbol.toStringTag) {
 /******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
                   /******/
-}
+                }
 /******/ 		Object.defineProperty(exports, '__esModule', { value: true });
                 /******/
-};
+              };
 /******/
 /******/ 	// create a fake namespace object
 /******/ 	// mode & 1: value is a module id, require it
@@ -42439,7 +42439,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 /******/ 		if (mode & 2 && typeof value != 'string') for (var key in value) __webpack_require__.d(ns, key, function (key) { return value[key]; }.bind(null, key));
 /******/ 		return ns;
                 /******/
-};
+              };
 /******/
 /******/ 	// getDefaultExport function for compatibility with non-harmony modules
 /******/ 	__webpack_require__.n = function (module) {
@@ -42449,7 +42449,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 /******/ 		__webpack_require__.d(getter, 'a', getter);
 /******/ 		return getter;
                 /******/
-};
+              };
 /******/
 /******/ 	// Object.prototype.hasOwnProperty.call
 /******/ 	__webpack_require__.o = function (object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
@@ -42461,586 +42461,586 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = "fb15");
               /******/
-})
+            })
 /************************************************************************/
 /******/({
 
 /***/ "1eb2":
 /***/ (function (module, exports, __webpack_require__) {
 
-                // This file is imported into lib/wc client bundles.
+                  // This file is imported into lib/wc client bundles.
 
-                if (typeof window !== 'undefined') {
-                  var i
-                  if ((i = window.document.currentScript) && (i = i.src.match(/(.+\/)[^/]+\.js$/))) {
-                    __webpack_require__.p = i[1] // eslint-disable-line
+                  if (typeof window !== 'undefined') {
+                    var i
+                    if ((i = window.document.currentScript) && (i = i.src.match(/(.+\/)[^/]+\.js$/))) {
+                      __webpack_require__.p = i[1] // eslint-disable-line
+                    }
                   }
-                }
 
 
-                /***/
-}),
+                  /***/
+                }),
 
 /***/ "cebe":
 /***/ (function (module, exports) {
 
-                module.exports = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+                  module.exports = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 
-                /***/
-}),
+                  /***/
+                }),
 
 /***/ "fb15":
 /***/ (function (module, __webpack_exports__, __webpack_require__) {
 
-                "use strict";
-                __webpack_require__.r(__webpack_exports__);
+                  "use strict";
+                  __webpack_require__.r(__webpack_exports__);
 
-                // EXTERNAL MODULE: ./node_modules/@vue/cli-service/lib/commands/build/setPublicPath.js
-                var setPublicPath = __webpack_require__("1eb2");
+                  // EXTERNAL MODULE: ./node_modules/@vue/cli-service/lib/commands/build/setPublicPath.js
+                  var setPublicPath = __webpack_require__("1eb2");
 
-                // EXTERNAL MODULE: external "axios"
-                var external_axios_ = __webpack_require__("cebe");
-                var external_axios_default = /*#__PURE__*/__webpack_require__.n(external_axios_);
+                  // EXTERNAL MODULE: external "axios"
+                  var external_axios_ = __webpack_require__("cebe");
+                  var external_axios_default = /*#__PURE__*/__webpack_require__.n(external_axios_);
 
-                // CONCATENATED MODULE: ./src/util.js
-                function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+                  // CONCATENATED MODULE: ./src/util.js
+                  function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-                /**
-                 * Deep copy the given object.
-                 *
-                 * @param  {Object} obj
-                 * @return {Object}
-                 */
-                function deepCopy(obj) {
-                  if (obj === null || _typeof(obj) !== 'object') {
-                    return obj;
+                  /**
+                   * Deep copy the given object.
+                   *
+                   * @param  {Object} obj
+                   * @return {Object}
+                   */
+                  function deepCopy(obj) {
+                    if (obj === null || _typeof(obj) !== 'object') {
+                      return obj;
+                    }
+
+                    var copy = Array.isArray(obj) ? [] : {};
+                    Object.keys(obj).forEach(function (key) {
+                      copy[key] = deepCopy(obj[key]);
+                    });
+                    return copy;
                   }
+                  /**
+                   * If the given value is not an array, wrap it in one.
+                   *
+                   * @param  {Any} value
+                   * @return {Array}
+                   */
 
-                  var copy = Array.isArray(obj) ? [] : {};
-                  Object.keys(obj).forEach(function (key) {
-                    copy[key] = deepCopy(obj[key]);
-                  });
-                  return copy;
-                }
-                /**
-                 * If the given value is not an array, wrap it in one.
-                 *
-                 * @param  {Any} value
-                 * @return {Array}
-                 */
+                  function arrayWrap(value) {
+                    return Array.isArray(value) ? value : [value];
+                  }
+                  // CONCATENATED MODULE: ./src/Errors.js
+                  function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
-                function arrayWrap(value) {
-                  return Array.isArray(value) ? value : [value];
-                }
-                // CONCATENATED MODULE: ./src/Errors.js
-                function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+                  function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-                function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+                  function Errors_typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { Errors_typeof = function _typeof(obj) { return typeof obj; }; } else { Errors_typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return Errors_typeof(obj); }
 
-                function Errors_typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { Errors_typeof = function _typeof(obj) { return typeof obj; }; } else { Errors_typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return Errors_typeof(obj); }
+                  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-                function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+                  function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-                function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-                function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+                  function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 
 
-                var Errors_Errors =
-                  /*#__PURE__*/
-                  function () {
-                    /**
-                     * Create a new error bag instance.
-                     */
-                    function Errors() {
-                      _classCallCheck(this, Errors);
+                  var Errors_Errors =
+                    /*#__PURE__*/
+                    function () {
+                      /**
+                       * Create a new error bag instance.
+                       */
+                      function Errors() {
+                        _classCallCheck(this, Errors);
 
-                      this.errors = {};
-                    }
-                    /**
-                     * Set the errors object or field error messages.
-                     *
-                     * @param {Object|String} field
-                     * @param {Array|String|undefined} messages
-                     */
-
-
-                    _createClass(Errors, [{
-                      key: "set",
-                      value: function set(field, messages) {
-                        if (Errors_typeof(field) === 'object') {
-                          this.errors = field;
-                        } else {
-                          this.set(_objectSpread({}, this.errors, _defineProperty({}, field, arrayWrap(messages))));
-                        }
+                        this.errors = {};
                       }
                       /**
-                       * Get all the errors.
+                       * Set the errors object or field error messages.
                        *
-                       * @return {Object}
+                       * @param {Object|String} field
+                       * @param {Array|String|undefined} messages
                        */
 
-                    }, {
-                      key: "all",
-                      value: function all() {
-                        return this.errors;
-                      }
-                      /**
-                       * Determine if there is an error for the given field.
-                       *
-                       * @param  {String} field
-                       * @return {Boolean}
-                       */
 
-                    }, {
-                      key: "has",
-                      value: function has(field) {
-                        return this.errors.hasOwnProperty(field);
-                      }
-                      /**
-                       * Determine if there are any errors for the given fields.
-                       *
-                       * @param  {...String} fields
-                       * @return {Boolean}
-                       */
-
-                    }, {
-                      key: "hasAny",
-                      value: function hasAny() {
-                        var _this = this;
-
-                        for (var _len = arguments.length, fields = new Array(_len), _key = 0; _key < _len; _key++) {
-                          fields[_key] = arguments[_key];
-                        }
-
-                        return fields.some(function (field) {
-                          return _this.has(field);
-                        });
-                      }
-                      /**
-                       * Determine if there are any errors.
-                       *
-                       * @return {Boolean}
-                       */
-
-                    }, {
-                      key: "any",
-                      value: function any() {
-                        return Object.keys(this.errors).length > 0;
-                      }
-                      /**
-                       * Get the first error message for the given field.
-                       *
-                       * @param  String} field
-                       * @return {String|undefined}
-                       */
-
-                    }, {
-                      key: "get",
-                      value: function get(field) {
-                        if (this.has(field)) {
-                          return this.getAll(field)[0];
-                        }
-                      }
-                      /**
-                       * Get all the error messages for the given field.
-                       *
-                       * @param  {String} field
-                       * @return {Array}
-                       */
-
-                    }, {
-                      key: "getAll",
-                      value: function getAll(field) {
-                        return arrayWrap(this.errors[field] || []);
-                      }
-                      /**
-                       * Get the error message for the given fields.
-                       *
-                       * @param  {...String} fields
-                       * @return {Array}
-                       */
-
-                    }, {
-                      key: "only",
-                      value: function only() {
-                        var _this2 = this;
-
-                        var messages = [];
-
-                        for (var _len2 = arguments.length, fields = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-                          fields[_key2] = arguments[_key2];
-                        }
-
-                        fields.forEach(function (field) {
-                          var message = _this2.get(field);
-
-                          if (message) {
-                            messages.push(message);
+                      _createClass(Errors, [{
+                        key: "set",
+                        value: function set(field, messages) {
+                          if (Errors_typeof(field) === 'object') {
+                            this.errors = field;
+                          } else {
+                            this.set(_objectSpread({}, this.errors, _defineProperty({}, field, arrayWrap(messages))));
                           }
-                        });
-                        return messages;
-                      }
-                      /**
-                       * Get all the errors in a flat array.
-                       *
-                       * @return {Array}
-                       */
+                        }
+                        /**
+                         * Get all the errors.
+                         *
+                         * @return {Object}
+                         */
 
-                    }, {
-                      key: "flatten",
-                      value: function flatten() {
-                        return Object.values(this.errors).reduce(function (a, b) {
-                          return a.concat(b);
-                        }, []);
-                      }
-                      /**
-                       * Clear one or all error fields.
-                       *
-                       * @param {String|undefined} field
-                       */
+                      }, {
+                        key: "all",
+                        value: function all() {
+                          return this.errors;
+                        }
+                        /**
+                         * Determine if there is an error for the given field.
+                         *
+                         * @param  {String} field
+                         * @return {Boolean}
+                         */
 
-                    }, {
-                      key: "clear",
-                      value: function clear(field) {
-                        var _this3 = this;
+                      }, {
+                        key: "has",
+                        value: function has(field) {
+                          return this.errors.hasOwnProperty(field);
+                        }
+                        /**
+                         * Determine if there are any errors for the given fields.
+                         *
+                         * @param  {...String} fields
+                         * @return {Boolean}
+                         */
 
-                        var errors = {};
+                      }, {
+                        key: "hasAny",
+                        value: function hasAny() {
+                          var _this = this;
 
-                        if (field) {
-                          Object.keys(this.errors).forEach(function (key) {
-                            if (key !== field) {
-                              errors[key] = _this3.errors[key];
-                            }
+                          for (var _len = arguments.length, fields = new Array(_len), _key = 0; _key < _len; _key++) {
+                            fields[_key] = arguments[_key];
+                          }
+
+                          return fields.some(function (field) {
+                            return _this.has(field);
                           });
                         }
+                        /**
+                         * Determine if there are any errors.
+                         *
+                         * @return {Boolean}
+                         */
 
-                        this.set(errors);
-                      }
-                    }]);
+                      }, {
+                        key: "any",
+                        value: function any() {
+                          return Object.keys(this.errors).length > 0;
+                        }
+                        /**
+                         * Get the first error message for the given field.
+                         *
+                         * @param  String} field
+                         * @return {String|undefined}
+                         */
 
-                    return Errors;
-                  }();
+                      }, {
+                        key: "get",
+                        value: function get(field) {
+                          if (this.has(field)) {
+                            return this.getAll(field)[0];
+                          }
+                        }
+                        /**
+                         * Get all the error messages for the given field.
+                         *
+                         * @param  {String} field
+                         * @return {Array}
+                         */
+
+                      }, {
+                        key: "getAll",
+                        value: function getAll(field) {
+                          return arrayWrap(this.errors[field] || []);
+                        }
+                        /**
+                         * Get the error message for the given fields.
+                         *
+                         * @param  {...String} fields
+                         * @return {Array}
+                         */
+
+                      }, {
+                        key: "only",
+                        value: function only() {
+                          var _this2 = this;
+
+                          var messages = [];
+
+                          for (var _len2 = arguments.length, fields = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+                            fields[_key2] = arguments[_key2];
+                          }
+
+                          fields.forEach(function (field) {
+                            var message = _this2.get(field);
+
+                            if (message) {
+                              messages.push(message);
+                            }
+                          });
+                          return messages;
+                        }
+                        /**
+                         * Get all the errors in a flat array.
+                         *
+                         * @return {Array}
+                         */
+
+                      }, {
+                        key: "flatten",
+                        value: function flatten() {
+                          return Object.values(this.errors).reduce(function (a, b) {
+                            return a.concat(b);
+                          }, []);
+                        }
+                        /**
+                         * Clear one or all error fields.
+                         *
+                         * @param {String|undefined} field
+                         */
+
+                      }, {
+                        key: "clear",
+                        value: function clear(field) {
+                          var _this3 = this;
+
+                          var errors = {};
+
+                          if (field) {
+                            Object.keys(this.errors).forEach(function (key) {
+                              if (key !== field) {
+                                errors[key] = _this3.errors[key];
+                              }
+                            });
+                          }
+
+                          this.set(errors);
+                        }
+                      }]);
+
+                      return Errors;
+                    }();
 
 
-                // CONCATENATED MODULE: ./src/Form.js
-                function Form_typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { Form_typeof = function _typeof(obj) { return typeof obj; }; } else { Form_typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return Form_typeof(obj); }
+                  // CONCATENATED MODULE: ./src/Form.js
+                  function Form_typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { Form_typeof = function _typeof(obj) { return typeof obj; }; } else { Form_typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return Form_typeof(obj); }
 
-                function Form_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { Form_defineProperty(target, key, source[key]); }); } return target; }
+                  function Form_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { Form_defineProperty(target, key, source[key]); }); } return target; }
 
-                function Form_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+                  function Form_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-                function Form_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+                  function Form_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-                function Form_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+                  function Form_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-                function Form_createClass(Constructor, protoProps, staticProps) { if (protoProps) Form_defineProperties(Constructor.prototype, protoProps); if (staticProps) Form_defineProperties(Constructor, staticProps); return Constructor; }
-
-
+                  function Form_createClass(Constructor, protoProps, staticProps) { if (protoProps) Form_defineProperties(Constructor.prototype, protoProps); if (staticProps) Form_defineProperties(Constructor, staticProps); return Constructor; }
 
 
 
-                var Form_Form =
-                  /*#__PURE__*/
-                  function () {
-                    /**
-                     * Create a new form instance.
-                     *
-                     * @param {Object} data
-                     */
-                    function Form() {
-                      var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-                      Form_classCallCheck(this, Form);
-
-                      this.busy = false;
-                      this.successful = false;
-                      this.errors = new Errors_Errors();
-                      this.originalData = deepCopy(data);
-                      Object.assign(this, data);
-                    }
-                    /**
-                     * Fill form data.
-                     *
-                     * @param {Object} data
-                     */
 
 
-                    Form_createClass(Form, [{
-                      key: "fill",
-                      value: function fill(data) {
-                        var _this = this;
-
-                        this.keys().forEach(function (key) {
-                          _this[key] = data[key];
-                        });
-                      }
+                  var Form_Form =
+                    /*#__PURE__*/
+                    function () {
                       /**
-                       * Get the form data.
+                       * Create a new form instance.
                        *
-                       * @return {Object}
+                       * @param {Object} data
                        */
+                      function Form() {
+                        var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
-                    }, {
-                      key: "data",
-                      value: function data() {
-                        var _this2 = this;
+                        Form_classCallCheck(this, Form);
 
-                        return this.keys().reduce(function (data, key) {
-                          return Form_objectSpread({}, data, Form_defineProperty({}, key, _this2[key]));
-                        }, {});
-                      }
-                      /**
-                       * Get the form data keys.
-                       *
-                       * @return {Array}
-                       */
-
-                    }, {
-                      key: "keys",
-                      value: function keys() {
-                        return Object.keys(this).filter(function (key) {
-                          return !Form.ignore.includes(key);
-                        });
-                      }
-                      /**
-                       * Start processing the form.
-                       */
-
-                    }, {
-                      key: "startProcessing",
-                      value: function startProcessing() {
-                        this.errors.clear();
-                        this.busy = true;
-                        this.successful = false;
-                      }
-                      /**
-                       * Finish processing the form.
-                       */
-
-                    }, {
-                      key: "finishProcessing",
-                      value: function finishProcessing() {
                         this.busy = false;
-                        this.successful = true;
-                      }
-                      /**
-                       * Clear the form errors.
-                       */
-
-                    }, {
-                      key: "clear",
-                      value: function clear() {
-                        this.errors.clear();
                         this.successful = false;
+                        this.errors = new Errors_Errors();
+                        this.originalData = deepCopy(data);
+                        Object.assign(this, data);
                       }
                       /**
-                       * Reset the form fields.
-                       */
-
-                    }, {
-                      key: "reset",
-                      value: function reset() {
-                        var _this3 = this;
-
-                        Object.keys(this).filter(function (key) {
-                          return !Form.ignore.includes(key);
-                        }).forEach(function (key) {
-                          _this3[key] = deepCopy(_this3.originalData[key]);
-                        });
-                      }
-                      /**
-                       * Submit the form via a GET request.
+                       * Fill form data.
                        *
-                       * @param  {String} url
-                       * @param  {Object} config (axios config)
-                       * @return {Promise}
+                       * @param {Object} data
                        */
 
-                    }, {
-                      key: "get",
-                      value: function get(url) {
-                        var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-                        return this.submit('get', url, config);
-                      }
-                      /**
-                       * Submit the form via a POST request.
-                       *
-                       * @param  {String} url
-                       * @param  {Object} config (axios config)
-                       * @return {Promise}
-                       */
 
-                    }, {
-                      key: "post",
-                      value: function post(url) {
-                        var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-                        return this.submit('post', url, config);
-                      }
-                      /**
-                       * Submit the form via a PATCH request.
-                       *
-                       * @param  {String} url
-                       * @param  {Object} config (axios config)
-                       * @return {Promise}
-                       */
+                      Form_createClass(Form, [{
+                        key: "fill",
+                        value: function fill(data) {
+                          var _this = this;
 
-                    }, {
-                      key: "patch",
-                      value: function patch(url) {
-                        var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-                        return this.submit('patch', url, config);
-                      }
-                      /**
-                       * Submit the form via a PUT request.
-                       *
-                       * @param  {String} url
-                       * @param  {Object} config (axios config)
-                       * @return {Promise}
-                       */
-
-                    }, {
-                      key: "put",
-                      value: function put(url) {
-                        var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-                        return this.submit('put', url, config);
-                      }
-                      /**
-                       * Submit the form via a DELETE request.
-                       *
-                       * @param  {String} url
-                       * @param  {Object} config (axios config)
-                       * @return {Promise}
-                       */
-
-                    }, {
-                      key: "delete",
-                      value: function _delete(url) {
-                        var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-                        return this.submit('delete', url, config);
-                      }
-                      /**
-                       * Submit the form data via an HTTP request.
-                       *
-                       * @param  {String} method (get, post, patch, put)
-                       * @param  {String} url
-                       * @param  {Object} config (axios config)
-                       * @return {Promise}
-                       */
-
-                    }, {
-                      key: "submit",
-                      value: function submit(method, url) {
-                        var _this4 = this;
-
-                        var config = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-                        this.startProcessing();
-                        var data = method === 'get' ? {
-                          params: this.data()
-                        } : this.data();
-                        return new Promise(function (resolve, reject) {
-                          (Form.axios || external_axios_default.a).request(Form_objectSpread({
-                            url: _this4.route(url),
-                            method: method,
-                            data: data
-                          }, config)).then(function (response) {
-                            _this4.finishProcessing();
-
-                            resolve(response);
-                          }).catch(function (error) {
-                            _this4.busy = false;
-
-                            if (error.response) {
-                              _this4.errors.set(_this4.extractErrors(error.response));
-                            }
-
-                            reject(error);
+                          this.keys().forEach(function (key) {
+                            _this[key] = data[key];
                           });
-                        });
-                      }
-                      /**
-                       * Extract the errors from the response object.
-                       *
-                       * @param  {Object} response
-                       * @return {Object}
-                       */
-
-                    }, {
-                      key: "extractErrors",
-                      value: function extractErrors(response) {
-                        if (!response.data || Form_typeof(response.data) !== 'object') {
-                          return {
-                            error: Form.errorMessage
-                          };
                         }
+                        /**
+                         * Get the form data.
+                         *
+                         * @return {Object}
+                         */
 
-                        if (response.data.errors) {
-                          return Form_objectSpread({}, response.data.errors);
+                      }, {
+                        key: "data",
+                        value: function data() {
+                          var _this2 = this;
+
+                          return this.keys().reduce(function (data, key) {
+                            return Form_objectSpread({}, data, Form_defineProperty({}, key, _this2[key]));
+                          }, {});
                         }
+                        /**
+                         * Get the form data keys.
+                         *
+                         * @return {Array}
+                         */
 
-                        if (response.data.message) {
-                          return {
-                            error: response.data.message
-                          };
+                      }, {
+                        key: "keys",
+                        value: function keys() {
+                          return Object.keys(this).filter(function (key) {
+                            return !Form.ignore.includes(key);
+                          });
                         }
+                        /**
+                         * Start processing the form.
+                         */
 
-                        return Form_objectSpread({}, response.data);
-                      }
-                      /**
-                       * Get a named route.
-                       *
-                       * @param  {String} name
-                       * @return {Object} parameters
-                       * @return {String}
-                       */
-
-                    }, {
-                      key: "route",
-                      value: function route(name) {
-                        var parameters = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-                        var url = name;
-
-                        if (Form.routes.hasOwnProperty(name)) {
-                          url = decodeURI(Form.routes[name]);
+                      }, {
+                        key: "startProcessing",
+                        value: function startProcessing() {
+                          this.errors.clear();
+                          this.busy = true;
+                          this.successful = false;
                         }
+                        /**
+                         * Finish processing the form.
+                         */
 
-                        if (Form_typeof(parameters) !== 'object') {
-                          parameters = {
-                            id: parameters
-                          };
+                      }, {
+                        key: "finishProcessing",
+                        value: function finishProcessing() {
+                          this.busy = false;
+                          this.successful = true;
                         }
+                        /**
+                         * Clear the form errors.
+                         */
 
-                        Object.keys(parameters).forEach(function (key) {
-                          url = url.replace("{".concat(key, "}"), parameters[key]);
-                        });
-                        return url;
-                      }
-                      /**
-                       * Clear errors on keydown.
-                       *
-                       * @param {KeyboardEvent} event
-                       */
-
-                    }, {
-                      key: "onKeydown",
-                      value: function onKeydown(event) {
-                        if (event.target.name) {
-                          this.errors.clear(event.target.name);
+                      }, {
+                        key: "clear",
+                        value: function clear() {
+                          this.errors.clear();
+                          this.successful = false;
                         }
-                      }
-                    }]);
+                        /**
+                         * Reset the form fields.
+                         */
 
-                    return Form;
-                  }();
+                      }, {
+                        key: "reset",
+                        value: function reset() {
+                          var _this3 = this;
 
-                Form_Form.routes = {};
-                Form_Form.errorMessage = 'Something went wrong. Please try again.';
-                Form_Form.ignore = ['busy', 'successful', 'errors', 'originalData'];
+                          Object.keys(this).filter(function (key) {
+                            return !Form.ignore.includes(key);
+                          }).forEach(function (key) {
+                            _this3[key] = deepCopy(_this3.originalData[key]);
+                          });
+                        }
+                        /**
+                         * Submit the form via a GET request.
+                         *
+                         * @param  {String} url
+                         * @param  {Object} config (axios config)
+                         * @return {Promise}
+                         */
+
+                      }, {
+                        key: "get",
+                        value: function get(url) {
+                          var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+                          return this.submit('get', url, config);
+                        }
+                        /**
+                         * Submit the form via a POST request.
+                         *
+                         * @param  {String} url
+                         * @param  {Object} config (axios config)
+                         * @return {Promise}
+                         */
+
+                      }, {
+                        key: "post",
+                        value: function post(url) {
+                          var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+                          return this.submit('post', url, config);
+                        }
+                        /**
+                         * Submit the form via a PATCH request.
+                         *
+                         * @param  {String} url
+                         * @param  {Object} config (axios config)
+                         * @return {Promise}
+                         */
+
+                      }, {
+                        key: "patch",
+                        value: function patch(url) {
+                          var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+                          return this.submit('patch', url, config);
+                        }
+                        /**
+                         * Submit the form via a PUT request.
+                         *
+                         * @param  {String} url
+                         * @param  {Object} config (axios config)
+                         * @return {Promise}
+                         */
+
+                      }, {
+                        key: "put",
+                        value: function put(url) {
+                          var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+                          return this.submit('put', url, config);
+                        }
+                        /**
+                         * Submit the form via a DELETE request.
+                         *
+                         * @param  {String} url
+                         * @param  {Object} config (axios config)
+                         * @return {Promise}
+                         */
+
+                      }, {
+                        key: "delete",
+                        value: function _delete(url) {
+                          var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+                          return this.submit('delete', url, config);
+                        }
+                        /**
+                         * Submit the form data via an HTTP request.
+                         *
+                         * @param  {String} method (get, post, patch, put)
+                         * @param  {String} url
+                         * @param  {Object} config (axios config)
+                         * @return {Promise}
+                         */
+
+                      }, {
+                        key: "submit",
+                        value: function submit(method, url) {
+                          var _this4 = this;
+
+                          var config = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+                          this.startProcessing();
+                          var data = method === 'get' ? {
+                            params: this.data()
+                          } : this.data();
+                          return new Promise(function (resolve, reject) {
+                            (Form.axios || external_axios_default.a).request(Form_objectSpread({
+                              url: _this4.route(url),
+                              method: method,
+                              data: data
+                            }, config)).then(function (response) {
+                              _this4.finishProcessing();
+
+                              resolve(response);
+                            }).catch(function (error) {
+                              _this4.busy = false;
+
+                              if (error.response) {
+                                _this4.errors.set(_this4.extractErrors(error.response));
+                              }
+
+                              reject(error);
+                            });
+                          });
+                        }
+                        /**
+                         * Extract the errors from the response object.
+                         *
+                         * @param  {Object} response
+                         * @return {Object}
+                         */
+
+                      }, {
+                        key: "extractErrors",
+                        value: function extractErrors(response) {
+                          if (!response.data || Form_typeof(response.data) !== 'object') {
+                            return {
+                              error: Form.errorMessage
+                            };
+                          }
+
+                          if (response.data.errors) {
+                            return Form_objectSpread({}, response.data.errors);
+                          }
+
+                          if (response.data.message) {
+                            return {
+                              error: response.data.message
+                            };
+                          }
+
+                          return Form_objectSpread({}, response.data);
+                        }
+                        /**
+                         * Get a named route.
+                         *
+                         * @param  {String} name
+                         * @return {Object} parameters
+                         * @return {String}
+                         */
+
+                      }, {
+                        key: "route",
+                        value: function route(name) {
+                          var parameters = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+                          var url = name;
+
+                          if (Form.routes.hasOwnProperty(name)) {
+                            url = decodeURI(Form.routes[name]);
+                          }
+
+                          if (Form_typeof(parameters) !== 'object') {
+                            parameters = {
+                              id: parameters
+                            };
+                          }
+
+                          Object.keys(parameters).forEach(function (key) {
+                            url = url.replace("{".concat(key, "}"), parameters[key]);
+                          });
+                          return url;
+                        }
+                        /**
+                         * Clear errors on keydown.
+                         *
+                         * @param {KeyboardEvent} event
+                         */
+
+                      }, {
+                        key: "onKeydown",
+                        value: function onKeydown(event) {
+                          if (event.target.name) {
+                            this.errors.clear(event.target.name);
+                          }
+                        }
+                      }]);
+
+                      return Form;
+                    }();
+
+                  Form_Form.routes = {};
+                  Form_Form.errorMessage = 'Something went wrong. Please try again.';
+                  Form_Form.ignore = ['busy', 'successful', 'errors', 'originalData'];
 /* harmony default export */ var src_Form = (Form_Form);
-                // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules//.cache//vue-loader","cacheIdentifier":"d2817be2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/HasError.vue?vue&type=template&id=fcc9e406&
-                var render = function () { var _vm = this; var _h = _vm.$createElement; var _c = _vm._self._c || _h; return (_vm.form.errors.has(_vm.field)) ? _c('div', { staticClass: "help-block invalid-feedback", domProps: { "innerHTML": _vm._s(_vm.form.errors.get(_vm.field)) } }) : _vm._e() }
-                var staticRenderFns = []
+                  // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules//.cache//vue-loader","cacheIdentifier":"d2817be2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/HasError.vue?vue&type=template&id=fcc9e406&
+                  var render = function () { var _vm = this; var _h = _vm.$createElement; var _c = _vm._self._c || _h; return (_vm.form.errors.has(_vm.field)) ? _c('div', { staticClass: "help-block invalid-feedback", domProps: { "innerHTML": _vm._s(_vm.form.errors.get(_vm.field)) } }) : _vm._e() }
+                  var staticRenderFns = []
 
 
 // CONCATENATED MODULE: ./src/components/HasError.vue?vue&type=template&id=fcc9e406&
@@ -43051,163 +43051,163 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 //
 //
 /* harmony default export */ var HasErrorvue_type_script_lang_js_ = ({
-                  name: 'has-error',
-                  props: {
-                    form: {
-                      type: Object,
-                      required: true
-                    },
-                    field: {
-                      type: String,
-                      required: true
+                    name: 'has-error',
+                    props: {
+                      form: {
+                        type: Object,
+                        required: true
+                      },
+                      field: {
+                        type: String,
+                        required: true
+                      }
                     }
-                  }
-                });
+                  });
 // CONCATENATED MODULE: ./src/components/HasError.vue?vue&type=script&lang=js&
  /* harmony default export */ var components_HasErrorvue_type_script_lang_js_ = (HasErrorvue_type_script_lang_js_);
-                // CONCATENATED MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
-                /* globals __VUE_SSR_CONTEXT__ */
+                  // CONCATENATED MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
+                  /* globals __VUE_SSR_CONTEXT__ */
 
-                // IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
-                // This module is a runtime utility for cleaner component module output and will
-                // be included in the final webpack user bundle.
+                  // IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
+                  // This module is a runtime utility for cleaner component module output and will
+                  // be included in the final webpack user bundle.
 
-                function normalizeComponent(
-                  scriptExports,
-                  render,
-                  staticRenderFns,
-                  functionalTemplate,
-                  injectStyles,
-                  scopeId,
-                  moduleIdentifier, /* server only */
-                  shadowMode /* vue-cli only */
-                ) {
-                  // Vue.extend constructor export interop
-                  var options = typeof scriptExports === 'function'
-                    ? scriptExports.options
-                    : scriptExports
+                  function normalizeComponent(
+                    scriptExports,
+                    render,
+                    staticRenderFns,
+                    functionalTemplate,
+                    injectStyles,
+                    scopeId,
+                    moduleIdentifier, /* server only */
+                    shadowMode /* vue-cli only */
+                  ) {
+                    // Vue.extend constructor export interop
+                    var options = typeof scriptExports === 'function'
+                      ? scriptExports.options
+                      : scriptExports
 
-                  // render functions
-                  if (render) {
-                    options.render = render
-                    options.staticRenderFns = staticRenderFns
-                    options._compiled = true
-                  }
+                    // render functions
+                    if (render) {
+                      options.render = render
+                      options.staticRenderFns = staticRenderFns
+                      options._compiled = true
+                    }
 
-                  // functional template
-                  if (functionalTemplate) {
-                    options.functional = true
-                  }
+                    // functional template
+                    if (functionalTemplate) {
+                      options.functional = true
+                    }
 
-                  // scopedId
-                  if (scopeId) {
-                    options._scopeId = 'data-v-' + scopeId
-                  }
+                    // scopedId
+                    if (scopeId) {
+                      options._scopeId = 'data-v-' + scopeId
+                    }
 
-                  var hook
-                  if (moduleIdentifier) { // server build
-                    hook = function (context) {
-                      // 2.3 injection
-                      context =
-                        context || // cached call
-                        (this.$vnode && this.$vnode.ssrContext) || // stateful
-                        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-                      // 2.2 with runInNewContext: true
-                      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-                        context = __VUE_SSR_CONTEXT__
+                    var hook
+                    if (moduleIdentifier) { // server build
+                      hook = function (context) {
+                        // 2.3 injection
+                        context =
+                          context || // cached call
+                          (this.$vnode && this.$vnode.ssrContext) || // stateful
+                          (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+                        // 2.2 with runInNewContext: true
+                        if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                          context = __VUE_SSR_CONTEXT__
+                        }
+                        // inject component styles
+                        if (injectStyles) {
+                          injectStyles.call(this, context)
+                        }
+                        // register component module identifier for async chunk inferrence
+                        if (context && context._registeredComponents) {
+                          context._registeredComponents.add(moduleIdentifier)
+                        }
                       }
-                      // inject component styles
-                      if (injectStyles) {
-                        injectStyles.call(this, context)
-                      }
-                      // register component module identifier for async chunk inferrence
-                      if (context && context._registeredComponents) {
-                        context._registeredComponents.add(moduleIdentifier)
+                      // used by ssr in case component is cached and beforeCreate
+                      // never gets called
+                      options._ssrRegister = hook
+                    } else if (injectStyles) {
+                      hook = shadowMode
+                        ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
+                        : injectStyles
+                    }
+
+                    if (hook) {
+                      if (options.functional) {
+                        // for template-only hot-reload because in that case the render fn doesn't
+                        // go through the normalizer
+                        options._injectStyles = hook
+                        // register for functioal component in vue file
+                        var originalRender = options.render
+                        options.render = function renderWithStyleInjection(h, context) {
+                          hook.call(context)
+                          return originalRender(h, context)
+                        }
+                      } else {
+                        // inject component registration as beforeCreate hook
+                        var existing = options.beforeCreate
+                        options.beforeCreate = existing
+                          ? [].concat(existing, hook)
+                          : [hook]
                       }
                     }
-                    // used by ssr in case component is cached and beforeCreate
-                    // never gets called
-                    options._ssrRegister = hook
-                  } else if (injectStyles) {
-                    hook = shadowMode
-                      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
-                      : injectStyles
-                  }
 
-                  if (hook) {
-                    if (options.functional) {
-                      // for template-only hot-reload because in that case the render fn doesn't
-                      // go through the normalizer
-                      options._injectStyles = hook
-                      // register for functioal component in vue file
-                      var originalRender = options.render
-                      options.render = function renderWithStyleInjection(h, context) {
-                        hook.call(context)
-                        return originalRender(h, context)
-                      }
-                    } else {
-                      // inject component registration as beforeCreate hook
-                      var existing = options.beforeCreate
-                      options.beforeCreate = existing
-                        ? [].concat(existing, hook)
-                        : [hook]
+                    return {
+                      exports: scriptExports,
+                      options: options
                     }
                   }
 
-                  return {
-                    exports: scriptExports,
-                    options: options
-                  }
-                }
-
-                // CONCATENATED MODULE: ./src/components/HasError.vue
+                  // CONCATENATED MODULE: ./src/components/HasError.vue
 
 
 
 
 
-                /* normalize component */
+                  /* normalize component */
 
-                var component = normalizeComponent(
-                  components_HasErrorvue_type_script_lang_js_,
-                  render,
-                  staticRenderFns,
-                  false,
-                  null,
-                  null,
-                  null
+                  var component = normalizeComponent(
+                    components_HasErrorvue_type_script_lang_js_,
+                    render,
+                    staticRenderFns,
+                    false,
+                    null,
+                    null,
+                    null
 
-                )
+                  )
 
-                component.options.__file = "HasError.vue"
+                  component.options.__file = "HasError.vue"
 /* harmony default export */ var HasError = (component.exports);
-                // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules//.cache//vue-loader","cacheIdentifier":"d2817be2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/AlertError.vue?vue&type=template&id=5610eddd&
-                var AlertErrorvue_type_template_id_5610eddd_render = function () { var _vm = this; var _h = _vm.$createElement; var _c = _vm._self._c || _h; return (_vm.form.errors.any()) ? _c('div', { staticClass: "alert alert-danger alert-dismissible", attrs: { "role": "alert" } }, [(_vm.dismissible) ? _c('button', { staticClass: "close", attrs: { "type": "button", "aria-label": "Close" }, on: { "click": _vm.dismiss } }, [_c('span', { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]) : _vm._e(), _vm._t("default", [(_vm.form.errors.has('error')) ? _c('div', { domProps: { "innerHTML": _vm._s(_vm.form.errors.get('error')) } }) : _c('div', { domProps: { "innerHTML": _vm._s(_vm.message) } })])], 2) : _vm._e() }
-                var AlertErrorvue_type_template_id_5610eddd_staticRenderFns = []
+                  // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules//.cache//vue-loader","cacheIdentifier":"d2817be2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/AlertError.vue?vue&type=template&id=5610eddd&
+                  var AlertErrorvue_type_template_id_5610eddd_render = function () { var _vm = this; var _h = _vm.$createElement; var _c = _vm._self._c || _h; return (_vm.form.errors.any()) ? _c('div', { staticClass: "alert alert-danger alert-dismissible", attrs: { "role": "alert" } }, [(_vm.dismissible) ? _c('button', { staticClass: "close", attrs: { "type": "button", "aria-label": "Close" }, on: { "click": _vm.dismiss } }, [_c('span', { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]) : _vm._e(), _vm._t("default", [(_vm.form.errors.has('error')) ? _c('div', { domProps: { "innerHTML": _vm._s(_vm.form.errors.get('error')) } }) : _c('div', { domProps: { "innerHTML": _vm._s(_vm.message) } })])], 2) : _vm._e() }
+                  var AlertErrorvue_type_template_id_5610eddd_staticRenderFns = []
 
 
 // CONCATENATED MODULE: ./src/components/AlertError.vue?vue&type=template&id=5610eddd&
 
 // CONCATENATED MODULE: ./src/components/Alert.js
 /* harmony default export */ var Alert = ({
-                  props: {
-                    form: {
-                      type: Object,
-                      required: true
+                    props: {
+                      form: {
+                        type: Object,
+                        required: true
+                      },
+                      dismissible: {
+                        type: Boolean,
+                        default: true
+                      }
                     },
-                    dismissible: {
-                      type: Boolean,
-                      default: true
-                    }
-                  },
-                  methods: {
-                    dismiss: function dismiss() {
-                      if (this.dismissible) {
-                        this.form.clear();
+                    methods: {
+                      dismiss: function dismiss() {
+                        if (this.dismissible) {
+                          this.form.clear();
+                        }
                       }
                     }
-                  }
-                });
+                  });
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./src/components/AlertError.vue?vue&type=script&lang=js&
 //
 //
@@ -43224,41 +43224,41 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 //
 
 /* harmony default export */ var AlertErrorvue_type_script_lang_js_ = ({
-                  name: 'alert-error',
-                  extends: Alert,
-                  props: {
-                    message: {
-                      type: String,
-                      default: 'There were some problems with your input.'
+                    name: 'alert-error',
+                    extends: Alert,
+                    props: {
+                      message: {
+                        type: String,
+                        default: 'There were some problems with your input.'
+                      }
                     }
-                  }
-                });
+                  });
 // CONCATENATED MODULE: ./src/components/AlertError.vue?vue&type=script&lang=js&
  /* harmony default export */ var components_AlertErrorvue_type_script_lang_js_ = (AlertErrorvue_type_script_lang_js_);
-                // CONCATENATED MODULE: ./src/components/AlertError.vue
+                  // CONCATENATED MODULE: ./src/components/AlertError.vue
 
 
 
 
 
-                /* normalize component */
+                  /* normalize component */
 
-                var AlertError_component = normalizeComponent(
-                  components_AlertErrorvue_type_script_lang_js_,
-                  AlertErrorvue_type_template_id_5610eddd_render,
-                  AlertErrorvue_type_template_id_5610eddd_staticRenderFns,
-                  false,
-                  null,
-                  null,
-                  null
+                  var AlertError_component = normalizeComponent(
+                    components_AlertErrorvue_type_script_lang_js_,
+                    AlertErrorvue_type_template_id_5610eddd_render,
+                    AlertErrorvue_type_template_id_5610eddd_staticRenderFns,
+                    false,
+                    null,
+                    null,
+                    null
 
-                )
+                  )
 
-                AlertError_component.options.__file = "AlertError.vue"
+                  AlertError_component.options.__file = "AlertError.vue"
 /* harmony default export */ var AlertError = (AlertError_component.exports);
-                // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules//.cache//vue-loader","cacheIdentifier":"d2817be2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/AlertErrors.vue?vue&type=template&id=40d77fd7&
-                var AlertErrorsvue_type_template_id_40d77fd7_render = function () { var _vm = this; var _h = _vm.$createElement; var _c = _vm._self._c || _h; return (_vm.form.errors.any()) ? _c('div', { staticClass: "alert alert-danger alert-dismissible", attrs: { "role": "alert" } }, [(_vm.dismissible) ? _c('button', { staticClass: "close", attrs: { "type": "button", "aria-label": "Close" }, on: { "click": _vm.dismiss } }, [_c('span', { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]) : _vm._e(), (_vm.message) ? _c('div', { domProps: { "innerHTML": _vm._s(_vm.message) } }) : _vm._e(), _c('ul', _vm._l((_vm.form.errors.flatten()), function (error) { return _c('li', { domProps: { "innerHTML": _vm._s(error) } }) }))]) : _vm._e() }
-                var AlertErrorsvue_type_template_id_40d77fd7_staticRenderFns = []
+                  // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules//.cache//vue-loader","cacheIdentifier":"d2817be2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/AlertErrors.vue?vue&type=template&id=40d77fd7&
+                  var AlertErrorsvue_type_template_id_40d77fd7_render = function () { var _vm = this; var _h = _vm.$createElement; var _c = _vm._self._c || _h; return (_vm.form.errors.any()) ? _c('div', { staticClass: "alert alert-danger alert-dismissible", attrs: { "role": "alert" } }, [(_vm.dismissible) ? _c('button', { staticClass: "close", attrs: { "type": "button", "aria-label": "Close" }, on: { "click": _vm.dismiss } }, [_c('span', { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]) : _vm._e(), (_vm.message) ? _c('div', { domProps: { "innerHTML": _vm._s(_vm.message) } }) : _vm._e(), _c('ul', _vm._l((_vm.form.errors.flatten()), function (error) { return _c('li', { domProps: { "innerHTML": _vm._s(error) } }) }))]) : _vm._e() }
+                  var AlertErrorsvue_type_template_id_40d77fd7_staticRenderFns = []
 
 
 // CONCATENATED MODULE: ./src/components/AlertErrors.vue?vue&type=template&id=40d77fd7&
@@ -43280,41 +43280,41 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 //
 
 /* harmony default export */ var AlertErrorsvue_type_script_lang_js_ = ({
-                  name: 'alert-errors',
-                  extends: Alert,
-                  props: {
-                    message: {
-                      type: String,
-                      default: 'There were some problems with your input.'
+                    name: 'alert-errors',
+                    extends: Alert,
+                    props: {
+                      message: {
+                        type: String,
+                        default: 'There were some problems with your input.'
+                      }
                     }
-                  }
-                });
+                  });
 // CONCATENATED MODULE: ./src/components/AlertErrors.vue?vue&type=script&lang=js&
  /* harmony default export */ var components_AlertErrorsvue_type_script_lang_js_ = (AlertErrorsvue_type_script_lang_js_);
-                // CONCATENATED MODULE: ./src/components/AlertErrors.vue
+                  // CONCATENATED MODULE: ./src/components/AlertErrors.vue
 
 
 
 
 
-                /* normalize component */
+                  /* normalize component */
 
-                var AlertErrors_component = normalizeComponent(
-                  components_AlertErrorsvue_type_script_lang_js_,
-                  AlertErrorsvue_type_template_id_40d77fd7_render,
-                  AlertErrorsvue_type_template_id_40d77fd7_staticRenderFns,
-                  false,
-                  null,
-                  null,
-                  null
+                  var AlertErrors_component = normalizeComponent(
+                    components_AlertErrorsvue_type_script_lang_js_,
+                    AlertErrorsvue_type_template_id_40d77fd7_render,
+                    AlertErrorsvue_type_template_id_40d77fd7_staticRenderFns,
+                    false,
+                    null,
+                    null,
+                    null
 
-                )
+                  )
 
-                AlertErrors_component.options.__file = "AlertErrors.vue"
+                  AlertErrors_component.options.__file = "AlertErrors.vue"
 /* harmony default export */ var AlertErrors = (AlertErrors_component.exports);
-                // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules//.cache//vue-loader","cacheIdentifier":"d2817be2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/AlertSuccess.vue?vue&type=template&id=fd18e236&
-                var AlertSuccessvue_type_template_id_fd18e236_render = function () { var _vm = this; var _h = _vm.$createElement; var _c = _vm._self._c || _h; return (_vm.form.successful) ? _c('div', { staticClass: "alert alert-success alert-dismissible", attrs: { "role": "alert" } }, [(_vm.dismissible) ? _c('button', { staticClass: "close", attrs: { "type": "button", "aria-label": "Close" }, on: { "click": _vm.dismiss } }, [_c('span', { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]) : _vm._e(), _vm._t("default", [_c('div', { domProps: { "innerHTML": _vm._s(_vm.message) } })])], 2) : _vm._e() }
-                var AlertSuccessvue_type_template_id_fd18e236_staticRenderFns = []
+                  // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules//.cache//vue-loader","cacheIdentifier":"d2817be2-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/AlertSuccess.vue?vue&type=template&id=fd18e236&
+                  var AlertSuccessvue_type_template_id_fd18e236_render = function () { var _vm = this; var _h = _vm.$createElement; var _c = _vm._self._c || _h; return (_vm.form.successful) ? _c('div', { staticClass: "alert alert-success alert-dismissible", attrs: { "role": "alert" } }, [(_vm.dismissible) ? _c('button', { staticClass: "close", attrs: { "type": "button", "aria-label": "Close" }, on: { "click": _vm.dismiss } }, [_c('span', { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]) : _vm._e(), _vm._t("default", [_c('div', { domProps: { "innerHTML": _vm._s(_vm.message) } })])], 2) : _vm._e() }
+                  var AlertSuccessvue_type_template_id_fd18e236_staticRenderFns = []
 
 
 // CONCATENATED MODULE: ./src/components/AlertSuccess.vue?vue&type=template&id=fd18e236&
@@ -43334,37 +43334,37 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 //
 
 /* harmony default export */ var AlertSuccessvue_type_script_lang_js_ = ({
-                  name: 'alert-success',
-                  extends: Alert,
-                  props: {
-                    message: {
-                      type: String,
-                      default: ''
+                    name: 'alert-success',
+                    extends: Alert,
+                    props: {
+                      message: {
+                        type: String,
+                        default: ''
+                      }
                     }
-                  }
-                });
+                  });
 // CONCATENATED MODULE: ./src/components/AlertSuccess.vue?vue&type=script&lang=js&
  /* harmony default export */ var components_AlertSuccessvue_type_script_lang_js_ = (AlertSuccessvue_type_script_lang_js_);
-                // CONCATENATED MODULE: ./src/components/AlertSuccess.vue
+                  // CONCATENATED MODULE: ./src/components/AlertSuccess.vue
 
 
 
 
 
-                /* normalize component */
+                  /* normalize component */
 
-                var AlertSuccess_component = normalizeComponent(
-                  components_AlertSuccessvue_type_script_lang_js_,
-                  AlertSuccessvue_type_template_id_fd18e236_render,
-                  AlertSuccessvue_type_template_id_fd18e236_staticRenderFns,
-                  false,
-                  null,
-                  null,
-                  null
+                  var AlertSuccess_component = normalizeComponent(
+                    components_AlertSuccessvue_type_script_lang_js_,
+                    AlertSuccessvue_type_template_id_fd18e236_render,
+                    AlertSuccessvue_type_template_id_fd18e236_staticRenderFns,
+                    false,
+                    null,
+                    null,
+                    null
 
-                )
+                  )
 
-                AlertSuccess_component.options.__file = "AlertSuccess.vue"
+                  AlertSuccess_component.options.__file = "AlertSuccess.vue"
 /* harmony default export */ var AlertSuccess = (AlertSuccess_component.exports);
 // CONCATENATED MODULE: ./src/index.js
 
@@ -43387,14 +43387,14 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 
 
 
-                /***/
-})
+                  /***/
+                })
 
-            /******/
-});
+              /******/
+            });
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/vue-axios/dist/vue-axios.min.js":
 /*!******************************************************!*\
@@ -43410,7 +43410,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
           }();
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/vue-loader/lib/index.js?!./node_modules/sweet-modal-vue/src/components/SweetModal.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************!*\
@@ -43849,7 +43849,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/vue-loader/lib/index.js?!./node_modules/sweet-modal-vue/src/components/SweetModalTab.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************************************************************************!*\
@@ -43907,7 +43907,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/sweet-modal-vue/src/components/SweetModal.vue?vue&type=template&id=7dbda72e&":
 /*!*********************************************************************************************************************************************************************************************************************************!*\
@@ -44185,7 +44185,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/sweet-modal-vue/src/components/SweetModalTab.vue?vue&type=template&id=4e55f337&":
 /*!************************************************************************************************************************************************************************************************************************************!*\
@@ -44215,7 +44215,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Attendance.vue?vue&type=template&id=16f3f314&":
 /*!*************************************************************************************************************************************************************************************************************!*\
@@ -44947,7 +44947,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AttendancePdf.vue?vue&type=template&id=14c35f24&scoped=true&":
 /*!****************************************************************************************************************************************************************************************************************************!*\
@@ -45285,7 +45285,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&":
 /*!*******************************************************************************************************************************************************************************************************************!*\
@@ -45331,7 +45331,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js":
 /*!********************************************************************!*\
@@ -45439,7 +45439,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/vue-router/dist/vue-router.esm.js":
 /*!********************************************************!*\
@@ -48386,7 +48386,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/vue-select/dist/vue-select.js":
 /*!****************************************************!*\
@@ -48399,7 +48399,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
           //# sourceMappingURL=vue-select.js.map
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/vue-signature/dist/vue-signature.js":
 /*!**********************************************************!*\
@@ -48433,7 +48433,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
           //# sourceMappingURL=vue-signature.js.map
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/vue/dist/vue.common.dev.js":
 /*!*************************************************!*\
@@ -60410,10 +60410,10 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
             module.exports = Vue;
 
             /* WEBPACK VAR INJECTION */
-}.call(this, __webpack_require__(/*! ./../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js"), __webpack_require__(/*! ./../../timers-browserify/main.js */ "./node_modules/timers-browserify/main.js").setImmediate))
+          }.call(this, __webpack_require__(/*! ./../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js"), __webpack_require__(/*! ./../../timers-browserify/main.js */ "./node_modules/timers-browserify/main.js").setImmediate))
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/vue/dist/vue.common.js":
 /*!*********************************************!*\
@@ -60428,7 +60428,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/vuejs-datepicker/dist/vuejs-datepicker.esm.js":
 /*!********************************************************************!*\
@@ -62879,7 +62879,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/webpack/buildin/global.js":
 /*!***********************************!*\
@@ -62911,7 +62911,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 
 
           /***/
-}),
+        }),
 
 /***/ "./node_modules/webpack/buildin/module.js":
 /*!***********************************!*\
@@ -62945,7 +62945,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 
 
           /***/
-}),
+        }),
 
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
@@ -63001,6 +63001,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
           window.Swal = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a;
           window.Toast = Toast;
           window.Fire = new Vue();
+          window.P = new Vue();
           var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.mixin({
             toast: true,
             position: 'top-end',
@@ -63041,7 +63042,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
           });
 
           /***/
-}),
+        }),
 
 /***/ "./resources/js/bootstrap.js":
 /*!***********************************!*\
@@ -63100,7 +63101,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
           // });
 
           /***/
-}),
+        }),
 
 /***/ "./resources/js/components/Attendance.vue":
 /*!************************************************!*\
@@ -63140,7 +63141,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
           /***/
-}),
+        }),
 
 /***/ "./resources/js/components/Attendance.vue?vue&type=script&lang=js&":
 /*!*************************************************************************!*\
@@ -63155,7 +63156,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Attendance_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]);
 
           /***/
-}),
+        }),
 
 /***/ "./resources/js/components/Attendance.vue?vue&type=style&index=0&lang=css&":
 /*!*********************************************************************************!*\
@@ -63172,7 +63173,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Attendance_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a);
 
           /***/
-}),
+        }),
 
 /***/ "./resources/js/components/Attendance.vue?vue&type=template&id=16f3f314&":
 /*!*******************************************************************************!*\
@@ -63191,7 +63192,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 
 
           /***/
-}),
+        }),
 
 /***/ "./resources/js/components/AttendancePdf.vue":
 /*!***************************************************!*\
@@ -63232,7 +63233,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
           /***/
-}),
+        }),
 
 /***/ "./resources/js/components/AttendancePdf.vue?vue&type=script&lang=js&":
 /*!****************************************************************************!*\
@@ -63249,7 +63250,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AttendancePdf_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a);
 
           /***/
-}),
+        }),
 
 /***/ "./resources/js/components/AttendancePdf.vue?vue&type=style&index=0&id=14c35f24&scoped=true&lang=css&":
 /*!************************************************************************************************************!*\
@@ -63266,7 +63267,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AttendancePdf_vue_vue_type_style_index_0_id_14c35f24_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a);
 
           /***/
-}),
+        }),
 
 /***/ "./resources/js/components/AttendancePdf.vue?vue&type=template&id=14c35f24&scoped=true&":
 /*!**********************************************************************************************!*\
@@ -63285,7 +63286,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 
 
           /***/
-}),
+        }),
 
 /***/ "./resources/js/components/ExampleComponent.vue":
 /*!******************************************************!*\
@@ -63323,7 +63324,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
           /***/
-}),
+        }),
 
 /***/ "./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************!*\
@@ -63338,7 +63339,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]);
 
           /***/
-}),
+        }),
 
 /***/ "./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&":
 /*!*************************************************************************************!*\
@@ -63357,7 +63358,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 
 
           /***/
-}),
+        }),
 
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
@@ -63369,7 +63370,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
           // removed by extract-text-webpack-plugin
 
           /***/
-}),
+        }),
 
 /***/ 0:
 /*!*************************************************************!*\
@@ -63383,7 +63384,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 
 
           /***/
-})
+        })
 
         /******/
-});
+      });

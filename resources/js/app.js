@@ -38,6 +38,7 @@ window.Swal = Swal;
 window.Toast = Toast;
 
 window.Fire = new Vue;
+window.P = new Vue;
 
 const Toast = Swal.mixin({
     toast: true,
