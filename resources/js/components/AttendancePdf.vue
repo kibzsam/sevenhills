@@ -90,7 +90,6 @@
 export default {
   data() {
     return {
-
       //Signature
       option: {
         penColor: "rgb(0, 0, 0)",
@@ -100,9 +99,7 @@ export default {
       dataUrl: "",
       //End signature
 
-      form: new Form({
-
-      }),
+      form: new Form({}),
       display: false,
       userid: "",
       users: {},
@@ -140,7 +137,6 @@ export default {
       this.axios
         .post("api/pdf", data, { responseType: "arraybuffer" })
         .then(response => {
-
           // let blob = new Blob([response], { type: 'application/pdf' }),
           //     url = window.URL.createObjectURL(blob)
           //      window.open(url)
@@ -204,7 +200,7 @@ export default {
         sy: 200 // stroke positionY, > default 40
       });
     },
-    
+
     fromDataURL(url) {
       var _this = this;
       _this.$refs.signature.fromDataURL("data:image/png;base64,iVBORw0K...");
@@ -214,7 +210,6 @@ export default {
       _this.disabled = !_this.disabled;
     }
     //end signature methods
-    
   }
 };
 </script>
