@@ -15,9 +15,6 @@ import Swal from 'sweetalert2';
 import Datepicker from 'vuejs-datepicker';
 Vue.component('datepicker', Datepicker);
 
-import vueSignature from "vue-signature"
-Vue.use(vueSignature)
-
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
@@ -47,7 +44,7 @@ const Toast = Swal.mixin({
     timer: 3000
 });
 
-Vue.filter('round', function(value, decimals) {
+Vue.filter('round', function (value, decimals) {
     if (!value) {
         value = 0;
     }

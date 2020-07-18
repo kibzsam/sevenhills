@@ -87,6 +87,9 @@
 </template>
 
 <script>
+import vueSignature from "vue-signature";
+Vue.use(vueSignature);
+
 export default {
   data() {
     return {
@@ -106,6 +109,10 @@ export default {
       fromdate: "",
       todate: ""
     };
+  },
+
+  components: {
+    vueSignature
   },
 
   created() {
