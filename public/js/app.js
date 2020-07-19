@@ -1988,11 +1988,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2006,8 +2001,9 @@ __webpack_require__.r(__webpack_exports__);
       //End signature
       load: false,
       edit: false,
-      attendance: {},
-      users: {},
+      attendance: [],
+      auth_user: {},
+      users: [],
       hospitals: [],
       options: ["nae", "toto", "ytr"],
       hours: "",
@@ -2043,6 +2039,20 @@ __webpack_require__.r(__webpack_exports__);
     P.$on("success", function () {
       _this2.getAttendance();
     });
+    axios.get("api/user").then(function (response) {
+      _this2.auth_user = response.data;
+    })["catch"](function (error) {
+      console.log(error);
+    });
+  },
+  computed: {
+    attendanceExists: function attendanceExists() {
+      if (this.attendance.length > 0) {
+        return true;
+      } else {
+        return false;
+      }
+    }
   },
   methods: {
     generatePdf: function generatePdf() {
@@ -7122,7 +7132,7 @@ exports.push([module.i, "@import url(https://use.fontawesome.com/releases/v5.6.3
 exports.push([module.i, "@import url(https://unpkg.com/vue-select@latest/dist/vue-select.css);", ""]);
 
 // module
-exports.push([module.i, "\n/* Select 2 */\n.container {\r\n  width: 100% !important;\n}\n.cursor {\r\n  cursor: pointer;\n}\n.pr-1 {\r\n  padding-right: 5px;\n}\n.pt-4 {\r\n  padding-top: 16px;\n}\n.bold {\r\n  font-weight: 700;\n}\n#btn {\r\n  margin-bottom: 30px;\r\n  color: white !important;\r\n  background-color: #dbb900 !important;\n}\n.form-inline {\r\n  margin-bottom: -40px;\r\n  margin-top: 30px;\n}\n#modal {\r\n  max-width: 50% !important;\n}\n.cbutton {\r\n  color: white !important;\r\n  background-color: #3c8dbc !important;\r\n  width: 100px !important;\n}\n.clock-picker__input {\r\n  /* border: 1px solid rgb(230, 215, 215); */\r\n  width: 100% !important;\r\n  padding: 7px 12px;\r\n  margin: 10px 5px;\n}\n.clock-picker__dialog-header {\r\n  background-color: #dbb900 !important;\n}\n.clock-picker__dialog-action {\r\n  color: #dbb900 !important  ;\n}\n.row {\r\n  margin-top: 20px;\n}\n.table-wrapper {\r\n  width: 100%;\r\n  margin: 40px 0;\r\n  overflow-x: auto;\n}\n.col-md-12 {\r\n  position: relative;\n}\n.modal-button {\r\n  margin-top: 20px;\n}\n.pdf-button {\r\n  position: absolute;\r\n  right: 90px;\r\n  top: 30px;\n}\n.pdf {\r\n  color: white !important;\r\n  background-color: #dbb900 !important;\r\n  width: 105px !important;\n}\n.vdp-datepicker {\r\n  position: relative !important;\r\n  text-align: left !important;\n}\n.vdp-datepicker input[type=\"text\"] {\r\n  width: 100%;\r\n  padding: 6px 12px;\r\n  display: block;\r\n  height: 34px;\r\n  border: 1px solid #ccc;\r\n  color: #555;\r\n  background-color: #fff;\n}\n.btn-secondary {\r\n  background-color: green;\r\n  color: white;\n}\n.btn-secondary:hover {\r\n  background-color: green;\r\n  color: white;\n}\n.canvas {\r\n  border: 1px solid #3c8dbc;\n}\n.btnclear {\r\n  float: right !important;\r\n  border: 1px solid transparent;\r\n  padding: 6px 12px;\n}\n.btnundo {\r\n  float: right !important;\r\n  border: 1px solid transparent;\r\n  padding: 6px 12px;\n}\r\n", ""]);
+exports.push([module.i, "\n/* Select 2 */\n.custom-jumbotron {\r\n  background: #eee;\r\n  padding: 10px 20px;\r\n  display: table-caption;\r\n  margin-bottom: 20px;\n}\n.container {\r\n  width: 100% !important;\n}\n.cursor {\r\n  cursor: pointer;\n}\n.pr-1 {\r\n  padding-right: 5px;\n}\n.pt-4 {\r\n  padding-top: 16px;\n}\n.bold {\r\n  font-weight: 700;\n}\n#btn {\r\n  margin-bottom: 30px;\r\n  color: white !important;\r\n  background-color: #dbb900 !important;\n}\n.form-inline {\r\n  margin-bottom: -40px;\r\n  margin-top: 30px;\n}\n#modal {\r\n  max-width: 50% !important;\n}\n.cbutton {\r\n  color: white !important;\r\n  background-color: #3c8dbc !important;\r\n  width: 100px !important;\n}\n.clock-picker__input {\r\n  /* border: 1px solid rgb(230, 215, 215); */\r\n  width: 100% !important;\r\n  padding: 7px 12px;\r\n  margin: 10px 5px;\n}\n.clock-picker__dialog-header {\r\n  background-color: #dbb900 !important;\n}\n.clock-picker__dialog-action {\r\n  color: #dbb900 !important  ;\n}\n.row {\r\n  margin-top: 20px;\n}\n.table-wrapper {\r\n  width: 100%;\r\n  margin: 40px 0;\r\n  overflow-x: auto;\n}\n.col-md-12 {\r\n  position: relative;\n}\n.modal-button {\r\n  margin-top: 20px;\n}\n.pdf-button {\r\n  position: absolute;\r\n  right: 90px;\r\n  top: 30px;\n}\n.pdf {\r\n  color: white !important;\r\n  background-color: #dbb900 !important;\r\n  width: 105px !important;\n}\n.vdp-datepicker {\r\n  position: relative !important;\r\n  text-align: left !important;\n}\n.vdp-datepicker input[type=\"text\"] {\r\n  width: 100%;\r\n  padding: 6px 12px;\r\n  display: block;\r\n  height: 34px;\r\n  border: 1px solid #ccc;\r\n  color: #555;\r\n  background-color: #fff;\n}\n.btn-secondary {\r\n  background-color: green;\r\n  color: white;\n}\n.btn-secondary:hover {\r\n  background-color: green;\r\n  color: white;\n}\n.canvas {\r\n  border: 1px solid #3c8dbc;\n}\n.btnclear {\r\n  float: right !important;\r\n  border: 1px solid transparent;\r\n  padding: 6px 12px;\n}\n.btnundo {\r\n  float: right !important;\r\n  border: 1px solid transparent;\r\n  padding: 6px 12px;\n}\r\n", ""]);
 
 // exports
 
@@ -44167,77 +44177,89 @@ var render = function() {
             _c("table", { staticClass: "table table-hover table-dark" }, [
               _vm._m(0),
               _vm._v(" "),
-              _c(
-                "tbody",
-                _vm._l(_vm.attendance, function(attend) {
-                  return _c("tr", { key: attend.id }, [
-                    _c("td", { attrs: { scope: "row", "data-label": "ID" } }, [
-                      _vm._v(_vm._s(attend.id))
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { attrs: { "data-label": "Name" } }, [
-                      _vm._v(_vm._s(attend.user.employeeName))
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { attrs: { "data-label": "Employee Id" } }, [
-                      _vm._v(_vm._s(attend.user.employeeID))
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { attrs: { "data-label": "Hospital" } }, [
-                      _vm._v(_vm._s(attend.hospital.name))
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { attrs: { "data-label": "Time-in" } }, [
-                      _vm._v(_vm._s(attend.timein))
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { attrs: { "data-label": "Time-out" } }, [
-                      _vm._v(_vm._s(attend.timeout))
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { attrs: { "data-label": "Lunch-in" } }, [
-                      _vm._v(_vm._s(attend.lunchin))
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { attrs: { "data-label": "Lunch-out" } }, [
-                      _vm._v(_vm._s(attend.lunchout))
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { attrs: { "data-label": "Hours Worked" } }, [
-                      _vm._v(_vm._s(_vm._f("round")(_vm.hours)) + " Hrs")
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { attrs: { "data-label": "Date" } }, [
-                      _vm._v(_vm._s(attend.created_at))
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { attrs: { "data-label": "Action" } }, [
-                      _c("a", { staticClass: "cursor" }, [
-                        _c("i", {
-                          staticClass: "fas fa-pencil-alt text-greenish",
-                          on: {
-                            click: function($event) {
-                              return _vm.editModal(attend)
-                            }
-                          }
-                        })
-                      ]),
-                      _vm._v("\n                /\n                "),
-                      _c("a", { staticClass: "cursor" }, [
-                        _c("i", {
-                          staticClass: "fas fa-trash-alt text-red",
-                          on: {
-                            click: function($event) {
-                              return _vm.deleteAttendance(attend.id)
-                            }
-                          }
-                        })
+              _vm.attendanceExists
+                ? _c(
+                    "tbody",
+                    _vm._l(_vm.attendance, function(attend) {
+                      return _c("tr", { key: attend.id }, [
+                        _c(
+                          "td",
+                          { attrs: { scope: "row", "data-label": "ID" } },
+                          [_vm._v(_vm._s(attend.id))]
+                        ),
+                        _vm._v(" "),
+                        _c("td", { attrs: { "data-label": "Name" } }, [
+                          _vm._v(_vm._s(attend.user.employeeName))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { attrs: { "data-label": "Employee Id" } }, [
+                          _vm._v(_vm._s(attend.user.employeeID))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { attrs: { "data-label": "Hospital" } }, [
+                          _vm._v(_vm._s(attend.hospital.name))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { attrs: { "data-label": "Time-in" } }, [
+                          _vm._v(_vm._s(attend.timein))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { attrs: { "data-label": "Time-out" } }, [
+                          _vm._v(_vm._s(attend.timeout))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { attrs: { "data-label": "Lunch-in" } }, [
+                          _vm._v(_vm._s(attend.lunchin))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { attrs: { "data-label": "Lunch-out" } }, [
+                          _vm._v(_vm._s(attend.lunchout))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { attrs: { "data-label": "Hours Worked" } }, [
+                          _vm._v(_vm._s(_vm._f("round")(_vm.hours)) + " Hrs")
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { attrs: { "data-label": "Date" } }, [
+                          _vm._v(_vm._s(attend.created_at))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { attrs: { "data-label": "Action" } }, [
+                          _c("a", { staticClass: "cursor" }, [
+                            _c("i", {
+                              staticClass: "fas fa-pencil-alt text-greenish",
+                              on: {
+                                click: function($event) {
+                                  return _vm.editModal(attend)
+                                }
+                              }
+                            })
+                          ]),
+                          _vm._v("\n                /\n                "),
+                          _c("a", { staticClass: "cursor" }, [
+                            _c("i", {
+                              staticClass: "fas fa-trash-alt text-red",
+                              on: {
+                                click: function($event) {
+                                  return _vm.deleteAttendance(attend.id)
+                                }
+                              }
+                            })
+                          ])
+                        ])
                       ])
+                    }),
+                    0
+                  )
+                : _c("div", { staticClass: "custom-jumbotron" }, [
+                    _c("span", { staticClass: "lead" }, [
+                      _vm._v("Hi "),
+                      _c("b", [_vm._v(_vm._s(_vm.auth_user.employeeName))]),
+                      _vm._v(
+                        ", no attendance yet have been recorded. Get started by clicking on the\n              attendance button.\n            "
+                      )
                     ])
                   ])
-                }),
-                0
-              )
             ]),
             _vm._v(" "),
             _c(
