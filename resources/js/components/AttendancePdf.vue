@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <div class="row justify-content-center mt-5">
-      <div class="col-md-8">
+    <div class="row justify-content-center mt-5 center">
+      <div class="col-md-8 mx-auto">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Generate Pdf</h5>
@@ -87,8 +87,6 @@
 </template>
 
 <script>
-import vueSignature from "vue-signature";
-Vue.use(vueSignature);
 
 export default {
   data() {
@@ -109,10 +107,6 @@ export default {
       fromdate: "",
       todate: ""
     };
-  },
-
-  components: {
-    vueSignature
   },
 
   created() {
@@ -231,21 +225,27 @@ body {
   background: -webkit-linear-gradient(left, #3931af, #00c6ff);
 }
 
+.center {
+  display: flex;
+  justify-content: center;
+}
+
 .row {
   margin-top: 30px;
   justify-content: center !important;
+  margin-bottom: 50px;
 }
 
 .card {
   background-color: whitesmoke;
   width: 100% !important;
-  margin-left: 200px;
 }
 
 .card-title {
   font-size: 30px;
   color: #dbb900;
   margin-left: 10px;
+  padding: 10px 0;
 }
 
 .btn-secondary {
@@ -255,6 +255,7 @@ body {
 
 .btn-primary {
   margin-left: 12px;
+  margin: 10px 0 20px 20px;
 }
 
 .canvas {

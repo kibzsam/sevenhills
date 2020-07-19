@@ -15,18 +15,6 @@
           </button>
         </div>
 
-        <!--
-        <div class="pdf-button">
-          <a
-          href="/attendance-pdf"
-            class="btn btn-default pdf"
-          >
-            <i class="fas fa-file-pdf pr-1"></i>
-             PDF Report
-          </a>
-        </div>
-        -->
-
         <div class="table-wrapper card table-card">
           <table class="table table-hover table-dark">
             <thead>
@@ -45,7 +33,8 @@
                 <th scope="col" class="text-golden">Action</th>
               </tr>
             </thead>
-            <tbody>
+
+            <tbody v-if="attendanceExists">
               <tr v-for="attend in attendance" v-bind:key="attend.id">
                 <td scope="row" data-label="ID">{{attend.id}}</td>
                 <td data-label="Name">{{attend.user.employeeName}}</td>
@@ -56,7 +45,6 @@
                 <td data-label="Lunch-in">{{attend.lunchin}}</td>
                 <td data-label="Lunch-out">{{attend.lunchout}}</td>
                 <td data-label="Hours Worked">{{hours | round}} Hrs</td>
-                <!-- <td>{{(attend.timeout)-(attend.timein)}}</td>  -->
                 <td data-label="Date">{{attend.created_at}}</td>
                 <td data-label="Action">
                   <a class="cursor">
@@ -69,6 +57,13 @@
                 </td>
               </tr>
             </tbody>
+
+            <div class="custom-jumbotron" v-else>
+              <span class="lead">Hi <b>{{auth_user.employeeName}}</b>, no attendance yet have been recorded. Get started by clicking on the
+                attendance button.
+              </span>
+            </div>
+
           </table>
           <nav aria-label="Page navigation example float-right">
             <ul class="pagination pagination-sm">
@@ -268,8 +263,9 @@ export default {
 
       load: false,
       edit: false,
-      attendance: {},
-      users: {},
+      attendance: [],
+      auth_user: {},
+      users: [],
       hospitals: [],
       options: ["nae", "toto", "ytr"],
       hours: "",
@@ -308,6 +304,24 @@ export default {
     P.$on("success", () => {
       this.getAttendance();
     });
+
+    axios.get("api/user")
+      .then(response => {
+        this.auth_user = response.data
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  },
+
+  computed: {
+    attendanceExists() {
+      if((this.attendance.length) > 0){
+        return true
+      } else {
+        return false
+      }
+    }
   },
 
   methods: {
@@ -525,6 +539,13 @@ export default {
 
 /* Select 2 */
 @import "https://unpkg.com/vue-select@latest/dist/vue-select.css";
+
+.custom-jumbotron {
+  background: #eee;
+  padding: 10px 20px;
+  display: table-caption;
+  margin-bottom: 20px;
+}
 
 .container {
   width: 100% !important;

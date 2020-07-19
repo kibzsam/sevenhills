@@ -238,8 +238,7 @@
                                                         <h6 class="table-heading-span">Employee's Signature: <span
                                                                 class="underline">
                                                                 <div class="signature-box">
-                                                                    {{-- <img class="signature-img" src="{{public_path().'/images/signature/'.$signature }}"/>
-                                                                    --}}
+                                                                    <img class="signature-img" src="{{public_path().'/images/signature/3C2YINUVZD.png' }}"/>
                                                                 </div>
                                                             </span>
                                                         </h6>
@@ -256,7 +255,10 @@
                                                 <div class="custom-row row mt-4">
                                                     <div class="column-2 col-md-6">
                                                         <h6 class="table-heading-span">Supervisor Signature:
-                                                            _________________________</h6>
+                                                            <div class="signature-box">
+                                                                <img class="signature-img" src="{{public_path().'/images/signature/3C2YINUVZD.png' }}"/>
+                                                            </div>
+                                                        </h6>
                                                     </div>
 
                                                     <div class="column-2 col-md-6">
