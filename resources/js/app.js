@@ -31,9 +31,6 @@ Vue.use(VueClockPickerPlugin)
 Vue.use(VueAxios, axios)
 Vue.use(VueRouter)
 
-import vueSignature from "vue-signature";
-Vue.use(vueSignature);
-
 window.Swal = Swal;
 window.Toast = Toast;
 
