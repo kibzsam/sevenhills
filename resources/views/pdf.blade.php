@@ -81,11 +81,8 @@
         }
 
         table {
-            /* border-collapse: collapse; */
-            display: table;
-            /* table-layout: fixed; */
+            border-collapse: collapse;
             width: 100%;
-            /* overflow: hidden; */
         }
 
         tr {
@@ -143,16 +140,17 @@
         }
 
         .signature-box {
-            background: #FFFAFA;
+            /* background: #FFFAFA;
             margin-top: 15px;
             height: 70px;
-            width: 70px;
+            width: 70px; */
         }
 
         .signature-img {
+            font-weight: bold;
             padding: 5px;
-            height: 60px;
-            width: 60px
+            height: 70px;
+            width: 140px
         }
 
     </style>
@@ -172,7 +170,7 @@
 
                     <div class="pdf-table-container col-md-10 mx-auto">
 
-                        <div class="mt-5 divTableCell">
+                        <div class="mt-5">
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
@@ -242,8 +240,8 @@
                                                         <h6 class="table-heading-span">Employee's Signature: <span
                                                                 class="underline">
                                                                 <div class="signature-box">
-                                                                    <img class="signature-img"
-                                                                        src="{{public_path().'/images/signature/'.$signature }}" />
+                                                                    <img class="signature-img" src="data:image/jpeg;base64,
+                                                                {{ base64_encode(@file_get_contents(public_path().'/images/signature/'.$signature)) }}"/>
                                                                 </div>
                                                             </span>
                                                         </h6>
@@ -259,11 +257,13 @@
                                             <div class="col-md-10 mx-auto">
                                                 <div class="custom-row row mt-4">
                                                     <div class="column-2 col-md-6">
-                                                        <h6 class="table-heading-span">Supervisor Signature
+                                                        <h6 class="table-heading-span">Supervisor Signature: <span class="underline">
+                                                            <div class="signature-box">
+                                                                <img class="signature-img" src="data:image/jpeg;base64,
+                                                                    {{ base64_encode(@file_get_contents(public_path().'/images/signature/'.$signature1)) }}"/>
+                                                            </div>
+                                                        </span>
                                                         </h6>
-                                                        <div class="signature-box">
-                                                            <img class="signature-img" src="{{public_path().'/images/signature/'.$signature1 }}"/>
-                                                        </div>
                                                     </div>
 
                                                     <div class="column-2 col-md-6">
