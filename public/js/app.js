@@ -2285,8 +2285,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_signature__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-signature */ "./node_modules/vue-signature/dist/vue-signature.js");
-/* harmony import */ var vue_signature__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_signature__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2375,8 +2373,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
-Vue.use(vue_signature__WEBPACK_IMPORTED_MODULE_0___default.a);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2395,9 +2391,6 @@ Vue.use(vue_signature__WEBPACK_IMPORTED_MODULE_0___default.a);
       fromdate: "",
       todate: ""
     };
-  },
-  components: {
-    vueSignature: vue_signature__WEBPACK_IMPORTED_MODULE_0___default.a
   },
   created: function created() {
     this.showUsers();
@@ -7151,7 +7144,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nbody[data-v-14c35f24] {\n  background: -webkit-linear-gradient(left, #3931af, #00c6ff);\n}\n.row[data-v-14c35f24] {\n  margin-top: 30px;\n  justify-content: center !important;\n}\n.card[data-v-14c35f24] {\n  background-color: whitesmoke;\n  width: 100% !important;\n  margin-left: 200px;\n}\n.card-title[data-v-14c35f24] {\n  font-size: 30px;\n  color: #dbb900;\n  margin-left: 10px;\n}\n.btn-secondary[data-v-14c35f24] {\n  float: right !important;\n  margin-right: 12px;\n}\n.btn-primary[data-v-14c35f24] {\n  margin-left: 12px;\n}\n.canvas[data-v-14c35f24] {\n  width: 100% !important;\n}\n", ""]);
+exports.push([module.i, "\nbody[data-v-14c35f24] {\n  background: -webkit-linear-gradient(left, #3931af, #00c6ff);\n}\n.center[data-v-14c35f24] {\n  display: flex;\n  justify-content: center;\n}\n.row[data-v-14c35f24] {\n  margin-top: 30px;\n  justify-content: center !important;\n  margin-bottom: 50px;\n}\n.card[data-v-14c35f24] {\n  background-color: whitesmoke;\n  width: 100% !important;\n}\n.card-title[data-v-14c35f24] {\n  font-size: 30px;\n  color: #dbb900;\n  margin-left: 10px;\n  padding: 10px 0;\n}\n.btn-secondary[data-v-14c35f24] {\n  float: right !important;\n  margin-right: 12px;\n}\n.btn-primary[data-v-14c35f24] {\n  margin-left: 12px;\n  margin: 10px 0 20px 20px;\n}\n.canvas[data-v-14c35f24] {\n  width: 100% !important;\n}\n", ""]);
 
 // exports
 
@@ -44910,8 +44903,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row justify-content-center mt-5" }, [
-      _c("div", { staticClass: "col-md-8" }, [
+    _c("div", { staticClass: "row justify-content-center mt-5 center" }, [
+      _c("div", { staticClass: "col-md-8 mx-auto" }, [
         _c("div", { staticClass: "card" }, [
           _c("div", { staticClass: "card-body" }, [
             _c("h5", { staticClass: "card-title" }, [_vm._v("Generate Pdf")]),
@@ -62889,7 +62882,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(vue_axios__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vue-select */ "./node_modules/vue-select/dist/vue-select.js");
 /* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(vue_select__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var sweet_modal_vue_src_plugin_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! sweet-modal-vue/src/plugin.js */ "./node_modules/sweet-modal-vue/src/plugin.js");
+/* harmony import */ var vue_signature__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-signature */ "./node_modules/vue-signature/dist/vue-signature.js");
+/* harmony import */ var vue_signature__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vue_signature__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var sweet_modal_vue_src_plugin_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweet-modal-vue/src/plugin.js */ "./node_modules/sweet-modal-vue/src/plugin.js");
 // Vue Dependancies
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
@@ -62913,6 +62908,8 @@ var VueClockPickerPlugin = __webpack_require__(/*! @pencilpix/vue2-clock-picker/
 Vue.use(VueClockPickerPlugin);
 Vue.use(vue_axios__WEBPACK_IMPORTED_MODULE_6___default.a, axios__WEBPACK_IMPORTED_MODULE_5___default.a);
 Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+Vue.use(vue_signature__WEBPACK_IMPORTED_MODULE_8___default.a);
 window.Swal = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a;
 window.Toast = Toast;
 window.Fire = new Vue();
@@ -62936,7 +62933,7 @@ Vue.filter('round', function (value, decimals) {
   return value;
 });
 
-Vue.use(sweet_modal_vue_src_plugin_js__WEBPACK_IMPORTED_MODULE_8__["default"]); // Components
+Vue.use(sweet_modal_vue_src_plugin_js__WEBPACK_IMPORTED_MODULE_9__["default"]); // Components
 
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]); // Vue Router
 
