@@ -208,14 +208,22 @@ class AttendanceController extends Controller
         $imageName1 = str_random(10).'.'.'png';
          \File::put(public_path('/images/signature/') . $imageName1, base64_decode($image1));
         $signature1=$imageName1 ;
-        $pdf = PDF::loadView('pdf', compact('data','totalhours','signature','signature1','user','today','to_date'));
+
+
+        // share data to view
+        // view()->share('pdf', compact('data','totalhours','signature','signature1','user','today','to_date'));
+        // $pdf = PDF::loadView('pdf', $data);
+
+
+        $pdf = PDF::loadView('pdf', compact('data','totalhours','signature','signature1','user','today','to_date'))->setPaper('letter', 'potrait');
+        return $pdf->stream('attendance.pdf');
 
         // return $pdf->download('attend.pdf');
         // return $pdf->stream('attaendance')->Attachment(0);
         // return $pdf->setPaper('a4')->stream();
-        ob_end_clean();
+        // ob_end_clean();
         // return $pdf->stream("attendance.pdf", array("Attachment" => false))->output();
-        return $pdf->output();
+        // return $pdf->output();
        
     }
 }

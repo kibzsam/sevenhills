@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
     <title>PDF</title>
 
@@ -13,7 +13,7 @@
     {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> --}}
     {{-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet"> --}}
 
-    <style>
+    <style type="text/css" media="all">
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,300&display=swap');
 
         body {
@@ -82,9 +82,14 @@
 
         table {
             /* border-collapse: collapse; */
-            table-layout: fixed;
+            display: table;
+            /* table-layout: fixed; */
             width: 100%;
-            overflow: hidden;
+            /* overflow: hidden; */
+        }
+
+        tr {
+            display: table-row;
         }
 
         thead:before,
@@ -149,6 +154,7 @@
             height: 60px;
             width: 60px
         }
+
     </style>
 </head>
 
@@ -166,7 +172,7 @@
 
                     <div class="pdf-table-container col-md-10 mx-auto">
 
-                        <div class="mt-5">
+                        <div class="mt-5 divTableCell">
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
@@ -192,21 +198,7 @@
 
                                                     <div class="column-3 col-md-4">
                                                         <h6 class="table-heading-span">Week Ending: <span
-                                                                class="underline">{{ $to_date }}</span></h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-10 mx-auto" style="margin-top:38px">
-                                                <div class="custom-row row mt-5">
-                                                    <div class="column-2 col-md-6">
-                                                        <h6 class="table-heading-span">Name Of Faculty: <span
-                                                                class="underline">{{ $user->faculty }}</span></h6>
-                                                    </div>
-
-                                                    <div class="column-2 col-md-6">
-                                                        <h6 class="table-heading-span">Faculty Location: <span
-                                                                class="underline">{{ $user->flocation }}</span></h6>
+                                                                class="underline">{{ \Carbon\Carbon::parse($to_date)->format('D jS M Y') }}</span></h6>
                                                     </div>
                                                 </div>
                                             </div>
@@ -227,9 +219,9 @@
                                         {{-- <th scope="row">{{ $dt->created_at->format('d/m/Y') }}</th> --}}
                                         <th scope="row">{{ \Carbon\Carbon::parse($dt->created_at)->format('D jS M Y') }}
                                         </th>
-                                        <td>{{ $dt->timein }}</td>
-                                        <td>{{ $dt->timeout }}</td>
-                                        <td>{{ $dt->hours }}</td>
+                                        <td>{{ date('h:i A', strtotime($dt->timein)) }}</td>
+                                        <td>{{ date('h:i A', strtotime($dt->timeout)) }}</td>
+                                        <td>{{ number_format($dt->hours, 0) }} hours</td>
                                     </tr>
                                     @endforeach
 
@@ -243,7 +235,7 @@
                                                 <div class="custom-row row mt-4">
                                                     <div class="column-2 col-md-6">
                                                         <h6 class="table-heading-span">Total Hours Worked: <span
-                                                                class="underline">{{ $totalhours }} Hours</span></h6>
+                                                                class="underline">{{ number_format($totalhours, 0) }} Hours</span></h6>
                                                     </div>
 
                                                     <div class="column-2 col-md-6">
@@ -276,7 +268,7 @@
 
                                                     <div class="column-2 col-md-6">
                                                         <h6 class="table-heading-span">Date: <span
-                                                                class="underline">{{ $today }}</span></h6>
+                                                                class="underline">{{ \Carbon\Carbon::parse($today)->format('D jS M Y') }}</span></h6>
                                                     </div>
                                                 </div>
                                             </div>
