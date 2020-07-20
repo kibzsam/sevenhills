@@ -12,7 +12,7 @@ class Attendance extends Model
     //
     protected $appends = ['hours'];
     protected $fillable = [
-    'user_id', 'hospital_id', 'timein','timeout','lunchin','lunchout'
+    'user_id', 'title', 'hospital_id', 'timein','timeout','lunchin','lunchout'
     ];
 
     public function user(){

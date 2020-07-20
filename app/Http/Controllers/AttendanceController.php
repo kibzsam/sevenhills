@@ -115,6 +115,7 @@ class AttendanceController extends Controller
     public function saveattendance(Request $request){
         $rules=array(
             'user_id' => 'required',
+            'title' => 'required',
             'hospital_id' => 'required',
             'timein' => 'required'
         );
@@ -134,15 +135,17 @@ class AttendanceController extends Controller
         }
         else{
                 return Attendance::create([
-                'user_id' =>$request->input('user_id'),
-                'hospital_id' =>$request->input('hospital_id'),
-                'timein' =>$request->input('timein'),
+                'user_id' => $request->input('user_id'),
+                'title' => $request->input('title'),
+                'hospital_id' => $request->input('hospital_id'),
+                'timein' => $request->input('timein'),
             ]);
         }
          }
         else{
             return Attendance::create([
                 'user_id' =>$request->input('user_id'),
+                'title' => $request->input('title'),
                 'hospital_id' =>$request->input('hospital_id'),
                 'timein' =>$request->input('timein'),
             ]);

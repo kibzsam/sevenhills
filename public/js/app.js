@@ -1988,6 +1988,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2011,6 +2018,7 @@ __webpack_require__.r(__webpack_exports__);
       form: new Form({
         id: "",
         user_id: "",
+        title: "",
         hospital_id: "",
         timein: "",
         timeout: "",
@@ -44436,6 +44444,40 @@ var render = function() {
                 "div",
                 { staticClass: "form-group" },
                 [
+                  _c("label", [_vm._v("Title")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.title,
+                        expression: "form.title"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    class: { "is-invalid": _vm.form.errors.has("title") },
+                    attrs: { type: "text", name: "title", required: "" },
+                    domProps: { value: _vm.form.title },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "title", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("has-error", { attrs: { form: _vm.form, field: "title" } })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
                   _c("label", { attrs: { for: "hospitalLabel" } }, [
                     _vm._v("Hospital")
                   ]),
@@ -44590,7 +44632,17 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "div",
-                { staticClass: "form-group" },
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.edit,
+                      expression: "edit"
+                    }
+                  ],
+                  staticClass: "form-group"
+                },
                 [
                   _c("label", { attrs: { for: "exampleInputEmail1" } }, [
                     _vm._v("Time-out")

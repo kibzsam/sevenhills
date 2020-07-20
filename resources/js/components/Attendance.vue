@@ -117,6 +117,13 @@
         </div>
 
         <div class="form-group">
+          <label>Title</label>
+          <input v-model="form.title" type="text" name="title" required
+            class="form-control" :class="{ 'is-invalid': form.errors.has('title') }">
+          <has-error :form="form" field="title"></has-error>
+        </div>
+
+        <div class="form-group">
           <label for="hospitalLabel">Hospital</label>
           <v-select
             label="name"
@@ -169,7 +176,7 @@
           </vue-clock-picker>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" v-show="edit">
           <label for="exampleInputEmail1">Time-out</label>
           <vue-clock-picker
             :class="{ 'is-invalid': form.errors.has('timeout') }"
@@ -274,6 +281,7 @@ export default {
       form: new Form({
         id: "",
         user_id: "",
+        title: "",
         hospital_id: "",
         timein: "",
         timeout: "",
