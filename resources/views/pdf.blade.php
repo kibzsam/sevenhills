@@ -150,7 +150,7 @@
             font-weight: bold;
             padding: 5px;
             height: 70px;
-            width: 140px
+            width: 140px;
         }
 
     </style>
@@ -205,6 +205,7 @@
 
                                     <tr>
                                         <th scope="col">Day</th>
+                                        <th scope="col">Title</th>
                                         <th scope="col">In Time</th>
                                         <th scope="col">Out Time</th>
                                         <th scope="col">Daily Total</th>
@@ -217,6 +218,7 @@
                                         {{-- <th scope="row">{{ $dt->created_at->format('d/m/Y') }}</th> --}}
                                         <th scope="row">{{ \Carbon\Carbon::parse($dt->created_at)->format('D jS M Y') }}
                                         </th>
+                                        <td>{{$dt->title}}</td>
                                         <td>{{ date('h:i A', strtotime($dt->timein)) }}</td>
                                         <td>{{ date('h:i A', strtotime($dt->timeout)) }}</td>
                                         <td>{{ number_format($dt->hours, 0) }} hours</td>
@@ -249,10 +251,7 @@
                                                 </div>
                                             </div>
 
-                                            <h6 class="signature-sign-span text-center mt-5"><i>(I certify that the
-                                                    above hours are correct.)</i></h6>
-
-                                            <hr class="mt-5 mb-5" style="margin-top:60px; margin-bottom:60px">
+                                            <hr class="mt-5 mb-5" style="margin-top:40px; margin-bottom:40px">
 
                                             <div class="col-md-10 mx-auto">
                                                 <div class="custom-row row mt-4">
@@ -273,19 +272,16 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-10 mx-auto mt-5" style="margin-top: 80px">
+                                            <h6 class="signature-sign-span text-center mt-5" style="margin-top:60px;"><i>(I certify that the
+                                                above hours are correct.)</i></h6>
+
+                                            <div class="col-md-10 mx-auto mt-4" style="margin-top: 20px">
                                                 <span class="span-list">
-                                                    <h6 class="mb-4"><b>Important: </b>Return card to agency of the
-                                                        following week.</h6>
-                                                    <li>Your employee ID # must be on your time card. *Print your full
-                                                        name.</li>
-                                                    <li>The week ending date would be the same Friday that you receive a
-                                                        paycheck for the prior work weeks.</li>
-                                                    <li>Total your daily hours, then grand total at the bottom.</li>
+                                                    <h6 class="mb-2"><b>Important: </b></h6>
+                                                    <li>Please print your Full Name, Title and Employee ID number.</li>
                                                     <li>Sign the bottom of the card to authorize that the times that are
                                                         entered are times that you did work.</li>
-                                                    <li>Your supervisor at the placement company MUST sign at the bottom
-                                                        of the card to authorize the payment for you.</li>
+                                                    <li>Your supervisor MUST sign to authorize that time entered is correct.</li>
                                                 </span>
                                             </div>
 

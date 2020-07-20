@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddHospitalIdToAttendancesTable extends Migration
+class AddTitleToAttendancesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddHospitalIdToAttendancesTable extends Migration
     public function up()
     {
         Schema::table('attendances', function (Blueprint $table) {
-            $table->integer('hospital_id')->after('user_id');
+            $table->string('title')->after('user_id');
         });
     }
 
@@ -26,7 +26,7 @@ class AddHospitalIdToAttendancesTable extends Migration
     public function down()
     {
         Schema::table('attendances', function (Blueprint $table) {
-            $table->dropColumn('hospital_id');
+            $table->dropColumn('title');
         });
     }
 }
