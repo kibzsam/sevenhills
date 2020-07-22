@@ -195,8 +195,10 @@
                                                     </div>
 
                                                     <div class="column-3 col-md-4">
-                                                        <h6 class="table-heading-span">Week Ending: <span
-                                                                class="underline">{{ \Carbon\Carbon::parse($to_date)->format('D jS M Y') }}</span></h6>
+                                                        <h6 class="table-heading-span">Week Ending: 
+                                                            {{-- <span class="underline">{{ \Carbon\Carbon::parse($to_date)->format('D jS M Y') }}</span> --}}
+                                                            <span class="underline">{{ \Carbon\Carbon::parse($today)->format('D jS M Y') }}</span>
+                                                        </h6>
                                                     </div>
                                                 </div>
                                             </div>
