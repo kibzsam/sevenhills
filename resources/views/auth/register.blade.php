@@ -59,38 +59,6 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="faculty"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Name of Facility') }}</label>
-                            <div class="col-md-6">
-                                <input id="faculty" type="text"
-                                    class="form-control @error('faculty') is-invalid @enderror" name="faculty"
-                                    value="{{ old('faculty') }}" required autocomplete="faculty">
-
-                                @error('faculty')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="flocation"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Facilty Location') }}</label>
-                            <div class="col-md-6">
-                                <input id="flocation" type="text"
-                                    class="form-control @error('flocation') is-invalid @enderror" name="flocation"
-                                    value="{{ old('flocation') }}" required autocomplete="flocation">
-
-                                @error('flocation')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
                             <label for="password"
                                 class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 

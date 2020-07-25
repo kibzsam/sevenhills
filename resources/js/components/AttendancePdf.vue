@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <div class="row justify-content-center mt-5">
-      <div class="col-md-8">
+    <div class="row justify-content-center mt-5 center">
+      <div class="col-md-8 mx-auto">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Generate Pdf</h5>
@@ -46,11 +46,8 @@
                     :disabled="disabled"
                   ></vueSignature>
 
-                  <!-- <button @click="save">Save</button> -->
                   <button @click.prevent="clear1">Clear</button>
                   <button @click.prevent="undo1">Undo</button>
-                  <!--<button @click="addWaterMark">addWaterMark</button> -->
-                  <!-- <button @click="handleDisabled">disabled</button>  -->
                 </div>
               </div>
               <div class="form-row" v-if="display">
@@ -64,11 +61,8 @@
                     :disabled="disabled"
                   ></vueSignature>
 
-                  <!-- <button @click="save">Save</button> -->
                   <button @click.prevent="clear">Clear</button>
                   <button @click.prevent="undo">Undo</button>
-                  <!--<button @click="addWaterMark">addWaterMark</button> -->
-                  <!-- <button @click="handleDisabled">disabled</button>  -->
                 </div>
               </div>
 
@@ -93,12 +87,9 @@
 </template>
 
 <script>
-import vueSignarture from "vue-signature";
+import vueSignature from "vue-signature";
+Vue.use(vueSignature);
 export default {
-  components: {
-    vueSignarture
-  },
-
   data() {
     return {
       //Signature
@@ -109,6 +100,7 @@ export default {
       disabled: false,
       dataUrl: "",
       //End signature
+
       form: new Form({}),
       display: false,
       userid: "",
@@ -116,6 +108,9 @@ export default {
       fromdate: "",
       todate: ""
     };
+  },
+  components: {
+    vueSignature
   },
   created() {
     this.showUsers();
@@ -126,6 +121,7 @@ export default {
       this.display = true;
       this.disabled = false;
     },
+
     generatePdf() {
       let data = {
         fromdate: this.fromdate,
@@ -134,27 +130,36 @@ export default {
         jpeg: this.$refs.signature1.save(),
         jpeg1: this.$refs.signature.save()
       };
-      this.axios.post("api/pdf", data).then(response => {
-        console.log(response);
-      });
+
+      // this.axios.post('api/pdf',data)
+      // .then((response)=>{
+      //     console.log(response)
+
+      // })
+
+      this.axios
+        .post("api/pdf", data, { responseType: "arraybuffer" })
+        .then(response => {
+          // let blob = new Blob([response], { type: 'application/pdf' }),
+          //     url = window.URL.createObjectURL(blob)
+          //      window.open(url)
+          console.log(response);
+
+          const url = window.URL.createObjectURL(new Blob([response.data]));
+          const link = document.createElement("a");
+          link.href = url;
+          link.setAttribute("download", "attendance.pdf");
+          document.body.appendChild(link);
+          link.click();
+        });
     },
-    generatePdf() {
-      let data = {
-        fromdate: this.fromdate,
-        todate: this.todate,
-        userid: this.userid,
-        jpeg: this.$refs.signature1.save(),
-        jpeg1: this.$refs.signature.save()
-      };
-      this.axios.post("api/pdf", data).then(response => {
-        console.log(response);
-      });
-    },
+
     showUsers() {
       this.form.get("api/getusers").then(res => {
         this.users = res.data;
       });
     },
+
     //Signature Methods
     save() {
       var _this = this;
@@ -165,23 +170,28 @@ export default {
       console.log(jpeg);
       console.log(svg);
     },
+
     clear() {
       var _this = this;
       _this.$refs.signature.clear();
     },
+
     undo() {
       var _this = this;
       _this.$refs.signature.undo();
     },
+
     //Signature 1
     clear1() {
       var _this = this;
       _this.$refs.signature1.clear();
     },
+
     undo1() {
       var _this = this;
       _this.$refs.signature1.undo();
     },
+
     //End signature1
     addWaterMark() {
       var _this = this;
@@ -197,10 +207,12 @@ export default {
         sy: 200 // stroke positionY, > default 40
       });
     },
+
     fromDataURL(url) {
       var _this = this;
       _this.$refs.signature.fromDataURL("data:image/png;base64,iVBORw0K...");
     },
+
     handleDisabled() {
       var _this = this;
       _this.disabled = !_this.disabled;
@@ -209,32 +221,48 @@ export default {
   }
 };
 </script>
+
 <style scoped>
 body {
   background: -webkit-linear-gradient(left, #3931af, #00c6ff);
 }
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
 .row {
   margin-top: 30px;
   justify-content: center !important;
+  margin-bottom: 50px;
 }
+
 .card {
   background-color: whitesmoke;
   width: 100% !important;
-  margin-left: 200px;
 }
+
 .card-title {
   font-size: 30px;
   color: #dbb900;
   margin-left: 10px;
+  padding: 10px 0;
 }
+
 .btn-secondary {
   float: right !important;
   margin-right: 12px;
 }
+
 .btn-primary {
   margin-left: 12px;
+  margin: 10px 0 20px 20px;
 }
+
 .canvas {
   width: 100% !important;
 }
 </style>
+
+

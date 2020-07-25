@@ -14,19 +14,8 @@
             Attendance
           </button>
         </div>
-        <!--
-        <div class="pdf-button">
-          <a
-          href="/attendance-pdf"
-            class="btn btn-default pdf"
-          >
-            <i class="fas fa-file-pdf pr-1"></i>
-             PDF Report
-          </a>
-        </div>
-        -->
 
-        <div class="table-wrapper">
+        <div class="table-wrapper card table-card">
           <table class="table table-hover table-dark">
             <thead>
               <tr>
@@ -44,30 +33,37 @@
                 <th scope="col" class="text-golden">Action</th>
               </tr>
             </thead>
-            <tbody>
+
+            <tbody v-if="attendanceExists">
               <tr v-for="attend in attendance" v-bind:key="attend.id">
-                <th scope="row">{{attend.id}}</th>
-                <td>{{attend.user.employeeName}}</td>
-                <td>{{attend.user. employeeID}}</td>
-                <td>{{attend.hospital.name}}</td>
-                <td>{{attend.timein}}</td>
-                <td>{{attend.timeout}}</td>
-                <td>{{attend.lunchin}}</td>
-                <td>{{attend.lunchout}}</td>
-                <td>{{hours | round}}</td>
-                <!-- <td>{{(attend.timeout)-(attend.timein)}}</td>  -->
-                <td>{{attend.created_at}}</td>
-                <td>
-                  <a>
+                <td scope="row" data-label="ID">{{attend.id}}</td>
+                <td data-label="Name">{{attend.user.employeeName}}</td>
+                <td data-label="Employee Id">{{attend.user. employeeID}}</td>
+                <td data-label="Hospital">{{attend.hospital.name}}</td>
+                <td data-label="Time-in">{{attend.timein}}</td>
+                <td data-label="Time-out">{{attend.timeout}}</td>
+                <td data-label="Lunch-in">{{attend.lunchin}}</td>
+                <td data-label="Lunch-out">{{attend.lunchout}}</td>
+                <td data-label="Hours Worked">{{hours | round}} Hrs</td>
+                <td data-label="Date">{{attend.created_at}}</td>
+                <td data-label="Action">
+                  <a class="cursor">
                     <i class="fas fa-pencil-alt text-greenish" @click="editModal(attend)"></i>
                   </a>
                   /
-                  <a>
+                  <a class="cursor">
                     <i class="fas fa-trash-alt text-red" @click="deleteAttendance(attend.id)"></i>
                   </a>
                 </td>
               </tr>
             </tbody>
+
+            <div class="custom-jumbotron" v-else>
+              <span class="lead">Hi <b>{{auth_user.employeeName}}</b>, no attendance yet have been recorded. Get started by clicking on the
+                attendance button.
+              </span>
+            </div>
+
           </table>
           <nav aria-label="Page navigation example float-right">
             <ul class="pagination pagination-sm">
@@ -92,7 +88,6 @@
         </div>
       </div>
     </div>
-
 
     <!-- Add Attendance Modal -->
     <sweet-modal ref="attendanceModal" overlay-theme="dark" :blocking="true">
@@ -122,17 +117,24 @@
         </div>
 
         <div class="form-group">
+          <label>Title</label>
+          <input v-model="form.title" type="text" name="title" required
+            class="form-control" :class="{ 'is-invalid': form.errors.has('title') }">
+          <has-error :form="form" field="title"></has-error>
+        </div>
+
+        <div class="form-group">
           <label for="hospitalLabel">Hospital</label>
           <v-select
-           label="name"
-           :options="hospitals"
-           :reduce="name => name.id"
-           v-model="form.hospital_id"
-           required
-           name="hospital_id"
-           :disabled="edit"
-           :class="{ 'is-invalid': form.errors.has('hospital_id') }">
-          </v-select>
+            label="name"
+            :options="hospitals"
+            :reduce="name => name.id"
+            v-model="form.hospital_id"
+            required
+            name="hospital_id"
+            :disabled="edit"
+            :class="{ 'is-invalid': form.errors.has('hospital_id') }"
+          ></v-select>
 
           <has-error :form="form" field="hospital_id"></has-error>
         </div>
@@ -174,7 +176,7 @@
           </vue-clock-picker>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" v-show="edit">
           <label for="exampleInputEmail1">Time-out</label>
           <vue-clock-picker
             :class="{ 'is-invalid': form.errors.has('timeout') }"
@@ -188,11 +190,9 @@
 
         <button v-if="!edit" type="submit" class="btn btn-secondary">Save Attendance</button>
         <button v-if="edit" type="submit" class="btn btn-success">Update Attendance</button>
-
       </form>
     </sweet-modal>
     <!-- End Attendance Modal-->
-
 
     <!-- PDF Modal -->
     <sweet-modal ref="pdfModal" overlay-theme="dark">
@@ -252,17 +252,13 @@
       </form>
     </sweet-modal>
     <!-- End PDF Modal-->
-
-
   </div>
 </template>
 
 <script>
 export default {
-
   data() {
     return {
-
       //Signature
       option: {
         penColor: "rgb(0, 0, 0)",
@@ -274,8 +270,9 @@ export default {
 
       load: false,
       edit: false,
-      attendance: {},
-      users: {},
+      attendance: [],
+      auth_user: {},
+      users: [],
       hospitals: [],
       options: ["nae", "toto", "ytr"],
       hours: "",
@@ -284,6 +281,7 @@ export default {
       form: new Form({
         id: "",
         user_id: "",
+        title: "",
         hospital_id: "",
         timein: "",
         timeout: "",
@@ -314,8 +312,25 @@ export default {
     P.$on("success", () => {
       this.getAttendance();
     });
+
+    axios.get("api/user")
+      .then(response => {
+        this.auth_user = response.data
+      })
+      .catch(error => {
+        console.log(error)
+      })
   },
 
+  computed: {
+    attendanceExists() {
+      if((this.attendance.length) > 0){
+        return true
+      } else {
+        return false
+      }
+    }
+  },
 
   methods: {
     generatePdf() {
@@ -473,7 +488,6 @@ export default {
       });
     },
 
-
     //Signature Methods
     save() {
       var _this = this;
@@ -520,7 +534,6 @@ export default {
       _this.disabled = !_this.disabled;
     }
     //end signature methods
-
   },
   mounted() {
     console.log("Component mounted.");
@@ -535,8 +548,19 @@ export default {
 /* Select 2 */
 @import "https://unpkg.com/vue-select@latest/dist/vue-select.css";
 
+.custom-jumbotron {
+  background: #eee;
+  padding: 10px 20px;
+  display: table-caption;
+  margin-bottom: 20px;
+}
+
 .container {
   width: 100% !important;
+}
+
+.cursor {
+  cursor: pointer;
 }
 
 .pr-1 {
@@ -592,11 +616,9 @@ export default {
 }
 
 .table-wrapper {
+  width: 100%;
+  margin: 40px 0;
   overflow-x: auto;
-  position: absolute;
-  top: 90px;
-  width: 95% !important;
-  box-sizing: border-box;
 }
 
 .col-md-12 {
@@ -604,9 +626,7 @@ export default {
 }
 
 .modal-button {
-  position: absolute;
-  top: 30px;
-  box-sizing: border-box;
+  margin-top: 20px;
 }
 
 .pdf-button {

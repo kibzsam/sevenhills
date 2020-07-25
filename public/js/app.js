@@ -1995,8 +1995,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2010,8 +2008,9 @@ __webpack_require__.r(__webpack_exports__);
       //End signature
       load: false,
       edit: false,
-      attendance: {},
-      users: {},
+      attendance: [],
+      auth_user: {},
+      users: [],
       hospitals: [],
       options: ["nae", "toto", "ytr"],
       hours: "",
@@ -2019,6 +2018,7 @@ __webpack_require__.r(__webpack_exports__);
       form: new Form({
         id: "",
         user_id: "",
+        title: "",
         hospital_id: "",
         timein: "",
         timeout: "",
@@ -2047,6 +2047,20 @@ __webpack_require__.r(__webpack_exports__);
     P.$on("success", function () {
       _this2.getAttendance();
     });
+    axios.get("api/user").then(function (response) {
+      _this2.auth_user = response.data;
+    })["catch"](function (error) {
+      console.log(error);
+    });
+  },
+  computed: {
+    attendanceExists: function attendanceExists() {
+      if (this.attendance.length > 0) {
+        return true;
+      } else {
+        return false;
+      }
+    }
   },
   methods: {
     generatePdf: function generatePdf() {
@@ -2280,16 +2294,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_signature__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-signature */ "./node_modules/vue-signature/src/main.js");
-var _methods;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -2379,10 +2383,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 
+Vue.use(vue_signature__WEBPACK_IMPORTED_MODULE_0__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  components: {
-    vueSignarture: vue_signature__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
   data: function data() {
     return {
       //Signature
@@ -2401,10 +2403,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       todate: ""
     };
   },
+  components: {
+    vueSignature: vue_signature__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   created: function created() {
     this.showUsers();
   },
-  methods: (_methods = {
+  methods: {
     nextSignature: function nextSignature() {
       var _this = this;
 
@@ -2418,88 +2423,105 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         userid: this.userid,
         jpeg: this.$refs.signature1.save(),
         jpeg1: this.$refs.signature.save()
-      };
-      this.axios.post("api/pdf", data).then(function (response) {
+      }; // this.axios.post('api/pdf',data)
+      // .then((response)=>{
+      //     console.log(response)
+      // })
+
+      this.axios.post("api/pdf", data, {
+        responseType: "arraybuffer"
+      }).then(function (response) {
+        // let blob = new Blob([response], { type: 'application/pdf' }),
+        //     url = window.URL.createObjectURL(blob)
+        //      window.open(url)
         console.log(response);
+        var url = window.URL.createObjectURL(new Blob([response.data]));
+        var link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", "attendance.pdf");
+        document.body.appendChild(link);
+        link.click();
       });
-    }
-  }, _defineProperty(_methods, "generatePdf", function generatePdf() {
-    var data = {
-      fromdate: this.fromdate,
-      todate: this.todate,
-      userid: this.userid,
-      jpeg: this.$refs.signature1.save(),
-      jpeg1: this.$refs.signature.save()
-    };
-    this.axios.post("api/pdf", data).then(function (response) {
-      console.log(response);
-    });
-  }), _defineProperty(_methods, "showUsers", function showUsers() {
-    var _this2 = this;
+    },
+    showUsers: function showUsers() {
+      var _this2 = this;
 
-    this.form.get("api/getusers").then(function (res) {
-      _this2.users = res.data;
-    });
-  }), _defineProperty(_methods, "save", function save() {
-    var _this = this;
+      this.form.get("api/getusers").then(function (res) {
+        _this2.users = res.data;
+      });
+    },
+    //Signature Methods
+    save: function save() {
+      var _this = this;
 
-    var png = _this.$refs.signature.save();
+      var png = _this.$refs.signature.save();
 
-    var jpeg = _this.$refs.signature.save("image/jpeg");
+      var jpeg = _this.$refs.signature.save("image/jpeg");
 
-    var svg = _this.$refs.signature.save("image/svg+xml");
+      var svg = _this.$refs.signature.save("image/svg+xml");
 
-    console.log(png);
-    console.log(jpeg);
-    console.log(svg);
-  }), _defineProperty(_methods, "clear", function clear() {
-    var _this = this;
+      console.log(png);
+      console.log(jpeg);
+      console.log(svg);
+    },
+    clear: function clear() {
+      var _this = this;
 
-    _this.$refs.signature.clear();
-  }), _defineProperty(_methods, "undo", function undo() {
-    var _this = this;
+      _this.$refs.signature.clear();
+    },
+    undo: function undo() {
+      var _this = this;
 
-    _this.$refs.signature.undo();
-  }), _defineProperty(_methods, "clear1", function clear1() {
-    var _this = this;
+      _this.$refs.signature.undo();
+    },
+    //Signature 1
+    clear1: function clear1() {
+      var _this = this;
 
-    _this.$refs.signature1.clear();
-  }), _defineProperty(_methods, "undo1", function undo1() {
-    var _this = this;
+      _this.$refs.signature1.clear();
+    },
+    undo1: function undo1() {
+      var _this = this;
 
-    _this.$refs.signature1.undo();
-  }), _defineProperty(_methods, "addWaterMark", function addWaterMark() {
-    var _this = this;
+      _this.$refs.signature1.undo();
+    },
+    //End signature1
+    addWaterMark: function addWaterMark() {
+      var _this = this;
 
-    _this.$refs.signature.addWaterMark({
-      text: "mark text",
-      // watermark text, > default ''
-      font: "20px Arial",
-      // mark font, > default '20px sans-serif'
-      style: "all",
-      // fillText and strokeText,  'all'/'stroke'/'fill', > default 'fill
-      fillStyle: "red",
-      // fillcolor, > default '#333'
-      strokeStyle: "blue",
-      // strokecolor, > default '#333'
-      x: 100,
-      // fill positionX, > default 20
-      y: 200,
-      // fill positionY, > default 20
-      sx: 100,
-      // stroke positionX, > default 40
-      sy: 200 // stroke positionY, > default 40
+      _this.$refs.signature.addWaterMark({
+        text: "mark text",
+        // watermark text, > default ''
+        font: "20px Arial",
+        // mark font, > default '20px sans-serif'
+        style: "all",
+        // fillText and strokeText,  'all'/'stroke'/'fill', > default 'fill
+        fillStyle: "red",
+        // fillcolor, > default '#333'
+        strokeStyle: "blue",
+        // strokecolor, > default '#333'
+        x: 100,
+        // fill positionX, > default 20
+        y: 200,
+        // fill positionY, > default 20
+        sx: 100,
+        // stroke positionX, > default 40
+        sy: 200 // stroke positionY, > default 40
 
-    });
-  }), _defineProperty(_methods, "fromDataURL", function fromDataURL(url) {
-    var _this = this;
+      });
+    },
+    fromDataURL: function fromDataURL(url) {
+      var _this = this;
 
-    _this.$refs.signature.fromDataURL("data:image/png;base64,iVBORw0K...");
-  }), _defineProperty(_methods, "handleDisabled", function handleDisabled() {
-    var _this = this;
+      _this.$refs.signature.fromDataURL("data:image/png;base64,iVBORw0K...");
+    },
+    handleDisabled: function handleDisabled() {
+      var _this = this;
 
-    _this.disabled = !_this.disabled;
-  }), _methods)
+      _this.disabled = !_this.disabled;
+    } //end signature methods
+
+  }
 });
 
 /***/ }),
@@ -2527,11 +2549,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
-    console.log('Component mounted.');
+    console.log("Component mounted.");
   }
 });
 
@@ -7037,7 +7057,7 @@ exports.push([module.i, "@import url(https://use.fontawesome.com/releases/v5.6.3
 exports.push([module.i, "@import url(https://unpkg.com/vue-select@latest/dist/vue-select.css);", ""]);
 
 // module
-exports.push([module.i, "\n/* Select 2 */\n.container {\n  width: 100% !important;\n}\n.pr-1 {\n  padding-right: 5px;\n}\n.pt-4 {\n  padding-top: 16px;\n}\n.bold {\n  font-weight: 700;\n}\n#btn {\n  margin-bottom: 30px;\n  color: white !important;\n  background-color: #dbb900 !important;\n}\n.form-inline {\n  margin-bottom: -40px;\n  margin-top: 30px;\n}\n#modal {\n  max-width: 50% !important;\n}\n.cbutton {\n  color: white !important;\n  background-color: #3c8dbc !important;\n  width: 100px !important;\n}\n.clock-picker__input {\n  /* border: 1px solid rgb(230, 215, 215); */\n  width: 100% !important;\n  padding: 7px 12px;\n  margin: 10px 5px;\n}\n.clock-picker__dialog-header {\n  background-color: #dbb900 !important;\n}\n.clock-picker__dialog-action {\n  color: #dbb900 !important  ;\n}\n.row {\n  margin-top: 20px;\n}\n.table-wrapper {\n  overflow-x: auto;\n  position: absolute;\n  top: 90px;\n  width: 95% !important;\n  box-sizing: border-box;\n}\n.col-md-12 {\n  position: relative;\n}\n.modal-button {\n  position: absolute;\n  top: 30px;\n  box-sizing: border-box;\n}\n.pdf-button {\n  position: absolute;\n  right: 90px;\n  top: 30px;\n}\n.pdf {\n  color: white !important;\n  background-color: #dbb900 !important;\n  width: 105px !important;\n}\n.vdp-datepicker {\n  position: relative !important;\n  text-align: left !important;\n}\n.vdp-datepicker input[type=\"text\"] {\n  width: 100%;\n  padding: 6px 12px;\n  display: block;\n  height: 34px;\n  border: 1px solid #ccc;\n  color: #555;\n  background-color: #fff;\n}\n.btn-secondary {\n  background-color: green;\n  color: white;\n}\n.btn-secondary:hover {\n  background-color: green;\n  color: white;\n}\n.canvas {\n  border: 1px solid #3c8dbc;\n}\n.btnclear {\n  float: right !important;\n  border: 1px solid transparent;\n  padding: 6px 12px;\n}\n.btnundo {\n  float: right !important;\n  border: 1px solid transparent;\n  padding: 6px 12px;\n}\n", ""]);
+exports.push([module.i, "\n/* Select 2 */\n.custom-jumbotron {\n  background: #eee;\n  padding: 10px 20px;\n  display: table-caption;\n  margin-bottom: 20px;\n}\n.container {\n  width: 100% !important;\n}\n.cursor {\n  cursor: pointer;\n}\n.pr-1 {\n  padding-right: 5px;\n}\n.pt-4 {\n  padding-top: 16px;\n}\n.bold {\n  font-weight: 700;\n}\n#btn {\n  margin-bottom: 30px;\n  color: white !important;\n  background-color: #dbb900 !important;\n}\n.form-inline {\n  margin-bottom: -40px;\n  margin-top: 30px;\n}\n#modal {\n  max-width: 50% !important;\n}\n.cbutton {\n  color: white !important;\n  background-color: #3c8dbc !important;\n  width: 100px !important;\n}\n.clock-picker__input {\n  /* border: 1px solid rgb(230, 215, 215); */\n  width: 100% !important;\n  padding: 7px 12px;\n  margin: 10px 5px;\n}\n.clock-picker__dialog-header {\n  background-color: #dbb900 !important;\n}\n.clock-picker__dialog-action {\n  color: #dbb900 !important  ;\n}\n.row {\n  margin-top: 20px;\n}\n.table-wrapper {\n  width: 100%;\n  margin: 40px 0;\n  overflow-x: auto;\n}\n.col-md-12 {\n  position: relative;\n}\n.modal-button {\n  margin-top: 20px;\n}\n.pdf-button {\n  position: absolute;\n  right: 90px;\n  top: 30px;\n}\n.pdf {\n  color: white !important;\n  background-color: #dbb900 !important;\n  width: 105px !important;\n}\n.vdp-datepicker {\n  position: relative !important;\n  text-align: left !important;\n}\n.vdp-datepicker input[type=\"text\"] {\n  width: 100%;\n  padding: 6px 12px;\n  display: block;\n  height: 34px;\n  border: 1px solid #ccc;\n  color: #555;\n  background-color: #fff;\n}\n.btn-secondary {\n  background-color: green;\n  color: white;\n}\n.btn-secondary:hover {\n  background-color: green;\n  color: white;\n}\n.canvas {\n  border: 1px solid #3c8dbc;\n}\n.btnclear {\n  float: right !important;\n  border: 1px solid transparent;\n  padding: 6px 12px;\n}\n.btnundo {\n  float: right !important;\n  border: 1px solid transparent;\n  padding: 6px 12px;\n}\n", ""]);
 
 // exports
 
@@ -7056,7 +7076,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nbody[data-v-14c35f24] {\n  background: -webkit-linear-gradient(left, #3931af, #00c6ff);\n}\n.row[data-v-14c35f24] {\n  margin-top: 30px;\n  justify-content: center !important;\n}\n.card[data-v-14c35f24] {\n  background-color: whitesmoke;\n  width: 100% !important;\n  margin-left: 200px;\n}\n.card-title[data-v-14c35f24] {\n  font-size: 30px;\n  color: #dbb900;\n  margin-left: 10px;\n}\n.btn-secondary[data-v-14c35f24] {\n  float: right !important;\n  margin-right: 12px;\n}\n.btn-primary[data-v-14c35f24] {\n  margin-left: 12px;\n}\n.canvas[data-v-14c35f24] {\n  width: 100% !important;\n}\n", ""]);
+exports.push([module.i, "\nbody[data-v-14c35f24] {\n  background: -webkit-linear-gradient(left, #3931af, #00c6ff);\n}\n.center[data-v-14c35f24] {\n  display: flex;\n  justify-content: center;\n}\n.row[data-v-14c35f24] {\n  margin-top: 30px;\n  justify-content: center !important;\n  margin-bottom: 50px;\n}\n.card[data-v-14c35f24] {\n  background-color: whitesmoke;\n  width: 100% !important;\n}\n.card-title[data-v-14c35f24] {\n  font-size: 30px;\n  color: #dbb900;\n  margin-left: 10px;\n  padding: 10px 0;\n}\n.btn-secondary[data-v-14c35f24] {\n  float: right !important;\n  margin-right: 12px;\n}\n.btn-primary[data-v-14c35f24] {\n  margin-left: 12px;\n  margin: 10px 0 20px 20px;\n}\n.canvas[data-v-14c35f24] {\n  width: 100% !important;\n}\n", ""]);
 
 // exports
 
@@ -44940,63 +44960,93 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "table-wrapper" }, [
+          _c("div", { staticClass: "table-wrapper card table-card" }, [
             _c("table", { staticClass: "table table-hover table-dark" }, [
               _vm._m(0),
               _vm._v(" "),
-              _c(
-                "tbody",
-                _vm._l(_vm.attendance, function(attend) {
-                  return _c("tr", { key: attend.id }, [
-                    _c("th", { attrs: { scope: "row" } }, [
-                      _vm._v(_vm._s(attend.id))
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(attend.user.employeeName))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(attend.user.employeeID))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(attend.hospital.name))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(attend.timein))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(attend.timeout))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(attend.lunchin))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(attend.lunchout))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(_vm._f("round")(_vm.hours)))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(attend.created_at))]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _c("a", [
-                        _c("i", {
-                          staticClass: "fas fa-pencil-alt text-greenish",
-                          on: {
-                            click: function($event) {
-                              return _vm.editModal(attend)
-                            }
-                          }
-                        })
-                      ]),
-                      _vm._v("\n                /\n                "),
-                      _c("a", [
-                        _c("i", {
-                          staticClass: "fas fa-trash-alt text-red",
-                          on: {
-                            click: function($event) {
-                              return _vm.deleteAttendance(attend.id)
-                            }
-                          }
-                        })
+              _vm.attendanceExists
+                ? _c(
+                    "tbody",
+                    _vm._l(_vm.attendance, function(attend) {
+                      return _c("tr", { key: attend.id }, [
+                        _c(
+                          "td",
+                          { attrs: { scope: "row", "data-label": "ID" } },
+                          [_vm._v(_vm._s(attend.id))]
+                        ),
+                        _vm._v(" "),
+                        _c("td", { attrs: { "data-label": "Name" } }, [
+                          _vm._v(_vm._s(attend.user.employeeName))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { attrs: { "data-label": "Employee Id" } }, [
+                          _vm._v(_vm._s(attend.user.employeeID))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { attrs: { "data-label": "Hospital" } }, [
+                          _vm._v(_vm._s(attend.hospital.name))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { attrs: { "data-label": "Time-in" } }, [
+                          _vm._v(_vm._s(attend.timein))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { attrs: { "data-label": "Time-out" } }, [
+                          _vm._v(_vm._s(attend.timeout))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { attrs: { "data-label": "Lunch-in" } }, [
+                          _vm._v(_vm._s(attend.lunchin))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { attrs: { "data-label": "Lunch-out" } }, [
+                          _vm._v(_vm._s(attend.lunchout))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { attrs: { "data-label": "Hours Worked" } }, [
+                          _vm._v(_vm._s(_vm._f("round")(_vm.hours)) + " Hrs")
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { attrs: { "data-label": "Date" } }, [
+                          _vm._v(_vm._s(attend.created_at))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { attrs: { "data-label": "Action" } }, [
+                          _c("a", { staticClass: "cursor" }, [
+                            _c("i", {
+                              staticClass: "fas fa-pencil-alt text-greenish",
+                              on: {
+                                click: function($event) {
+                                  return _vm.editModal(attend)
+                                }
+                              }
+                            })
+                          ]),
+                          _vm._v("\n                /\n                "),
+                          _c("a", { staticClass: "cursor" }, [
+                            _c("i", {
+                              staticClass: "fas fa-trash-alt text-red",
+                              on: {
+                                click: function($event) {
+                                  return _vm.deleteAttendance(attend.id)
+                                }
+                              }
+                            })
+                          ])
+                        ])
                       ])
+                    }),
+                    0
+                  )
+                : _c("div", { staticClass: "custom-jumbotron" }, [
+                    _c("span", { staticClass: "lead" }, [
+                      _vm._v("Hi "),
+                      _c("b", [_vm._v(_vm._s(_vm.auth_user.employeeName))]),
+                      _vm._v(
+                        ", no attendance yet have been recorded. Get started by clicking on the\n              attendance button.\n            "
+                      )
                     ])
                   ])
-                }),
-                0
-              )
             ]),
             _vm._v(" "),
             _c(
@@ -45180,6 +45230,40 @@ var render = function() {
                 "div",
                 { staticClass: "form-group" },
                 [
+                  _c("label", [_vm._v("Title")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.title,
+                        expression: "form.title"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    class: { "is-invalid": _vm.form.errors.has("title") },
+                    attrs: { type: "text", name: "title", required: "" },
+                    domProps: { value: _vm.form.title },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "title", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("has-error", { attrs: { form: _vm.form, field: "title" } })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
                   _c("label", { attrs: { for: "hospitalLabel" } }, [
                     _vm._v("Hospital")
                   ]),
@@ -45334,7 +45418,17 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "div",
-                { staticClass: "form-group" },
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.edit,
+                      expression: "edit"
+                    }
+                  ],
+                  staticClass: "form-group"
+                },
                 [
                   _c("label", { attrs: { for: "exampleInputEmail1" } }, [
                     _vm._v("Time-out")
@@ -45647,8 +45741,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row justify-content-center mt-5" }, [
-      _c("div", { staticClass: "col-md-8" }, [
+    _c("div", { staticClass: "row justify-content-center mt-5 center" }, [
+      _c("div", { staticClass: "col-md-8 mx-auto" }, [
         _c("div", { staticClass: "card" }, [
           _c("div", { staticClass: "card-body" }, [
             _c("h5", { staticClass: "card-title" }, [_vm._v("Generate Pdf")]),
@@ -45999,9 +46093,7 @@ var staticRenderFns = [
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example component.\n                "
-              )
+              _vm._v("I'm an example component.")
             ])
           ])
         ])
@@ -63782,19 +63874,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var vuejs_datepicker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuejs-datepicker */ "./node_modules/vuejs-datepicker/dist/vuejs-datepicker.esm.js");
-/* harmony import */ var vue_signature__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-signature */ "./node_modules/vue-signature/src/main.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vue-axios */ "./node_modules/vue-axios/dist/vue-axios.min.js");
-/* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(vue_axios__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-select */ "./node_modules/vue-select/dist/vue-select.js");
-/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vue_select__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var sweet_modal_vue_src_plugin_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweet-modal-vue/src/plugin.js */ "./node_modules/sweet-modal-vue/src/plugin.js");
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue-axios */ "./node_modules/vue-axios/dist/vue-axios.min.js");
+/* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(vue_axios__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vue-select */ "./node_modules/vue-select/dist/vue-select.js");
+/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(vue_select__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var sweet_modal_vue_src_plugin_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! sweet-modal-vue/src/plugin.js */ "./node_modules/sweet-modal-vue/src/plugin.js");
+// Vue Dependancies
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
@@ -63805,26 +63892,22 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 Vue.component('datepicker', vuejs_datepicker__WEBPACK_IMPORTED_MODULE_4__["default"]);
 
-Vue.component('vueSignature', vue_signature__WEBPACK_IMPORTED_MODULE_5__["default"]); // Vue.component('vue-signature', vueSignature);
 
-
-
-
-Vue.component('v-select', vue_select__WEBPACK_IMPORTED_MODULE_8___default.a);
-Vue.use(vue_axios__WEBPACK_IMPORTED_MODULE_7___default.a, axios__WEBPACK_IMPORTED_MODULE_6___default.a);
-window.Swal = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a;
-window.Toast = Toast;
+Vue.component(vform__WEBPACK_IMPORTED_MODULE_1__["HasError"].name, vform__WEBPACK_IMPORTED_MODULE_1__["HasError"]);
+Vue.component(vform__WEBPACK_IMPORTED_MODULE_1__["AlertError"].name, vform__WEBPACK_IMPORTED_MODULE_1__["AlertError"]);
 window.Form = vform__WEBPACK_IMPORTED_MODULE_1__["Form"];
-Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]);
-window.Fire = new Vue();
+
+Vue.component('v-select', vue_select__WEBPACK_IMPORTED_MODULE_7___default.a);
 
 var VueClockPickerPlugin = __webpack_require__(/*! @pencilpix/vue2-clock-picker/dist/vue2-clock-picker.plugin.js */ "./node_modules/@pencilpix/vue2-clock-picker/dist/vue2-clock-picker.plugin.js");
 
 Vue.use(VueClockPickerPlugin);
+Vue.use(vue_axios__WEBPACK_IMPORTED_MODULE_6___default.a, axios__WEBPACK_IMPORTED_MODULE_5___default.a);
+Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]);
+window.Swal = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a;
+window.Toast = Toast;
 window.Fire = new Vue();
 window.P = new Vue();
-Vue.component(vform__WEBPACK_IMPORTED_MODULE_1__["HasError"].name, vform__WEBPACK_IMPORTED_MODULE_1__["HasError"]);
-Vue.component(vform__WEBPACK_IMPORTED_MODULE_1__["AlertError"].name, vform__WEBPACK_IMPORTED_MODULE_1__["AlertError"]);
 var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.mixin({
   toast: true,
   position: 'top-end',
@@ -63844,24 +63927,9 @@ Vue.filter('round', function (value, decimals) {
   return value;
 });
 
-Vue.use(sweet_modal_vue_src_plugin_js__WEBPACK_IMPORTED_MODULE_9__["default"]);
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-// const files = require.context('./', true, /\.vue$/i);
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
+Vue.use(sweet_modal_vue_src_plugin_js__WEBPACK_IMPORTED_MODULE_8__["default"]); // Components
 
-Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- *
- */
+Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]); // Vue Router
 
 var routes = [{
   path: '/attendance',

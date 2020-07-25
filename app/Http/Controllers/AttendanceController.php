@@ -17,6 +17,7 @@ use App\Hospital;
 
 class AttendanceController extends Controller
 {
+    //
     // public function store(Request $request)
     // {
     //     $attendance= New Attendance();
@@ -116,6 +117,7 @@ class AttendanceController extends Controller
     {
         $rules = array(
             'user_id' => 'required',
+            'title' => 'required',
             'hospital_id' => 'required',
             'timein' => 'required'
         );
@@ -132,6 +134,7 @@ class AttendanceController extends Controller
             } else {
                 return Attendance::create([
                     'user_id' => $request->input('user_id'),
+                    'title' => $request->input('title'),
                     'hospital_id' => $request->input('hospital_id'),
                     'timein' => $request->input('timein'),
                 ]);
@@ -139,6 +142,7 @@ class AttendanceController extends Controller
         } else {
             return Attendance::create([
                 'user_id' => $request->input('user_id'),
+                'title' => $request->input('title'),
                 'hospital_id' => $request->input('hospital_id'),
                 'timein' => $request->input('timein'),
             ]);
@@ -197,14 +201,30 @@ class AttendanceController extends Controller
         $imageName = str_random(10) . '.' . 'png';
         \File::put(public_path('/images/signature/') . $imageName, base64_decode($image));
         $signature = $imageName;
+
         //Signature 1
         $image1 = str_replace('data:image/png;base64,', '', $raw_image1);
         $image1 = str_replace(' ', '+', $image1);
         $imageName1 = str_random(10) . '.' . 'png';
         \File::put(public_path('/images/signature/') . $imageName1, base64_decode($image1));
         $signature1 = $imageName1;
-        $pdf = PDF::loadView('pdf', compact('data', 'totalhours', 'signature', 'signature1', 'user', 'today', 'to_date'));
 
-        return $pdf->download('attend.pdf');
+
+        // share data to view
+        // view()->share('pdf', compact('data','totalhours','signature','signature1','user','today','to_date'));
+        // $pdf = PDF::loadView('pdf', $data);
+
+        // PDF::loadHTML($html)->setPaper('a4')->setOrientation('landscape')->setOption('margin-bottom', 0)->save('myfile.pdf');
+        $pdf = PDF::loadView('pdf', compact('data', 'totalhours', 'signature', 'signature1', 'user', 'today', 'to_date'))->setPaper('a4');
+        // $pdf = PDF::loadView('pdf-trial');
+        return $pdf->download('attendance.pdf');
+
+        // return $pdf->download('attend.pdf');
+        // return $pdf->stream('attaendance')->Attachment(0);
+        // return $pdf->setPaper('a4')->stream();
+        // ob_end_clean();
+        // return $pdf->stream("attendance.pdf", array("Attachment" => false))->output();
+        // return $pdf->output();
+
     }
 }

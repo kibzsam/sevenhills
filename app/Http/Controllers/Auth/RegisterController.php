@@ -52,8 +52,6 @@ class RegisterController extends Controller
             'employeeName' => ['required', 'string', 'max:255'],
             'employeeID' => ['required', 'string', 'max:255', 'unique:users'],
             'email' => ['required', 'string','email', 'max:255', 'unique:users'],
-            'faculty' => ['required', 'string', 'max:255'],
-            'flocation' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -70,8 +68,6 @@ class RegisterController extends Controller
             'employeeName' => $data['employeeName'],
             'employeeID' => $data['employeeID'],
             'email' => $data['email'],
-            'faculty' => $data['faculty'],
-            'flocation' => $data['flocation'],
             'password' => Hash::make($data['password']),
         ]);
     }
