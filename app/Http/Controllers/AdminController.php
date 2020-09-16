@@ -47,6 +47,14 @@ class AdminController extends Controller
         
         }
 
+        // When none of the dates are selected
+        // if($request->missing(['start_date', 'end_date'])) {
+
+        //     $query = Attendance::with('user')->get();
+
+        //     return view('admin-dashboard')->withRecords($query)->withUser($user);
+        // }
+
         // When only start date is selected
         else if($request->filled('start_date')) {
 

@@ -26,7 +26,7 @@ class AddHospitalIdToAttendancesTable extends Migration
     public function down()
     {
         Schema::table('attendances', function (Blueprint $table) {
-            //
+            $table->dropColumn('hospital_id');
         });
     }
 }

@@ -127,16 +127,17 @@
         }
 
         .signature-box {
-            background: #FFFAFA;
+            /* background: #FFFAFA;
             margin-top: 15px;
             height: 70px;
-            width: 70px;
+            width: 70px; */
         }
 
         .signature-img {
+            font-weight: bold;
             padding: 5px;
-            height: 60px;
-            width: 60px
+            height: 70px;
+            width: 140px;
         }
     </style>
 </head>
@@ -186,7 +187,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-10 mx-auto" style="margin-top:38px">
+                                            <!-- <div class="col-md-10 mx-auto" style="margin-top:38px">
                                                 <div class="custom-row row mt-5">
                                                     <div class="column-2 col-md-6">
                                                         <h6 class="table-heading-span">Name Of Faculty: <span
@@ -198,12 +199,13 @@
                                                                 class="underline">Nairobi</span></h6>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </th>
                                     </tr>
 
                                     <tr>
                                         <th scope="col">Day</th>
+                                        <th scope="col">Title</th>
                                         <th scope="col">In Time</th>
                                         <th scope="col">Out Time</th>
                                         <th scope="col">Daily Total</th>
@@ -214,6 +216,7 @@
                                     <tr>
                                         {{-- <th scope="row">{{ $dt->created_at->format('d/m/Y') }}</th> --}}
                                         <th scope="row">Thursday 4th June 2020</th>
+                                        <td>Nurse</td>
                                         <td>10:00 am</td>
                                         <td>04: 00pm</td>
                                         <td>8 hours</td>
@@ -238,8 +241,7 @@
                                                         <h6 class="table-heading-span">Employee's Signature: <span
                                                                 class="underline">
                                                                 <div class="signature-box">
-                                                                    {{-- <img class="signature-img" src="{{public_path().'/images/signature/'.$signature }}"/>
-                                                                    --}}
+                                                                    <img class="signature-img" src="{{public_path().'/images/signature/3C2YINUVZD.png' }}"/>
                                                                 </div>
                                                             </span>
                                                         </h6>
@@ -247,16 +249,16 @@
                                                 </div>
                                             </div>
 
-                                            <h6 class="signature-sign-span text-center mt-5"><i>(I certify that the
-                                                    above hours are correct.)</i></h6>
-
-                                            <hr class="mt-5 mb-5" style="margin-top:60px; margin-bottom:60px">
+                                            <hr class="mt-5 mb-5" style="margin-top:40px; margin-bottom:40px">
 
                                             <div class="col-md-10 mx-auto">
                                                 <div class="custom-row row mt-4">
                                                     <div class="column-2 col-md-6">
                                                         <h6 class="table-heading-span">Supervisor Signature:
-                                                            _________________________</h6>
+                                                            <div class="signature-box">
+                                                                <img class="signature-img" src="{{public_path().'/images/signature/3C2YINUVZD.png' }}"/>
+                                                            </div>
+                                                        </h6>
                                                     </div>
 
                                                     <div class="column-2 col-md-6">
@@ -266,19 +268,16 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-10 mx-auto mt-5" style="margin-top: 80px">
+                                            <h6 class="signature-sign-span text-center mt-5" style="margin-top:60px;"><i>(I certify that the
+                                                above hours are correct.)</i></h6>
+
+                                            <div class="col-md-10 mx-auto mt-4" style="margin-top: 20px">
                                                 <span class="span-list">
-                                                    <h6 class="mb-4"><b>Important: </b>Return card to agency of the
-                                                        following week.</h6>
-                                                    <li>Your employee ID # must be on your time card. *Print your full
-                                                        name.</li>
-                                                    <li>The week ending date would be the same Friday that you receive a
-                                                        paycheck for the prior work weeks.</li>
-                                                    <li>Total your daily hours, then grand total at the bottom.</li>
+                                                    <h6 class="mb-2"><b>Important: </b></h6>
+                                                    <li>Please print your Full Name, Title and Employee ID number.</li>
                                                     <li>Sign the bottom of the card to authorize that the times that are
                                                         entered are times that you did work.</li>
-                                                    <li>Your supervisor at the placement company MUST sign at the bottom
-                                                        of the card to authorize the payment for you.</li>
+                                                    <li>Your supervisor MUST sign to authorize that time entered is correct.</li>
                                                 </span>
                                             </div>
 

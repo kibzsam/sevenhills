@@ -19,8 +19,6 @@ class UserSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'employeeID' =>Str::random(10),
             'role'=>'admin',
-            'faculty' =>Str::random(20),
-            'flocation' =>Str::random(20),
             'password' => Hash::make('password'),
         ]);
     }

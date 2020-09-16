@@ -1996,9 +1996,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2012,8 +2009,9 @@ __webpack_require__.r(__webpack_exports__);
       //End signature
       load: false,
       edit: false,
-      attendance: {},
-      users: {},
+      attendance: [],
+      auth_user: {},
+      users: [],
       hospitals: [],
       options: ["nae", "toto", "ytr"],
       hours: "",
@@ -2021,6 +2019,7 @@ __webpack_require__.r(__webpack_exports__);
       form: new Form({
         id: "",
         user_id: "",
+        title: "",
         hospital_id: "",
         timein: "",
         timeout: "",
@@ -2049,6 +2048,20 @@ __webpack_require__.r(__webpack_exports__);
     P.$on("success", function () {
       _this2.getAttendance();
     });
+    axios.get("api/user").then(function (response) {
+      _this2.auth_user = response.data;
+    })["catch"](function (error) {
+      console.log(error);
+    });
+  },
+  computed: {
+    attendanceExists: function attendanceExists() {
+      if (this.attendance.length > 0) {
+        return true;
+      } else {
+        return false;
+      }
+    }
   },
   methods: {
     generatePdf: function generatePdf() {
@@ -2281,8 +2294,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_signature__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-signature */ "./node_modules/vue-signature/dist/vue-signature.js");
-/* harmony import */ var vue_signature__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_signature__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2366,11 +2377,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  components: {
-    vueSignarture: vue_signature__WEBPACK_IMPORTED_MODULE_0___default.a
-  },
   data: function data() {
     return {
       //Signature
@@ -2383,10 +2395,10 @@ __webpack_require__.r(__webpack_exports__);
       //End signature
       form: new Form({}),
       display: false,
-      userid: '',
+      userid: "",
       users: {},
-      fromdate: '',
-      todate: ''
+      fromdate: "",
+      todate: ""
     };
   },
   created: function created() {
@@ -2406,9 +2418,24 @@ __webpack_require__.r(__webpack_exports__);
         userid: this.userid,
         jpeg: this.$refs.signature1.save(),
         jpeg1: this.$refs.signature.save()
-      };
-      this.axios.post('api/pdf', data).then(function (response) {
+      }; // this.axios.post('api/pdf',data)
+      // .then((response)=>{
+      //     console.log(response)
+      // })
+
+      this.axios.post("api/pdf", data, {
+        responseType: "arraybuffer"
+      }).then(function (response) {
+        // let blob = new Blob([response], { type: 'application/pdf' }),
+        //     url = window.URL.createObjectURL(blob)
+        //      window.open(url)
         console.log(response);
+        var url = window.URL.createObjectURL(new Blob([response.data]));
+        var link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", "attendance.pdf");
+        document.body.appendChild(link);
+        link.click();
       });
     },
     showUsers: function showUsers() {
@@ -2424,9 +2451,9 @@ __webpack_require__.r(__webpack_exports__);
 
       var png = _this.$refs.signature.save();
 
-      var jpeg = _this.$refs.signature.save('image/jpeg');
+      var jpeg = _this.$refs.signature.save("image/jpeg");
 
-      var svg = _this.$refs.signature.save('image/svg+xml');
+      var svg = _this.$refs.signature.save("image/svg+xml");
 
       console.log(png);
       console.log(jpeg);
@@ -2462,7 +2489,7 @@ __webpack_require__.r(__webpack_exports__);
         // watermark text, > default ''
         font: "20px Arial",
         // mark font, > default '20px sans-serif'
-        style: 'all',
+        style: "all",
         // fillText and strokeText,  'all'/'stroke'/'fill', > default 'fill
         fillStyle: "red",
         // fillcolor, > default '#333'
@@ -2517,11 +2544,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
-    console.log('Component mounted.');
+    console.log("Component mounted.");
   }
 });
 
@@ -7109,7 +7134,7 @@ exports.push([module.i, "@import url(https://use.fontawesome.com/releases/v5.6.3
 exports.push([module.i, "@import url(https://unpkg.com/vue-select@latest/dist/vue-select.css);", ""]);
 
 // module
-exports.push([module.i, "\n/* Select 2 */\n.container {\r\n  width: 100% !important;\n}\n.pr-1 {\r\n  padding-right: 5px;\n}\n.pt-4 {\r\n  padding-top: 16px;\n}\n.bold {\r\n  font-weight: 700;\n}\n#btn {\r\n  margin-bottom: 30px;\r\n  color: white !important;\r\n  background-color: #dbb900 !important;\n}\n.form-inline {\r\n  margin-bottom: -40px;\r\n  margin-top: 30px;\n}\n#modal {\r\n  max-width: 50% !important;\n}\n.cbutton {\r\n  color: white !important;\r\n  background-color: #3c8dbc !important;\r\n  width: 100px !important;\n}\n.clock-picker__input {\r\n  /* border: 1px solid rgb(230, 215, 215); */\r\n  width: 100% !important;\r\n  padding: 7px 12px;\r\n  margin: 10px 5px;\n}\n.clock-picker__dialog-header {\r\n  background-color: #dbb900 !important;\n}\n.clock-picker__dialog-action {\r\n  color: #dbb900 !important  ;\n}\n.row {\r\n  margin-top: 20px;\n}\n.table-wrapper {\r\n  overflow-x: auto;\r\n  position: absolute;\r\n  top: 90px;\r\n  width: 95% !important;\r\n  box-sizing: border-box;\n}\n.col-md-12 {\r\n  position: relative;\n}\n.modal-button {\r\n  position: absolute;\r\n  top: 30px;\r\n  box-sizing: border-box;\n}\n.pdf-button {\r\n  position: absolute;\r\n  right: 90px;\r\n  top: 30px;\n}\n.pdf {\r\n  color: white !important;\r\n  background-color: #dbb900 !important;\r\n  width: 105px !important;\n}\n.vdp-datepicker {\r\n  position: relative !important;\r\n  text-align: left !important;\n}\n.vdp-datepicker input[type=\"text\"] {\r\n  width: 100%;\r\n  padding: 6px 12px;\r\n  display: block;\r\n  height: 34px;\r\n  border: 1px solid #ccc;\r\n  color: #555;\r\n  background-color: #fff;\n}\n.btn-secondary {\r\n  background-color: green;\r\n  color: white;\n}\n.btn-secondary:hover {\r\n  background-color: green;\r\n  color: white;\n}\n.canvas {\r\n  border: 1px solid #3c8dbc;\n}\n.btnclear {\r\n  float: right !important;\r\n  border: 1px solid transparent;\r\n  padding: 6px 12px;\n}\n.btnundo {\r\n  float: right !important;\r\n  border: 1px solid transparent;\r\n  padding: 6px 12px;\n}\r\n", ""]);
+exports.push([module.i, "\n/* Select 2 */\n.custom-jumbotron {\n  background: #eee;\n  padding: 10px 20px;\n  display: table-caption;\n  margin-bottom: 20px;\n}\n.container {\n  width: 100% !important;\n}\n.cursor {\n  cursor: pointer;\n}\n.pr-1 {\n  padding-right: 5px;\n}\n.pt-4 {\n  padding-top: 16px;\n}\n.bold {\n  font-weight: 700;\n}\n#btn {\n  margin-bottom: 30px;\n  color: white !important;\n  background-color: #dbb900 !important;\n}\n.form-inline {\n  margin-bottom: -40px;\n  margin-top: 30px;\n}\n#modal {\n  max-width: 50% !important;\n}\n.cbutton {\n  color: white !important;\n  background-color: #3c8dbc !important;\n  width: 100px !important;\n}\n.clock-picker__input {\n  /* border: 1px solid rgb(230, 215, 215); */\n  width: 100% !important;\n  padding: 7px 12px;\n  margin: 10px 5px;\n}\n.clock-picker__dialog-header {\n  background-color: #dbb900 !important;\n}\n.clock-picker__dialog-action {\n  color: #dbb900 !important  ;\n}\n.row {\n  margin-top: 20px;\n}\n.table-wrapper {\n  width: 100%;\n  margin: 40px 0;\n  overflow-x: auto;\n}\n.col-md-12 {\n  position: relative;\n}\n.modal-button {\n  margin-top: 20px;\n}\n.pdf-button {\n  position: absolute;\n  right: 90px;\n  top: 30px;\n}\n.pdf {\n  color: white !important;\n  background-color: #dbb900 !important;\n  width: 105px !important;\n}\n.vdp-datepicker {\n  position: relative !important;\n  text-align: left !important;\n}\n.vdp-datepicker input[type=\"text\"] {\n  width: 100%;\n  padding: 6px 12px;\n  display: block;\n  height: 34px;\n  border: 1px solid #ccc;\n  color: #555;\n  background-color: #fff;\n}\n.btn-secondary {\n  background-color: green;\n  color: white;\n}\n.btn-secondary:hover {\n  background-color: green;\n  color: white;\n}\n.canvas {\n  border: 1px solid #3c8dbc;\n}\n.btnclear {\n  float: right !important;\n  border: 1px solid transparent;\n  padding: 6px 12px;\n}\n.btnundo {\n  float: right !important;\n  border: 1px solid transparent;\n  padding: 6px 12px;\n}\n", ""]);
 
 // exports
 
@@ -7128,7 +7153,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nbody[data-v-14c35f24]{\r\n    background: -webkit-linear-gradient(left, #3931af, #00c6ff);\n}\n.row[data-v-14c35f24] {\r\n  margin-top: 30px;\r\n  justify-content: center !important;\n}\n.card[data-v-14c35f24]{\r\n    background-color: whitesmoke;\r\n    width: 100% !important;\r\n    margin-left: 200px;\n}\n.card-title[data-v-14c35f24]{\r\n   font-size: 30px;\r\n   color:#DBB900;\r\n   margin-left: 10px;\n}\n.btn-secondary[data-v-14c35f24]{\r\n    float:right !important;\r\n    margin-right: 12px;\n}\n.btn-primary[data-v-14c35f24]{\r\n    margin-left: 12px;\n}\n.canvas[data-v-14c35f24]{\r\n    width: 100% !important;\n}\r\n\r\n\r\n\r\n", ""]);
+exports.push([module.i, "\nbody[data-v-14c35f24] {\n  background: -webkit-linear-gradient(left, #3931af, #00c6ff);\n}\n.center[data-v-14c35f24] {\n  display: flex;\n  justify-content: center;\n}\n.row[data-v-14c35f24] {\n  margin-top: 30px;\n  justify-content: center !important;\n  margin-bottom: 50px;\n}\n.card[data-v-14c35f24] {\n  background-color: whitesmoke;\n  width: 100% !important;\n}\n.card-title[data-v-14c35f24] {\n  font-size: 30px;\n  color: #dbb900;\n  margin-left: 10px;\n  padding: 10px 0;\n}\n.btn-secondary[data-v-14c35f24] {\n  float: right !important;\n  margin-right: 12px;\n}\n.btn-primary[data-v-14c35f24] {\n  margin-left: 12px;\n  margin: 10px 0 20px 20px;\n}\n.canvas[data-v-14c35f24] {\n  width: 100% !important;\n}\n", ""]);
 
 // exports
 
@@ -44150,63 +44175,93 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "table-wrapper" }, [
+          _c("div", { staticClass: "table-wrapper card table-card" }, [
             _c("table", { staticClass: "table table-hover table-dark" }, [
               _vm._m(0),
               _vm._v(" "),
-              _c(
-                "tbody",
-                _vm._l(_vm.attendance, function(attend) {
-                  return _c("tr", { key: attend.id }, [
-                    _c("th", { attrs: { scope: "row" } }, [
-                      _vm._v(_vm._s(attend.id))
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(attend.user.employeeName))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(attend.user.employeeID))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(attend.hospital.name))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(attend.timein))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(attend.timeout))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(attend.lunchin))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(attend.lunchout))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(_vm._f("round")(_vm.hours)))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(attend.created_at))]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _c("a", [
-                        _c("i", {
-                          staticClass: "fas fa-pencil-alt text-greenish",
-                          on: {
-                            click: function($event) {
-                              return _vm.editModal(attend)
-                            }
-                          }
-                        })
-                      ]),
-                      _vm._v("\n                /\n                "),
-                      _c("a", [
-                        _c("i", {
-                          staticClass: "fas fa-trash-alt text-red",
-                          on: {
-                            click: function($event) {
-                              return _vm.deleteAttendance(attend.id)
-                            }
-                          }
-                        })
+              _vm.attendanceExists
+                ? _c(
+                    "tbody",
+                    _vm._l(_vm.attendance, function(attend) {
+                      return _c("tr", { key: attend.id }, [
+                        _c(
+                          "td",
+                          { attrs: { scope: "row", "data-label": "ID" } },
+                          [_vm._v(_vm._s(attend.id))]
+                        ),
+                        _vm._v(" "),
+                        _c("td", { attrs: { "data-label": "Name" } }, [
+                          _vm._v(_vm._s(attend.user.employeeName))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { attrs: { "data-label": "Employee Id" } }, [
+                          _vm._v(_vm._s(attend.user.employeeID))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { attrs: { "data-label": "Hospital" } }, [
+                          _vm._v(_vm._s(attend.hospital.name))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { attrs: { "data-label": "Time-in" } }, [
+                          _vm._v(_vm._s(attend.timein))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { attrs: { "data-label": "Time-out" } }, [
+                          _vm._v(_vm._s(attend.timeout))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { attrs: { "data-label": "Lunch-in" } }, [
+                          _vm._v(_vm._s(attend.lunchin))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { attrs: { "data-label": "Lunch-out" } }, [
+                          _vm._v(_vm._s(attend.lunchout))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { attrs: { "data-label": "Hours Worked" } }, [
+                          _vm._v(_vm._s(_vm._f("round")(_vm.hours)) + " Hrs")
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { attrs: { "data-label": "Date" } }, [
+                          _vm._v(_vm._s(attend.created_at))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { attrs: { "data-label": "Action" } }, [
+                          _c("a", { staticClass: "cursor" }, [
+                            _c("i", {
+                              staticClass: "fas fa-pencil-alt text-greenish",
+                              on: {
+                                click: function($event) {
+                                  return _vm.editModal(attend)
+                                }
+                              }
+                            })
+                          ]),
+                          _vm._v("\n                /\n                "),
+                          _c("a", { staticClass: "cursor" }, [
+                            _c("i", {
+                              staticClass: "fas fa-trash-alt text-red",
+                              on: {
+                                click: function($event) {
+                                  return _vm.deleteAttendance(attend.id)
+                                }
+                              }
+                            })
+                          ])
+                        ])
                       ])
+                    }),
+                    0
+                  )
+                : _c("div", { staticClass: "custom-jumbotron" }, [
+                    _c("span", { staticClass: "lead" }, [
+                      _vm._v("Hi "),
+                      _c("b", [_vm._v(_vm._s(_vm.auth_user.employeeName))]),
+                      _vm._v(
+                        ", no attendance yet have been recorded. Get started by clicking on the\n              attendance button.\n            "
+                      )
                     ])
                   ])
-                }),
-                0
-              )
             ]),
             _vm._v(" "),
             _c(
@@ -44390,6 +44445,40 @@ var render = function() {
                 "div",
                 { staticClass: "form-group" },
                 [
+                  _c("label", [_vm._v("Title")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.title,
+                        expression: "form.title"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    class: { "is-invalid": _vm.form.errors.has("title") },
+                    attrs: { type: "text", name: "title", required: "" },
+                    domProps: { value: _vm.form.title },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "title", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("has-error", { attrs: { form: _vm.form, field: "title" } })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
                   _c("label", { attrs: { for: "hospitalLabel" } }, [
                     _vm._v("Hospital")
                   ]),
@@ -44544,7 +44633,17 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "div",
-                { staticClass: "form-group" },
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.edit,
+                      expression: "edit"
+                    }
+                  ],
+                  staticClass: "form-group"
+                },
                 [
                   _c("label", { attrs: { for: "exampleInputEmail1" } }, [
                     _vm._v("Time-out")
@@ -44857,8 +44956,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row justify-content-center mt-5" }, [
-      _c("div", { staticClass: "col-md-8" }, [
+    _c("div", { staticClass: "row justify-content-center mt-5 center" }, [
+      _c("div", { staticClass: "col-md-8 mx-auto" }, [
         _c("div", { staticClass: "card" }, [
           _c("div", { staticClass: "card-body" }, [
             _c("h5", { staticClass: "card-title" }, [_vm._v("Generate Pdf")]),
@@ -44917,7 +45016,7 @@ var render = function() {
                         _c("has-error", {
                           attrs: { form: _vm.form, field: "user_id" }
                         }),
-                        _vm._v(">\n                                         "),
+                        _vm._v(">\n                  "),
                         _c("option", { attrs: { value: "" } }, [
                           _vm._v("Select User")
                         ]),
@@ -45133,7 +45232,10 @@ var render = function() {
                     }
                   }
                 },
-                [_c("i", { staticClass: "fas fa-forward" }), _vm._v("Next")]
+                [
+                  _c("i", { staticClass: "fas fa-forward" }),
+                  _vm._v("Next\n            ")
+                ]
               ),
               _vm._v(" "),
               _c(
@@ -45158,7 +45260,7 @@ var render = function() {
                 },
                 [
                   _c("i", { staticClass: "fas fa-file-pdf" }),
-                  _vm._v("\n                         Generate")
+                  _vm._v("\n              Generate\n            ")
                 ]
               )
             ])
@@ -45206,9 +45308,7 @@ var staticRenderFns = [
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example component.\n                "
-              )
+              _vm._v("I'm an example component.")
             ])
           ])
         ])
@@ -62829,20 +62929,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var vuejs_datepicker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuejs-datepicker */ "./node_modules/vuejs-datepicker/dist/vuejs-datepicker.esm.js");
-/* harmony import */ var vue_signature__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-signature */ "./node_modules/vue-signature/dist/vue-signature.js");
-/* harmony import */ var vue_signature__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue_signature__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vue-axios */ "./node_modules/vue-axios/dist/vue-axios.min.js");
-/* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(vue_axios__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-select */ "./node_modules/vue-select/dist/vue-select.js");
-/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vue_select__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue-axios */ "./node_modules/vue-axios/dist/vue-axios.min.js");
+/* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(vue_axios__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vue-select */ "./node_modules/vue-select/dist/vue-select.js");
+/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(vue_select__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var vue_signature__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-signature */ "./node_modules/vue-signature/dist/vue-signature.js");
+/* harmony import */ var vue_signature__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vue_signature__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var sweet_modal_vue_src_plugin_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! sweet-modal-vue/src/plugin.js */ "./node_modules/sweet-modal-vue/src/plugin.js");
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
+// Vue Dependancies
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
@@ -62853,26 +62949,24 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 Vue.component('datepicker', vuejs_datepicker__WEBPACK_IMPORTED_MODULE_4__["default"]);
 
-Vue.use(vue_signature__WEBPACK_IMPORTED_MODULE_5___default.a);
-Vue.component('vue-signature', vue_signature__WEBPACK_IMPORTED_MODULE_5___default.a);
 
-
-
-Vue.component('v-select', vue_select__WEBPACK_IMPORTED_MODULE_8___default.a);
-Vue.use(vue_axios__WEBPACK_IMPORTED_MODULE_7___default.a, axios__WEBPACK_IMPORTED_MODULE_6___default.a);
-window.Swal = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a;
-window.Toast = Toast;
+Vue.component(vform__WEBPACK_IMPORTED_MODULE_1__["HasError"].name, vform__WEBPACK_IMPORTED_MODULE_1__["HasError"]);
+Vue.component(vform__WEBPACK_IMPORTED_MODULE_1__["AlertError"].name, vform__WEBPACK_IMPORTED_MODULE_1__["AlertError"]);
 window.Form = vform__WEBPACK_IMPORTED_MODULE_1__["Form"];
-Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]);
-window.Fire = new Vue();
+
+Vue.component('v-select', vue_select__WEBPACK_IMPORTED_MODULE_7___default.a);
 
 var VueClockPickerPlugin = __webpack_require__(/*! @pencilpix/vue2-clock-picker/dist/vue2-clock-picker.plugin.js */ "./node_modules/@pencilpix/vue2-clock-picker/dist/vue2-clock-picker.plugin.js");
 
 Vue.use(VueClockPickerPlugin);
+Vue.use(vue_axios__WEBPACK_IMPORTED_MODULE_6___default.a, axios__WEBPACK_IMPORTED_MODULE_5___default.a);
+Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+Vue.use(vue_signature__WEBPACK_IMPORTED_MODULE_8___default.a);
+window.Swal = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a;
+window.Toast = Toast;
 window.Fire = new Vue();
 window.P = new Vue();
-Vue.component(vform__WEBPACK_IMPORTED_MODULE_1__["HasError"].name, vform__WEBPACK_IMPORTED_MODULE_1__["HasError"]);
-Vue.component(vform__WEBPACK_IMPORTED_MODULE_1__["AlertError"].name, vform__WEBPACK_IMPORTED_MODULE_1__["AlertError"]);
 var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.mixin({
   toast: true,
   position: 'top-end',
@@ -62892,24 +62986,9 @@ Vue.filter('round', function (value, decimals) {
   return value;
 });
 
-Vue.use(sweet_modal_vue_src_plugin_js__WEBPACK_IMPORTED_MODULE_9__["default"]);
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-// const files = require.context('./', true, /\.vue$/i);
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
+Vue.use(sweet_modal_vue_src_plugin_js__WEBPACK_IMPORTED_MODULE_9__["default"]); // Components
 
-Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- *
- */
+Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]); // Vue Router
 
 var routes = [{
   path: '/attendance',

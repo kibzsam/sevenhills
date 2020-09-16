@@ -60,6 +60,7 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <link rel="stylesheet" href="{{'css/app.css'}}">
     <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 
