@@ -22,6 +22,7 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
 
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 
     <link rel="stylesheet" href="{{ asset('public/dist/css/skins/_all-skins.min.css') }}">
     <!-- Morris chart -->
@@ -238,6 +239,16 @@
             <!-- Content Header (Page header) -->
             @yield('content')
             <router-view></router-view>
+
+            {{-- <div class="container">
+                <div class="col-md-12 col-12 text-center take-attendance-intro">
+                    <div class="row">
+                        <div class="col-md-4 col-4">
+                            <a class="btn btn-primary" href="/attendance">Take Attendance</a>
+                        </div>
+                    </div>
+                </div>
+            </div> --}}
             {{-- <div class="container">
                 <br />
                 <form method="post" action="{{url('create-attendance')}}">

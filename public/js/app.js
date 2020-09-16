@@ -1997,6 +1997,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -63246,8 +63248,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\IRERI BRIAN\Desktop\Projects\Git Projects\sevenhills\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\IRERI BRIAN\Desktop\Projects\Git Projects\sevenhills\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/brian/Desktop/Projects/sevenhills/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/brian/Desktop/Projects/sevenhills/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

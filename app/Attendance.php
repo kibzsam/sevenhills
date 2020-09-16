@@ -33,7 +33,12 @@ class Attendance extends Model
             $lunchtime=$lunchout->diffInMinutes($lunchin);
             $subtotal=$timeout->diffInMinutes($timein);
             $total= $subtotal - $lunchtime;
-            $hours=$total / 60 ;
+
+            if($total === 0) {
+                $hours = 0;
+            } else {
+                $hours=$total / 60 ;
+            }
 
         return $hours;
 
