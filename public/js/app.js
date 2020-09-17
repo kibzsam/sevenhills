@@ -44219,7 +44219,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("td", { attrs: { "data-label": "Hours Worked" } }, [
-                          _vm._v(_vm._s(_vm._f("round")(_vm.hours)) + " Hrs")
+                          _vm._v(_vm._s(_vm._f("round")(attend.hours)) + " Hrs")
                         ]),
                         _vm._v(" "),
                         _c("td", { attrs: { "data-label": "Date" } }, [

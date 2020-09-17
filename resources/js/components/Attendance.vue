@@ -45,7 +45,7 @@
                 <td data-label="Time-out">{{attend.timeout}}</td>
                 <td data-label="Lunch-in">{{attend.lunchin}}</td>
                 <td data-label="Lunch-out">{{attend.lunchout}}</td>
-                <td data-label="Hours Worked">{{hours | round}} Hrs</td>
+                <td data-label="Hours Worked">{{attend.hours | round}} Hrs</td>
                 <td data-label="Date">{{attend.created_at}}</td>
                 <td data-label="Action">
                   <a class="cursor">

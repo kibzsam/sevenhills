@@ -28,16 +28,28 @@ class Attendance extends Model
 
             $timein=Carbon::parse($this->timein);
             $timeout=Carbon::parse($this->timeout);
+            
             $lunchin=Carbon::parse($this->lunchin);
             $lunchout=Carbon::parse($this->lunchout);
-            $lunchtime=$lunchout->diffInMinutes($lunchin);
-            $subtotal=$timeout->diffInMinutes($timein);
+
+            if($lunchin->toDateTimeString() !== strtotime('00:00:00') && $lunchout->toDateTimeString() !== strtotime('00:00:00')) {
+                $lunchtime=$lunchout->diffInMinutes($lunchin);
+            } else {
+                $lunchtime = 0;
+            }
+            
+            if($timeout->hour > 1) {
+                $subtotal= $timeout->diffInMinutes($timein);
+            } else {
+                $subtotal = 0;
+            }
+
             $total= $subtotal - $lunchtime;
 
-            if($total === 0) {
-                $hours = 0;
+            if($total > 0) {
+                $hours=$total / 60 ;    
             } else {
-                $hours=$total / 60 ;
+                $hours = 0;
             }
 
         return $hours;
