@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Attendance;
+use PDF;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Carbon\Carbon;
+
 use Illuminate\Support\Facades\Auth;
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
 use App\Http\Resources\Attendance as AttendanceResource;
+
+use App\User;
+use App\Attendance;
+use App\Hospital;
 
 class AttendanceController extends Controller
 {
@@ -56,6 +61,8 @@ class AttendanceController extends Controller
     //     return view('fullcalendar', compact('showAttendance'));
     // }
 
+
+    // Index View
     public function index()
     {
         if (request()->ajax()) {
@@ -66,6 +73,17 @@ class AttendanceController extends Controller
         }
         return view('attendanceCalendar');
     }
+
+
+    // Get Hospitals
+    public function getHospitals() {
+        $hospitals = Hospital::all();
+
+        return response()->json($hospitals, 201);
+    }
+
+
+    // Create Attendance
     public function create(Request $request)
     {
         $user = Auth::user()->id;
@@ -73,6 +91,9 @@ class AttendanceController extends Controller
         $event = Attendance::insert($insertArr);
         return Response::json($event);
     }
+
+
+    // Update Attendance
     public function update(Request $request)
     {
         $where = array('id' => $request->id);
@@ -80,15 +101,22 @@ class AttendanceController extends Controller
         $event  = Attendance::where($where)->update($updateArr);
         return Response::json($event);
     }
+
+
+    // Delete Attendance
     public function destroy(Request $request)
     {
         $event = Attendance::where('id', $request->id)->delete();
         return Response::json($event);
     }
+
+
     // FUnction to save attendances
     public function saveattendance(Request $request){
         $rules=array(
             'user_id' => 'required',
+            'title' => 'required',
+            'hospital_id' => 'required',
             'timein' => 'required'
         );
         $this->validate($request,$rules);
@@ -103,33 +131,103 @@ class AttendanceController extends Controller
         }
         if($date==$today)
         {
-            return false;
+            return response()->json(['error' => 'You already took the attendance of this worker today!'], 500);
         }
         else{
                 return Attendance::create([
-                'user_id' =>$request->input('user_id'),
-                'timein' =>$request->input('timein'),
+                'user_id' => $request->input('user_id'),
+                'title' => $request->input('title'),
+                'hospital_id' => $request->input('hospital_id'),
+                'timein' => $request->input('timein'),
             ]);
         }
          }
         else{
             return Attendance::create([
                 'user_id' =>$request->input('user_id'),
+                'title' => $request->input('title'),
+                'hospital_id' =>$request->input('hospital_id'),
                 'timein' =>$request->input('timein'),
             ]);
 
         }
 
     }
-    // get attendances
+
+
+    // Get attendances
     public function getattendance(){
-        $attendance=Attendance::with('user')->latest()->paginate(15);
+        $user_id=auth('api')->user()->id;
+        $attendance=Attendance::where('user_id',$user_id)->with('user')
+            ->with('hospital')->latest()->paginate(15);
+
         return AttendanceResource::collection($attendance);
     }
 
+
+    // Update Atteandance
+    public function updateattendance(Request $request,$id){
+
+        // Find the attendance record
+        $attendance=Attendance::findOrFail($id);
+        $attendance->update($request->all());
+
+    }
+
+
+    // Delete Atteandance
     public function deleteattendance($id){
+
+        // Find the attendance record
         $attendance=Attendance::findOrFail($id);
         $attendance->delete();
 
+    }
+
+
+    // Generate Atteandance PDF
+    public function pdf(Request $request){
+        set_time_limit(300);
+        $user_id=$request->userid;
+        $from_date=Carbon::parse($request->fromdate)->format('Y-m-d');
+        $to_date=Carbon::parse($request->todate)->format('Y-m-d');
+        $raw_image=$request->jpeg;
+        $raw_image1=$request->jpeg1;
+        $data=Attendance::where('user_id',$user_id)->whereDate('created_at', '>=', $from_date)
+        ->whereDate('created_at', '<=',$to_date)
+        ->get();
+        $totalhours=$data->sum('hours');
+        $user=User::FindOrFail($user_id);
+        $today= Carbon::today()->toDateString();
+        $image = str_replace('data:image/png;base64,', '', $raw_image);
+        $image = str_replace(' ', '+', $image);
+        $imageName = str_random(10).'.'.'png';
+         \File::put(public_path('/images/signature/') . $imageName, base64_decode($image));
+        $signature=$imageName ;
+        
+        //Signature 1
+        $image1 = str_replace('data:image/png;base64,', '', $raw_image1);
+        $image1 = str_replace(' ', '+', $image1);
+        $imageName1 = str_random(10).'.'.'png';
+         \File::put(public_path('/images/signature/') . $imageName1, base64_decode($image1));
+        $signature1=$imageName1 ;
+
+
+        // share data to view
+        // view()->share('pdf', compact('data','totalhours','signature','signature1','user','today','to_date'));
+        // $pdf = PDF::loadView('pdf', $data);
+
+        // PDF::loadHTML($html)->setPaper('a4')->setOrientation('landscape')->setOption('margin-bottom', 0)->save('myfile.pdf');
+        $pdf = PDF::loadView('pdf', compact('data','totalhours','signature','signature1','user','today','to_date'))->setPaper('a4');
+        // $pdf = PDF::loadView('pdf-trial');
+        return $pdf->download('attendance.pdf');
+
+        // return $pdf->download('attend.pdf');
+        // return $pdf->stream('attaendance')->Attachment(0);
+        // return $pdf->setPaper('a4')->stream();
+        // ob_end_clean();
+        // return $pdf->stream("attendance.pdf", array("Attachment" => false))->output();
+        // return $pdf->output();
+       
     }
 }

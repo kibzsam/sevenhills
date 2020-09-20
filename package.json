@@ -11,22 +11,27 @@
     },
     "devDependencies": {
         "axios": "^0.18.1",
-        "bootstrap": "^4.1.0",
+        "bootstrap": "^4.5.0",
         "cross-env": "^5.1",
         "jquery": "^3.5.1",
         "laravel-mix": "^4.0.7",
-        "lodash": "^4.17.5",
+        "lodash": "^4.17.19",
         "popper.js": "^1.12",
         "resolve-url-loader": "^2.3.1",
-        "sass": "^1.15.2",
+        "sass": "^1.26.10",
         "sass-loader": "^7.1.0",
         "vue": "^2.5.17",
         "vue-template-compiler": "^2.6.11"
     },
     "dependencies": {
         "@pencilpix/vue2-clock-picker": "^0.1.6",
-        "sweetalert2": "^9.13.1",
+        "sweet-modal-vue": "^2.0.0",
+        "sweetalert2": "^9.15.3",
         "vform": "^1.0.1",
-        "vue-router": "^3.2.0"
+        "vue-axios": "^2.1.5",
+        "vue-router": "^3.3.4",
+        "vue-select": "^3.10.7",
+        "vue-signature": "^2.4.6",
+        "vuejs-datepicker": "^1.6.2"
     }
 }

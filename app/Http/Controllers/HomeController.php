@@ -25,6 +25,7 @@ class HomeController extends Controller
     {
         return view('admin');
     }
+    
     public function dashboard(){
         $user= Auth::user();
         return view('layouts.dashboard',compact('user'));

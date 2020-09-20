@@ -1,27 +1,44 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
+// Vue Dependancies
 
 require('./bootstrap');
 
 window.Vue = require('vue');
+
 import VueRouter from 'vue-router'
+
 import { Form, HasError, AlertError } from 'vform'
+
 import '@pencilpix/vue2-clock-picker/dist/vue2-clock-picker.min.css';
+
 import Swal from 'sweetalert2';
-window.Swal = Swal;
-window.Toast = Toast;
-window.Form = Form;
-Vue.use(VueRouter)
-window.Fire = new Vue;
-const VueClockPickerPlugin = require('@pencilpix/vue2-clock-picker/dist/vue2-clock-picker.plugin.js')
-Vue.use(VueClockPickerPlugin)
-window.Fire = new Vue;
-window.P = new Vue;
+
+import Datepicker from 'vuejs-datepicker';
+Vue.component('datepicker', Datepicker);
+
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
 Vue.component(HasError.name, HasError)
 Vue.component(AlertError.name, AlertError)
+window.Form = Form;
+
+import vSelect from 'vue-select'
+Vue.component('v-select', vSelect)
+
+const VueClockPickerPlugin = require('@pencilpix/vue2-clock-picker/dist/vue2-clock-picker.plugin.js')
+Vue.use(VueClockPickerPlugin)
+
+Vue.use(VueAxios, axios)
+Vue.use(VueRouter)
+
+import vueSignature from "vue-signature";
+Vue.use(vueSignature);
+
+window.Swal = Swal;
+window.Toast = Toast;
+
+window.Fire = new Vue;
+window.P = new Vue;
 
 const Toast = Swal.mixin({
     toast: true,
@@ -30,38 +47,39 @@ const Toast = Swal.mixin({
     timer: 3000
 });
 
+Vue.filter('round', function (value, decimals) {
+    if (!value) {
+        value = 0;
+    }
 
+    if (!decimals) {
+        decimals = 0;
+    }
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
+    value = Math.round(value * Math.pow(10, decimals)) / Math.pow(10, decimals);
+    return value;
+});
 
-// const files = require.context('./', true, /\.vue$/i);
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
+import SweetModal from 'sweet-modal-vue/src/plugin.js'
+Vue.use(SweetModal)
+
+// Components
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- *
- */
+// Vue Router
 
 let routes = [
 
     { path: '/attendance', component: require('./components/Attendance.vue').default },
+
+    { path: '/attendance-pdf', component: require('./components/AttendancePdf.vue').default },
 ]
 
 const router = new VueRouter({
     mode: 'history',
     routes
 })
-
 
 const app = new Vue({
     el: '#app',
