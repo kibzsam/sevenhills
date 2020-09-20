@@ -87,7 +87,8 @@
 </template>
 
 <script>
-
+import vueSignature from "vue-signature";
+Vue.use(vueSignature);
 export default {
   data() {
     return {
@@ -108,11 +109,12 @@ export default {
       todate: ""
     };
   },
-
+  components: {
+    vueSignature
+  },
   created() {
     this.showUsers();
   },
-
   methods: {
     nextSignature() {
       var _this = this;

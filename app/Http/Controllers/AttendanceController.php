@@ -76,7 +76,8 @@ class AttendanceController extends Controller
 
 
     // Get Hospitals
-    public function getHospitals() {
+    public function getHospitals()
+    {
         $hospitals = Hospital::all();
 
         return response()->json($hospitals, 201);
@@ -112,53 +113,48 @@ class AttendanceController extends Controller
 
 
     // FUnction to save attendances
-    public function saveattendance(Request $request){
-        $rules=array(
+    public function saveattendance(Request $request)
+    {
+        $rules = array(
             'user_id' => 'required',
             'title' => 'required',
             'hospital_id' => 'required',
             'timein' => 'required'
         );
-        $this->validate($request,$rules);
-        $user_id=$request->input('user_id');
-        $attendances=Attendance::where('user_id',$user_id)->get();
-        $today= Carbon::today()->toDateString();
-        if($attendances->isNotEmpty())
-        {
-        foreach($attendances as $attendance)
-        {
-            $date=$attendance->created_at->toDateString();
-        }
-        if($date==$today)
-        {
-            return response()->json(['error' => 'You already took the attendance of this worker today!'], 500);
-        }
-        else{
+        $this->validate($request, $rules);
+        $user_id = $request->input('user_id');
+        $attendances = Attendance::where('user_id', $user_id)->get();
+        $today = Carbon::today()->toDateString();
+        if ($attendances->isNotEmpty()) {
+            foreach ($attendances as $attendance) {
+                $date = $attendance->created_at->toDateString();
+            }
+            if ($date == $today) {
+                return response()->json(['error' => 'You already took the attendance of this worker today!'], 500);
+            } else {
                 return Attendance::create([
+                    'user_id' => $request->input('user_id'),
+                    'title' => $request->input('title'),
+                    'hospital_id' => $request->input('hospital_id'),
+                    'timein' => $request->input('timein'),
+                ]);
+            }
+        } else {
+            return Attendance::create([
                 'user_id' => $request->input('user_id'),
                 'title' => $request->input('title'),
                 'hospital_id' => $request->input('hospital_id'),
                 'timein' => $request->input('timein'),
             ]);
         }
-         }
-        else{
-            return Attendance::create([
-                'user_id' =>$request->input('user_id'),
-                'title' => $request->input('title'),
-                'hospital_id' =>$request->input('hospital_id'),
-                'timein' =>$request->input('timein'),
-            ]);
-
-        }
-
     }
 
 
     // Get attendances
-    public function getattendance(){
-        $user_id=auth('api')->user()->id;
-        $attendance=Attendance::where('user_id',$user_id)->with('user')
+    public function getattendance()
+    {
+        $user_id = auth('api')->user()->id;
+        $attendance = Attendance::where('user_id', $user_id)->with('user')
             ->with('hospital')->latest()->paginate(15);
 
         return AttendanceResource::collection($attendance);
@@ -166,51 +162,52 @@ class AttendanceController extends Controller
 
 
     // Update Atteandance
-    public function updateattendance(Request $request,$id){
+    public function updateattendance(Request $request, $id)
+    {
 
         // Find the attendance record
-        $attendance=Attendance::findOrFail($id);
+        $attendance = Attendance::findOrFail($id);
         $attendance->update($request->all());
-
     }
 
 
     // Delete Atteandance
-    public function deleteattendance($id){
+    public function deleteattendance($id)
+    {
 
         // Find the attendance record
-        $attendance=Attendance::findOrFail($id);
+        $attendance = Attendance::findOrFail($id);
         $attendance->delete();
-
     }
 
 
     // Generate Atteandance PDF
-    public function pdf(Request $request){
+    public function pdf(Request $request)
+    {
         set_time_limit(300);
-        $user_id=$request->userid;
-        $from_date=Carbon::parse($request->fromdate)->format('Y-m-d');
-        $to_date=Carbon::parse($request->todate)->format('Y-m-d');
-        $raw_image=$request->jpeg;
-        $raw_image1=$request->jpeg1;
-        $data=Attendance::where('user_id',$user_id)->whereDate('created_at', '>=', $from_date)
-        ->whereDate('created_at', '<=',$to_date)
-        ->get();
-        $totalhours=$data->sum('hours');
-        $user=User::FindOrFail($user_id);
-        $today= Carbon::today()->toDateString();
+        $user_id = $request->userid;
+        $from_date = Carbon::parse($request->fromdate)->format('Y-m-d');
+        $to_date = Carbon::parse($request->todate)->format('Y-m-d');
+        $raw_image = $request->jpeg;
+        $raw_image1 = $request->jpeg1;
+        $data = Attendance::where('user_id', $user_id)->whereDate('created_at', '>=', $from_date)
+            ->whereDate('created_at', '<=', $to_date)
+            ->get();
+        $totalhours = $data->sum('hours');
+        $user = User::FindOrFail($user_id);
+        $today = Carbon::today()->toDateString();
         $image = str_replace('data:image/png;base64,', '', $raw_image);
         $image = str_replace(' ', '+', $image);
-        $imageName = str_random(10).'.'.'png';
-         \File::put(public_path('/images/signature/') . $imageName, base64_decode($image));
-        $signature=$imageName ;
-        
+        $imageName = str_random(10) . '.' . 'png';
+        \File::put(public_path('/images/signature/') . $imageName, base64_decode($image));
+        $signature = $imageName;
+
         //Signature 1
         $image1 = str_replace('data:image/png;base64,', '', $raw_image1);
         $image1 = str_replace(' ', '+', $image1);
-        $imageName1 = str_random(10).'.'.'png';
-         \File::put(public_path('/images/signature/') . $imageName1, base64_decode($image1));
-        $signature1=$imageName1 ;
+        $imageName1 = str_random(10) . '.' . 'png';
+        \File::put(public_path('/images/signature/') . $imageName1, base64_decode($image1));
+        $signature1 = $imageName1;
 
 
         // share data to view
@@ -218,7 +215,7 @@ class AttendanceController extends Controller
         // $pdf = PDF::loadView('pdf', $data);
 
         // PDF::loadHTML($html)->setPaper('a4')->setOrientation('landscape')->setOption('margin-bottom', 0)->save('myfile.pdf');
-        $pdf = PDF::loadView('pdf', compact('data','totalhours','signature','signature1','user','today','to_date'))->setPaper('a4');
+        $pdf = PDF::loadView('pdf', compact('data', 'totalhours', 'signature', 'signature1', 'user', 'today', 'to_date'))->setPaper('a4');
         // $pdf = PDF::loadView('pdf-trial');
         return $pdf->download('attendance.pdf');
 
@@ -228,6 +225,6 @@ class AttendanceController extends Controller
         // ob_end_clean();
         // return $pdf->stream("attendance.pdf", array("Attachment" => false))->output();
         // return $pdf->output();
-       
+
     }
 }
