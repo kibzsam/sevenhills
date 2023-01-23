@@ -150,7 +150,7 @@
                 <div class="row">
 
                     <div class="col-md-12 text-center">
-                        <h3 class="seven-hills-title">SEVEN HILLS</h3>
+                        <h3 class="seven-hills-title">Aspy</h3>
                         <h6 class="medical-solution-subtitle">Medical Solution</h6>
                     </div>
 

@@ -5,7 +5,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Job Application | Seven Hills Medical Solutions</title>
+    <title>Job Application | Aspy Medical Solutions</title>
 
     <!-- css -->
     <link href="{{ asset('public/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
@@ -202,7 +202,7 @@
                 </ul>
                 <fieldset id="fieldset1">
                     <img src="{{ asset('public/img/logo.png') }}" alt="" width="273" height="72.8" /><br>
-                    <h3 class="heading">Seven Hills Medical Solutions Job Application Form</h3>
+                    <h3 class="heading">Aspy Medical Solutions Job Application Form</h3>
                     <p>APPLICANT MUST COMPLETE </p>
                     <br>
                     <div class="row">
@@ -378,7 +378,7 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-8">
-                            <label>Have you ever worked for Seven Hills Medical Solutions?</label>
+                            <label>Have you ever worked for Aspy Medical Solutions?</label>
                         </div>
                         <div class="col-sm-4">
                             <select class="form-control" name="previous_worker" id="previous_worker">
@@ -398,7 +398,7 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-8">
-                            <label>Do any of your relatives work for Seven Hills?</label>
+                            <label>Do any of your relatives work for Aspy?</label>
                         </div>
                         <div class="col-sm-4">
                             <select class="form-control" name="relative_working" id="relative_working">

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Dashboard | Seven Hills</title>
+    <title>Dashboard | Aspy</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -108,7 +108,7 @@
 
                                     <p>
                                         Loyed Kirimi - Admin
-                                        <small>Seven Hills</small>
+                                        <small>Aspy</small>
                                     </p>
                                 </li>
                                 <!-- Menu Footer-->
@@ -186,7 +186,7 @@
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-            <strong>Copyright &copy; 2019 <a href="sevenhillsmed.com">Seven Hills</a>.</strong> All rights
+            <strong>Copyright &copy; 2019 <a href="sevenhillsmed.com">Aspy</a>.</strong> All rights
             reserved.
         </footer>
         <!-- Add the sidebar's background. This div must be placed

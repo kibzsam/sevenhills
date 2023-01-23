@@ -8,7 +8,7 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="wow fadeInDown" data-wow-offset="0" data-wow-delay="0.1s">
-                            <h2 class="h-ultra">Seven Hills Medical Solutions</h2>
+                            <h2 class="h-ultra">Aspy Medical Solutions</h2>
                         </div>
                         <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.1s">
                             <h4 class="h-light">Quality Healthcare Staffing is Our Specialty</h4>
@@ -53,10 +53,10 @@
                             <i class="fa fa-check fa-3x circled bg-skin"></i>
                             <h4 class="h-bold">Who we are</h4>
                             <p>
-                                Seven Hills Medical Solutions is a leader in health care staffing with many years of experience in the field.
+                                Aspy Medical Solutions is a leader in health care staffing with many years of experience in the field.
                                 We are proud of the services we provide to our diverse clients. When choosing your professional medical staffing services,
                                 please choose carefully. Your patients’ well-being and your facility’s good name hang in the balance.
-                                For all the right reasons, seven Hills Medical Solutions is the right choice
+                                For all the right reasons, Aspy Medical Solutions is the right choice
                             </p>
                         </div>
                     </div>
@@ -69,7 +69,7 @@
                             <p>
                                 Patient care is YOUR business and YOU are our business. Our employment application and screening processes
                                 are exhaustive and unparalleled in the industry.
-                                Seven Hills Medical Solutions is dedicated to providing you with the absolute best healthcare staffing services available.
+                                Aspy Medical Solutions is dedicated to providing you with the absolute best healthcare staffing services available.
                             </p>
                         </div>
                     </div>
@@ -91,7 +91,7 @@
                                 <div class="wow fadeInUp" data-wow-delay="0.1s">
                                     <div class="cta-text">
                                         <h3>What we offer</h3>
-                                        <p>Seven Hills Medical Solutions provides, contract, temp-to-perm, and direct hire personnel to
+                                        <p>Aspy Medical Solutions provides, contract, temp-to-perm, and direct hire personnel to
                                             many segments of the healthcare ﬁeld including physician practices,
                                             long-term care facilities, hospitals, medical home care agencies and many more.  </p>
                                     </div>
@@ -271,7 +271,7 @@
                     <div class="wow fadeInDown" data-wow-delay="0.1s">
                         <div class="section-heading text-center">
                             <h2 class="h-bold">How far are we?</h2>
-                            <p>Seven Hills Medical Solutions is continually growing and evolving to meet the demands of the health care field. Since our inception,
+                            <p>Aspy Medical Solutions is continually growing and evolving to meet the demands of the health care field. Since our inception,
                                 we have tripled in size due to our professionalism and dedication to provide quality staff to our clients.</p>
                         </div>
                     </div>
@@ -310,7 +310,7 @@
                     <div class="wow lightSpeedIn" data-wow-delay="0.1s">
                         <div class="section-heading text-center">
                             <h2 class="h-bold">Our clients</h2>
-                            <p>We recognize that our personnel are presenting Seven Hills Medical Solutions but while on assignment,
+                            <p>We recognize that our personnel are presenting Aspy Medical Solutions but while on assignment,
                                 they are a reflection of your facility to your patients and their families. As such, we
                                 promise to continually evaluate our employees’ actions, skills, attitudes and how they might
                                 influence your clients’ perception of you!
@@ -330,9 +330,9 @@
                 <div class="col-sm-6 col-md-4">
                     <div class="wow fadeInDown" data-wow-delay="0.1s">
                         <div class="widget">
-                            <h5>About Seven Hills</h5>
+                            <h5>About Aspy</h5>
                             <p>
-                                Seven Hills Medical Solutions is a leader in health care staffing with many years of
+                                Aspy Medical Solutions is a leader in health care staffing with many years of
                                 experience in the ﬁeld. We are proud of the services we provide to our diverse clients...
                             </p>
                         </div>
@@ -373,7 +373,7 @@
                     <span class="fa-stack fa-lg">
 									<i class="fa fa-circle fa-stack-2x"></i>
 									<i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
-								</span> 
+								</span>
                                 <a href="mailto:info@sevenhillsmed.com">info@sevenhillsmed.com</a>
                                 </li>
 
@@ -412,7 +412,7 @@
             <div class="pull-right hidden-xs" style="align:center;">
                 Powered by<b> Alpha Tech</b>
             </div>
-            <strong>Copyright &copy; 2019 <a href="sevenhillsmed.com">Seven Hills</a>.</strong> All rights
+            <strong>Copyright &copy; 2019 <a href="sevenhillsmed.com">Aspy</a>.</strong> All rights
                 reserved.
         </div>
         <br>

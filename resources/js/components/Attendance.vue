@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-12">
-        
+
         <div class="modal-button">
           <button
             type="button"
@@ -368,6 +368,7 @@ export default {
       axios
         .get("api/get-all-hospitals")
         .then(response => {
+            console.log(response.data)
           this.hospitals = response.data;
         })
         .catch(error => {

@@ -24,7 +24,7 @@
 </body>
 </html>
 <p>My name is <b>{{$data['first_name']}} {{$data['MI']}} {{$data['last_name']}}</b> </p>
-<p>I would like to apply for a <b>{{$data['position_desired']}}</b> position starting from <b>{{$data['date_available']}}</b> on a 
+<p>I would like to apply for a <b>{{$data['position_desired']}}</b> position starting from <b>{{$data['date_available']}}</b> on a
 <b>{{$data['employment_type']}}</b> basis.</p>
 <h3>Personal Information</h3>
 <table>
@@ -65,14 +65,14 @@
 		<td>Explanation: <b>{{$data['accommodation_explanation']}}</b></td>
 	</tr>
 	<tr>
-		<td>Have you ever worked for Seven Hills Medical Solutions? {{$data['previous_worker']}}<b></b></td>
+		<td>Have you ever worked for Aspy Medical Solutions? {{$data['previous_worker']}}<b></b></td>
 	</tr>
 	<tr>
 		<td>Position held: {{$data['position_held']}}</td>
 		<td>Date: {{$data['employment_date']}}</td>
 	</tr>
 	<tr>
-		<td>Do any of your relatives work for Seven Hills? <b>{{$data['relative_working']}}</b></td>
+		<td>Do any of your relatives work for Aspy? <b>{{$data['relative_working']}}</b></td>
 		<td>Name: <b>{{$data['relative_name']}}</b></td>
 	</tr>
 	<tr>

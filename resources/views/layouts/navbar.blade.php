@@ -10,7 +10,7 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta name="google-site-verification" content="9PG9f7SbwOBXo9i6JWsfR9g8MstPMHBW2XnKDrDjmKo" />
 
-    <title>Home | Seven Hills Medical Solutions</title>
+    <title>Home | Aspy Medical Solutions</title>
 
     <!-- css -->
     <link href="{{ asset('public/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
@@ -51,7 +51,7 @@
                         <i class="fa fa-bars"></i>
                     </button>
                     <a class="navbar-brand" href="#">
-                        <img src="{{ asset('public/img/logo.png') }}" alt="" width="195" height="52" />
+                        <img src="{{ asset('public/img/logo.png') }}" alt="" width="" height="" />
                     </a>
                 </div>
 

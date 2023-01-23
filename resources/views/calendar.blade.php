@@ -99,7 +99,7 @@
 
                                 <p>
                                     Loyed Kirimi - Admin
-                                    <small>Seven Hills</small>
+                                    <small>Aspy</small>
                                 </p>
                             </li>
                             <!-- Menu Footer-->
@@ -271,7 +271,7 @@
         <div class="pull-right hidden-xs">
             <b>Version</b> 2.4.13
         </div>
-        <strong>Copyright &copy; 2019 <a href="sevenhillsmed.com">Seven Hills</a>.</strong> All rights
+        <strong>Copyright &copy; 2019 <a href="sevenhillsmed.com">Aspy</a>.</strong> All rights
         reserved.
     </footer>
     <!-- Add the sidebar's background. This div must be placed

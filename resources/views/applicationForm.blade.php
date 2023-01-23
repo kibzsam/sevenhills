@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Job Application | Seven Hills Medical Solutions</title>
+    <title>Job Application | Aspy Medical Solutions</title>
 
     <!-- css -->
     <link href="{{ asset('public/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
@@ -159,7 +159,7 @@
                     <div class="col-xs-12">
                         <div class="col-md-12">
                             <div class="panel panel-default">
-                                <div class="panel-heading">SEVEN HILLS MEDICAL SOLUTIONS APPLICATION FORM</div>
+                                <div class="panel-heading">Aspy MEDICAL SOLUTIONS APPLICATION FORM</div>
                                 <div class="panel-body">
                                     <img src="{{ asset('public/img/logo.png') }}" alt="" width="273" height="72.8" class="center" class="center" />
                                     <br>
@@ -191,7 +191,7 @@
                                     </div>
                                     <button class="btn btn-success nextBtn btn-lg pull-right" type="button">Next</button>
                                 </div>
-                            </div>  
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -342,7 +342,7 @@
                                             <div class="form-group">
                                                 <select class="form-control" name="special_accommodation" id="special_accommodation">
                                                     <option value="No">No</option>
-                                                    <option value="Yes">Yes</option>  
+                                                    <option value="Yes">Yes</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -359,13 +359,13 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-offset-2 col-sm-6">
-                                            <label>Have you ever worked for Seven Hills Medical Solutions?</label>
+                                            <label>Have you ever worked for Aspy Medical Solutions?</label>
                                         </div>
                                         <div class="col-sm-4">
                                             <div class="form-group">
                                                 <select class="form-control" name="previous_worker" id="previous_worker">
                                                     <option value="No">No</option>
-                                                    <option value="Yes">Yes</option>     
+                                                    <option value="Yes">Yes</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -384,7 +384,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-offset-2 col-sm-6">
-                                            <label>Do any of your relatives work for Seven Hills?</label>
+                                            <label>Do any of your relatives work for Aspy?</label>
                                         </div>
                                         <div class="col-sm-4">
                                             <div class="form-group">
@@ -538,7 +538,7 @@
                                 <div class="panel-body">
                                     <div class="row">
                                         <div class="col-sm-offset-3 col-sm-3">
-                                            <label for="">Level of Education completed.</label> 
+                                            <label for="">Level of Education completed.</label>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
@@ -577,7 +577,7 @@
                                     </div>
                                     <button class="btn btn-success nextBtn btn-lg pull-right" type="button">Next</button>
                                 </div>
-                            </div>  
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -624,7 +624,7 @@
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <input type="text" class="form-control" id="employer_name" name="employer_name" required />
-                                            </div>                                        
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -645,7 +645,7 @@
                                         <div class="col-sm-4">
                                             <div class="form-group">
                                                 <input type="text" class="form-control" id="street_adress_employer" name="street_adress_employer" placeholder="Street address" required />
-                                            </div> 
+                                            </div>
                                         </div>
                                         <div class="col-sm-4">
                                             <div class="form-group">
@@ -727,7 +727,7 @@
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <input type="text" class="form-control" id="employer_name_experience2" name="employer_name_experience2" required />
-                                            </div>                                        
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -748,7 +748,7 @@
                                         <div class="col-sm-4">
                                             <div class="form-group">
                                                 <input type="text" class="form-control" id="street_adress_employer2" name="street_adress_employer_experience2" placeholder="Street address" required />
-                                            </div> 
+                                            </div>
                                         </div>
                                         <div class="col-sm-4">
                                             <div class="form-group">
@@ -806,7 +806,7 @@
                                         <div class="col-sm-1">
                                             <div class="form-group">
                                                 <input type="radio" name="agree" id="agree" required />
-                                            </div> 
+                                            </div>
                                         </div>
                                         <div class="col-sm-1">
                                             <label>I agree</label>
@@ -814,11 +814,11 @@
                                     </div>
                                     <button class="btn btn-success finishBtn btn-lg pull-right" type="submit">Finish</button>
                                 </div>
-                            </div>  
+                            </div>
                         </div>
                     </div>
                 </div>
-            </fieldset>  
+            </fieldset>
         </form>
     </div>
 

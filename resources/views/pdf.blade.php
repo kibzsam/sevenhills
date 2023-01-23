@@ -164,7 +164,7 @@
                 <div class="row">
 
                     <div class="col-md-12 text-center">
-                        <h3 class="seven-hills-title">SEVEN HILLS</h3>
+                        <h3 class="seven-hills-title">Aspy</h3>
                         <h6 class="medical-solution-subtitle">Medical Solution</h6>
                     </div>
 
@@ -195,7 +195,7 @@
                                                     </div>
 
                                                     <div class="column-3 col-md-4">
-                                                        <h6 class="table-heading-span">Week Ending: 
+                                                        <h6 class="table-heading-span">Week Ending:
                                                             {{-- <span class="underline">{{ \Carbon\Carbon::parse($to_date)->format('D jS M Y') }}</span> --}}
                                                             <span class="underline">{{ \Carbon\Carbon::parse($today)->format('D jS M Y') }}</span>
                                                         </h6>
