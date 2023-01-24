@@ -13,18 +13,18 @@
     <title>Home | Aspy Medical Solutions</title>
 
     <!-- css -->
-    <link href="{{ asset('public/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('public/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/plugins/cubeportfolio/css/cubeportfolio.min.css') }}">
-    <link href="{{ asset('public/css/nivo-lightbox.css') }}" rel="stylesheet" />
-    <link href="{{ asset('public/css/nivo-lightbox-theme/default/default.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('public/css/owl.carousel.css') }}" rel="stylesheet" media="screen" />
-    <link href="{{ asset('public/css/owl.theme.css') }}" rel="stylesheet" media="screen" />
-    <link href="{{ asset('public/css/animate.css') }}" rel="stylesheet" />
-    <link href="{{ asset('public/css/style.css') }}" rel="stylesheet">
-    <link id="bodybg" href="{{ asset('public/bodybg/bg1.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/public/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('/public/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('/public/plugins/cubeportfolio/css/cubeportfolio.min.css') }}">
+    <link href="{{ asset('/public/css/nivo-lightbox.css') }}" rel="stylesheet" />
+    <link href="{{ asset('/public/css/nivo-lightbox-theme/default/default.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/public/css/owl.carousel.css') }}" rel="stylesheet" media="screen" />
+    <link href="{{ asset('/public/css/owl.theme.css') }}" rel="stylesheet" media="screen" />
+    <link href="{{ asset('/public/css/animate.css') }}" rel="stylesheet" />
+    <link href="{{ asset('/public/css/style.css') }}" rel="stylesheet">
+    <link id="bodybg" href="{{ asset('/public/bodybg/bg1.css') }}" rel="stylesheet" type="text/css" />
     <!-- template skin -->
-    <link id="t-colors" href="{{ asset('public/color/default.css') }}" rel="stylesheet">
+    <link id="t-colors" href="{{ asset('/public/color/default.css') }}" rel="stylesheet">
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
@@ -51,7 +51,7 @@
                         <i class="fa fa-bars"></i>
                     </button>
                     <a class="navbar-brand" href="#">
-                        <img src="{{ asset('public/img/logo.png') }}" alt="" width="" height="" />
+                        <img src="{{ asset('/public/img/logo.png') }}" alt="" width="" height="" />
                     </a>
                 </div>
 
@@ -79,17 +79,17 @@
     <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
 
     <!-- Core JavaScript Files -->
-    <script src="{{ asset('public/js/jquery.min.js') }}"></script>
-    <script src="{{ asset('public/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('public/js/jquery.easing.min.js') }}"></script>
-    <script src="{{ asset('public/js/wow.min.js') }}"></script>
-    <script src="{{ asset('public/js/jquery.scrollTo.js') }}"></script>
-    <script src="{{ asset('public/js/jquery.appear.js') }}"></script>
-    <script src="{{ asset('public/js/stellar.js') }}"></script>
-    <script src="{{ asset('public/plugins/cubeportfolio/js/jquery.cubeportfolio.min.js') }}"></script>
-    <script src="{{ asset('public/js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('public/js/nivo-lightbox.min.js') }}"></script>
-    <script src="{{ asset('public/js/custom.js') }}"></script>
+    <script src="{{ asset('/public/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('/public/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('/public/js/jquery.easing.min.js') }}"></script>
+    <script src="{{ asset('/public/js/wow.min.js') }}"></script>
+    <script src="{{ asset('/public/js/jquery.scrollTo.js') }}"></script>
+    <script src="{{ asset('/public/js/jquery.appear.js') }}"></script>
+    <script src="{{ asset('/public/js/stellar.js') }}"></script>
+    <script src="{{ asset('/public/plugins/cubeportfolio/js/jquery.cubeportfolio.min.js') }}"></script>
+    <script src="{{ asset('/public/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('/public/js/nivo-lightbox.min.js') }}"></script>
+    <script src="{{ asset('/public/js/custom.js') }}"></script>
 
 </body>
 
