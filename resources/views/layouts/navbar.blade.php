@@ -50,8 +50,8 @@
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                         <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand" href="#">
-                        <img src="{{ asset('/public/img/logo.png') }}" alt="" width="" height="" />
+                    <a class="navbar-brand" href="#" style="position:relative;">
+                        <img src="{{ asset('/public/img/logo.png') }}" alt="" style="position:absolute;top:-15px;"/>
                     </a>
                 </div>
 

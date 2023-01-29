@@ -374,7 +374,7 @@
 									<i class="fa fa-circle fa-stack-2x"></i>
 									<i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
 								</span>
-                                <a href="mailto:info@sevenhillsmed.com">info@sevenhillsmed.com</a>
+                                <a href="mailto:info@sevenhillsmed.com">iddahg@aspymedical.com</a>
                                 </li>
 
                             </ul>

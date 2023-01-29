@@ -103,7 +103,7 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="index.html">
-                    <img src="{{ asset('public/img/logo.png') }}" alt="" width="195" height="52" />
+                    <img src="{{ asset('public/img/logo.png') }}" alt="" />
                 </a>
             </div>
 
@@ -161,7 +161,7 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading">Aspy MEDICAL SOLUTIONS APPLICATION FORM</div>
                                 <div class="panel-body">
-                                    <img src="{{ asset('public/img/logo.png') }}" alt="" width="273" height="72.8" class="center" class="center" />
+                                    <img src="{{ asset('public/img/logo.png') }}" alt="" class="center" class="center" />
                                     <br>
                                     <div class="row">
                                         <div class="col-sm-6">
